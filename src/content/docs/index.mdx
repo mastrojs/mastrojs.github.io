@@ -1,36 +1,23 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: The Mastro Guide 👨‍🍳
+description: Learn the fundamental web technologies (HTML, CSS and JavaScript) using Mastro
 template: splash
-hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
-  actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { LinkButton } from '@astrojs/starlight/components';
 
-## Next steps
+import { guideChapters } from '/astro.config.mjs'
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid>
+This free guide teaches you enough of the fundamental web technologies (HTML, CSS and JavaScript) to get you started, and shows you where to learn more once you need it.
+
+Learning by doing: build your very first website and put it live – all you need is a browser.* (How? you'll be using _Visual Studio Code for the Web_ to write, and _GitHub Pages_ to host your website.)
+
+<LinkButton href="/guides/why-html-css/">Let's start cooking</LinkButton>
+
+<p><small>* Currently, some parts only work in Chrome. We're feeling terribly about this and are working hard to fix it.</small></p>
+
+
+## Table of Contents
+<ol>
+{guideChapters.map(ch => <li><a href={ch.slug + "/"}>{ch.label}</a></li>)}
+</ol>
