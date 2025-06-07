@@ -106,7 +106,7 @@ So far your website still consists of only a single page: the home page. Add a s
 2. Move the `<header>` and its contents to a new file `components/Header.js` and wrap it in a bit of JavaScript:
 
 ```js title=components/Header.js
-import { html } from 'mastro/html.js';
+import { html } from "mastro";
 
 export const Header = () =>
   html`
@@ -126,7 +126,7 @@ There are a few things going on here:
 Analogous to `Header.js`, create a second file:
 
 ```js title=components/Footer.js
-import { html } from 'mastro/html.js';
+import { html } from "mastro";
 
 export const Footer = () =>
   html`
@@ -149,10 +149,9 @@ Now, to `import` the two functions we just created, you first need to convert th
 Rename the `routes/index.html` file to `routes/index.server.js` and change its contents to:
 
 ```js title=routes/index.server.js ins={1-8,15,22,25}
-import { html } from 'mastro/html.js';
-import { htmlToResponse } from 'mastro/routes.js';
-import { Header } from '../components/Header.js';
-import { Footer } from '../components/Footer.js';
+import { html, htmlToResponse } from "mastro";
+import { Header } from "../components/Header.js";
+import { Footer } from "../components/Footer.js";
 
 export const GET = () =>
   htmlToResponse(
@@ -160,7 +159,7 @@ export const GET = () =>
       <html>
         <head>
           <title>My website</title>
-          <link rel="stylesheet" href="styles.css">
+          <link rel="stylesheet" href="/styles.css">
         </head>
         <body>
           ${Header()}
@@ -193,16 +192,16 @@ Load the page in the Mastro preview to see whether it still works!
 Now you're almost ready to create that second page. Just one more thing to move to its own component file, because we want to reuse it: the skeleton of the page, often called `Layout`. Create a new file:
 
 ```js title=components/Layout.js
-import { html } from 'mastro/html.js';
-import { Header } from './Header.js';
-import { Footer } from './Footer.js';
+import { html } from "mastro";
+import { Header } from "./Header.js";
+import { Footer } from "./Footer.js";
 
 export const Layout = (props) =>
   html`
     <html>
       <head>
         <title>${props.title}</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="/styles.css">
       </head>
       <body>
         ${Header()}
@@ -222,9 +221,8 @@ The above component is still just a function, but a function that takes one argu
 Now you can reduce your `routes/index.server.js` file to:
 
 ```js title=routes/index.server.js
-import { html } from 'mastro/html.js';
-import { htmlToResponse } from 'mastro/routes.js';
-import { Layout } from '../components/Layout.js';
+import { html, htmlToResponse } from "mastro";
+import { Layout } from "../components/Layout.js";
 
 export const GET = () =>
   htmlToResponse(
@@ -243,9 +241,8 @@ Note how we pass an object of the form `{ title, children }` as an argument to t
 Now finally all that work pays off: add that second page by creating a new file:
 
 ```js title=routes/news.server.js
-import { html } from 'mastro/html.js';
-import { htmlToResponse } from 'mastro/routes.js';
-import { Layout } from '../components/Layout.js';
+import { html, htmlToResponse } from "mastro";
+import { Layout } from "../components/Layout.js";
 
 export const GET = () =>
   htmlToResponse(

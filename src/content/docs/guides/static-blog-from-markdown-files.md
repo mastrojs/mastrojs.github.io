@@ -3,9 +3,11 @@ title: A static blog from markdown files
 template: splash
 ---
 
-In the previous chapter, you set everything up to easily add multiple pages, and added a second page with the route `/news`.
+In the previous chapter, you set everything up to easily add multiple pages, and added a second page with the route `/news`. Now it's time to add some news to that page.
 
-Now it's time to add some news to that page. One of the simplest ways to create a blog is to create a markdown file for each blog post. Since the markdown files themselves are not part of the published website, we don't add them to the `routes/` folder. Instead, create a new folder called `data/` (this is just a convention), inside that another folder called `posts/`, and inside that the markdown file:
+One of the simplest ways to create a blog is to create a markdown file for each blog post. [Markdown](https://commonmark.org/help/) is just a simpler syntax for the most commonly used HTML elements when writing body text. It's fairly widespread nowadays, used in plain text note-taking apps, or to input text into GitHub or StackOverflow.
+
+Since the markdown files themselves should not be published as part of the website, don't add them to the `routes/` folder. Instead, create a new folder called `data/` (this is just a convention). Inside that, add another folder called `posts/`, and inside that the markdown file:
 
 ```md title=data/posts/2024-01-30-hello-world.md
 ---
@@ -14,18 +16,19 @@ date: 2024-01-30
 ---
 
 Markdown is just a simpler syntax for the most commonly used HTML
-elements when writing text.
+elements when writing body text.
 
-A blank line marks a new paragraph (HTML `<p>`), and a line starting with `##` is a HTML `<h2>`:
+A blank line marks a new paragraph (HTML `<p>`),
+and a line starting with `##` is a HTML `<h2>`:
 
 ## Lists
 
-For example unordered lists:
+An example of an unordered list:
 
 - item one
 - item two
 
-Or ordered lists:
+And an ordered list:
 
 1. item one
 2. item two
@@ -47,81 +50,100 @@ date: 2024-01-31
 This is our second blog post.
 ```
 
-To list all your blog posts, change `routes/news.server.js` to:
+## The index page
 
-```js title=routes/news.server.js
-import { html } from 'mastro/html.js';
-import { readMarkdownFiles } from 'mastro/markdown.js';
-import { htmlToResponse } from 'mastro/routes.js';
-import { Layout } from '../components/Layout.js';
+Instead of changing our `routes/news.server.js` file in-place, first move it to a new folder `routes/news/` and rename it to `index.server.js`. This doesn't change anything, but we'll need the folder later for the detail pages anyway.
+
+To make the page list all your blog posts, change it to:
+
+```js title=routes/news/index.server.js
+import { html, htmlToResponse, readMarkdownFiles } from "mastro";
+import { Layout } from "../../components/Layout.js";
 
 export const GET = async () => {
-  const posts = await readMarkdownFiles('data/posts/*.md');
+  const posts = await readMarkdownFiles("data/posts/*.md");
   return htmlToResponse(
     Layout({
-      title: 'News',
-      children: posts.map(post =>
-        html`<p><a href=${post.path}>${post.meta.title}</a></p>`
-      )
-    })
+      title: "News",
+      children: posts.map((post) =>
+        html`
+          <p>
+            <a href="${"/news" + post.path.slice(11, -3)}">
+              ${post.meta.title}
+            </a>
+          </p>
+        `
+      ),
+    }),
   );
-}
+};
 ```
 
-Note the use of the `readMarkdownFile` function that we imported from mastro. Because it needs to read the files from disk, it's an `async` function. That's why we need to `await` it, which in turn forces us to mark up our `GET` function as `async` as well.
+Note the use of the `readMarkdownFiles` function that we imported from mastro. Because it requests the files from the computer's harddisk (which is potentially something we need to wait for), we need to `await` it. This in turn forces us to mark up our `GET` function as `async`.
 
-Have a look at `/news` in the Mastro preview pane. Clicking one of the links will lead you to a page saying "404, page not found". That's because those pages don't exist yet. Create them by creating the file `routes/news/[slug].server.js`.
+The `.slice(11, -3)` cuts off the first eleven and the last three character from the string: in our case it removes the leading `/data/posts` and the trailing `.md` from the filename.
 
-The `[slug]` is a parameter. When your server receives a request for `/news/2024-01-30-hello-world`, the request will be routed to the `news/[slug].server.js` page and the `context.params.slug` variable will hold the value `2024-01-30-hello-world`.
+Have a look at `/news` in the Mastro preview pane. Clicking one of the links will lead you to a page saying "404, page not found". That's because those pages don't exist yet.
 
-```js title=routey/news/[slug].server.js
-import { html } from 'mastro/html.js';
-import { readMarkdownFile } from 'mastro/markdown.js';
-import { htmlToResponse } from 'mastro/routes.js';
-import { Layout } from '../components/Layout.js';
 
-export const GET = async (req, context) => {
-  const post = await readMarkdownFile('data/posts/' + context.params.slug + '.md')
+## Detail pages
+
+Now to the page that shows an individual blog post – often called a detail page. (Having an _index page_ linking to _detail pages_ is a very common pattern on websites: whether it's a blog, a newspaper or newsfeed, or a shop.)
+
+Create the detail pages for the individual blog posts by creating the file `routes/news/[slug].server.js`.
+
+The `[slug]` is a parameter. When your server receives an HTTP request for `/news/2024-01-30-hello-world`, the request will be routed to the `routes/news/[slug].server.js` file. A collection of URLs that are handled the same way are called a route. In Mastro, placing a file in the `routes/` folder creates a route. Finally, you could have named it whatever you want, but `slug` is a common name for the part of a URL that identifies a specific page.
+
+To read out the `slug` parameter, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, read out the URL as a string with `req.url`, and pass that to the `getParams` helper function:
+
+```js title=routes/news/[slug].server.js
+import { getParams, htmlToResponse, readMarkdownFile } from "mastro";
+import { Layout } from "../../components/Layout.js";
+
+export const GET = async (req) => {
+  const { slug } = getParams(req.url);
+  const post = await readMarkdownFile(`data/posts/${slug}.md`);
   return htmlToResponse(
     Layout({
       title: post.meta.title,
-      children: post.body,
+      children: post.content,
     })
   );
 }
 ```
+
+To read the markdown file from disk and convert the markdown to HTML, we use the `readMarkdownFile` function (which is an `async` function and therefore we need to `await` it).
 
 Test following the links in the Mastro preview pane now. Congratulations, you have a working blog!
 
 
-## Generating parametrized pages
+## Generating the route parameters
 
-To pre-generate all your html files, run `deno task build`. It will tell you that it generated the `out/index.html` page, but that `routes/news/[slug].server.js` is missing a `staticParams` field. That's because mastro can't magically guess all the blog post urls that we want to generate.
+Try generating all your HTML files: click the **Generate** button in the top-right corner of the Mastro preview pane.
 
-To let it know, we import and use the `htmlRoute` function, which takes two arguments:
+It will generate the pages without parameters. But notice the error telling you that "/routes/news/[slug].server.js should export a function named getStaticPaths".
 
-1. a configuration object (with the slugs to put into the paths to pre-generate), and
-2. the function which we already had previously.
+That's because Mastro cannot guess the paths for all the pages that we want to generate. In the preview (or on a running server) this works because the information is provided directly in the URL. But if we want to statically generate all the pages ahead of time, we need to tell Astro the paths of all our pages with route parameters. We do that by exporting a function called `getStaticPaths`, that returns an array of strings when called.
 
-Change `routes/news/[slug].server.js` to:
+```js title=routes/news/[slug].server.js ins={1,15-18}
+import { getParams, htmlToResponse, readDir, readMarkdownFile } from "mastro";
+import { Layout } from '../../components/Layout.js';
 
-```js title=routey/news/[slug].server.js
-import { htmlRoute, readMdFile, readMdFiles } from 'mastro'
-import { Layout } from '../components/Layout.js'
+export const GET = async (req) => {
+  const { slug } = getParams(req.url);
+  const post = await readMarkdownFile(`data/posts/${slug}.md`);
+  return htmlToResponse(
+    Layout({
+      title: post.meta.title,
+      children: post.content,
+    })
+  );
+}
 
-export const GET = htmlRoute(
-  {
-    staticParams:  await readMarkdownFile('data/posts/*.md').then(post => ({ slug: post.slug }))
-  },
-  async (req, params) => {
-    const post = await readMarkdownFile('data/posts/' + params.slug + '.md')
-    const { title } = post.data
-    return (
-      <Layout title={title}>
-        <h1>{title}</h1>
-        {post.body}
-      </Layout>
-    )
-  }
-)
+export const getStaticPaths = async () => {
+  const posts = await readDir("data/posts/");
+  return posts.map(p => "/news/" + p.slice(0, -3));
+}
 ```
+
+Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guides/html/#save-changes-and-publish-to-the-web). Congratulations to your live blog!
