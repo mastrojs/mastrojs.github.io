@@ -29,9 +29,13 @@ Now that you're on your repository's page on GitHub:
 2. When prompted about signing in using GitHub, click the _Allow_ button.
 3. Finally, you may have to hit `enter` to select your GitHub user.
 
-Now, install the following two VS Code extensions:
+## Mastro
 
-- [Mastro](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension) to preview and publish your work, and
+We'll use the _Mastro_ static site generator (SSG). Mastro is special in that it can also run as a VS Code extension in your browser. That way you don't have to install a runtime like Node.js or Deno on your computer, and you don't have to mess around with the terminal and command line.
+
+Install the following two VS Code extensions:
+
+- [Mastro](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension), and
 - [FAST Tagged Template Literals](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates) to properly highlight HTML code inside JavaScript templates.
 
 ![](../../../assets/vscode-extensions.png)
