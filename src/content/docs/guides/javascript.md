@@ -8,12 +8,16 @@ Now that you got a taste of HTML and CSS, let's talk about JavaScript. It's the 
 
 ## Client-side and server-side JavaScript
 
-Inside the browser, JavaScript is best used sparingly to add interactivy to a page. Although unfortunately, some websites load millions of lines of JavaScript into the browser. Since a browser is also known as a _client_, this is known as client-side JavaScript. In fact, client-side JavaScript frameworks like React compute the whole page in the browser of your user every time they load the page. This may be required for an app like Google Docs or Visual Studio Code. But for most websites, it just makes everything slow for no good reason – especially on mobile phones, with their limited computing power and slow networks.
+Inside the browser, JavaScript is best used sparingly to add interactivy to a page. Although unfortunately, some websites load millions of lines of JavaScript into the browser. Since a browser is also known as a _client_, this is known as client-side JavaScript. In fact, client-side JavaScript frameworks like React compute the whole page in the browser of your user every time they load the page. This may be required for an app like Google Docs or Visual Studio Code. But for most websites, it just makes everything slow for little reason – especially on mobile phones, with their limited computing power and slow networks.
+
+A lot of these "websites" even go so far as to take control of loading the next page away from the browser, and reimplement the functionality in JavaScript. This approach is called a Single-Page-App (SPA), and just recently [peaked in popularity](https://nolanlawson.com/2022/05/21/the-balance-has-shifted-away-from-spas/). Nowadays, you can get equally smooth page transitions by adding [two lines of CSS](https://webkit.org/blog/16967/two-lines-of-cross-document-view-transitions-code-you-can-use-on-every-website-today/) to your MPA (Multi-Page-App).
 
 However, JavaScript is a general-purpose programming language like any other. Nowadays, you can run JavaScript also on your server or laptop, generate the HTML there, and only send that to your user's browser – just like people have done with PHP or Ruby for ages. This is known as server-side JavaScript and it's what we'll be doing primarily in this guide.
 
 
-## Introducing JavaScript
+## Getting your feet wet with JavaScript
+
+However, one of the easiest way to mess around with JavaScript is still your browser.
 
 On your published website, open your [browser's developer tools](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#how_to_open_the_devtools_in_your_browser) again. But this time, switch to the tab named **Console**.
 

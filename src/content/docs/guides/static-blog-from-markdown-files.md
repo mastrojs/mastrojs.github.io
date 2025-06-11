@@ -79,9 +79,11 @@ export const GET = async () => {
 };
 ```
 
-Note the use of the `readMarkdownFiles` function that we imported from mastro. Because it requests the files from the computer's harddisk (which is potentially something we need to wait for), we need to `await` it. This in turn forces us to mark up our `GET` function as `async`.
+Note the `../../` when importing the `Layout` component, while previously it was just `../`. That's because this file is in the `news/` folder, so you need to go one level further up than before to get to the `components/` folder.
 
-The `.slice(11, -3)` cuts off the first eleven and the last three character from the string: in our case it removes the leading `/data/posts` and the trailing `.md` from the filename.
+The code imports the `readMarkdownFiles` function from mastro. Because that function requests the files from the computer's harddisk (which might take some time), we need to `await` it. This in turn forces us to mark up our `GET` function as `async` (short for [asynchronous](https://eloquentjavascript.net/11_async.html)).
+
+The `.slice(11, -3)` [slices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) off the first eleven and the last three character from the string: in our case it removes the leading `/data/posts` and the trailing `.md` from the filename.
 
 Have a look at `/news` in the Mastro preview pane. Clicking one of the links will lead you to a page saying "404, page not found". That's because those pages don't exist yet.
 
@@ -116,8 +118,31 @@ To read the markdown file from disk and convert the markdown to HTML, we use the
 
 Test following the links in the Mastro preview pane now. Congratulations, you have a working blog!
 
+## Debugging with `console.log`
 
-## Generating the route parameters
+Usually when programming, thinks go wrong at some point. It's fairly uncommon for a programmer to write out a program and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct, but the program crashes later on, or at least doesn't do what you wanted it to. In this second case, it can be useful to add `console.log` statements in various places of your code and see what it prints into your browser's JavaScript console (what you used in a [previous chapter](/guides/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
+
+```js title=routes/news/[slug].server.js ins={6}
+import { getParams, htmlToResponse, readMarkdownFile } from "mastro";
+import { Layout } from "../../components/Layout.js";
+
+export const GET = async (req) => {
+  const { slug } = getParams(req.url);
+  console.log('the slug variable holds the value', slug)
+  const post = await readMarkdownFile(`data/posts/${slug}.md`);
+  return htmlToResponse(
+    Layout({
+      title: post.meta.title,
+      children: post.content,
+    })
+  );
+}
+```
+
+After opening your browser's JavaScript console and clearing what's already printed out there with the button labelled `🚫`, open the page in the Mastro preview pane.
+
+
+## Generating pages with route parameters
 
 Try generating all your HTML files: click the **Generate** button in the top-right corner of the Mastro preview pane.
 

@@ -1,5 +1,7 @@
 # The Mastro Guide 👨‍🍳
 
+Repo for the https://mastrojs.github.io website.
+
 Because of the syntax highlighting and other niceties that are already built in, we're currently using [Starlight](https://starlight.astro.build) for this website.
 
 Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.

@@ -3,9 +3,6 @@ title: Rest
 template: splash
 ---
 
-All files in the `routes/` folder are sent out unmodified to your website's visitors – except for JavaScript files ending in `.server.js` or `.server.ts`. The code in these files is run and the result is sent to your website's visitors.
-
-
 ## Images
 
 Now that you have your basic blog up and running on a live website, let's add some images.

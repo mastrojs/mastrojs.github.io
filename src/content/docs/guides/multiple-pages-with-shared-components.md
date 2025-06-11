@@ -58,6 +58,8 @@ Now, to `import` the two functions we just created, you first need to convert th
 
 ### JavaScript page handlers
 
+All files in the `routes/` folder are sent out unmodified to your website's visitors – except for JavaScript files ending in `.server.js` or `.server.ts`. The code in these files is run and the result is sent to your website's visitors.
+
 Rename the `routes/index.html` file to `routes/index.server.js` and change its contents to:
 
 ```js title=routes/index.server.js ins={1-8,15,22,25}
