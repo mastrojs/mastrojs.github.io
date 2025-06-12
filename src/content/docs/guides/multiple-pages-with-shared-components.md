@@ -62,7 +62,7 @@ All files in the `routes/` folder are sent out unmodified to your website's visi
 
 Rename the `routes/index.html` file to `routes/index.server.js` and change its contents to:
 
-```js title=routes/index.server.js ins={1-8,15,22,25}
+```js title=routes/index.server.js ins={1-7,14,21,24-25}
 import { html, htmlToResponse } from "mastro";
 import { Header } from "../components/Header.js";
 import { Footer } from "../components/Footer.js";
@@ -94,7 +94,7 @@ First, we import two functions from Mastro, and the two components you just wrot
 
 Then we create a new function called `GET`, and `export` it. While you can call components whatever you want, the function you `export` from a `routes/*.server.js` file needs to be named `GET`. Otherwise it's not called when your server receives a HTTP `GET` request from the browser for that page.
 
-All the above `GET` function does is to call the `htmlToResponse` function with one very long argument: the `html` tagged template string with all your HTML. The `htmlToResponse` turns your HTML string into a JavaScript `Response` object, which represents an HTTP response. When the browser makes an HTTP request to your web server (or GitHub Pages in this case), the server replies with that HTTP response.
+All the above `GET` function does is to call the `htmlToResponse` function with one very long argument: the `html` tagged template string with all your HTML: notice the opening backtick in the beginning, and the closing backtick on the second last line? The `htmlToResponse` turns your HTML string into a JavaScript `Response` object, which represents an HTTP response. When the browser makes an HTTP request to your web server (or GitHub Pages in this case), the server replies with that HTTP response.
 
 Finally, `Header()` calls the `Header` function, and the result of that is placed with the `${ }` syntax.
 

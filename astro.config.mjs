@@ -10,6 +10,7 @@ export const guideChapters = [
 	{ label: 'Introducing JavaScript', slug: 'guides/javascript' },
 	{ label: 'Multiple pages with shared components', slug: 'guides/multiple-pages-with-shared-components' },
 	{ label: 'A static blog from markdown files', slug: 'guides/static-blog-from-markdown-files' },
+	{ label: 'Interactivity with JavaScript in the browser', slug: 'guides/interactivity-with-javascript-in-the-browser' },
 ]
 
 // https://astro.build/config
