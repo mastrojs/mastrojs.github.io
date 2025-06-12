@@ -83,7 +83,7 @@ Note the `../../` when importing the `Layout` component, while previously it was
 
 The code imports the `readMarkdownFiles` function from mastro. Because that function requests the files from the computer's harddisk (which might take some time), we need to `await` it. This in turn forces us to mark up our `GET` function as `async` (short for [asynchronous](https://eloquentjavascript.net/11_async.html)).
 
-The `.slice(11, -3)` [slices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) off the first eleven and the last three character from the string: in our case it removes the leading `/data/posts` and the trailing `.md` from the filename.
+Since `posts` is an array, we can use its `.map()` method to loop over it and get each `post`. `post.path.slice(11, -3)` [slices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) off the first eleven and the last three character from the `post.path` string: in our case it removes the leading `/data/posts` and the trailing `.md` from the filename.
 
 Have a look at `/news` in the Mastro preview pane. Clicking one of the links will lead you to a page saying "404, page not found". That's because those pages don't exist yet.
 
@@ -96,7 +96,7 @@ Create the detail pages for the individual blog posts by creating the file `rout
 
 The `[slug]` is a parameter. When your server receives an HTTP request for `/news/2024-01-30-hello-world`, the request will be routed to the `routes/news/[slug].server.js` file. A collection of URLs that are handled the same way are called a route. In Mastro, placing a file in the `routes/` folder creates a route. Finally, you could have named it whatever you want, but `slug` is a common name for the part of a URL that identifies a specific page.
 
-To read out the `slug` parameter, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, read out the URL as a string with `req.url`, and pass that to the `getParams` helper function:
+To read out the `slug` parameter, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, read out the URL as a string with `req.url`, and pass that to the `getParams` helper function, which returns an object with all parameters.
 
 ```js title=routes/news/[slug].server.js
 import { getParams, htmlToResponse, readMarkdownFile } from "mastro";
@@ -114,13 +114,19 @@ export const GET = async (req) => {
 }
 ```
 
+To extract the `slug` parameter, we used [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring). Equivalently, we could also have written:
+
+```js
+  const slug = getParams(req.url).slug;
+```
+
 To read the markdown file from disk and convert the markdown to HTML, we use the `readMarkdownFile` function (which is an `async` function and therefore we need to `await` it).
 
 Test following the links in the Mastro preview pane now. Congratulations, you have a working blog!
 
 ## Debugging with `console.log`
 
-Usually when programming, thinks go wrong at some point. It's fairly uncommon for a programmer to write out a program and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct, but the program crashes later on, or at least doesn't do what you wanted it to. In this second case, it can be useful to add `console.log` statements in various places of your code and see what it prints into your browser's JavaScript console (what you used in a [previous chapter](/guides/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
+Usually when programming, thinks go wrong at some point. It's fairly uncommon for a programmer to write out a program and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct, but the program crashes later on, or at least doesn't do what you wanted it to. In this second case, it can be useful to add `console.log()` statements in various places of your code and see what it prints into your browser's JavaScript console (what you used in a [previous chapter](/guides/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
 
 ```js title=routes/news/[slug].server.js ins={6}
 import { getParams, htmlToResponse, readMarkdownFile } from "mastro";
