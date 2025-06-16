@@ -117,7 +117,7 @@ export const GET = async (req) => {
 To extract the `slug` parameter, we used [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring). Equivalently, we could also have written:
 
 ```js
-  const slug = getParams(req.url).slug;
+const slug = getParams(req.url).slug;
 ```
 
 To read the markdown file from disk and convert the markdown to HTML, we use the `readMarkdownFile` function (which is an `async` function and therefore we need to `await` it).
@@ -177,4 +177,14 @@ export const getStaticPaths = async () => {
 }
 ```
 
-Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guides/html/#save-changes-and-publish-to-the-web). Congratulations to your live blog!
+Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guides/html/#save-changes-and-publish-to-the-web).
+
+Congratulations to your live blog!
+
+:::tip[How can others write content?]
+You may want other people, that don’t know HTML, to contribute content to your website. For a static site, you have basically three options:
+
+- If they’re comfortable with markdown, they can edit the `.md` files directly on GitHub with its built-in [text editor](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files), that has also a basic markdown preview.
+- If they prefer a more traditional, but still basic [CMS](https://en.wikipedia.org/wiki/Content_management_system), you can add a Git-based CMS like [Decap CMS](https://decapcms.org/) to your site, which lets them edit the `.md` files with a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) editor.
+- Finally, instead of storing your website’s content as markdown files directly in the repository together with your code, you can use a fully-fledged headless CMS like [Strapi](https://strapi.io/) or [Sanity](https://www.sanity.io/). You then need to change your code to fetch the content from the CMS API instead of from the `.md` files.
+:::
