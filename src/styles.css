@@ -1,7 +1,16 @@
 html {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 html:not([data-has-toc]) {
   --sl-content-width: 45rem !important;
+}
+
+:root {
+  --sl-color-bg-nav: color-mix(in srgb, var(--sl-color-bg), transparent 10%);
+  --sl-color-hairline-shade: transparent;
+}
+
+p {
+  hyphens: auto;
 }
