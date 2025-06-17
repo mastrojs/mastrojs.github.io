@@ -1,0 +1,28 @@
+---
+title: The Mastro Guide 👨‍🍳
+description: Learn the fundamental web technologies (HTML, CSS and JavaScript) using Mastro
+template: splash
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+import { guideChapters } from '/astro.config.mjs'
+
+This free guide teaches you the basics of the fundamental web technologies: HTML, CSS and JavaScript.
+
+It does not show you everything you’ll ever need to know when creating a website.
+Rather, it aims to show you the door, giving you a broad overview over the landscape of
+web development, kick-starts you with practical examples, and shows you where to learn
+more once you need it.
+
+Learning by doing: build your very first website and put it live – all you need is a browser.* (How? you'll be using _Visual Studio Code for the Web_ to write, and _GitHub Pages_ to host your website.)
+
+<LinkButton href="/guides/why-html-css/">Let's start cooking</LinkButton>
+
+<p><small>* Currently, some parts only work in Chrome. We're feeling terribly about this and are working hard to fix it.</small></p>
+
+
+## Table of Contents
+<ol>
+{guideChapters.map(ch => <li><a href={"../" + ch.slug + "/"}>{ch.label}</a></li>)}
+</ol>

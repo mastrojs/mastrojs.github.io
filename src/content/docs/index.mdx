@@ -1,23 +1,15 @@
 ---
-title: The Mastro Guide 👨‍🍳
-description: Learn the fundamental web technologies (HTML, CSS and JavaScript) using Mastro
+title: Mastro 👨‍🍳
 template: splash
 ---
 
 import { LinkButton } from '@astrojs/starlight/components';
 
-import { guideChapters } from '/astro.config.mjs'
+_Mastro_ is a *m*inimal take on an *Astro*-like MPA web framework. Currently, there are three parts to it:
 
-This free guide teaches you enough of the fundamental web technologies (HTML, CSS and JavaScript) to get you started, and shows you where to learn more once you need it.
+- [The Mastro Guide](/guides/) and accompanying [_Visual Studio Code for the Web_ extension](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension) that teach you how to build and publish your first webside – using only a browser and a GitHub account.
+- [The Mastro web framework](https://github.com/mastrojs/mastro/) (server and static site generator) – work-in-progress, currently focusing on getting it running in Deno.
+- [Reactive Mastro](/reactive/) – a tiny reactive GUI library for your existing MPA.
 
-Learning by doing: build your very first website and put it live – all you need is a browser.* (How? you'll be using _Visual Studio Code for the Web_ to write, and _GitHub Pages_ to host your website.)
-
-<LinkButton href="/guides/why-html-css/">Let's start cooking</LinkButton>
-
-<p><small>* Currently, some parts only work in Chrome. We're feeling terribly about this and are working hard to fix it.</small></p>
-
-
-## Table of Contents
-<ol>
-{guideChapters.map(ch => <li><a href={ch.slug + "/"}>{ch.label}</a></li>)}
-</ol>
+<br />
+<LinkButton href="/guides/">Build your first website</LinkButton>
