@@ -13,6 +13,13 @@ export const guideChapters = [
 	{ label: 'Interactivity with JavaScript in the browser', slug: 'guides/interactivity-with-javascript-in-the-browser' },
 ]
 
+export const reactiveChapters = [
+	{ label: 'Installing Reactive Mastro', slug: 'reactive/install' },
+	{ label: 'Why Reactive Mastro?', slug: 'reactive/why-reactive-mastro' },
+	{ label: 'Using Reactive Mastro', slug: 'reactive/usage' },
+	{ label: 'Reference', slug: 'reactive/reference' },
+]
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://mastrojs.github.io',
@@ -31,6 +38,10 @@ export default defineConfig({
 				{
 					label: 'Guides',
 					items: guideChapters,
+				},
+				{
+					label: 'Reactive Mastro',
+					items: reactiveChapters,
 				},
 			],
 		}),
