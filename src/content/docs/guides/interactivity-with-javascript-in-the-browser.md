@@ -154,7 +154,7 @@ The initial to-do list app from above, rewritten with Reactive Mastro looks as f
 <script type="importmap">
   {
     "imports": {
-      "mastro/reactive": "https://esm.sh/mastro@0.0.6/reactive?bundle"
+      "mastro/reactive": "https://esm.sh/jsr/@mastrojs/mastro@0.0.3/reactive?bundle"
     }
   }
 </script>

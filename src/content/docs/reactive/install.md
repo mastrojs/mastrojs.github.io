@@ -3,15 +3,21 @@ title: Installing Reactive Mastro
 template: splash
 ---
 
-There are basically two ways to install Reactive Mastro. Using `npm`, or using the pre-bundled file from the CDN.
+There are basically two ways to install Reactive Mastro. Using a package manager, or using the pre-bundled file from the CDN.
 
-### Using `npm`
+### Using a package manager
 
-If your project uses npm and a bundler, you can add the `mastro` package as a dependency:
+If your project uses Node.js and a bundler, you can add the `mastro` package as a dependency. For example using `npm/npx` and [JSR’s npm compatibility layer](https://jsr.io/docs/with/node):
 
-    npm install mastro
+    npx jsr add @mastrojs/mastro
 
-For example using the [Astro framework](https://astro.build/), you can then use Reactive Mastro in a `.astro` component like:
+Or with any of the following package managers:
+
+    pnpm add jsr:@mastrojs/mastro
+    yarn add jsr:@mastrojs/mastro
+    deno add jsr:@mastrojs/mastro
+
+Then, for example using the [Astro web framework](https://astro.build/), you can use Reactive Mastro in a `.astro` component like:
 
 ```html
 <my-counter>
@@ -20,7 +26,7 @@ For example using the [Astro framework](https://astro.build/), you can then use 
 </my-counter>
 
 <script>
-  import { ReactiveElement, signal } from "mastro/reactive"
+  import { ReactiveElement, signal } from "@mastrojs/mastro/reactive"
 
   customElements.define("my-counter", class extends ReactiveElement {
     count = signal(0)
@@ -39,10 +45,10 @@ If you don't want to deal with the complexities of a bundler, you can use the ve
 
 ```html
 <script type="module">
-  import { ReactiveElement, signal } from "https://esm.sh/mastro@0.0.6/reactive?bundle"
+  import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/mastro@0.0.3/reactive?bundle"
 ```
 
-Instead of referencing the esm.sh CDN directly, you can of course also [**download Reactive Mastro**](https://esm.sh/stable/mastro@0.0.6/es2022/reactive.bundle.js?bundle) and host it together with your other static assets.
+Instead of referencing the esm.sh CDN directly, you can of course also [**download Reactive Mastro**](https://esm.sh/@jsr/mastrojs__mastro@0.0.3/es2022/reactive.bundle.mjs) and host it together with your other static assets.
 
 Either way, we recommend using an [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) so that you can refer to the file in all your own JavaScript modules using the shorthand `mastro/reactive`. That way, there is only one place to update the version number, and changing it will not change your own JavaScript files, which would invalidate their cache.
 
@@ -56,7 +62,7 @@ Here's a complete example that you can save as a `.html` file and open it in you
     <script type="importmap">
       {
         "imports": {
-          "mastro/reactive": "https://esm.sh/stable/mastro@0.0.6/reactive?bundle"
+          "mastro/reactive": "https://esm.sh/jsr/@mastrojs/mastro@0.0.3/reactive?bundle"
         }
       }
     </script>
