@@ -1,6 +1,7 @@
 ---
 title: Installing Reactive Mastro
 template: splash
+prev: false
 ---
 
 There are basically two ways to install Reactive Mastro. Using a package manager, or using the pre-bundled file from the CDN.

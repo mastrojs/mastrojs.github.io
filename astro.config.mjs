@@ -11,6 +11,7 @@ export const guideChapters = [
 	{ label: 'Multiple pages with shared components', slug: 'guides/multiple-pages-with-shared-components' },
 	{ label: 'A static blog from markdown files', slug: 'guides/static-blog-from-markdown-files' },
 	{ label: 'Interactivity with JavaScript in the browser', slug: 'guides/interactivity-with-javascript-in-the-browser' },
+	{ label: 'Addendum: about HTTP, forms and REST APIs', slug: 'guides/http-forms-and-rest-apis' },
 ]
 
 export const reactiveChapters = [

@@ -6,7 +6,7 @@ template: splash
 
 In previous chapters, you've seen how to use JavaScript on the server to dynamically generate multiple pages of HTML. For most simple websites, that's all you need. If you want it to look fancy, invest in learning more about design and CSS.
 
-However, sometimes you want to add more interactivity. If you have a server running, you can get quite far with [HTML forms](https://eloquentjavascript.net/18_http.html) and then sending different HTML to different users. But that's not an option for a statically generated website. And for certain sorts of interactions, you don't want it to go through a page navigation (e.g. submitting a form and seeing the result page). Instead, you want the change to be immediate, and affect the page you're currently on without reloading it, to keep your scroll and cursor positions etc. That's when you should use client-side JavaScript – i.e. JavaScript running in the user's browser. A common example is to build a simple to-do list app.
+However, sometimes you want to add more interactivity. If you have a server running, you can get quite far with HTML forms (which we'll look at in the next chapter), and then sending different HTML to a user depending on what they submitted, or depending on what's currently in the database of the server. But that's not an option for a statically generated website. And for certain sorts of interactions, you don't want it to go through a page navigation (e.g. submitting a form and seeing the result page). Instead, you want the change to be immediate, and affect the page you're currently on without reloading it, to keep your scroll and cursor positions etc. That's when you need use client-side JavaScript – i.e. JavaScript running in the user's browser. (See [_Client-side and server-side JavaScript_ in a previous chapter](/guides/javascript/#client-side-and-server-side-javascript).) A common example is to build a simple to-do list app.
 
 
 ## A minimalistic to-do list app
@@ -216,15 +216,15 @@ The initial to-do list app from above, rewritten with Reactive Mastro looks as f
 </script>
 ```
 
-At first, this looks more complex. And for simple cases that's true, there you might be better off just using plain JavaScript without any library – especially when coupled with a few nifty lines of CSS. But as your app grows, the initial increase in complexity is quickly outweighed by the structure the library brings, allowing you to not repeatedly write `document.createElement()`, `.append()`, `.addEventListener()`, etc.
+At first, this looks more complex. And for simple cases that's true. There, you might be better off just using plain JavaScript without any library – especially when coupled with a few nifty lines of CSS. But as your app grows, the initial increase in complexity is quickly outweighed by the structure this approach brings; using signals to store the single source of truth, and allowing you to not repeatedly write `document.createElement()`, `.append()`, `.addEventListener()`, etc.
 
-The first thing you notice is the `<script type="importmap">`. That [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) allows you to write `import { ... } from "mastro/reactive"` in your JavaScript modules instead of the full URL. And when it's time to update the URL (perhaps because you want to update to a new version of the library), you just need to do so in one place.
+The first thing you might notice is the `<script type="importmap">`. That [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) allows you to write `import { ... } from "mastro/reactive"` in your JavaScript modules instead of the full URL. And when it's time to update the URL (perhaps because you want to update to a new version of the library), you just need to do so in one place.
 
 `customElements.define('todo-list', myClass)` registers the `<todo-list>` custom HTML element (the name must start with a lowercase letter and must contain a hyphen), which allows you to use it with `<todo-list></todo-list>` wherever in your HTML.
 
 The `customElements.define` method requires us to supply it with a [class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). This is a common concept in _object-oriented programming_, a programming paradigm usually contrasted with _functional programming_ (which we've been losely adhering to in this guide so far). However, you don't need to understand its intricacies to use Reactive Mastro. Just note that the `newTitle`, `todos` and `renderedTodos` variables are declared at the top of the class, and without `const`. That's because they are _fields_ of the class, and accessible with e.g. `this.newTitle` within methods of the class. `toggleTodo`, `updateNewTitle`, and `addTodo` are methods of the class. Methods are functions that are attached to an object or class.
 
-Our fields are all signals. A signal `todos` is read out with `todos()` (a function call), and changed with `todos.set(newArray)`. We initialize the `newTitle`, which represents what's currently in the text `input`, with an empty string. The `todos` is initialized with an empty array. And `renderedTodos` is set to a `computed` value, which always reacts to changes to any of the signals used within it (like `this.todos()`), returning an array of `html` strings – one for each todo.
+Our fields are all signals. A signal `todos` is read out with `todos()` (a function call), and changed with `todos.set(newArray)`. The `...array` [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) creates a new array, which is necessary for the signal to be updated. We initialize the `newTitle`, which represents what's currently in the text `input`, with an empty string. The `todos` is initialized with an empty array. And `renderedTodos` is set to a `computed` value, which always reacts to changes to any of the signals used within it (like `this.todos()`), returning an array of `html` strings – one for each todo.
 
 Finally, our class `extends` the `ReactiveElement` class, which we imported from `mastro/reactive`. This allows us to
 
@@ -319,11 +319,11 @@ Once you've gotten familiar with the way Reactive Mastro works, adding the dropd
 ```
 
 
-## Persisting the to-do list
+## Saving the to-do list
 
-There is still a major flaw in the to-do list app. When the user reloads the page, all the to-dos are gone! We need to persist (i.e. store) them somewhere.
+There is still a major flaw in the to-do list app. When the user reloads the page, all the to-dos are gone! We need to save them somewhere.
 
-The most durable place would probably be a server with a database, but that would require us to run those, and the user to create an account an log in. The next best thing is to store the to-dos in the user's browser using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage#examples). To do that, replace the `todos` signal with a newly defined `localSignal`. Change the start of the `script` element as follows:
+The most durable place would probably be a server with a database, but that would require us to run those, and the user to create an account and log in. The next best thing is to store the to-dos in the user's browser using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage#examples). To do that, replace the `todos` signal with a newly defined `localSignal`. Change the start of the `script` element as follows:
 
 ```js ins={3-16, 21} del={20}
   import { computed, html, ReactiveElement, signal } from "mastro/reactive";
@@ -349,4 +349,4 @@ The most durable place would probably be a server with a database, but that woul
     todos = localSignal([]);
 ```
 
-For now, this is the final chapter of the Mastro Guide. However, you can continue reading, to learn more about the various ways to use [Reactive Mastro](/reactive).
+This is the final chapter of the Mastro Guide to static site generation. However, you can continue with the [Reactive Mastro docs](/reactive/), or continue to the addendum about servers, URLs, HTTP, HTML forms, and REST APIs.

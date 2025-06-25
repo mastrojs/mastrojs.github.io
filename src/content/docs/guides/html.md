@@ -28,7 +28,7 @@ The simplest website is a single HTML file. In Mastro, each file in the `routes/
     </html>
     ```
 
-Hit `Ctrl-Shift-P` (Windows or Linux) or `Command-Shift-P` (Mac), type `mastro`, and when the _mastro: Preview and Generate Website_ item appears, hit enter. This opens the _Mastro preview pane_.
+Hit `Ctrl-Shift-P` (Windows or Linux) or `Command-Shift-P` (Mac), type `mastro`, and when the _mastro: Preview and Generate Website_ item appears, hit enter.
 
 <!--
 <details>
@@ -37,7 +37,7 @@ Hit `Ctrl-Shift-P` (Windows or Linux) or `Command-Shift-P` (Mac), type `mastro`,
 </details>
 -->
 
-This will open a new tab to the right, displaying your `index.html` file, just like it would show in a web browser tab. Note how the text in the `<title>` is shown as the tab name, just like it would be in a browser's tab. The `body` is the part of the HTML file that is visible as the page itself.
+This opens the _Mastro preview pane_ in a new tab to the right, displaying your `index.html` file, just like it would show in a web browser tab. Note how the text in the `<title>` is shown as the tab name, just like it would be in a browser's tab. The `body` is the part of the HTML file that is visible as the page itself.
 
 
 ## Content first
@@ -137,7 +137,7 @@ For a more thorough introduction, I can highly recommend the [MDN guide on HTML]
 
 If you want to know how to achieve a specific thing – e.g. how to do tables in HTML – it's usually best to find the corresponding page on MDN. For example by entering `MDN HTML table` in your favourite search engine. That way you don't end up on some low-quality website with inaccurate or outdated documentation.
 
-For a modern guide to favicons, link preview meta tags, etc, see [Get out of my `<head>`](https://getoutofmyhead.dev/).
+For a modern guide to favicons and social media / messenger app link previews, see [Get out of my `<head>`](https://getoutofmyhead.dev/).
 :::
 
 
