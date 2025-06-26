@@ -5,11 +5,29 @@ template: splash
 
 import { LinkButton } from '@astrojs/starlight/components';
 
-_Mastro_ is a *m*inimal take on an *Astro*-like MPA web framework. Currently, there are three parts to it:
+A *m*inimal take on an *Astro*-like MPA web framework. There are three parts to it:
 
-- [The Mastro Guide](/guides/) and accompanying [_Visual Studio Code for the Web_ extension](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension) that teach you how to build and publish your first webside – using only a browser and a GitHub account.
-- [The Mastro web framework](https://github.com/mastrojs/mastro/) (server and static site generator) – work-in-progress, currently focusing on getting it running in Deno.
-- [Reactive Mastro](/reactive/) – a tiny reactive GUI library for your existing MPA.
+### The Mastro Guide
 
-<br />
-<LinkButton href="/guides/">Build your first website</LinkButton>
+Guide to HTML, CSS and JavaScript, with accompanying [_Visual Studio Code for the Web_ extension](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension)
+– all you need is a browser and a GitHub account.
+
+<LinkButton href="/guides/">Build and publish your first website</LinkButton>
+
+### The Mastro web framework
+
+A modern server and static site generator built from first principles.
+Zero client-side JavaScript by default and no bundler – see the [GitHub repo](https://github.com/mastrojs/mastro/).
+To start a new Mastro project with [Deno](https://deno.com/), run:
+
+```
+deno run --allow-write jsr:@mastrojs/mastro@0.0.5/init
+```
+
+### Reactive Mastro
+
+A tiny client-side reactive GUI library for your Mastro project, or for your existing MPA.
+
+<LinkButton href="/reactive/">Get started</LinkButton>
+
+<style>.site-title \{ display: none \}</style>

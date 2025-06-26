@@ -7,10 +7,35 @@ html:not([data-has-toc]) {
 }
 
 :root {
-  --sl-color-bg-nav: color-mix(in srgb, var(--sl-color-bg), transparent 10%);
+  --sl-color-bg-nav: transparent;
+  --sl-color-hairline: transparent;
   --sl-color-hairline-shade: transparent;
+	--sl-color-accent-high: #feb3a6;
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent: #c92b20;
 }
 
 p {
   hyphens: auto;
+}
+
+header {
+  backdrop-filter: blur(5px);
+  @media (max-width: 1152px) {
+    backdrop-filter: blur(20px);
+  }
+}
+.site-title {
+  &::before {
+    content: '👨‍🍳';
+  }
+  > span {
+    display: none;
+  }
+}
+
+site-search kbd {
+  display: none;
 }
