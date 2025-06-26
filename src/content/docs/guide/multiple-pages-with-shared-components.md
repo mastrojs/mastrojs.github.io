@@ -13,7 +13,7 @@ So far your website still consists of only a single page: the home page. Add a s
 
 ### Components
 
-1. [Create a new folder](/guides/html/#your-first-website) `components` in the root of your project (i.e. not inside, but on the same level as the `routes` folder).
+1. [Create a new folder](/guide/html/#your-first-website) `components` in the root of your project (i.e. not inside, but on the same level as the `routes` folder).
 
 2. Move the `<header>` and its contents to a new file `components/Header.js` and wrap it in a bit of JavaScript:
 

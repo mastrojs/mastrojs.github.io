@@ -126,7 +126,7 @@ Test following the links in the Mastro preview pane now. Congratulations, you ha
 
 ## Debugging with `console.log`
 
-Usually when programming, thinks go wrong at some point. It's fairly uncommon for a programmer to write out a program and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct, but the program crashes later on, or at least doesn't do what you wanted it to. In this second case, it can be useful to add `console.log()` statements in various places of your code and see what it prints into your browser's JavaScript console (what you used in a [previous chapter](/guides/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
+Usually when programming, thinks go wrong at some point. It's fairly uncommon for a programmer to write out a program and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct, but the program crashes later on, or at least doesn't do what you wanted it to. In this second case, it can be useful to add `console.log()` statements in various places of your code and see what it prints into your browser's JavaScript console (what you used in a [previous chapter](/guide/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
 
 ```js title=routes/news/[slug].server.js ins={6}
 import { getParams, htmlToResponse, readMarkdownFile } from "mastro";
@@ -177,7 +177,7 @@ export const getStaticPaths = async () => {
 }
 ```
 
-Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guides/html/#save-changes-and-publish-to-the-web).
+Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guide/html/#save-changes-and-publish-to-the-web).
 
 Congratulations to your live blog!
 

@@ -187,7 +187,7 @@ And once you're ready to ponder the nature of the medium web:
 
 ## Save your changes
 
-Feel free to play around with the CSS. Once you're happy with the result (or tired of playing around with the design), click the **Generate** button above the preview. Then don't forget to [save your changes in the _Source Control_ tab](/guides/html/#save-changes-and-publish-to-the-web).
+Feel free to play around with the CSS. Once you're happy with the result (or tired of playing around with the design), click the **Generate** button above the preview. Then don't forget to [save your changes in the _Source Control_ tab](/guide/html/#save-changes-and-publish-to-the-web).
 
 
 ## Inspect your website with your browser's developer tools

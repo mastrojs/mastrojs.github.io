@@ -4,7 +4,7 @@ template: splash
 next: false
 ---
 
-During this whole guide so far, you've been using Mastro as a static site generator: when you hit the "Generate" button, it creates the html files, which GitHub Pages exposes to the web somehow. But how? What actually happens when you hit enter in your web browser after typing in some URL like `https://mastrojs.github.io/guides/`?
+During this whole guide so far, you've been using Mastro as a static site generator: when you hit the "Generate" button, it creates the html files, which GitHub Pages exposes to the web somehow. But how? What actually happens when you hit enter in your web browser after typing in some URL like `https://mastrojs.github.io/guide/`?
 
 Broadly speaking, your browser makes a request to a server, and that server sends back the HTML. A server is ultimately a computer that usually sits in a data center, and is running a program that answers these requests. Confusingly, that program is also called a server.
 
@@ -18,7 +18,7 @@ Let's take a closer look at the above URL. It consists of three parts:
     - `.io` is the top-level domain (the most famous TLD is `.com`)
     - `github.io` is known as the domain
     - `mastrojs` is the subdomain (the most common subdomain is `www`)
-3. `/guides/` is the _path_ – it tells the server which page we'd like to see.
+3. `/guide/` is the _path_ – it tells the server which page we'd like to see.
 
 Actually, there can be a few more things in a [URL](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL):
 
@@ -34,14 +34,14 @@ Now, to actually send a message over the internet to that specific server, the b
 The HTTP request that your browser (aka the client) sends to the server when you hit enter might look something like this:
 
 ```http
-GET /guides/ HTTP/1.1
+GET /guide/ HTTP/1.1
 Host: mastrojs.github.io
 User-Agent: Mozilla/5.0 (Mac OS X 10.15) Firefox/139.0
 Accept: text/html
 Accept-Language: en-GB
 ```
 
-It's a HTTP `GET` request for the `/guides/` page, using version `1.1` of the `HTTP` protocol. The `Host` HTTP header field mentions the server's hostname, the `User-Agent` header identifies the browser making the request: in this case Mozilla Firefox on Mac OS X. The last two headers let the server know that we'd like the response to be HTML, and preferably in English as spoken in Great Britain.
+It's a HTTP `GET` request for the `/guide/` page, using version `1.1` of the `HTTP` protocol. The `Host` HTTP header field mentions the server's hostname, the `User-Agent` header identifies the browser making the request: in this case Mozilla Firefox on Mac OS X. The last two headers let the server know that we'd like the response to be HTML, and preferably in English as spoken in Great Britain.
 
 If all goes well, the server answers with an HTTP response. It starts with the response headers, followed by an empty empty line, followed by the response body containing the HTML. Thus it might start as follows:
 
@@ -57,7 +57,7 @@ content-length: 6172
 
 Notice the `200 OK` on the first line? `200` is the HTTP response status code for "OK" – meaning the server understood the request and managed to send a response. Apart from success, [status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) fall into three classes:
 
-- `3xx` (like `301` or `303`) are [redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections).
+- `3xx` (like `301` or `303`) are [redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/guide/Redirections).
 - `4xx` means something went wrong and the server thinks it's the client's fault. The most common one is `404 Not Found`, which means the server does not have the page which the client requested.
 - `5xx` means the server ran into some kind of problem when trying to answer. Perhaps it was overloaded or crashed due to a programming error.
 
@@ -245,7 +245,7 @@ new Response(body, { headers: { "Content-Type": "text/html" } })
 
 As you've just seen, plain old HTML forms can get you a long way – all without requiring any fragile client-side JavaScript. However, if you really need to avoid that page reload, here's how.
 
-We start with the [initial reactive to-do list app](/guides/interactivity-with-javascript-in-the-browser/#reactive-programming) and move the script to its own file: `routes/todo-list.client.ts`. This time, instead of saving the to-dos in `localStorage`, we want to save them to a (mock) database on the server. To make HTTP requests to the server without doing a full page reload, we use the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function.
+We start with the [initial reactive to-do list app](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) and move the script to its own file: `routes/todo-list.client.ts`. This time, instead of saving the to-dos in `localStorage`, we want to save them to a (mock) database on the server. To make HTTP requests to the server without doing a full page reload, we use the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function.
 
 It's a handful of files, so best if you check them out [on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server), or [download the mastro repo as a zip](https://github.com/mastrojs/mastro/archive/refs/heads/main.zip) and open the `examples/todo-list-server/` folder in VS Code.
 
