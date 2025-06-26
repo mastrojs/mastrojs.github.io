@@ -10,11 +10,11 @@ html:not([data-has-toc]) {
   --sl-color-bg-nav: transparent;
   --sl-color-hairline: transparent;
   --sl-color-hairline-shade: transparent;
-	--sl-color-accent-high: #feb3a6;
+	--sl-color-accent-high: rgb(155, 155, 254);
 }
 
 :root[data-theme='light'] {
-	--sl-color-accent: #c92b20;
+	--sl-color-accent: rgb(32, 32, 215);
 }
 
 p {
