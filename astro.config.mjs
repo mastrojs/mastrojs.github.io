@@ -28,6 +28,9 @@ export default defineConfig({
 		starlight({
 			title: 'Mastro',
       customCss: [ './src/styles.css' ],
+			editLink: {
+				baseUrl: 'https://github.com/mastrojs/docs/edit/main/',
+			},
 			head: [
 				{
 					tag: 'meta',
@@ -37,7 +40,7 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/mastrojs/mastro' }],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Guide',
 					items: guideChapters,
 				},
 				{
