@@ -35,6 +35,14 @@ export default defineConfig({
 				{
 					tag: 'meta',
 					attrs: { property: 'og:image', content: '/og.png' },
+				},
+				{
+					tag: 'script',
+					attrs: {
+						'data-goatcounter': 'https://mastrojs.goatcounter.com/count',
+						async: true,
+						src: '//gc.zgo.at/count.js',
+					},
 				}
 			],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/mastrojs/mastro' }],
