@@ -26,7 +26,7 @@ While you can use TypeScript for server and client logic, not having a template 
 
 While these libraries are also tailored towards MPAs, and also integrate well with whatever server-side HTML templating system you’ve already in place, Reactive Mastro is even smaller:
 
-- smaller in terms of JavaScript size: minified+gzipped, Reactive Mastro is 2.7kB vs the others >10kB
+- smaller in terms of JavaScript size: minified+gzipped, Reactive Mastro is 2.8kB vs the others >10kB
 - smaller in terms of API surface to learn
 
 In Alpine, you put all logic into HTML attributes. Reactive Mastro only uses attributes to attach the signals and event listeners to the DOM. The rest is written in normal JavaScript using signals, giving you a declarative developer experience. You will be familiar with [signals](https://docs.solidjs.com/concepts/intro-to-reactivity) if you have used either Solid, Svelte runes, Vue refs or Preact signals. The use of signals is also one of the differentiators to Stimulus, where you have to remember to imperatively call the right method to update the DOM yourself in all the right places. Stimulus also requires you to add the right `data-controller` and `data-x-target` attributes, which are not needed in Reactive Mastro.

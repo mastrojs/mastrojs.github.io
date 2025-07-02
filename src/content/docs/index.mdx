@@ -5,22 +5,33 @@ template: splash
 
 import { LinkButton } from '@astrojs/starlight/components';
 
-A *m*inimal *Astro*-like MPA web framework for handcrafted websites.
-There are three parts to it:
+
+> A painter needs to know about pigments and paper.\
+> A cook needs to know about plants, herbs and meat.\
+> A "webmastro" needs to know about HTML and CSS.
+
+People building websites have been called lots of things: webmaster, web designer, frontend engineer.
+What has stayed the same since 1991, is that to create truly great websites,
+you need to care about your users, and you need to handcraft your HTML and CSS.
+
+Mastro is a *m*inimal *Astro*-like web framework that provides you
+simple abstractions to write HTML, CSS and JS –
+without any complex tools messing with your code before it reaches the browser.
 
 
 ### The Mastro Guide
 
-Guide to HTML, CSS and JavaScript, with accompanying [_Visual Studio Code for the Web_ extension](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension)
-– all you need is a browser and a GitHub account.
+Free introductory guide to HTML, CSS and JavaScript, with accompanying [_Visual Studio Code for the Web_ extension](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension)
+to generate your static site and publish it to GitHub Pages – all in your browser.
 
 <LinkButton href="/guide/">Build and publish your first website</LinkButton>
 
 ### The Mastro web framework
 
-A modern server and static site generator built from first principles.
-Zero client-side JavaScript by default and no bundler – see the [GitHub repo](https://github.com/mastrojs/mastro/).
-To start a new Mastro project with [Deno](https://deno.com/), run:
+An minimal (~700 lines of TypeScript) server and static site generator built from first principles.
+Zero client-side JavaScript by default and no bundler.
+See the [GitHub repo](https://github.com/mastrojs/mastro/) for more info and examples.
+To start a new Mastro project, install [Deno](https://deno.com/) and run:
 
 ```
 deno run --allow-write jsr:@mastrojs/mastro@0.0.5/init
@@ -28,25 +39,8 @@ deno run --allow-write jsr:@mastrojs/mastro@0.0.5/init
 
 ### Reactive Mastro
 
-A tiny client-side reactive GUI library for your Mastro project, or for your existing MPA.
+A tiny (2.8k min.gz) client-side reactive GUI library for your Mastro project, or for your existing MPA.
 
 <LinkButton href="/reactive/">Get started</LinkButton>
-
-
-## Why Mastro?
-
-> A painter needs to know about paint.\
-> A smith needs to know about iron.\
-> A cook needs to know about plants, herbs and meat.\
-> A "webmastro" needs to know about HTML and CSS.
-
-Over the last three decades, people building websites have been calling themselves lots of things:
-webmaster, web designer, web developer, frontend engineer.
-What has stayed the same since 1991, is that to create truly great websites,
-you need to handcraft the HTML and CSS.
-
-That's what Mastro is all about:
-providing you the essential abstractions to simply write HTML, CSS and JS –
-without any complex tools messing with your code before it reaches the browser.
 
 <style>.site-title \{ display: none \}</style>
