@@ -1,5 +1,9 @@
 html {
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 20px;
+  @media (max-width: 1152px) {
+    font-size: 18px;
+  }
 }
 
 html:not([data-has-toc]) {
@@ -19,6 +23,10 @@ html:not([data-has-toc]) {
 
 p {
   hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
 }
 
 header {
@@ -53,4 +61,8 @@ form {
     cursor: pointer;
     padding: 0.15rem 1.25rem;
   }
+}
+
+.pagination-links .link-title {
+  font-weight: bold;
 }
