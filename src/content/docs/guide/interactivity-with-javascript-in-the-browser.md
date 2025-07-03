@@ -6,7 +6,9 @@ template: splash
 
 In previous chapters, you've seen how to use JavaScript on the server to dynamically generate multiple pages of HTML. For most simple websites, that's all you need. If you want it to look fancy, invest in learning more about design and CSS.
 
-However, sometimes you want to add more interactivity. If you have a server running, you can get quite far with HTML forms (which we'll look at in the next chapter), and then sending different HTML to a user depending on what they submitted, or depending on what's currently in the database of the server. But that's not an option for a statically generated website. And for certain sorts of interactions, you don't want it to go through a page navigation (e.g. submitting a form and seeing the result page). Instead, you want the change to be immediate, and affect the page you're currently on without reloading it, to keep your scroll and cursor positions etc. That's when you need use client-side JavaScript – i.e. JavaScript running in the user's browser. (See [_Client-side and server-side JavaScript_ in a previous chapter](/guide/javascript/#client-side-and-server-side-javascript).) A common example is to build a simple to-do list app.
+However, sometimes you want to add more interactivity. If you have a server running, you can get quite far with HTML forms (which we'll look at in the next chapter), and then sending different HTML to a user depending on what they submitted, or depending on what's currently in the database of the server.
+
+But that's not an option for a statically generated website. And for certain sorts of interactions, you don't want it to go through a page navigation (e.g. submitting a form and having the browser load the result page). Instead, you want the change to be immediate, and affect the page you're currently on without reloading it, to keep your scroll and cursor positions etc. That's when you need to use client-side JavaScript – i.e. JavaScript running in the user's browser. (See [Client-side and server-side JavaScript](/guide/javascript/#client-side-and-server-side-javascript) in the chapter introducing JavaScript.) A common example is to build a simple to-do list app.
 
 
 ## A minimalistic to-do list app
@@ -69,9 +71,16 @@ Then, using `prepend()`, we add our list item to the top of the `<ul id="todos">
 Feel free to change the code or put a few `console.log()` statements in it to see what does what.
 
 
+## Accessible interactivity
+
+Technically, you can attach event listeners to all kinds of HTML elements. But in order for screen readers, or keyboard-only users etc, to discover interactive elements, it's important to use elements like `<button>`, `<input>` or `<form>`. Don't make divs or spans interactive! And don't create links without an `href`: if you don't want a link click to trigger a page navigation, you most certainly should use a `<button>` instead. You can always use CSS to make your `<button class="link">` look like a link.
+
+Using meaningful HTML elements – a practice known as writing _semantic HTML_ – is enough to make simple websites accessible. But more complicated, interactive, parts of a web page may require additional annotations to ensure screen readers understand what's going on. That's what ARIA attributes are for. I can highly recommend reading [What I Wish Someone Told Me When I Was Getting Into ARIA](https://www.smashingmagazine.com/2025/06/what-i-wish-someone-told-me-aria/).
+
+
 ## Filtering the to-do list
 
-Now, add a dropdown where you can choose to either show all to-dos (like currently), or only those that are not checked.
+Now, let's add a dropdown where you can choose to either show all to-dos (like currently), or only those that are not checked.
 
 This can be accomplished in two ways. First the easy way: we add an event listener that gets called when the user changes the dropdown (aka `select` element). Depending on the value of `select.value`, we add or remove the `only-undone` class on the `ul`. Finally, if the `only-undone` class is there, we hide (i.e. `display: none;`) every `li` element that [`has`](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) an `input` that's `:checked`.
 
@@ -128,6 +137,7 @@ This can be accomplished in two ways. First the easy way: we add an event listen
 ```
 
 Check it out in your browser's dev tools elements inspector. Notice how the elements with `display: none;` are greyed out, but still there in the DOM tree?
+
 
 ## State
 

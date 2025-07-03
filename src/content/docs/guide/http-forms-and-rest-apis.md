@@ -170,7 +170,7 @@ export const POST = async (req: Request) => {
 }
 ```
 
-Note the [label](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label) element, which tells the user what they're expected to enter in the `input` field. It's important for visually impaired users that you use a proper `label`, and not just display some text somewhere, which they might not be able to associate with the `input`. To test whether it's correct, click the label: the text field should then receive focus.
+Note the [label](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label) element, which tells the user what they're expected to enter in the `input` field. It's important (e.g. for visually impaired users) that you use a proper `label`, and not just display some text somewhere, which e.g. screen readers are not able to associate with the `input`. To test whether it's correct, click the label: the text field should then receive focus.
 
 To let TypeScript know that we're expecting the `req` argument to be of type `Request`, we write `req: Request` (which would not be valid in JavaScript). That way, TypeScript can help us check whether we're using `req` in a correct way. (Try writing e.g. `req.form()` instead of `req.formData()` and VS Code will underline it red.)
 
@@ -232,7 +232,7 @@ export const POST = async (req: Request) => {
 
 If our server receives a `name`, we redirect the user back to the `GET` version of the page. You can see in the network tab of your browser's dev tools how it first does a `POST`, which returns a `302` redirect with a `Location` response header. Then the browser does a separate `GET` request to the URL that was indicated in the `Location`.
 
-If our server does not receive a `name`, we display an error page. Note that modern browsers support [`<input required>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required) for more immediate feedback. But we can never trust the client to do input validation. A user might have an outdated browser that ignores the `required` attribute, or they could just write a few lines of code to manually send us an HTTP request with invalid data. Thus we must always validate incoming data on the server before using it (e.g. before saving it to a database).
+If our server does not receive a `name`, we display an error page. Note that modern browsers support [`<input required>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required) for more immediate feedback. But we can never trust the client to do input validation. A user might have an outdated browser that ignores the `required` attribute, or they could just write a few lines of code to manually send us an HTTP request with invalid data. Thus we must always validate incoming data on the server before using it (e.g. before saving it to a database). For simple data, a few if/else statements usually suffice, while for complex JSON data, this is usually done with a [schema library](https://standardschema.dev#what-schema-libraries-implement-the-spec).
 
 Note that both `Response.redirect` and `htmlToResponse` create a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. In fact, `htmlToResponse(body)` is little more than:
 

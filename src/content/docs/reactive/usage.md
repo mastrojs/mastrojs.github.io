@@ -32,25 +32,25 @@ Server HTML:
 Client JS:
 
 ```js
-import { html, ReactiveElement, signal } from "mastro/reactive"
+import { html, ReactiveElement, signal } from "mastro/reactive";
 
 customElements.define("my-counter", class extends ReactiveElement {
-  count = signal(parseInt(this.getAttribute("start") || "0", 10))
+  count = signal(parseInt(this.getAttribute("start") || "0", 10));
 
   initialHtml () {
     return html`
       Counting <span data-bind="count">${this.getAttribute("start")}</span>
       <button data-onclick="inc">+</button>
-    `
+    `;
   }
 
   inc () {
-    this.count.set(c => c + 1)
+    this.count.set(c => c + 1);
   }
 })
 ```
 
-Note the `html` function which [tags the template literal](https://blog.jim-nielsen.com/2019/jsx-like-syntax-for-tagged-template-literals/) that follows it. To syntax highlight such tagged template literals, you may want to install an extension for your favourite editor, such as [this extension for VSCode](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html).
+Note the `html` function which [tags the template literal](https://blog.jim-nielsen.com/2019/jsx-like-syntax-for-tagged-template-literals/) that follows it. To syntax highlight such tagged template literals, you may want to install an extension for your favourite editor, such as [this extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates).
 
 Implementing an `initialHtml` function has the advantage that you can also dynamically instantiate such a component as a child of another component, thereby building up hierarchies of client-side rendered components like you may know from SPAs. If you want to client- and server-render the same HTML, you can assign the html string to a variable, export it, and use it in your JavaScript-based server (e.g. Mastro).
 
@@ -90,30 +90,65 @@ Server HTML:
 Client JS:
 
 ```js
-import { ReactiveElement, signal } from "mastro/reactive"
+import { ReactiveElement, signal } from "mastro/reactive";
 
 customElements.define("simple-tabs", class extends ReactiveElement {
-  activeTab = signal("home")
+  activeTab = signal("home");
 
   switchTo (tab: string) {
-    this.activeTab.set(tab)
+    this.activeTab.set(tab);
   }
 
   isNotActiveTab (tab: string) {
-    return tab !== this.activeTab()
+    return tab !== this.activeTab();
   }
 })
 ```
 
-Note how we intentially didn't add the `hidden` class in the HTML sent from the server. That way, if client-side JavaScript fails to run, the user sees both tabs and can still access the content. Depending on the layout and position of the element on the page, this might mean that on slow connections, the user first sees both elements before one is hidden once JavaScript executed (try it out by enabling [network throttling](https://developer.mozilla.org/en-US/docs/Glossary/Network_throttling) in your browser's dev tools). If you think that's a bigger problem than sometimes inaccessible content, you can of course also add the `hidden` class already on the server.
+Note how we intentionally didn't add the `hidden` class in the HTML sent from the server. That way, if client-side JavaScript fails to run, the user sees both tabs and can still access the content. Depending on the layout and position of the element on the page, this might mean that on slow connections, the user first sees both elements before one is hidden once JavaScript executed (try it out by enabling [network throttling](https://developer.mozilla.org/en-US/docs/Glossary/Network_throttling) in your browser's dev tools). If you think that's a bigger problem than sometimes inaccessible content, you can of course also add the `hidden` class already on the server.
 
-### Initializing state from the server
+### Sharing state between islands or components
 
 As we've seen in the previous examples, the canonical version of state lives in the signals. Since signals are normal JavaScript objects (like e.g. Promises), they can be shared between components, even if the components are different islands and otherwise not connected.
 
-Often, you need to initialize some state not with a simple static value (like `0` in the counter example), but with a dynamic value from the server (for example a user object, or an array of todo items from the database). If you embed the JavaScript dynamically on the HTML page anyway, then you can just include that data as a variable. If your JavaScript is in a static file however, there are a few different strategies.
+For example, to synchornize all counters on the page:
 
-Primitive values like strings are best put on attributes, like in the counter above:
+```js
+import { ReactiveElement, signal } from "mastro/reactive";
+
+const globalCount = signal(0);
+
+customElements.define("my-counter", class extends ReactiveElement {
+  count = globalCount; // assign shared object to a field for data-bind
+
+  initialHtml () {
+    return html`
+      Counting <span data-bind="count"></span>
+      <button data-onclick="inc">+</button>
+    `;
+  }
+
+  inc () {
+    globalCount.set(c => c + 1);
+  }
+})
+```
+
+### Initializing state from the server
+
+Often, you need to initialize some state not with a simple static value (like `0` in the counter example), but with a dynamic value from the server (for example a user object, or an array of todo items from the database). If you inline the JavaScript in your HTML (suitable for smaller JS snippets), you can include that data as a variable:
+
+```html
+<my-profile></my-profile>
+<script type="module">
+  const clientUser = ${JSON.serialize(serverUser)};
+  customElements.define("my-profile", class extends ReactiveElement {
+    user = signal(clientUser);
+```
+
+If your JavaScript is in a separate, cacheable static file however, there are a few different strategies.
+
+Primitive values like strings are best put on attributes in the HTML, like in the counter above:
 
 ```html
 <my-counter start="7"></my-counter>
@@ -121,7 +156,7 @@ Primitive values like strings are best put on attributes, like in the counter ab
 
 ```js
 class extends ReactiveElement {
-  count = signal(parseInt(this.getAttribute("start") || "0", 10))
+  count = signal(parseInt(this.getAttribute("start") || "0", 10));
 ```
 
 This works also for more complex values that are serializable as JSON:
@@ -131,11 +166,11 @@ This works also for more complex values that are serializable as JSON:
 ```
 
 ```js
-class extends ReactiveElement {
-  user = signal(JSON.parse(this.getAttribute("user")))
+customElements.define("my-profile", class extends ReactiveElement {
+  user = signal(JSON.parse(this.getAttribute("user")));
 ```
 
-If you're server-rendering the data to HTML anyway, instead of duplicating the data in JSON, you can of course also parse the HTML. Depending on the structure of the data and the HTML serialization, this may of course be a bit more involved than the following simple example:
+For a fast initial page load, and a good user experience when the JavaScript has not yet loaded, or fails to load, you may server-side render your data to HTML. To then initialize the JavaScript signal, you can parse the HTML back to JSON. This solves the so-called _double data problem_, where most server-side rendering JS frameworks send the same data twice: once as HTML, and once as JSON. Depending on the structure of the data and the HTML serialization, this may of course be a bit more involved than the following simple example:
 
 ```html
 <name-list>
@@ -146,7 +181,7 @@ If you're server-rendering the data to HTML anyway, instead of duplicating the d
 ```
 
 ```js
-class extends ReactiveElement {
+customElements.define("name-list", class extends ReactiveElement {
   names = signal(Array.from(this.querySelectorAll('li')).map(el => el.innerText))
 ```
 

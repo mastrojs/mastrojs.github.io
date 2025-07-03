@@ -4,14 +4,14 @@ title: Generate multiple pages with shared components
 template: splash
 ---
 
-In this chapter, you create a second page, and move the parts that are the same for both pages into shared components. You use a bit of server-side JavaScript to do that.
+Now that you know the basics of JavaScript, let's create a second page for the website you created in the [chapter about HTML](/guide/html/). You use a bit of server-side JavaScript to create shared components, which contain the HTML that's the same for both pages.
 
 
 ## A second page
 
-So far your website still consists of only a single page: the home page. Add a second page by creating a new file: `routes/news.html`. You _could_ add the same `header` and `footer` all over again in this second file. But the more pages you add, the more tedious this approach becomes. And when you modify the header or footer in one file, it's easy to forget changing all other files. The solution is to move the header and footer to their own reusable _components_.
+So far your website still consists of only a single page, and only two files: `routes/index.html` and `routes/styles.css`. Add a second page by creating a new file: `routes/news.html`. You _could_ add the same `<header>` and `<footer>` tags all over again in this second file. But the more pages you add, the more tedious this approach becomes. And when you modify the header or footer in one file, it's easy to forget changing all other files. The solution is to move the header and footer to their own reusable _components_.
 
-### Components
+### Server-side components
 
 1. [Create a new folder](/guide/html/#your-first-website) `components` in the root of your project (i.e. not inside, but on the same level as the `routes` folder).
 
