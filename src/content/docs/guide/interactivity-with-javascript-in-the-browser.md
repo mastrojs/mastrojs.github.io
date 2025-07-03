@@ -6,7 +6,7 @@ template: splash
 
 In previous chapters, you've seen how to use JavaScript on the server to dynamically generate multiple pages of HTML. For most simple websites, that's all you need. If you want it to look fancy, invest in learning more about design and CSS.
 
-However, sometimes you want to add more interactivity. If you have a server running, you can get quite far with HTML forms (which we'll look at in the next chapter), and then sending different HTML to a user depending on what they submitted, or depending on what's currently in the database of the server. But that's not an option for a statically generated website. And for certain sorts of interactions, you don't want it to go through a page navigation (e.g. submitting a form and seeing the result page). Instead, you want the change to be immediate, and affect the page you're currently on without reloading it, to keep your scroll and cursor positions etc. That's when you need use client-side JavaScript – i.e. JavaScript running in the user's browser. (See [_Client-side and server-side JavaScript_ in a previous chapter](/guide/javascript/#client-side-and-server-side-javascript).) A common example is to build a simple to-do list app.
+However, sometimes you want to add more interactivity. If you have a server running, you can get quite far with HTML forms (which we'll look at in the next chapter), and then sending different HTML to a user depending on what they submitted, or depending on what's currently in the database of the server. But that's not an option for a statically generated website. And for certain sorts of interactions, you don't want it to go through a page navigation (e.g. submitting a form and having the browser load the result page). Instead, you want the change to be immediate, and affect the page you're currently on without reloading it, to keep your scroll and cursor positions etc. That's when you need use client-side JavaScript – i.e. JavaScript running in the user's browser. (See [_Client-side and server-side JavaScript_ in a previous chapter](/guide/javascript/#client-side-and-server-side-javascript).) A common example is to build a simple to-do list app.
 
 
 ## A minimalistic to-do list app
@@ -67,6 +67,8 @@ Be aware to never use `innerHTML` on untrusted input. You can try changing the c
 Then, using `prepend()`, we add our list item to the top of the `<ul id="todos">` element. And finally, we reset the `input`'s value to an empty string (`""`), so it's ready for the next to-do.
 
 Feel free to change the code or put a few `console.log()` statements in it to see what does what.
+
+Technically, you can attach event listeners to all kinds of HTML elements. But in order for screen readers, or keyboard-only users, to discover interactive elements, it's important to use elements like `<button>`, `<input>` or `<form>`. Don't make divs or spans interactive! And don't create links without an `href`: if you don't want a link click to trigger a page navigation, you most certainly should use a `<button>` instead. You can always use CSS to make your `<button class="link">` look like a link.
 
 
 ## Filtering the to-do list

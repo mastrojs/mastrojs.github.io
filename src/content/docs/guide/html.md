@@ -133,7 +133,7 @@ Copy-and-paste that, replacing the current contents of your `index.html` file an
 Notice how we've indented each HTML element that's nested with two more spaces than its parent element? While not strictly necessary, it's considered good practice to do so (some people use four spaces or tabs instead). It may seem tedious in the beginning. But if you don't do it and just add more and more text, eventually you'll lose sight of which elements are nested in which ones, and you'll curse yourself for wondering why all your text is too big, only to discover 15 minutes later that you just forgot that closing `</h2>` somewhere at the beginning, for example.
 
 :::tip[Want to learn more HTML?]
-For a more thorough introduction, I can highly recommend the [MDN guide on HTML](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content).
+For a more thorough introduction, I can highly recommend the [MDN guide on HTML](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content) and the [_HTML for People_ tutorial](https://htmlforpeople.com/zero-to-internet-your-first-website/).
 
 If you want to know how to achieve a specific thing – e.g. how to do tables in HTML – it's usually best to find the corresponding page on MDN. For example by entering `MDN HTML table` in your favourite search engine. That way you don't end up on some low-quality website with inaccurate or outdated documentation.
 

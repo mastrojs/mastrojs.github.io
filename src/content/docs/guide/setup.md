@@ -14,10 +14,6 @@ To make your website accessible to the whole internet, you'll need to store and 
 
 [Create a free GitHub account](https://github.com/signup). Choose your username wisely, because it will show up in lots of places. Ideally, something relatively short that's still available.
 
-:::note
-You can also start learning HTML with files directly on your computer. To do that instead, the first two chapters of [_HTML for People_ tutorial](https://htmlforpeople.com/zero-to-internet-your-first-website/) have good instructions.
-:::
-
 Once you are signed into GitHub, [create a new repository](https://github.com/new). A repository is where you will store your project's files. The only field you need to change is the _Repository name_: call it something short and descriptive like `blog`, or `cooking-website`, or even the domain name of your future website (like `cooking.com`) if you have reserved one already. Then click _Create repository_.
 
 
