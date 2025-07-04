@@ -14,24 +14,33 @@ People building websites have been called lots of things: webmaster, web designe
 What has stayed the same since 1991, is that to create truly great websites,
 you need to care about your users, and you need to handcraft your HTML and CSS.
 
-Mastro is a *m*inimal *Astro*-like web framework that provides you
+Mastro is a *m*inimal *Astro*-like web framework that gives you
 simple abstractions to write HTML, CSS and JS –
 without any complex tools messing with your code before it reaches the browser.
 
 
 ### The Mastro Guide
 
-Free introductory guide to HTML, CSS and JavaScript, with accompanying [_Visual Studio Code for the Web_ extension](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension)
-to generate your static site and publish it to GitHub Pages – all in your browser.
+Free introductory guide to HTML, CSS and JavaScript.
 
-<LinkButton href="/guide/">Build and publish your first website</LinkButton>
+<LinkButton href="/guide/">Learn how to build and publish your first website</LinkButton>
+
+
+### SSG with VS Code in your browser
+
+The Mastro _Visual Studio Code for the Web_ extension lets your run the
+Mastro static site generator (SSG) right in your browser
+– including publishing your website to GitHub Pages for free.
+
+<LinkButton href="/guide/setup/">Static site generation in your browser</LinkButton>
+
 
 ### The Mastro web framework
 
-An minimal (~700 lines of TypeScript) server and static site generator built from first principles.
-Zero client-side JavaScript by default and no bundler.
+An minimal (~700 lines of TypeScript) server-side web framework and static site generator built from first principles.
+Zero client-side JavaScript by default and no bundler. Runs on [Deno](https://deno.com/) (Bun, Node.js and CloudFlare Workers are in the works).
 See the [GitHub repo](https://github.com/mastrojs/mastro/) for more info and examples.
-To start a new Mastro project, install [Deno](https://deno.com/) and run:
+To start a new Mastro project, paste the following into your terminal:
 
 ```
 deno run --allow-write jsr:@mastrojs/mastro@0.0.5/init
@@ -41,6 +50,7 @@ deno run --allow-write jsr:@mastrojs/mastro@0.0.5/init
 
 A tiny (2.8k min.gz) client-side reactive GUI library for your Mastro project, or for your existing MPA.
 
-<LinkButton href="/reactive/">Get started</LinkButton>
+<LinkButton href="/reactive/">Build interactive user interfaces</LinkButton>
+<LinkButton href="/reactive/why-reactive-mastro/" variant="secondary">Why Reactive Mastro?</LinkButton>
 
 <style>.site-title \{ display: none \}</style>
