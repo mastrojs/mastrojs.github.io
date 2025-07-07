@@ -1,54 +1,63 @@
 ---
 title: Mastro 👨‍🍳
+head:
+  - tag: title
+    content: MastroJS
 template: splash
+description: Build and publish websites right from your browser.
 ---
 
 import { LinkButton } from '@astrojs/starlight/components';
 
+### DIY craft kit for people that care about websites
 
-> A painter needs to know about pigments and paper.\
-> A cook needs to know about plants, herbs and meat.\
-> A "webmastro" needs to know about HTML and CSS.
+> A painter cares about pigments and paper.\
+> A cook cares about plants, herbs and meat.\
+> A "webmastro" cares about HTML and CSS.
 
-People building websites have been called lots of things: webmaster, web designer, frontend engineer.
-What has stayed the same since 1991, is that to create truly great websites,
-you need to care about your users, and you need to handcraft your HTML and CSS.
-
-Mastro is a *m*inimal *Astro*-like web framework that gives you
-simple abstractions to write HTML, CSS and JS –
-without any complex tools messing with your code before it reaches the browser.
+Since 1991, people building websites have been called lots of things: webmaster, web designer, frontend engineer.
+What has stayed the same, is that to create truly great websites,
+you need to care about your users, and you need to care about your HTML and CSS.
 
 
 ### The Mastro Guide
 
-Free introductory guide to HTML, CSS and JavaScript.
+Introductory guide to HTML, CSS and JavaScript.
+Learn how to handcraft a website and publish it to GitHub Pages for free – all from within your browser.
 
-<LinkButton href="/guide/">Learn how to build and publish your first website</LinkButton>
+<LinkButton href="/guide/">Build and publish your first website</LinkButton>
 
+### The static site generator that runs in your browser
 
-### SSG with VS Code in your browser
+The Mastro _Visual Studio Code for the Web_ extension generates a website right in your browser.
 
-The Mastro _Visual Studio Code for the Web_ extension lets your run the
-Mastro static site generator (SSG) right in your browser
-– including publishing your website to GitHub Pages for free.
+<LinkButton href="/guide/setup/" variant="secondary">Get started</LinkButton>
 
-<LinkButton href="/guide/setup/">Static site generation in your browser</LinkButton>
+### The web framework that grows with you
 
+Mastro is also a *m*inimal *Astro*-like framework and static site generator built from first principles.
 
-### The Mastro web framework
+- **No bundler** and full control over your HTML, CSS and JS. Mastro gives you composable functions
+and no complex tooling messing with your code before it reaches the browser.
+- **No client-side JavaScript**: create lean websites, that load blazingly fast.
+- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/) of TypeScript, Mastro is easy to fork and adapt. It runs either
+  [in a VS Code extension](#the-static-site-generator-that-runs-in-your-browser),
+  or on Deno (Node.js, Bun and Workers are in the works).
 
-An minimal (~700 lines of TypeScript) server-side web framework and static site generator built from first principles.
-Zero client-side JavaScript by default and no bundler. Runs on [Deno](https://deno.com/) (Bun, Node.js and CloudFlare Workers are in the works).
-See the [GitHub repo](https://github.com/mastrojs/mastro/) for more info and examples.
-To start a new Mastro project, paste the following into your terminal:
+Give it a try! To start a new Mastro project using the command line, [install Deno](https://docs.deno.com/runtime/getting_started/installation/)
+and run:
 
 ```
 deno run --allow-write jsr:@mastrojs/mastro@0.0.5/init
 ```
 
-### Reactive Mastro
+<LinkButton href="https://github.com/mastrojs/mastro/" variant="secondary">Star us on GitHub</LinkButton>
+<LinkButton href="/guide/multiple-pages-with-shared-components/" variant="secondary">Follow the Guide</LinkButton>
+<LinkButton href="https://jsr.io/@mastrojs/mastro/doc" variant="minimal">API docs</LinkButton>
 
-A tiny (2.8k min.gz) client-side reactive GUI library for your Mastro project, or for your existing MPA.
+### Reactive Mastro – interactivity simplified
+
+A tiny (2.8k min.gz) client-side reactive GUI library for your existing MPA or Mastro project.
 
 <LinkButton href="/reactive/">Build interactive user interfaces</LinkButton>
 <LinkButton href="/reactive/why-reactive-mastro/" variant="secondary">Why Reactive Mastro?</LinkButton>
