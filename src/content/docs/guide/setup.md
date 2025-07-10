@@ -1,6 +1,5 @@
 ---
 title: "Setup: GitHub and VS Code for Web"
-template: splash
 ---
 
 The Mastro _Visual Studio Code for the Web_ extension lets your run the

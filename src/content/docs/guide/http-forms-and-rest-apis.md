@@ -1,6 +1,5 @@
 ---
 title: About HTTP, forms and REST APIs
-template: splash
 next: false
 ---
 

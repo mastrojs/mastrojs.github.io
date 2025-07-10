@@ -1,6 +1,5 @@
 ---
 title: Installing Reactive Mastro
-template: splash
 prev: false
 ---
 

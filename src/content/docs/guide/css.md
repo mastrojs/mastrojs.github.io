@@ -1,6 +1,5 @@
 ---
 title: Styling with CSS
-template: splash
 ---
 
 The most important thing of any website is the content. Now that you've taken care of that with some HTML, you can turn to making it look a bit nicer. For that, you need CSS.

@@ -1,6 +1,5 @@
 ---
 title: Rest
-template: splash
 ---
 
 ## Images

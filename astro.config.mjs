@@ -22,6 +22,7 @@ export const reactiveChapters = [
 ]
 
 // https://astro.build/config
+// https://starlight.astro.build/reference/configuration/
 export default defineConfig({
 	site: 'https://mastrojs.github.io',
 	integrations: [
@@ -49,13 +50,16 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Guide',
+					collapsed: true,
 					items: guideChapters,
 				},
 				{
 					label: 'Reactive Mastro',
+					collapsed: true,
 					items: reactiveChapters,
 				},
 			],
+			tableOfContents: false,
 		}),
 	],
 	redirects: {

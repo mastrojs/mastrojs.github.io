@@ -1,6 +1,5 @@
 ---
 title: Reactive Mastro reference
-template: splash
 ---
 
 Reactive Mastro requires you to learn only two attributes: `data-bind` and `data-on*`.

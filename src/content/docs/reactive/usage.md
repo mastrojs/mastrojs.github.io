@@ -1,6 +1,5 @@
 ---
 title: Using Reactive Mastro
-template: splash
 ---
 
 You register your custom element once with `window.customElements.define('my-counter', class extends ReactiveElement { })` (the name must start with a lowercase letter and contain a hyphen), and then you can use it wherever in your HTML body, e.g. `<my-counter></my-counter>`. No JavaScript imports nor manually calling a constructor needed.

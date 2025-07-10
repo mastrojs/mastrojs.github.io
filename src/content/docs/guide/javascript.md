@@ -1,6 +1,5 @@
 ---
 title: Introducing JavaScript
-template: splash
 ---
 
 Now that you got a taste of HTML and CSS, let's talk about JavaScript. It's the third language that the browser understands.

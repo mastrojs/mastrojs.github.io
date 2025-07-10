@@ -1,7 +1,6 @@
 
 ---
 title: Interactivity with JavaScript in the browser
-template: splash
 ---
 
 In previous chapters, you've seen how to use JavaScript on the server to dynamically generate multiple pages of HTML. For most simple websites, that's all you need. If you want it to look fancy, invest in learning more about design and CSS.

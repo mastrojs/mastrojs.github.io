@@ -1,6 +1,5 @@
 ---
 title: "Motivation: Why learn HTML/CSS?"
-template: splash
 ---
 
 In this chapter, we quickly go over your options when choosing the tool to build your website with, why HTML and CSS are still key, and why we'll be using a _static site generator_ in this guide.

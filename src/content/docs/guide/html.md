@@ -1,6 +1,5 @@
 ---
 title: Introducing HTML
-template: splash
 ---
 
 In this chapter, you build your very first page.

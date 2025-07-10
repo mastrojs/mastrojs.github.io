@@ -1,6 +1,5 @@
 ---
 title: Why Reactive Mastro?
-template: splash
 ---
 
 If you want the fastest initial page load possible, you will want to send very little JavaScript to the client. For almost all kinds of websites, that means you want a MPA (Multi-Page App) where the browser handles page navigation, not an SPA (Single-Page App) where that's reimplemented in JavaScript. If you need convincing, read Astro's [content-driven and server-first](https://docs.astro.build/en/concepts/why-astro/#content-driven) sections, or Nolan's [the balance has shifted away from SPAs](https://nolanlawson.com/2022/05/21/the-balance-has-shifted-away-from-spas/). Browsers have really stepped up their game regarding MPA page navigations. Two highlights:

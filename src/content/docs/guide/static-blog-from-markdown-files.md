@@ -1,6 +1,5 @@
 ---
 title: A static blog from markdown files
-template: splash
 ---
 
 In the [previous chapter](/guide/multiple-pages-with-shared-components/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news`. Now it's time to add some news to that page.

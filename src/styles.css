@@ -15,6 +15,7 @@ html:not([data-has-toc]) {
   --sl-color-hairline: transparent;
   --sl-color-hairline-shade: transparent;
 	--sl-color-accent-high: rgb(155, 155, 254);
+  --sl-text-sm: 0.8rem;
 }
 
 :root[data-theme='light'] {
