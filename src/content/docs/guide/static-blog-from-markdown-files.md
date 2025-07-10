@@ -2,7 +2,7 @@
 title: A static blog from markdown files
 ---
 
-In the [previous chapter](/guide/multiple-pages-with-shared-components/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news`. Now it's time to add some news to that page.
+In the [previous chapter](/guide/multiple-pages-with-shared-components/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news/`. Now it's time to add some news to that page.
 
 One of the simplest ways to create a blog is to create a markdown file for each blog post. [Markdown](https://commonmark.org/help/) is just a simpler syntax for the most commonly used HTML elements when writing body text. It's fairly widespread nowadays, used in plain text note-taking apps, or to input text into GitHub or StackOverflow.
 
@@ -67,7 +67,7 @@ export const GET = async () => {
       children: posts.map((post) =>
         html`
           <p>
-            <a href="${"/news" + post.path.slice(11, -3)}">
+            <a href="${"/news" + post.path.slice(11, -3)}/">
               ${post.meta.title}
             </a>
           </p>
@@ -84,7 +84,7 @@ The code imports the `readMarkdownFiles` function from mastro. Because that func
 
 Since `posts` is an array, we can use its `.map()` method to loop over it and get each `post`. `post.path.slice(11, -3)` [slices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) off the first eleven and the last three character from the `post.path` string: in our case it removes the leading `/data/posts` and the trailing `.md` from the filename.
 
-Have a look at `/news` in the Mastro preview pane. Clicking one of the links will lead you to a page saying "404, page not found". That's because those pages don't exist yet.
+Have a look at `/news/` in the Mastro preview pane. Clicking one of the links will lead you to a page saying "404, page not found". That's because those pages don't exist yet.
 
 
 ## Detail pages
@@ -172,7 +172,7 @@ export const GET = async (req) => {
 
 export const getStaticPaths = async () => {
   const posts = await readDir("data/posts/");
-  return posts.map(p => "/news/" + p.slice(0, -3));
+  return posts.map(p => "/news/" + p.slice(0, -3) + "/");
 }
 ```
 

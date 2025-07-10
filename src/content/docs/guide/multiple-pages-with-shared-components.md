@@ -168,6 +168,6 @@ export const GET = () =>
   );
 ```
 
-To test whether that page works, enter `/news` in the address bar of the Mastro preview pane and hit enter.
+To test whether that page works, enter `/news/` in the address bar of the Mastro preview pane and hit enter.
 
 Whenever you change anything in `components/Layout.js`, both pages will be updated!
