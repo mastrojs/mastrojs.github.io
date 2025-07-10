@@ -34,7 +34,7 @@ The _Mastro_ static site generator (SSG) is special in that it can also run as a
 
 Install the following two VS Code extensions. In the _Activity Bar_ on the left, click the _Extensions_ icon (looks like four blocks with one flying away).
 
-- Install [Mastro](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension) by searching for `mastro static` (it should be the first search result, the one with the picture of a cook) and click _Install_. Click _Trust Publisher & Install_ when prompted.
+- Install [Mastro](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension) by searching for `mastro` (it should be the first search result, the one with the picture of a cook) and click _Install_. Click _Trust Publisher & Install_ when prompted.
 - Install [FAST Tagged Template Literals](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates) by searching for `fast-tagged-templates`.
 
 ![](../../../assets/vscode-extensions.png)
