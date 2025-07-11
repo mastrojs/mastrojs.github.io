@@ -83,7 +83,7 @@ To get some hands-on time, start your own server and run it locally (meaning on 
 
 4.  Then type (or copy-paste):
 
-        deno run --allow-write jsr:@mastrojs/mastro@0.0.7/init
+        deno run -A jsr:@mastrojs/mastro@0.0.9/init
 
     and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter e.g. `test-server` and hit enter (Folder names with spaces are a bit of a pain on the command-line).
 
@@ -266,12 +266,14 @@ It's a common need to expose the same basic operations over an API. Usually you 
 
 - **C**reate: `POST /todo` to have the server create a new todo and assign it an id, or `PUT /todo/7` if the client comes up with the id (this will replace the todo with id=7 if it already exists).
 - **R**ead: `GET /todo` (to get all todos), or `GET /todo/7` to get only the todo with id=7.
-- **U**pdate: `PATCH /todo/7` to update some fields of the todo with id=7.
+- **U**pdate: `PATCH /todo/7` to modify the todo with id=7 in some way (for example update some fields, but perhaps not all).
 - **D**elete: `DELETE /todo/7` to delete the todo with id=7.
 
-These are not only conventions that everybody who knows HTTP will be familiar with. There is also the added benefit that clients, the server, as well as proxies (servers that sit in-between the two), know these HTTP methods and their semantics. For example, results to a `GET` request can be cached in the browser, or in a proxy like a CDN. If the cache is still fresh, no need to bother the origin server. However, for the other methods mentiond above, this wouldn't work: updates and deletions need to reach the origin server, otherwise they didn't really happen.
+These are not only conventions that everybody who knows HTTP will be familiar with. There is also the added benefit that clients, the server, as well as proxies (servers that sit in-between the two), know these HTTP methods and their semantics.
 
-Similarly, all methods except `POST` are [idempotent](https://developer.mozilla.org/en-US/docs/Glossary/Idempotent) – doing a request once must have the same effect as doing the same request several times. Meaning, if the client is not sure whether the request reached the server (perhaps the network connection is bad and the request timed out), then the client can safely retry the same request. If both requests happen to reach the server, as long as they are idempotent, no harm is done (e.g. the second `PUT /todo/7` overwrites the first one). However, with a non-idempotent request like `POST /todo`, if both the original and retry reach the server, two todos are created instead of one. Crucially, it's the server's responsibility to make sure the exposed API actually adheres to these semantics defined by HTTP.
+For example, results to a `GET` request can be cached in the browser, or in a proxy like a CDN. If the cache is still fresh, no need to bother the origin server again. However, for the other methods mentiond above, this wouldn't work: updates and deletions need to reach the origin server, otherwise they didn't really happen.
+
+Similarly, `GET`, `PUT` and `DELETE` are defined by the HTTP specification to be [idempotent](https://httpwg.org/specs/rfc9110.html#idempotent.methods): doing the request once should have the same effect on the server as doing the same request multiple times (this is not guaranteed for `POST` and `PATCH`). This means that if the client is not sure whether an idempotent request reached the server (perhaps the network connection is bad and the request timed out), then the client can safely retry the same request. If both requests happen to reach the server, no harm is done (e.g. the second `PUT /todo/7` simply overwrites the first one). However, with a non-idempotent request like `POST /todo`, if both the original and retry reach the server, two todos are created instead of one. While the HTTP specification only talks about the effect on the server that the client _intended_, in practice it falls to the server to make sure the routes it exposes actually adhere to these semantics.
 
 While not the [full definition of REST](https://mb21.github.io/api-explorer/a-web-based-tool-to-semi-automatically-import-data-from-generic-rest-apis.html#rest), an HTTP API that works according to these principles is often called a REST API. There are a few more [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods), but the ones mentioned above are by far the most common ones. Also, there is nothing restricting REST APIs to CRUD operations. A route can in principle expose any kind of operation. One example of a complex operation exposed over HTTP that we've seen before is `GET https://www.google.com/search?q=hello`.
 

@@ -97,7 +97,7 @@ shoppingList.map(rememberFn)
 
 Feel free to toy around a bit more in the JavaScript console. You can always reload the page to reset everything, meaning you'll lose all your variables.
 
-The good news is that with JavaScript – like with any general-purpose programming language – you can create arbitrarily complex programs. That's also the bad news btw. Either way, this crash course should be enough for you to create that second page for your website.
+The good news is that with JavaScript – like with any general-purpose programming language – you can create arbitrarily complex programs. That's also the bad news. Either way, this crash course should be enough for you to read and write some basic JavaScript.
 
 :::tip[Want to learn more JavaScript?]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) also has good documentation on JavaScript. But especially if you're new to programming in general, I can highly recommend the book [Eloquent JavaScript](https://eloquentjavascript.net/), which is free to read online.
