@@ -46,7 +46,10 @@ export default defineConfig({
 					},
 				}
 			],
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/mastrojs/mastro' }],
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/mastrojs/mastro' },
+				{ icon: 'blueSky', label: 'BlueSky', href: 'https://bsky.app/profile/mastrojs.bsky.social' },
+			],
 			sidebar: [
 				{
 					label: 'Guide',

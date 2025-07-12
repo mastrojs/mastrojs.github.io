@@ -16,6 +16,9 @@ html:not([data-has-toc]) {
   --sl-color-hairline-shade: transparent;
 	--sl-color-accent-high: rgb(155, 155, 254);
   --sl-text-sm: 0.8rem;
+  @media (max-width: 800px) {
+    --sl-text-sm: 0.9rem;
+  }
 }
 
 :root[data-theme='light'] {
@@ -36,11 +39,16 @@ header {
     backdrop-filter: blur(20px);
   }
 }
-.site-title {
-  &::before {
+.site-title > span {
+  color: var(--sl-color-white);
+  font-weight: bold;
+  &::after {
     content: '👨‍🍳';
   }
-  > span {
+}
+
+@media (max-width: 500px) {
+  .hide-on-mobile {
     display: none;
   }
 }
