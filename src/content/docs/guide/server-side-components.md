@@ -1,6 +1,6 @@
 
 ---
-title: Generate multiple pages with shared components
+title: Server-side components
 ---
 
 Now that you know the basics of JavaScript, let's create a second page for the website you created in the [chapter about HTML](/guide/html/). You use a bit of server-side JavaScript to create shared components, which contain the HTML that's the same for both pages.

@@ -8,7 +8,7 @@ export const guideChapters = [
 	{ label: 'Start with HTML', slug: 'guide/html' },
 	{ label: 'Style with CSS', slug: 'guide/css' },
 	{ label: 'Introducing JavaScript', slug: 'guide/javascript' },
-	{ label: 'Multiple pages with shared components', slug: 'guide/multiple-pages-with-shared-components' },
+	{ label: 'Server-side components', slug: 'guide/server-side-components' },
 	{ label: 'A static blog from markdown files', slug: 'guide/static-blog-from-markdown-files' },
 	{ label: 'Interactivity with JavaScript in the browser', slug: 'guide/interactivity-with-javascript-in-the-browser' },
 	{ label: 'Addendum: about HTTP, forms and REST APIs', slug: 'guide/http-forms-and-rest-apis' },

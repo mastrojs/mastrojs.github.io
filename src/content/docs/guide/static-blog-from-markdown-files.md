@@ -2,7 +2,7 @@
 title: A static blog from markdown files
 ---
 
-In the [previous chapter](/guide/multiple-pages-with-shared-components/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news/`. Now it's time to add some news to that page.
+In the [previous chapter](/guide/server-side-components/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news/`. Now it's time to add some news to that page.
 
 One of the simplest ways to create a blog is to create a markdown file for each blog post. [Markdown](https://commonmark.org/help/) is just a simpler syntax for the most commonly used HTML elements when writing body text. It's fairly widespread nowadays, used in plain text note-taking apps, or to input text into GitHub or StackOverflow.
 
