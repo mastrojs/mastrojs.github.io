@@ -6,6 +6,7 @@ export const guideChapters = [
 	{ label: 'Motivation: Why learn HTML and CSS?', slug: 'guide/why-html-css' },
 	{ label: 'Setup: GitHub and VS Code for the Web', slug: 'guide/setup' },
 	{ label: 'Start with HTML', slug: 'guide/html' },
+	{ label: 'Publish your website', slug: 'guide/publish-website' },
 	{ label: 'Style with CSS', slug: 'guide/css' },
 	{ label: 'Introducing JavaScript', slug: 'guide/javascript' },
 	{ label: 'Server-side components', slug: 'guide/server-side-components' },

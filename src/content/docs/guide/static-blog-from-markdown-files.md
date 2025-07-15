@@ -178,7 +178,7 @@ export const getStaticPaths = async () => {
 
 For accessing the file system, `mastro` exports a few functions that work both in the VSCode environment, and when using Deno: `readDir`, `findFiles`, `readTextFile`, `readMarkdownFile`, and `readMarkdownFiles` (see [Mastro's API docs](https://jsr.io/@mastrojs/mastro/doc)).
 
-Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guide/html/#save-changes-and-publish-to-the-web).
+Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guide/publish-website/#save-changes-and-publish-to-the-web).
 
 Congratulations to your live blog!
 

@@ -170,4 +170,4 @@ export const GET = () =>
 
 To test whether that page works, enter `/news/` in the address bar of the Mastro preview pane and hit enter. Whenever you change anything in `components/Layout.js`, both pages will be updated!
 
-If you haven't set up GitHub Pages for your repo yet, follow [publish your website](/guide/html/#publish-your-website). Either way, don't forget to regenerate the site by clicking the **Generate** button in the Mastro preview pane, then [save and publish your changes in the _Source Control_ tab](/guide/html/#save-changes-and-publish-to-the-web).
+If you haven't set up GitHub Pages for your repo yet, follow [publish your website](/guide/publish-website/). Either way, don't forget to regenerate the site by clicking the **Generate** button in the Mastro preview pane, then [save and publish your changes in the _Source Control_ tab](/guide/publish-website/#save-changes-and-publish-to-the-web).
