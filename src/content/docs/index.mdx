@@ -1,13 +1,37 @@
 ---
-title: Guide and toolkit to craft websites with care
+title: Craft websites with care
 head:
   - tag: title
-    content: Mastro – guide and toolkit to craft websites with care
+    content: Mastro – A framework to craft websites with care
 template: splash
 description: Build and publish websites right from your browser.
 ---
 
 import { LinkButton } from '@astrojs/starlight/components';
+
+<div class="cols-2">
+<div>
+### Static site generator in your browser
+
+Already know HTML, CSS and JavaScript? Run the static site generator (SSG) in your browser.
+
+<LinkButton href="https://github.dev/mastrojs/template-basic">Launch on github.dev</LinkButton>
+<LinkButton href="/guide/server-side-components/" variant="minimal">Docs</LinkButton>
+</div>
+<div>
+### Learn to handcraft websites
+
+Build your first website and publish it on GitHub Pages,
+speedrunning the evolution of web dev.
+
+<LinkButton href="/guide/" variant="secondary">Follow the free course</LinkButton>
+</div>
+</div>
+
+<p style="margin-top: 3em">![](../../assets/vscode-example.png)</p>
+
+
+## Philosophy
 
 > A woodworker cares about wood – no cheap plastics.\
 > A cook cares about plants and meat – no fast food.\
@@ -19,29 +43,6 @@ fighting complex tooling like bundlers, and
 are stuck on a treadmill of ever changing dependencies.
 Mastro is here to show a different path.
 
-<LinkButton href="/guide/">Follow the guide</LinkButton>
-<LinkButton href="https://github.dev/mastrojs/template-basic" variant="secondary" class="hide-on-mobile">
-  Try on github.dev
-</LinkButton>
-
-<p style="margin-top: 3em">![](../../assets/vscode-example.png)</p>
-
-
-## The Guide
-
-Introductory guide to HTML, CSS and JavaScript.
-Learn how to handcraft a website and publish it to GitHub Pages for free – all from within your browser.
-
-<LinkButton href="/guide/">Build and publish your first website</LinkButton>
-
-
-## Static site generator in your browser
-
-The Mastro _Visual Studio Code for the Web_ extension generates a website right in your browser.
-
-<LinkButton href="https://github.dev/mastrojs/template-basic">Try on github.dev</LinkButton>
-<LinkButton href="/guide/setup/" variant="secondary">Learn more</LinkButton>
-
 
 ## Web framework that grows with you
 
@@ -50,7 +51,7 @@ Mastro is a *m*inimal *Astro*-like framework and static site generator built fro
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript,
   Mastro is a web framework distilled to its essence. If you ever outgrow it, you can simply fork and adjust it.
 - **No bundler** and full control over your HTML, CSS and JS. Mastro gives you composable functions
-and no complex tooling messing with your code before it reaches the browser.
+instead of complex tooling, that messes with your code before it reaches the browser.
 - **No client-side JavaScript** by default: create lean websites, that load blazingly fast.
 
 Give it a try! To start a new project, [install Deno](https://docs.deno.com/runtime/getting_started/installation/)
@@ -60,15 +61,15 @@ and either use the [template repo](https://github.com/mastrojs/template-basic-de
 deno run -A jsr:@mastrojs/mastro@0.0.9/init
 ```
 
-<LinkButton href="https://github.com/mastrojs/mastro/" variant="secondary">Star Mastro on GitHub</LinkButton>
-<LinkButton href="/guide/multiple-pages-with-shared-components/" variant="secondary">Follow the Guide</LinkButton>
+<LinkButton href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</LinkButton>
+<LinkButton href="/guide/server-side-components/" variant="secondary">Jump into the guide</LinkButton>
 <LinkButton href="https://jsr.io/@mastrojs/mastro/doc" variant="minimal">API docs</LinkButton>
 <LinkButton href="https://github.com/mastrojs/mastro/tree/main/src#readme" variant="minimal">Explore the source</LinkButton>
 
 
 ## Reactive Mastro – interactivity simplified
 
-A tiny (2.8k min.gz) client-side reactive GUI library for your existing MPA or Mastro project.
+The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI library for MPAs.
 
 <LinkButton href="/reactive/">Build interactive user interfaces</LinkButton>
 <LinkButton href="/reactive/why-reactive-mastro/" variant="secondary">Why Reactive Mastro?</LinkButton>
@@ -79,4 +80,16 @@ A tiny (2.8k min.gz) client-side reactive GUI library for your existing MPA or M
 Something not working as expected? Would you like to contribute?
 Please open a [GitHub issue](https://github.com/mastrojs/mastro/issues/).
 
-<style>h1 \{ text-align: center; \}</style>
+<style>h1 \{
+  text-align: center;
+\}
+@media (min-width: 500px) \{
+.cols-2 \{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+\}
+.cols-2 > div \{
+  margin-top: 0;
+\}
+\}</style>
