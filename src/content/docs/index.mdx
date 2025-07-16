@@ -1,58 +1,48 @@
 ---
-title: Craft websites with care
-head:
-  - tag: title
-    content: Mastro – A framework to craft websites with care
+title: Static site generation in your browser
 template: splash
 description: Build and publish websites right from your browser.
 ---
 
 import { LinkButton } from '@astrojs/starlight/components';
 
-<div class="cols-2">
-<div>
-### Static site generator in your browser
-
-Already know HTML, CSS and JavaScript? Run the static site generator (SSG) in your browser.
+Build and publish your website to GitHub Pages for free. All from within your browser – no CI/CD.
 
 <LinkButton href="https://github.dev/mastrojs/template-basic">Launch on github.dev</LinkButton>
-<LinkButton href="/guide/server-side-components/" variant="minimal">Docs</LinkButton>
-</div>
-<div>
-### Learn to handcraft websites
-
-Build your first website and publish it on GitHub Pages,
-speedrunning the evolution of web dev.
-
-<LinkButton href="/guide/" variant="secondary">Follow the free course</LinkButton>
-</div>
-</div>
+<LinkButton href="/guide/server-side-components/" variant="minimal">Guide</LinkButton>
 
 <p style="margin-top: 3em">![](../../assets/vscode-example.png)</p>
 
+## Learn to work with the fabric of the web
 
-## Philosophy
+Start with the fundamentals: HTML and CSS. Then build a static blog.
+And finally, explore two ways to implement a to-do list app: once with plain JavaScript, then reactively.
+
+<LinkButton href="/guide/">Follow the free course</LinkButton>
+
+## Craft websites with care
 
 > A woodworker cares about wood – no cheap plastics.\
 > A cook cares about plants and meat – no fast food.\
 > A "webmastro" cares about HTML and CSS – no bloat.
 
-Most of today’s websites are drowning in a sea of banners and JavaScript.
+Most of today’s websites are drowning in a sea of JavaScript.
 Instead of looking after their users, developers are busy
 fighting complex tooling like bundlers, and
 are stuck on a treadmill of ever changing dependencies.
 Mastro is here to show a different path.
+If you care about the web, spread the word!
 
 
 ## Web framework that grows with you
 
-Mastro is a *m*inimal *Astro*-like framework and static site generator built from first principles.
+Mastro is not just a static site generator. It's a *m*inimal *Astro*-like framework from first principles.
 
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript,
-  Mastro is a web framework distilled to its essence. If you ever outgrow it, you can simply fork and adjust it.
-- **No bundler** and full control over your HTML, CSS and JS. Mastro gives you composable functions
-instead of complex tooling, that messes with your code before it reaches the browser.
-- **No client-side JavaScript** by default: create lean websites, that load blazingly fast.
+  Mastro is a framework distilled to its essence, loading fast even within VS Code or the edge. If you ever outgrow it, simply fork and adjust it.
+- **No bundler** and full control over your HTML, CSS and JS. Mastro gives you composable functions,
+instead of complex tooling that messes with your code before it reaches the browser.
+- **No client-side JavaScript** by default: create lean websites that load blazingly fast.
 
 Give it a try! To start a new project, [install Deno](https://docs.deno.com/runtime/getting_started/installation/)
 and either use the [template repo](https://github.com/mastrojs/template-basic-deno) or run:
@@ -62,7 +52,7 @@ deno run -A jsr:@mastrojs/mastro@0.0.9/init
 ```
 
 <LinkButton href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</LinkButton>
-<LinkButton href="/guide/server-side-components/" variant="secondary">Jump into the guide</LinkButton>
+<LinkButton href="/guide/server-side-components/" variant="secondary">Guide</LinkButton>
 <LinkButton href="https://jsr.io/@mastrojs/mastro/doc" variant="minimal">API docs</LinkButton>
 <LinkButton href="https://github.com/mastrojs/mastro/tree/main/src#readme" variant="minimal">Explore the source</LinkButton>
 
@@ -80,16 +70,4 @@ The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI librar
 Something not working as expected? Would you like to contribute?
 Please open a [GitHub issue](https://github.com/mastrojs/mastro/issues/).
 
-<style>h1 \{
-  text-align: center;
-\}
-@media (min-width: 500px) \{
-.cols-2 \{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2em;
-\}
-.cols-2 > div \{
-  margin-top: 0;
-\}
-\}</style>
+<style>h1 \{text-align: center;\}</style>
