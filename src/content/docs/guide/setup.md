@@ -6,8 +6,6 @@ The Mastro _Visual Studio Code for the Web_ extension lets your run the
 Mastro static site generator (SSG) right in your browser
 – including publishing your website to GitHub Pages for free.
 
-At the moment, some parts of this guide will unfortunately only work in the Chrome browser, so I recommend continuing in that browser for the purpose of this guide. (Some parts might work on a tablet, but you would definitely want a keyboard attached.)
-
 
 ## Create a new _GitHub_ repository
 

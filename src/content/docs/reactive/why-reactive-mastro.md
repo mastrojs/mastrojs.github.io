@@ -7,7 +7,7 @@ If you want the fastest initial page load possible, you will want to send very l
 - [back-forward cache](https://web.dev/articles/bfcache) is implemented in all modern browsers (meaning e.g. an infinite-loading list added with JavaScript will still be there on browser back navigation)
 - [cross-document view transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API/Using#basic_mpa_view_transition) are implemented in Chrome and Safari.
 
-### How does it compare to React, Vue, Svelte etc?
+## How does it compare to React, Vue, Svelte etc?
 
 If you’re building a complex SPA (e.g. Figma or Google Sheets) which deals with client-side GUI state that contains deeply nested objects or arrays with thousands of items, then you’re probably better off with one of the major client-side frameworks (but if you're starting a new project, please go for a modern one like Svelte or Solid). However, optimising for the SPA case comes at a cost. Yes, nowadays all these frameworks support server-side-rendering for a faster initial page load, but still:
 
@@ -21,7 +21,7 @@ By completely separating the server- and client-parts, you have full control ove
 
 While you can use TypeScript for server and client logic, not having a template processor (like JSX) comes at the cost of TypeScript not being able to check that the attributes in the server-generated HTML actually have corresponding handlers in the client-side scripts. Perhaps we’ll introduce an optional processor in the future that changes this trade-off. Also, when in conflict, Reactive Mastro aims to prioritize initial page load speed over raw client-side rendering performance.
 
-### How does it compare to Alpine, Stimulus, HTMX?
+## How does it compare to Alpine, Stimulus, HTMX?
 
 While these libraries are also tailored towards MPAs, and also integrate well with whatever server-side HTML templating system you’ve already in place, Reactive Mastro is even smaller:
 

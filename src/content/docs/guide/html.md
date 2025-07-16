@@ -140,7 +140,7 @@ For a modern guide to favicons and social media / messenger app link previews, s
 :::
 
 
-### Images on the web
+## Images on the web
 
 Probably you've noticed that the image on our page is broken. That's because we haven't added an image file yet. You can find an image of a chair, or some other image, and add it by dragging-and-dropping it into the `routes/` folder. Make sure the name of the file is the same as what you have in the `src` attribute of the `img` element in your HTML.
 

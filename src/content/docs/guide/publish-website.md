@@ -8,7 +8,7 @@ To publish your website to the internet, we need to:
 2. Generate the static site (this creates a new `docs/` folder with all the public files)
 3. Save changes to GitHub
 
-### One-time setup
+## One-time setup
 
 Configure [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch) to make the `docs/` folder of your repository accessible as a website:
 
@@ -23,7 +23,7 @@ Configure [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-g
     - switch the folder from `/ (root)` to `/docs`, and
     - click **Save**.
 
-### Generate the static site
+## Generate the static site
 
 In the Mastro preview pane on the right (which previews your website), click the **Generate** button in the top-right corner.
 
@@ -33,7 +33,7 @@ The HTML files are generated in the `docs/` folder, which you should now see in 
 
 We're using the `docs/` folder, because that's the only folder name GitHub Pages allows. (If you know GitHub Pages, you may be wondering why we're not automatically pushing to the `gh-pages` branch. That's because at the moment, it's [not possible](https://github.com/microsoft/vscode-remote-repositories-github/issues/101) for a _VS Code for the Web_ extension to directly interact with git.)
 
-### Save changes and publish to the web
+## Save changes and publish to the web
 
 So far, we haven't saved any of the changes we made back to GitHub. To do that, switch to the _Source Control_ view in the activity bar on the left.
 

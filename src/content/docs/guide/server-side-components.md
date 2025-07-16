@@ -3,14 +3,12 @@
 title: Server-side components
 ---
 
-Now that you know the basics of JavaScript, let's create a second page for the website you created in the [chapter about HTML](/guide/html/). You use a bit of server-side JavaScript to create shared components, which contain the HTML that's the same for both pages.
+Now that you know the basics of JavaScript, let's create a second page for the website with a single `index.html` file that you created in the previous [chapter about HTML](/guide/html/).
+
+While you _could_ add the same `<header>` and `<footer>` tags in a second HTML file, the more pages you add, the more tedious this approach becomes. And when you modify the header or footer in one file, it's easy to forget changing all other files. The solution is to move the header and footer to their own reusable _components_, and include those where you need them. For this, you'll use a bit of server-side JavaScript.
 
 
-## A second page
-
-So far your website still consists of only a single page, and only two files: `routes/index.html` and `routes/styles.css`. Add a second page by creating a new file: `routes/news.html`. You _could_ add the same `<header>` and `<footer>` tags all over again in this second file. But the more pages you add, the more tedious this approach becomes. And when you modify the header or footer in one file, it's easy to forget changing all other files. The solution is to move the header and footer to their own reusable _components_.
-
-### Server-side components
+## Components
 
 1. [Create a new folder](/guide/html/#your-first-website) `components` in the root of your project (i.e. not inside, but on the same level as the `routes` folder).
 
@@ -55,7 +53,8 @@ Notice the use of the `${ }` syntax inside the template literal to place the res
 
 Now, to `import` the two functions we just created, you first need to convert the home page from a HTML file to a JavaScript file.
 
-### JavaScript page handlers
+
+## Page handlers
 
 All files in the `routes/` folder are sent out unmodified to your website's visitors – except for JavaScript files ending in `.server.js` or `.server.ts`. The code in these files is run and the result is sent to your website's visitors.
 
@@ -100,7 +99,7 @@ Finally, `Header()` calls the `Header` function, and the result of that is place
 Load the page in the Mastro preview to see whether it still works!
 
 
-### A Layout component
+## A Layout component
 
 Now you're almost ready to create that second page. Just one more thing to move to its own component file, because we want to reuse it: the skeleton of the page, often called `Layout`. Create a new file:
 

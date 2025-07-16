@@ -52,6 +52,8 @@ A third way to write a string is to wrap it in backticks. This allows you to put
 `I am ${myName} and ${3 * 10} years old`
 ```
 
+## Functions
+
 If you want to execute the same kind of computation multiple times, you need a function. One way to write a function that returns the string `"Hello World"`, and assign that function to the variable `hello` is:
 
 ```js title=Console
@@ -78,6 +80,9 @@ You can call it like:
 helloName("Peter")
 ```
 
+
+## Objects and arrays
+
 Finally, let's give you a sneak peak on JavaScript objects (which hold key-value pairs):
 
 ```js title=Console
@@ -96,6 +101,9 @@ shoppingList.map(rememberFn)
 `.map()` calls the method `map` on the `shoppingList`. A method is a function attached to an object. All arrays come with a `map` method. When you call it, you need to give it a special kind of argument: a function.
 
 Feel free to toy around a bit more in the JavaScript console. You can always reload the page to reset everything, meaning you'll lose all your variables.
+
+
+## The power of programming
 
 The good news is that with JavaScript – like with any general-purpose programming language – you can create arbitrarily complex programs. That's also the bad news. Either way, this crash course should be enough for you to read and write some basic JavaScript.
 

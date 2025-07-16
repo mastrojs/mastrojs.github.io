@@ -4,7 +4,7 @@ title: Reactive Mastro reference
 
 Reactive Mastro requires you to learn only two attributes: `data-bind` and `data-on*`.
 
-### `data-bind`
+## `data-bind`
 
 Creates a reactive binding of a signal (or the result of a method call) to a property of the DOM element which you specify the attribute on. The following syntax variations are supported.
 
@@ -55,7 +55,7 @@ To bind multiple things on the same element, `data-bind` accepts a semicolon-sep
 
 If you want to avoid introducing an extra box in the layout (e.g. when using things like CSS grid or flexbox), you can use the HTML [`slot`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) element: e.g. `<slot data-bind="mySignal"></slot>`. It's still an extra element, but CSS behaves like it isn't there.
 
-### `data-on*`
+## `data-on*`
 
 There are only two variations:
 

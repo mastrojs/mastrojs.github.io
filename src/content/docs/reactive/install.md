@@ -5,7 +5,7 @@ prev: false
 
 There are basically two ways to install Reactive Mastro. Using a package manager, or using the pre-bundled file from the CDN.
 
-### Using a package manager
+## Using a package manager
 
 If your project uses Node.js and a bundler, you can add the `mastro` package as a dependency. For example using `npm/npx` and [JSR’s npm compatibility layer](https://jsr.io/docs/with/node):
 
@@ -39,7 +39,7 @@ Then, for example using the [Astro web framework](https://astro.build/), you can
 
 (This will usually bundle Reactive Mastro together with your own JavaScript. That means one http request less, but it also means that every time you change your JavaScript, the whole bundle changes and its cache is invalidated.)
 
-### Using the file from the CDN
+## Using the file from the CDN
 
 If you don't want to deal with the complexities of a bundler, you can use the version pre-bundled and minified by [esm.sh](https://esm.sh/). Import it as a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), for example:
 

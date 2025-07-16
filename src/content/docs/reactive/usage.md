@@ -18,7 +18,7 @@ This enables a declarative developer experience (similar to React):
 
 This makes sure your model (the signal) stays in sync with your view (the DOM), and saves you from the spaghetti code that happens all too quickly when manually updating the DOM using jQuery or vanilla JavaScript. For a longer introduction to this approach of state management, see for example [Solid's docs](https://docs.solidjs.com/guides/state-management).
 
-### Client-side rendering islands
+## Client-side rendering islands
 
 One way to use Reactive Mastro is to implement an [islands architecture](https://jasonformat.com/islands-architecture/). Each custom element is an interactive island in your otherwise static (or server-rendered) HTML page. By implementing an `initialHtml` function on your component, which Reactive Mastro will call, you can client-side render the HTML for that island:
 
@@ -53,7 +53,7 @@ Note the `html` function which [tags the template literal](https://blog.jim-niel
 
 Implementing an `initialHtml` function has the advantage that you can also dynamically instantiate such a component as a child of another component, thereby building up hierarchies of client-side rendered components like you may know from SPAs. If you want to client- and server-render the same HTML, you can assign the html string to a variable, export it, and use it in your JavaScript-based server (e.g. Mastro).
 
-### Server-side rendering even more
+## Server-side rendering even more
 
 However, often you don't need the ability to client-side render the whole component. Instead, you would prefer to server-render almost all your HTML, and never send it to the client as JavaScript. That's where Reactive Mastro really shines: you can ship even less JavaScript to the client than in an islands architecture. See the "counter" example at the very top of this page? Note that the HTML never shows up in the client-side JavaScript. This is a pattern [some call HTML web components](https://hawkticehurst.com/2023/11/a-year-working-with-html-web-components/). In a big application with lots of content, this approach can significantly reduce your JavaScript bundle size.
 
@@ -106,7 +106,7 @@ customElements.define("simple-tabs", class extends ReactiveElement {
 
 Note how we intentionally didn't add the `hidden` class in the HTML sent from the server. That way, if client-side JavaScript fails to run, the user sees both tabs and can still access the content. Depending on the layout and position of the element on the page, this might mean that on slow connections, the user first sees both elements before one is hidden once JavaScript executed (try it out by enabling [network throttling](https://developer.mozilla.org/en-US/docs/Glossary/Network_throttling) in your browser's dev tools). If you think that's a bigger problem than sometimes inaccessible content, you can of course also add the `hidden` class already on the server.
 
-### Sharing state between islands or components
+## Sharing state between islands or components
 
 As we've seen in the previous examples, the canonical version of state lives in the signals. Since signals are normal JavaScript objects (like e.g. Promises), they can be shared between components, even if the components are different islands and otherwise not connected.
 
@@ -133,7 +133,7 @@ customElements.define("my-counter", class extends ReactiveElement {
 })
 ```
 
-### Initializing state from the server
+## Initializing state from the server
 
 Often, you need to initialize some state not with a simple static value (like `0` in the counter example), but with a dynamic value from the server (for example a user object, or an array of todo items from the database). If you inline the JavaScript in your HTML (suitable for smaller JS snippets), you can include that data as a variable:
 
