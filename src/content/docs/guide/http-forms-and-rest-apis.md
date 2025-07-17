@@ -83,7 +83,7 @@ To get some hands-on time, start your own server and run it locally (meaning on 
 
 4.  Then type (or copy-paste):
 
-        deno run -A jsr:@mastrojs/mastro@0.0.9/init
+        deno run -A jsr:@mastrojs/mastro@0.1.0/init
 
     and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter e.g. `test-server` and hit enter (Folder names with spaces are a bit of a pain on the command-line).
 
