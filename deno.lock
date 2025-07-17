@@ -1,0 +1,114 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@std/cli@^1.0.20": "1.0.20",
+    "jsr:@std/encoding@^1.0.10": "1.0.10",
+    "jsr:@std/fmt@^1.0.8": "1.0.8",
+    "jsr:@std/fs@^1.0.19": "1.0.19",
+    "jsr:@std/html@^1.0.4": "1.0.4",
+    "jsr:@std/http@^1.0.19": "1.0.19",
+    "jsr:@std/internal@^1.0.9": "1.0.9",
+    "jsr:@std/media-types@^1.1.0": "1.1.0",
+    "jsr:@std/net@^1.0.4": "1.0.4",
+    "jsr:@std/path@^1.1.1": "1.1.1",
+    "jsr:@std/streams@^1.0.10": "1.0.10",
+    "npm:@types/node@*": "22.15.15",
+    "npm:js-yaml@4.1.0": "4.1.0",
+    "npm:ts-blank-space@0.6.1": "0.6.1"
+  },
+  "jsr": {
+    "@std/cli@1.0.20": {
+      "integrity": "a8c384a2c98cec6ec6a2055c273a916e2772485eb784af0db004c5ab8ba52333"
+    },
+    "@std/encoding@1.0.10": {
+      "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
+    },
+    "@std/fmt@1.0.8": {
+      "integrity": "71e1fc498787e4434d213647a6e43e794af4fd393ef8f52062246e06f7e372b7"
+    },
+    "@std/fs@1.0.19": {
+      "integrity": "051968c2b1eae4d2ea9f79a08a3845740ef6af10356aff43d3e2ef11ed09fb06",
+      "dependencies": [
+        "jsr:@std/internal",
+        "jsr:@std/path"
+      ]
+    },
+    "@std/html@1.0.4": {
+      "integrity": "eff3497c08164e6ada49b7f81a28b5108087033823153d065e3f89467dd3d50e"
+    },
+    "@std/http@1.0.19": {
+      "integrity": "52128c8d00a1f0b20019f8b72376e7ef5f3133375b6f805b5bc89b9de2ad4686",
+      "dependencies": [
+        "jsr:@std/cli",
+        "jsr:@std/encoding",
+        "jsr:@std/fmt",
+        "jsr:@std/fs",
+        "jsr:@std/html",
+        "jsr:@std/media-types",
+        "jsr:@std/net",
+        "jsr:@std/path",
+        "jsr:@std/streams"
+      ]
+    },
+    "@std/internal@1.0.9": {
+      "integrity": "bdfb97f83e4db7a13e8faab26fb1958d1b80cc64366501af78a0aee151696eb8"
+    },
+    "@std/media-types@1.1.0": {
+      "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
+    },
+    "@std/net@1.0.4": {
+      "integrity": "2f403b455ebbccf83d8a027d29c5a9e3a2452fea39bb2da7f2c04af09c8bc852"
+    },
+    "@std/path@1.1.1": {
+      "integrity": "fe00026bd3a7e6a27f73709b83c607798be40e20c81dde655ce34052fd82ec76",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/streams@1.0.10": {
+      "integrity": "75c0b1431873cd0d8b3d679015220204d36d3c7420d93b60acfc379eb0dc30af"
+    }
+  },
+  "npm": {
+    "@types/node@22.15.15": {
+      "integrity": "sha512-R5muMcZob3/Jjchn5LcO8jdKwSCbzqmPB6ruBxMcf9kbxtniZHP327s6C37iOfuw8mbKK3cAQa7sEl7afLrQ8A==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
+    "argparse@2.0.1": {
+      "integrity": "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
+    },
+    "js-yaml@4.1.0": {
+      "integrity": "sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==",
+      "dependencies": [
+        "argparse"
+      ],
+      "bin": true
+    },
+    "ts-blank-space@0.6.1": {
+      "integrity": "sha512-LcM3W5HEyzTaXUeQITV8ploUOGe+zuuoFYsCfPscFLhx3bZn2sSfHMKxsULVG/zA7an9UhReiHv4Kk/6QzlpXQ==",
+      "dependencies": [
+        "typescript"
+      ]
+    },
+    "typescript@5.8.3": {
+      "integrity": "sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==",
+      "bin": true
+    },
+    "undici-types@6.21.0": {
+      "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ=="
+    }
+  },
+  "redirects": {
+    "https://esm.sh/@types/markdown-it@~14.1.2/index.d.ts": "https://esm.sh/@types/markdown-it@14.1.2/index.d.ts",
+    "https://esm.sh/@types/prismjs@~1.26.5/index.d.ts": "https://esm.sh/@types/prismjs@1.26.5/index.d.ts"
+  },
+  "remote": {
+    "https://esm.sh/markdown-it-prism@3.0.0/denonext/markdown-it-prism.bundle.mjs": "3ce6eb0d6deb7f07474a03cb746762759bf8be3ae9af84ced0ca15434882fb6b",
+    "https://esm.sh/markdown-it-prism@3.0.0?bundle": "0b82fba5a18738b368185125f016edc288487ea8ec1ff324123a173fcbbe4f72",
+    "https://esm.sh/markdown-it@14.1.0/denonext/markdown-it.bundle.mjs": "281c354a32afc798f7563ea4f75c9a88942d61f54b6d1e4d3ddfee170e6ee058",
+    "https://esm.sh/markdown-it@14.1.0?bundle": "726d0ed06b8244e6e0df322274265ae2b227c83c8bc4c7e5ddf333c541e41537",
+    "https://esm.sh/prismjs@1.30.0/es2022/components/prism-clike.mjs": "6cf4eb76d6012f9e8ba67e7403f9bf3a5bcfe590387725acad842c9b669c2aec"
+  }
+}

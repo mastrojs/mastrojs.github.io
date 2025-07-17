@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "start": "deno serve --watch=. --allow-read --allow-env jsr:@mastrojs/mastro@0.1.0/server",
+    "generate": "deno eval \"import 'mastro/generate';\""
+  },
+  "links": ["../mastro/"],
+  "imports": {
+    "mastro": "../mastro/src/index.ts",
+    "markdown-it": "https://esm.sh/markdown-it@14.1.0?bundle",
+    "markdown-it-prism": "https://esm.sh/markdown-it-prism@3.0.0?bundle",
+    "prismClike": "https://esm.sh/prismjs@1.30.0/es2022/components/prism-clike.mjs"
+  }
+}

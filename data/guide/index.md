@@ -7,10 +7,6 @@ description: Learn the fundamental web technologies (HTML, CSS and JavaScript) u
 template: splash
 ---
 
-import { LinkButton } from '@astrojs/starlight/components';
-
-import { guideChapters } from '/astro.config.mjs'
-
 Learn the fundamental web technologies (HTML, CSS and JavaScript)
 by building your very first website and putting it live – all in your browser.
 
@@ -24,7 +20,7 @@ Each chapter builds on the previous. If you already know semantic HTML, classles
 you can [do the setup](/guide/setup/) and then skip ahead to [publishing your website](/publish-website/).
 But if the only HTML you know are `<div>` and `<span>`, it's best to start with the fundamentals.
 
-<LinkButton href="/guide/why-html-css/">Follow the free course</LinkButton>
+<button class="button" href="/guide/why-html-css/">Follow the free course</button>
 
 
 ## Table of Contents
