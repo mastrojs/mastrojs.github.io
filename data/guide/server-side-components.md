@@ -1,4 +1,3 @@
-
 ---
 title: Server-side components
 ---
@@ -28,9 +27,9 @@ export const Header = () =>
 There are a few things going on here:
 
 1. The first line imports the `html` variable from the `mastro` package.
-2. The next part assigns a new function to the variable `Hello` and exports it. You need to `export` variables, if you want to use them in other files.
+2. The third line exports a variable with the name `Header`. You need to `export` variables, if you want to import and use them in other files.
 3. A component in Mastro is just a function. However, its name is capitalized by convention (`Header` is the name of your component above).
-4. The functions returns a string (everything between the two backticks). But not just any string. We're using the `html` tagged template (that we imported on the first line) to escape things properly.
+4. The functions returns a string (everything between the two backticks). But not just any string: we're using the `html` tagged template (that we imported on the first line) to escape things properly.
 
 Analogous to `Header.js`, create a second file:
 

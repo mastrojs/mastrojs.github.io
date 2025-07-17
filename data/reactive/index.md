@@ -1,13 +1,8 @@
 ---
 title: Reactive Mastro 🧙
-head:
-  - tag: title
-    content: Reactive Mastro – GUI library for MPAs
+metaTitle: Reactive Mastro – GUI library for MPAs
 description: A tiny reactive GUI library for your existing MPA.
-template: splash
 ---
-
-import { reactiveChapters } from '/astro.config.mjs'
 
 A tiny (2.8kB min.gz) reactive GUI library for your existing MPA. Reactive Mastro sits somewhere in between React/Vue/Solid/Svelte one one end, and Alpine/HTMX/Stimulus on the other end – while being smaller and simpler than all of them.
 
@@ -39,6 +34,3 @@ customElements.define("my-counter", class extends ReactiveElement {
 For more examples, see this [Todo list CodePen](https://codepen.io/mb2100/pen/EaYjRvW), [examples on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/reactive-mastro), or continue reading.
 
 ## Get started with Reactive Mastro
-<ol>
-{reactiveChapters.map(ch => <li><a href={"../" + ch.slug + "/"}>{ch.label}</a></li>)}
-</ol>

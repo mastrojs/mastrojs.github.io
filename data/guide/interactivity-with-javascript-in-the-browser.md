@@ -1,4 +1,3 @@
-
 ---
 title: Interactivity with JavaScript in the browser
 ---

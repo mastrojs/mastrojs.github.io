@@ -1,24 +1,23 @@
 ---
 title: Static site generation in your browser
-template: splash
+metaTitle: 'Mastro: static site generation in your browser'
 description: Build and publish websites right from your browser.
+layout: hero
 ---
-
-import { LinkButton } from '@astrojs/starlight/components';
 
 Build and publish your website to GitHub Pages for free – all from within your browser.
 
-<LinkButton href="https://github.dev/mastrojs/template-basic">Launch on github.dev</LinkButton>
-<LinkButton href="/guide/setup/" variant="minimal">Learn more</LinkButton>
+<a class="button" href="https://github.dev/mastrojs/template-basic">Launch with GitHub</a>
+<a class="button -secondary" href="/guide/setup/">Learn more</a>
 
-<p style="margin-top: 3em">![](../../assets/vscode-example.png)</p>
+<img src="../../assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot">
 
 ## Learn to work with the fabric of the web
 
 Start with the fundamentals: HTML and CSS. Then build a static blog.
 And finally, explore two ways to implement a to-do list app: once with plain JavaScript, then reactively.
 
-<LinkButton href="/guide/">Follow the free course</LinkButton>
+<a class="button" href="/guide/">Follow the free course</a>
 
 ## Craft websites with care
 
@@ -51,23 +50,21 @@ and either use the [template repo](https://github.com/mastrojs/template-basic-de
 deno run -A jsr:@mastrojs/mastro@0.1.0/init
 ```
 
-<LinkButton href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</LinkButton>
-<LinkButton href="/guide/server-side-components/" variant="secondary">Guide</LinkButton>
-<LinkButton href="https://jsr.io/@mastrojs/mastro/doc" variant="minimal">API docs</LinkButton>
-<LinkButton href="https://github.com/mastrojs/mastro/tree/main/src#readme" variant="minimal">Explore the source</LinkButton>
+<a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>
+<a class="button -secondary" href="/guide/server-side-components/">Guide</a>
+<a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
+<a class="button -minimal" href="https://github.com/mastrojs/mastro/tree/main/src#readme">Explore the source</a>
 
 
 ## Reactive Mastro – interactivity simplified
 
 The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI library for MPAs.
 
-<LinkButton href="/reactive/">Build interactive user interfaces</LinkButton>
-<LinkButton href="/reactive/why-reactive-mastro/" variant="secondary">Why Reactive Mastro?</LinkButton>
+<a class="button" href="/reactive/">Build interactive user interfaces</a>
+<a class="button -secondary" href="/reactive/why-reactive-mastro/">Why Reactive Mastro?</a>
 
 
 ## Community
 
 Something not working as expected? Would you like to contribute?
 Please open a [GitHub issue](https://github.com/mastrojs/mastro/issues/).
-
-<style>h1 \{text-align: center;\}</style>
