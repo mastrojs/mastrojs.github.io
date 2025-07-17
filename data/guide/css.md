@@ -43,7 +43,7 @@ Most websites have a header at the top, main content in the middle, and a footer
 Wrap your existing content in a `main` element, indenting everything in it by two spaces. Then add the header before, and the footer after:
 
 
-```html title=routes/index.html ins={8-12, 15-22}
+```html title=routes/index.html ins={8-12, 15-24}
 <!doctype html>
 <html>
   <head>
@@ -166,7 +166,9 @@ The `.roman` selects all elements with the class `roman`. The `> li` selects all
 
 We could have also written `.roman li`, which would select _all_ `li` nested anywhere inside the element with the class `roman`. But that can often have unintended side-effects, especially with elements that contains lots of deeply nested children. Thus usually it's better to stick with the direct child combinator `>`.
 
-:::tip[Want to learn more CSS?]
+:::tip
+## Want to learn more CSS?
+
 For a more thorough introduction, see the [MDN guide on CSS](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics).
 
 A few more links I can highly recommend:

@@ -182,7 +182,9 @@ Now click **Generate** again. Then don't forget to [save your changes in the _So
 
 Congratulations to your live blog!
 
-:::tip[How can others write content?]
+:::tip
+## How can others write content?
+
 You may want other people, that don’t know HTML, to contribute content to your website. For a static site, you have basically three options:
 
 - If they’re comfortable with markdown, they can edit the `.md` files directly on GitHub with its built-in [text editor](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files), that has also a basic markdown preview.
