@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "start": "deno serve --watch=. --allow-read --allow-env jsr:@mastrojs/mastro@0.1.2/server",
+    "generate": "deno eval \"import 'mastro/generate';\""
+  },
+  "fmt": {
+    "lineWidth": 100
+  },
+  "imports": {
+    "mastro": "jsr:@mastrojs/mastro@0.1.2",
+    "markdown-it": "https://esm.sh/markdown-it@14.1.0?bundle",
+    "markdown-it-anchor": "https://esm.sh/markdown-it-anchor@9.2.0?bundle",
+    "markdown-it-container": "https://esm.sh/markdown-it-container@4.0.0?bundle",
+    "markdown-it-highlightjs": "https://esm.sh/markdown-it-highlightjs@4.2.0?bundle"
+  }
+}
