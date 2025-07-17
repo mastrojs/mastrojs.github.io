@@ -1,15 +1,19 @@
 ---
-title: "Setup: GitHub and VS Code for Web"
+title: "Setup: GitHub, VS Code and Mastro"
 ---
 
-The Mastro _Visual Studio Code for the Web_ extension lets your run the
-Mastro static site generator (SSG) right in your browser
-– including publishing your website to GitHub Pages for free.
+The Mastro _Visual Studio Code for the Web_ extension lets you run the
+Mastro static site generator (SSG) right in your browser.
+
+No need to install anything or mess around with the command line. Never wait for a slow deployment pipeline again: you'll know immediately if the generation failed for whatever reason.
+
+Since all the processing happens upfront, and the generated files are served from a CDN close to your users, a static site is extremely fast and secure.
+We'll be using GitHub Pages, which hosts your static site for free.
 
 
 ## Create a new _GitHub_ repository
 
-To make your website accessible to the whole internet, you'll need to store and publish it somewhere. We'll be using _GitHub Pages_ for that. If you want, you can buy and [configure a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) later. But by default, GitHub will publish your website for free under:
+If you want, you can buy and [configure a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) later. But by default, GitHub Pages will publish your website for free under:
 
     https://your-user-name.github.io/your-repository-name/
 
@@ -28,9 +32,7 @@ Now that you're on your repository's page on GitHub:
 
 ## Install the _Mastro_ extension
 
-The _Mastro_ static site generator (SSG) is special in that it can also run as a VS Code extension in your browser. That way you don't have to install a runtime like Node.js or Deno on your computer, and you don't have to mess around with the terminal and command line.
-
-Install the following two VS Code extensions. In the _Activity Bar_ on the left, click the _Extensions_ icon (looks like four blocks with one flying away).
+Install the following two VS Code extensions. In the _Activity Bar_ on the left, click the _Extensions_ icon (four blocks, with one flying away).
 
 - Install [Mastro](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension) by searching for `mastro` (it should be the first search result, the one with the picture of a cook) and click _Install_. Click _Trust Publisher & Install_ when prompted.
 - Install [FAST Tagged Template Literals](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates) by searching for `fast-tagged-templates`.
