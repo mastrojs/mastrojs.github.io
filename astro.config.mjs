@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 
 export const guideChapters = [
 	{ label: 'Motivation: Why learn HTML and CSS?', slug: 'guide/why-html-css' },
-	{ label: 'Setup: GitHub and VS Code for the Web', slug: 'guide/setup' },
+	{ label: 'Setup: GitHub and VS Code for Web', slug: 'guide/setup' },
 	{ label: 'Start with HTML', slug: 'guide/html' },
 	{ label: 'Publish your website', slug: 'guide/publish-website' },
 	{ label: 'Style with CSS', slug: 'guide/css' },
@@ -12,7 +12,7 @@ export const guideChapters = [
 	{ label: 'Server-side components', slug: 'guide/server-side-components' },
 	{ label: 'A static blog from markdown files', slug: 'guide/static-blog-from-markdown-files' },
 	{ label: 'Interactivity with JavaScript in the browser', slug: 'guide/interactivity-with-javascript-in-the-browser' },
-	{ label: 'Addendum: about HTTP, forms and REST APIs', slug: 'guide/http-forms-and-rest-apis' },
+	{ label: 'Addendum: HTTP, forms and REST APIs', slug: 'guide/http-forms-and-rest-apis' },
 ]
 
 export const reactiveChapters = [

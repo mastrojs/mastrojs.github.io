@@ -1,5 +1,5 @@
 ---
-title: About HTTP, forms and REST APIs
+title: HTTP, forms and REST APIs
 next: false
 ---
 

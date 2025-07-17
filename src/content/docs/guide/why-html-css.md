@@ -2,7 +2,7 @@
 title: "Motivation: Why learn HTML/CSS?"
 ---
 
-In this chapter, we quickly go over your options when choosing the tool to build your website with, why HTML and CSS are still key, and why we'll be using a _static site generator_ in this guide.
+In this first chapter of the [Mastro guide](/guide/), we quickly go over your options when choosing a tool to build your website with, why HTML and CSS are still key, and why we'll be using a _static site generator_ in this guide.
 
 
 ## You want to build a website?
