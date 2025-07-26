@@ -1,59 +1,53 @@
 ---
-title: Static site generation in your browser
+title: The simplest website generator you’ve ever seen.
 metaTitle: 'Mastro: static site generation in your browser'
 description: Build and publish websites right from your browser.
 layout: hero
 ---
 
-Build and publish your website to GitHub Pages for free – all from within your browser.
+Mastro is a static site generator and web framework built from first principles.
+A simple file-based router, a handful of [composable functions](https://jsr.io/@mastrojs/mastro/doc) to return HTML and standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) objects. No magic, no config.
+Mastro is mostly about what it doesn't have:
+
+- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a framework distilled to its essence.
+- **No bundler**: control exactly what code arrives in the browser.
+- **No client-side JavaScript** by default: create lean websites that load blazingly fast.
+- **No VC-money** followed by eventual enshitification. This forces us to stay lean ourselves.
+- **No hosting offer** to sell you on. Frankly, running a service is not what we're interested in.
+- **No update treadmill**: we use the platform and [almost no dependencies](https://jsr.io/@mastrojs/mastro/dependencies), which allows us to keep things small and low-maintenance.
+
+<p><img src="../../assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot"></p>
+
+
+## Great for beginners
+
+With Mastro, there is very little to learn – except for web standards: HTML, CSS and JavaScript. The widely used VS Code editor also runs in the browser: no need to install anything nor learn the terminal.
 
 <a class="button" href="https://github.dev/mastrojs/template-basic">Launch with GitHub</a>
-<a class="button -secondary" href="/guide/setup/">Learn more</a>
-
-<img src="../../assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot">
-
-## Learn to work with the fabric of the web
-
-Start with the fundamentals: HTML and CSS. Then build a static blog.
-And finally, explore two ways to implement a to-do list app: once with plain JavaScript, then reactively.
-
-<a class="button" href="/guide/">Follow the free course</a>
-
-## Craft websites with care
-
-> A woodworker cares about wood – no cheap plastics.\
-> A cook cares about plants and meat – no fast food.\
-> A "webmastro" cares about HTML and CSS – no bloat.
-
-Most of today’s websites are drowning in a sea of JavaScript.
-Instead of looking after their users, developers are busy
-fighting complex tooling like bundlers, and
-are stuck on a treadmill of ever changing dependencies.
-Mastro is here to show a different path.
-If you care about the web, spread the word!
+<a class="button -secondary" href="/guide/setup/">Guide</a>
 
 
-## Web framework that grows with you
+## Great for experienced developers
 
-Mastro is not just a static site generator. It's a *m*inimal *Astro*-like framework from first principles.
+I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
 
-- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript,
-  Mastro is a framework distilled to its essence, loading fast even within VS Code or the edge. If you ever outgrow it, simply fork and adjust it.
-- **No bundler** and full control over your HTML, CSS and JS. Mastro gives you composable functions,
-instead of complex tooling that messes with your code before it reaches the browser.
-- **No client-side JavaScript** by default: create lean websites that load blazingly fast.
+Mastro offers you a clean slate to build on. [Install Deno](https://docs.deno.com/runtime/getting_started/installation/), and either use the [template repo](https://github.com/mastrojs/template-basic-deno) or run:
 
-Give it a try! To start a new project, [install Deno](https://docs.deno.com/runtime/getting_started/installation/)
-and either use the [template repo](https://github.com/mastrojs/template-basic-deno) or run:
-
-```
-deno run -A jsr:@mastrojs/mastro@0.1.0/init
+``` title=Terminal
+deno run -A jsr:@mastrojs/mastro@0.1.2/init
 ```
 
 <a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>
-<a class="button -secondary" href="/guide/server-side-components/">Guide</a>
-<a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
-<a class="button -minimal" href="https://github.com/mastrojs/mastro/tree/main/src#readme">Explore the source</a>
+<a class="button -secondary" href="/guide/server-side-components/">Jump into the guide</a>
+
+
+## Learn to work with the fabric of the web
+
+While there are [API docs](https://jsr.io/@mastrojs/mastro/doc), one of the best ways to learn Mastro is with the guide.
+
+Start with the fundamentals: HTML and CSS. Or skip ahead to building a static blog. Finally, the guide explores two ways to implement a to-do list app: once with plain JavaScript, then reactively.
+
+<a class="button" href="/guide/">Follow the free course</a>
 
 
 ## Reactive Mastro – interactivity simplified
