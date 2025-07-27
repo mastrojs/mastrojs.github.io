@@ -1,15 +1,20 @@
 ---
-title: Server-side components
+title: Server-side components and page handlers
 ---
 
-Now that you know the basics of JavaScript, let's create a second page for the website with a single `index.html` file that you created in the previous [chapter about HTML](/guide/html/).
+Now that you know the basics of JavaScript, let's create a second page for your website. We'll be using a bit of server-side JavaScript and the minimal Mastro framework.
 
-While you _could_ add the same `<header>` and `<footer>` tags in a second HTML file, the more pages you add, the more tedious this approach becomes. And when you modify the header or footer in one file, it's easy to forget changing all other files. The solution is to move the header and footer to their own reusable _components_, and include those where you need them. For this, you'll use a bit of server-side JavaScript.
+Usually, you'll want all pages of the website to have the same header and footer. While you _could_ add the same `<header>` and `<footer>` tags in every file for every page, this approach becomes more tedious the more pages you add. And when you would modify the header or footer in one file, it's easy to forget to change all the other files. The solution is to move the header and footer to their own reusable _components_, and include those where you need them.
+
+If you've been following the guide, you will already have a single `routes/index.html` file with `<header>`, `<main>` and `<footer>` elements, which we'll move to new locations. If not, you can simply create things as we go along. But make sure you've either:
+
+- set up GitHub and VS Code in your browser, as described in the [beginning of this guide](/guide/setup/) (recommended if you're not familiar with the command line), or
+- [started a new project with Deno](/#great-for-experienced-developers) on the command line.
 
 
 ## Components
 
-1. [Create a new folder](/guide/html/#your-first-website) `components` in the root of your project (i.e. not inside, but on the same level as the `routes` folder).
+1. If it doesn't exist yet, [create](/guide/html/#your-first-website) a new folder named `components` in the root of your project (i.e. not inside, but on the same level as the `routes` folder).
 
 2. Move the `<header>` and its contents to a new file `components/Header.js` and wrap it in a bit of JavaScript:
 
@@ -57,7 +62,7 @@ Now, to `import` the two functions we just created, you first need to convert th
 
 All files in the `routes/` folder are sent out unmodified to your website's visitors – except for JavaScript files ending in `.server.js` or `.server.ts`. The code in these files is run and the result is sent to your website's visitors.
 
-Rename the `routes/index.html` file to `routes/index.server.js` and change its contents to:
+Rename the `routes/index.html` file to `routes/index.server.js` (or create it if you don't have one yet) and make its contents:
 
 ```js title=routes/index.server.js ins={1-7,14,21,24-25}
 import { html, htmlToResponse } from "mastro";

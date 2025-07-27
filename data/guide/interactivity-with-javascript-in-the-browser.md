@@ -45,7 +45,7 @@ But that's not an option for a statically generated website. And for certain sor
 </script>
 ```
 
-Check out the minimalistic to-do list in the Mastro preview pane by navigating to `/todo-list` and add a few to-dos.
+Check out the minimalistic to-do list in the Mastro preview pane by navigating to `/todo-list/` and add a few to-dos.
 
 In HTML5, the `head` and `body` tags can be omitted and will be created by the browser. Check it out in the elements inspector in your browser's dev tools!
 

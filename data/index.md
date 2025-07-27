@@ -12,8 +12,8 @@ Mastro is mostly about what it doesn't have:
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a framework distilled to its essence.
 - **No bundler**: control exactly what code arrives in the browser.
 - **No client-side JavaScript** by default: create lean websites that load blazingly fast.
-- **No VC-money** followed by eventual enshitification. This forces us to stay lean ourselves.
-- **No hosting offer** to sell you on. Frankly, running a service is not what we're interested in.
+- **No VC-money**: this forces us to stay lean ourselves, and prevents eventual enshitification.
+- **No hosting offer** to sell you on: frankly, running a service is not what we're interested in.
 - **No update treadmill**: we use the platform and [almost no dependencies](https://jsr.io/@mastrojs/mastro/dependencies), which allows us to keep things small and low-maintenance.
 
 <p><img src="../../assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot"></p>
@@ -21,10 +21,10 @@ Mastro is mostly about what it doesn't have:
 
 ## Great for beginners
 
-With Mastro, there is very little to learn – except for web standards: HTML, CSS and JavaScript. The widely used VS Code editor also runs in the browser: no need to install anything nor learn the terminal.
+With Mastro, there is very little to learn – except for web standards: HTML, CSS and JavaScript. Use the popular VS Code editor, which also runs in the browser: no need to install anything nor learn the terminal.
 
 <a class="button" href="https://github.dev/mastrojs/template-basic">Launch with GitHub</a>
-<a class="button -secondary" href="/guide/setup/">Guide</a>
+<a class="button -secondary" href="/guide/setup/">Guide: Setup</a>
 
 
 ## Great for experienced developers
@@ -38,14 +38,15 @@ deno run -A jsr:@mastrojs/mastro@0.1.2/init
 ```
 
 <a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>
-<a class="button -secondary" href="/guide/server-side-components/">Jump into the guide</a>
+<a class="button -secondary" href="/guide/server-side-components/">Guide: Mastro</a>
+<a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
 
 
 ## Learn to work with the fabric of the web
 
-While there are [API docs](https://jsr.io/@mastrojs/mastro/doc), one of the best ways to learn Mastro is with the guide.
+Start with the fundamentals: HTML and CSS. Then build a static blog. Finally, explore two ways of implementing a to-do list app: once with plain JavaScript, then reactively.
 
-Start with the fundamentals: HTML and CSS. Or skip ahead to building a static blog. Finally, the guide explores two ways to implement a to-do list app: once with plain JavaScript, then reactively.
+While the guide uses Mastro, the patterns discussed are universal to web development.
 
 <a class="button" href="/guide/">Follow the free course</a>
 
