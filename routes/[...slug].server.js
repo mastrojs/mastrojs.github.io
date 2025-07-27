@@ -67,7 +67,8 @@ const sidebar = [{
     { label: "Server-side components", slug: "/guide/server-side-components/" },
     { label: "A static blog from markdown files", slug: "/guide/static-blog-from-markdown-files/" },
     { label: "Interactivity with JavaScript in the browser", slug: "/guide/interactivity-with-javascript-in-the-browser/" },
-    { label: "Addendum: HTTP, forms and REST APIs", slug: "/guide/http-forms-and-rest-apis/" },
+    { label: "URLs, HTTP and servers", slug: "/guide/urls-http-servers/" },
+    { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
   ],
 }, {
   label: "Reactive",

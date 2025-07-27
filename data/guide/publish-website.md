@@ -8,6 +8,11 @@ To publish your website to the internet, we need to:
 2. Generate the static site (this creates a new `docs/` folder with all the public files)
 3. Save changes to GitHub
 
+:::tip
+## Alternative option: CI/CD pipeline
+If you want to set up a CI/CD pipeline, instead of commiting the output folder, see the docs on [using Deno on the command line](https://github.com/mastrojs/mastro#server-or-ssg-with-deno-on-the-command-line).
+:::
+
 ## One-time setup
 
 Configure [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch) to make the `docs/` folder of your repository accessible as a website:

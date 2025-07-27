@@ -3,71 +3,14 @@ title: HTTP, forms and REST APIs
 next: false
 ---
 
-During this whole guide so far, you've been using Mastro as a static site generator: when you hit the "Generate" button, it creates the html files, which GitHub Pages exposes to the web somehow. But how? What actually happens when you hit enter in your web browser after typing in some URL like `https://mastrojs.github.io/guide/`?
-
-Broadly speaking, your browser makes a request to a server, and that server sends back the HTML. A server is ultimately a computer that usually sits in a data center, and is running a program that answers these requests. Confusingly, that program is also called a server.
+In the previous chapter, you learned how loading a web page into the browser (also known as the client) involves making a request to a server over the HTTP protocol. The server then sends back a HTTP response containing the HTML. In this chapter, you'll get some hands-on time, as you'll be using Mastro as a server web framework instead of as a static site generator.
 
 
-## Anatomy of a URL
+## Setup a local server
 
-Let's take a closer look at the above URL. It consists of three parts:
+Start your own server and run it locally. _Local_ means on your laptop (or desktop), as opposed to in some data center:
 
-1. `https` (known as the _scheme_) tells us that we will use the HTTP protocol to talk to the server (actually HTTPS – HTTP but securely encrypted).
-2. `mastrojs.github.io` is the _host_ part of the URL: it identifies which server on the internet to send the request to. It consists of three parts in turn:
-    - `.io` is the top-level domain (the most famous TLD is `.com`)
-    - `github.io` is known as the domain
-    - `mastrojs` is the subdomain (the most common subdomain is `www`)
-3. `/guide/` is the _path_ – it tells the server which page we'd like to see.
-
-Actually, there can be a few more things in a [URL](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL):
-
-![full URL](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL/mdn-url-all.png)
-
-We'll get to the _port_ and the _parameters_ later. The _anchor_ is the only part of the URL that's not sent to the server, it merely allows the browser to scroll directly to the element with the `id` specified in the anchor (sometimes also known as a hash). You can see it in action when clicking a link in the table of contents of a larger Wikipedia article, for example.
-
-
-## An HTTP request and response
-
-Now, to actually send a message over the internet to that specific server, the browser needs to know the server's IP address, which is a long number that's hard for humans to remember. To find it, the browser does a lookup in the so-called Domain Name System (DNS). If you want your website to be availlable under a custom domain (instead of a subdomain of github.io), you need to pay a registrar, like Hover, to register it in the Domain Name System. (I wouldn't recomend GoDaddy, which features some dark UI patterns.)
-
-The HTTP request that your browser (aka the client) sends to the server when you hit enter might look something like this:
-
-```http
-GET /guide/ HTTP/1.1
-Host: mastrojs.github.io
-User-Agent: Mozilla/5.0 (Mac OS X 10.15) Firefox/139.0
-Accept: text/html
-Accept-Language: en-GB
-```
-
-It's a HTTP `GET` request for the `/guide/` page, using version `1.1` of the `HTTP` protocol. The `Host` HTTP header field mentions the server's hostname, the `User-Agent` header identifies the browser making the request: in this case Mozilla Firefox on Mac OS X. The last two headers let the server know that we'd like the response to be HTML, and preferably in English as spoken in Great Britain.
-
-If all goes well, the server answers with an HTTP response. It starts with the response headers, followed by an empty empty line, followed by the response body containing the HTML. Thus it might start as follows:
-
-```http
-HTTP/1.1 200 OK
-content-type: text/html
-last-modified: Mon, 23 Jun 2025 13:07:45 GMT
-content-length: 6172
-
-<!doctype html>
-<html lang="en">
-```
-
-Notice the `200 OK` on the first line? `200` is the HTTP response status code for "OK" – meaning the server understood the request and managed to send a response. Apart from success, [status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) fall into three classes:
-
-- `3xx` (like `301` or `303`) are [redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/guide/Redirections).
-- `4xx` means something went wrong and the server thinks it's the client's fault. The most common one is `404 Not Found`, which means the server does not have the page which the client requested.
-- `5xx` means the server ran into some kind of problem when trying to answer. Perhaps it was overloaded or crashed due to a programming error.
-
-As you can see, loading an actual website over the internet is way more complex than opening a static HTML file stored on your laptop's harddisk. It's a dynamic process, involving a sort of negotiation between the client (usually the browser) and the server, and can lead to different results depending on the systems currently online and how they're configured.
-
-
-## Setup for your local server
-
-To get some hands-on time, start your own server and run it locally (meaning on your laptop):
-
-1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you first need to install [WSL](https://learn.microsoft.com/en-us/windows/wsl/).
+1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you probably want to [install WSL](https://learn.microsoft.com/en-us/windows/wsl/) first.
 
 2.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) – a JavaScript runtime similar to Node.js. The easiest way is by copy-pasting the following into your terminal:
 
@@ -85,7 +28,7 @@ To get some hands-on time, start your own server and run it locally (meaning on 
 
         deno run -A jsr:@mastrojs/mastro@0.1.0/init
 
-    and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter e.g. `test-server` and hit enter (Folder names with spaces are a bit of a pain on the command-line).
+    and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter for example `test-server` and hit enter (folder names with spaces are a bit of a pain on the command-line).
 
 5.  Then it will tell you to `cd test-server`, and from there you can enter:
 
@@ -101,12 +44,12 @@ Check out the contents of the generated folder. It's a bare-bones Mastro project
 - the `deno.lock` file, which remembers exactly which version of each package was used, and
 - the file in the `routes/` folder is now called `index.server.ts` instead of `index.server.js`, because it's [TypeScript](https://www.typescriptlang.org/) – JavaScript with potential type annotations. This allows `deno check` to find certain problems in your code even without running it.
 
-To edit the files in the `test-server` folder, you'll want to [install Visual Studio Code](https://code.visualstudio.com/) on your computer.
+To edit the files in the newly created folder, you'll want to [install Visual Studio Code](https://code.visualstudio.com/) on your computer (or a similar code editor) and open that folder in it.
 
 
 ## An HTML form
 
-Clicking a link on a web page causes the browser to make a HTTP `GET` request to the URL specified in the link's `src` attribute and render the response. But did you know there was another way to do that? It's actually the default behaviour of HTML forms. Try it:
+Clicking a link on a web page causes the browser to make a HTTP `GET` request to the URL specified in the link's `src` attribute and render the response. But did you know there was another way to cause the browser to make a `GET` request? It's actually the default behaviour of HTML forms. Try it:
 
 ```ts title=routes/index.server.ts ins={9-12}
 import { html, htmlToResponse } from "mastro";
@@ -233,7 +176,7 @@ If our server receives a `name`, we redirect the user back to the `GET` version 
 
 If our server does not receive a `name`, we display an error page. Note that modern browsers support [`<input required>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required) for more immediate feedback. But we can never trust the client to do input validation. A user might have an outdated browser that ignores the `required` attribute, or they could just write a few lines of code to manually send us an HTTP request with invalid data. Thus we must always validate incoming data on the server before using it (e.g. before saving it to a database). For simple data, a few if/else statements usually suffice, while for complex JSON data, this is usually done with a [schema library](https://standardschema.dev#what-schema-libraries-implement-the-spec).
 
-Note that both `Response.redirect` and `htmlToResponse` create a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. In fact, `htmlToResponse(body)` is little more than:
+Note that both `Response.redirect` and `htmlToResponse` create a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. In fact, [`htmlToResponse(body)`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse) is little more than:
 
 ```ts
 new Response(body, { headers: { "Content-Type": "text/html" } })
@@ -246,7 +189,7 @@ As you've just seen, plain old HTML forms can get you a long way – all withou
 
 We start with the [initial reactive to-do list app](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) and move the script to its own file: `routes/todo-list.client.ts`. This time, instead of saving the to-dos in `localStorage`, we want to save them to a (mock) database on the server. To make HTTP requests to the server without doing a full page reload, we use the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function.
 
-It's a handful of files, so best if you check them out [on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server), or [download the mastro repo as a zip](https://github.com/mastrojs/mastro/archive/refs/heads/main.zip) and open the `examples/todo-list-server/` folder in VS Code.
+It's a handful of files, so best if you check them out [on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server). Or even better: [download the mastro repo as a zip](https://github.com/mastrojs/mastro/archive/refs/heads/main.zip) and open the `examples/todo-list-server/` folder in VS Code. In the terminal, you can `cd mastro/examples/todo-list-server/` and then `deno task start`.
 
 The folder structure looks as follows:
 
@@ -281,4 +224,4 @@ In our sample todo app, we load the existing todos not through the REST API, but
 
 In our todo app, we optimistically update the GUI before we know whether the update reached the server. This provides for a snappy user experience. However, if the request fails, we roll back the GUI to the state before. To see that behaviour in action, load the page in your browser, then in the terminal stop your server with `Ctrl-C`, then submit a new todo in the browser. You should see the GUI quickly flashing back to the original state. However, currently we don't display any error message, which is not optimal.
 
-This highlights a common pitfall when developing richt client-side apps (usually SPAs): loading states (e.g. to display a loading spinner), error handling and timeouts need to be explicitly handled in your JavaScript. This gives you more control, but also more ways to screw up. On the other hand, the browser gives you all of this for free when you develop a multi-page app (even with forms) – through a GUI which that browser's users will be familiar with.
+This highlights a common pitfall when developing rich client-side apps (usually SPAs): loading states (e.g. to display a loading spinner), error handling and timeouts need to be explicitly handled in your JavaScript. This gives you more control, but also more ways to screw up. On the other hand, the browser gives you all of this for free when you develop a multi-page app (even with forms) – through a GUI which that browser's users will be familiar with.

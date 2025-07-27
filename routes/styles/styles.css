@@ -53,6 +53,9 @@ ol, ul {
     padding-left: 0;
   }
 }
+li > ol, li > ul {
+  padding-left:1.5em
+}
 
 img {
   max-width: 100%;
@@ -289,6 +292,9 @@ main.hero {
   a {
     color: var(--color-main);
     text-decoration: none;
+    line-height: 1.25;
+    display: inline-block;
+    padding-bottom: 0.5em;
   }
   [aria-current=page] {
     font-weight: bold;

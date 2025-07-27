@@ -177,6 +177,11 @@ A few more links I can highly recommend:
 - Once you are comfortable with the basics, you'll want to read the article [Things I wish I’d known about CSS](https://davesmyth.com/things-i-wish-id-known-about-css).
 - Bookmark the CSS-Tricks guides for [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [grid](https://css-tricks.com/snippets/css/complete-guide-grid/).
 - Learn about _design tokens_ in the video [What are Design Tokens](https://www.youtube.com/watch?v=wtTstdiBuUk). Start by defining your design tokens for fonts and colors as [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), and use [color-mix](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to change the brightness or transparency of colors where needed.
+- If you don't need to support older versions of Safari, you can use many new CSS features that make your life easier:
+  - [CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting) instead of SASS/SCSS
+  - [@scope rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope) instead of CSS Modules
+  - [Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries): like media query but asks a container element's size
+  - [:has() pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has), which is a sort of parent selector
 - There are many methodologies to structure your CSS (like BEM or rscss), and tools to generate CSS (ranging from the relatively simple like SCSS or CSS modules, to the complex like Tailwind). However, for a convincing argument in favour of simply sticking with global CSS, I highly recommend [this article](https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/).
 
 And once you're ready to ponder the nature of the medium web:

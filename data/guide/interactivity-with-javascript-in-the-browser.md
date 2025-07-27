@@ -45,7 +45,7 @@ But that's not an option for a statically generated website. And for certain sor
 </script>
 ```
 
-Check out the minimalistic to-do list in the Mastro preview pane by navigating to `/todo-list` and add a few to-dos.
+Check out the minimalistic to-do list in the Mastro preview pane by navigating to `/todo-list/` and add a few to-dos.
 
 In HTML5, the `head` and `body` tags can be omitted and will be created by the browser. Check it out in the elements inspector in your browser's dev tools!
 
@@ -357,4 +357,6 @@ The most durable place would probably be a server with a database, but that woul
     todos = localSignal([]);
 ```
 
-This is the final chapter of the Mastro Guide to static site generation. However, you can continue with the [Reactive Mastro docs](/reactive/), or continue to the addendum about servers, URLs, HTTP, HTML forms, and REST APIs.
+This concludes the last chapter of the Mastro Guide about static site generation.
+
+However, you can continue with the [Reactive Mastro docs](/reactive/), or continue this guide and learn about URLs, HTTP and servers, as well as how to use Mastro to run a server and build HTML forms, and REST APIs.
