@@ -1,5 +1,6 @@
 import { Layout } from "../components/Layout.js";
 import { Sidebar } from "../components/Sidebar.js";
+import { Toc } from "../components/Toc.js";
 import { html, htmlToResponse, readMarkdownFileInFolder } from "mastro";
 import { mdToHtml } from "../helpers/markdown.js";
 
@@ -21,17 +22,11 @@ export const GET = async (req) => {
 
         <main ${meta.layout ? `class=${meta.layout}` : ""}>
           <h1>${meta.title}</h1>
+
           ${content}
+
           ${contents && index === -1
-            ? html`
-              <ol>
-                ${contents.map((ch) =>
-                  html`
-                    <li><a href="${ch.slug}">${ch.label}</a></li>
-                  `
-                )}
-              </ol>
-            `
+            ? Toc({ contents })
             : ""}
         </main>
 
