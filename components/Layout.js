@@ -50,7 +50,8 @@ export const Layout = (props) =>
         <script>
         document.querySelectorAll("figure > pre + button").forEach(btn =>
           btn.addEventListener("click", e => {
-            navigator.clipboard.writeText(e.target.previousElementSibling.textContent);
+            const text = e.target.dataset.text || e.target.previousElementSibling.textContent;
+            navigator.clipboard.writeText(text);
             const copied = e.target.querySelector("span");
             if (copied) {
               copied.style.display = "block";

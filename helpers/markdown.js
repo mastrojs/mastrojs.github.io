@@ -30,24 +30,24 @@ const defaultRender = md.renderer.rules.fence;
 md.use((md) => {
   // see https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
-    const { info } = tokens[idx];
-    const { title, ranges } = parseInfo(info);
-    const htmlStr = defaultRender(tokens, idx, options, env, self);
-    const figcaption = title ? `<figcaption>${title}</figcaption>` : "";
-    const pre = ranges && htmlStr.startsWith("<pre>")
+    const { title, ranges } = parseInfo(tokens[idx].info);
+    const pre = ranges
       ? `<pre>${ranges.map((range) =>
           `<span class="insOrDel -${range.insOrDel}" style="top: ${range.from - 0.5}lh; height: ${
             range.to - range.from + 1
-          }lh;"></span>`
-        ).join("")
-        }${htmlStr.slice(5)}`
-      : htmlStr;
-    return `<figure>${figcaption}${pre}${copyBtn}</figure>`;
+          }lh;"></span>`).join("")
+        }${renderCode(ranges, tokens, idx, options, env, self)}`
+      : defaultRender(tokens, idx, options, env, self) + copyBtn();
+
+    const figcaption = title ? `<figcaption>${title}</figcaption>` : "";
+    return `<figure>${figcaption}${pre}</figure>`;
   };
 });
 
-const copyBtn = '<button title="Copy to clipboard">⧉' +
-  '<span style="display:none">Copied!</span></button>';
+const copyBtn = (text) =>
+  `<button title="Copy to clipboard"${
+    text ? ` data-text="${escapeForAttribute(text)}"` : ""
+    }>⧉<span style="display:none">Copied!</span></button>`;
 const titleRegex = /title=([^ ]+)/;
 const insDelRegex = /(ins|del)={[^=]+}/g;
 
@@ -64,3 +64,46 @@ const parseInfo = (info) => {
   });
   return { title, ranges };
 };
+
+/**
+ * Render code block considering deletion markers
+ */
+const renderCode = (ranges, tokens, idx, options, env, self) => {
+  const lines = tokens[idx].content.split("\n");
+  const copyLines = [...lines];
+  const deletions = ranges.filter((range) => range.insOrDel === "del");
+  const dels = deletions.flatMap((range) => {
+    const arr = [];
+    for (let i = range.from - 1; i < range.to; i++) {
+      arr.push({ i, line: lines[i] });
+      // erase line marked with del:
+      lines[i] = "";
+      copyLines.splice(i, 1);
+    }
+    return arr;
+  });
+  tokens[idx].content = lines.join("\n");
+
+  // syntax highlight things
+  const htmlStr = defaultRender(tokens, idx, options, env, self);
+
+  const htmlLines = htmlStr.slice(5).split("\n");
+  for (const del of dels) {
+    const matches = htmlLines[del.i]?.match(/^<code[^>]*>/);
+    const lostPrefix = matches?.[0] || "";
+    // patch deleted line back in:
+    htmlLines[del.i] = lostPrefix + escapeForHtml(del.line);
+  }
+  htmlLines.push(copyBtn(deletions.length > 0 ? copyLines.join("\n") : undefined));
+  return htmlLines.join("\n");
+}
+
+const escapeForHtml = (st) =>
+  st.replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+
+const escapeForAttribute = (str) =>
+  escapeForHtml(str)
+    .replaceAll("'", "&#39;")
+    .replaceAll('"', "&quot;");
