@@ -1,9 +1,26 @@
 :root {
+  color-scheme: light dark;
 	--color-accent: rgb(32, 32, 215);
+  --color-code-bg: #f6f6f6;
+  --color-code-ins: rgba(142, 199, 125, 0.6);
+  --color-code-del: rgba(255, 156, 142, 0.6);
+  --color-bg: white;
   --color-main: hsl(224, 10%, 10%);
   --color-tip: rgb(102, 8, 145);
+  --color-tip-bg: rgb(237, 209, 250);
   --font-size-code: 0.8rem;
   --width-nav: 25vw;
+
+  @media (prefers-color-scheme: dark) {
+    --color-accent: rgb(155, 155, 254);
+    --color-code-bg: rgb(35, 38, 47);
+    --color-code-ins: rgba(30, 87, 21, 0.6);
+    --color-code-del: rgba(134, 45, 39, 0.6);
+    --color-bg: rgb(23, 24, 28);
+    --color-main: white;
+    --color-tip: rgb(235, 204, 250);
+    --color-tip-bg: rgb(64, 34, 78);
+  }
 }
 
 html {
@@ -12,6 +29,7 @@ html {
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 20px;
   color: var(--color-main);
+  background-color: var(--color-bg);
   line-height: 1.75;
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
@@ -62,10 +80,8 @@ img {
   height: auto;
 }
 
-blockquote {
-  border-left: 1px solid lightgray;
-  padding-left: 1em;
-  margin-left: 0;
+a {
+  color: var(--color-accent);
 }
 
 button, a.button {
@@ -81,7 +97,7 @@ button, a.button {
   font-family: inherit;
   font-size: inherit;
   font-weight: 500;
-  color: white;
+  color: light-dark(white, black);
   text-decoration: none;
   text-align: center;
   &.-secondary {
@@ -104,12 +120,12 @@ p > a.button {
 code {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: var(--font-size-code);
-  background-color: #f6f6f6;
+  background-color: var(--color-code-bg);
   padding: 0.2em 0.4em;
 }
 pre {
   max-width: 100%;
-  background-color: #f6f6f6;
+  background-color: var(--color-code-bg);
   font-size: var(--font-size-code);
   margin-top: 0;
   position: relative;
@@ -121,10 +137,10 @@ pre {
     height: 1lh;
     width: 100%;
     &.-ins {
-      background-color: rgba(142, 199, 125, 0.6);
+      background-color: var(--color-code-ins);
     }
     &.-del {
-      background-color: rgba(255, 156, 142, 0.6);
+      background-color: var(--color-code-del);
     }
   }
 }
@@ -150,12 +166,12 @@ figure:has(> pre) {
     font-size: 1.5em;
     padding: 0.3em 1em;
     margin: 0;
-    color: #333333;
+    color: color-mix(in srgb, var(--color-main), transparent 50%);
     &:hover {
-      color: grey;
+      color: var(--color-main);
     }
     > span {
-      color: #333333;
+      color: var(--color-main);
       font-size: var(--font-size-code);
       position: absolute;
       right: 4em;
@@ -166,7 +182,7 @@ figure:has(> pre) {
 figure:has(> figcaption + pre) {
   > figcaption {
     display: inline;
-    background-color: #f6f6f6;
+    background-color: var(--color-code-bg);
     padding: 0.5em 1em;
     font-size: 0.9rem;
     border-top: 1px solid grey;
@@ -321,7 +337,7 @@ main.hero {
 
 .tip {
   color: var(--color-tip);
-  background-color: rgb(237, 209, 250);
+  background-color: var(--color-tip-bg);
   padding: 0.5em 1.5em;
   > h2 {
     font-size: 1.2em;
