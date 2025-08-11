@@ -50,9 +50,9 @@ export const Layout = (props) =>
         <script>
         document.querySelectorAll("figure > pre + button").forEach(btn =>
           btn.addEventListener("click", e => {
-            const text = e.target.dataset.text || e.target.previousElementSibling.textContent;
+            const text = e.target.dataset.text || e.target.previousElementSibling.textContent.trimEnd();
             navigator.clipboard.writeText(text);
-            const copied = e.target.querySelector("span");
+            const copied = e.target.parentElement.querySelector(".copied");
             if (copied) {
               copied.style.display = "block";
               setTimeout(() => copied.style.display = "none", 2000);

@@ -47,7 +47,7 @@ md.use((md) => {
 const copyBtn = (text) =>
   `<button title="Copy to clipboard"${
     text ? ` data-text="${escapeForAttribute(text)}"` : ""
-    }>⧉<span style="display:none">Copied!</span></button>`;
+    }>⧉</button><div class="copied">Copied!</div>`;
 const titleRegex = /title=([^ ]+)/;
 const insDelRegex = /(ins|del)={[^=]+}/g;
 

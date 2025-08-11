@@ -157,26 +157,32 @@ figure {
 figure:has(> pre) {
   position: relative;
   > button {
+    display: none;
     position: absolute;
     z-index: 5;
     top: 0;
     right: 0;
-    background: transparent;
-    border: none;
+    background: var(--color-code-bg);
+    border: 1px solid color-mix(in srgb, var(--color-main), transparent 70%);
+    border-radius: 5px;
     font-size: 1.5em;
-    padding: 0.3em 1em;
-    margin: 0;
+    padding: 0.075em 0.3em;
+    margin: 0.25em;
     color: color-mix(in srgb, var(--color-main), transparent 50%);
     &:hover {
-      color: var(--color-main);
+      background-color: color-mix(in srgb, var(--color-code-bg), var(--color-main) 10%);
     }
-    > span {
+    + .copied {
+      display: none;
       color: var(--color-main);
       font-size: var(--font-size-code);
       position: absolute;
       right: 4em;
-      top: 1.1em;
+      top: 3em;
     }
+  }
+  &:hover > button {
+    display: block;
   }
 }
 figure:has(> figcaption + pre) {
