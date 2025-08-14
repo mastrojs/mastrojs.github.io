@@ -1,5 +1,5 @@
 ---
-title: Server-side components and page handlers
+title: Mastro server-side compo­nents and page handlers
 ---
 
 Now that you know the basics of JavaScript, let's create a second page for your website. We'll be using a bit of server-side JavaScript and the minimal Mastro framework.

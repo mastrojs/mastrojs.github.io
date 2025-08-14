@@ -43,7 +43,7 @@ deno run -A jsr:@mastrojs/mastro@0.1.2/init
 
 ## Fast for everyone
 
-Mastro websites not only load fast, they are also generated quickly.
+Mastro websites not only [load fast](https://pagespeed.web.dev/analysis/https-mastrojs-github-io/3n7m0iioqk?form_factor=mobile), they are also generated quickly.
 To [process 500 markdown files](https://github.com/mb21/bench-framework-markdown/commit/87e5713b01d298394f866ec3cb86da46db910ada):
 
   |          |       |   |
@@ -59,7 +59,7 @@ Start with the fundamentals: HTML and CSS. Then build a static blog. Finally, ex
 
 While the guide uses Mastro, the patterns discussed are universal to web development.
 
-<a class="button" href="/guide/">Follow the free course</a>
+<a class="button" href="/guide/">Follow the guide</a>
 
 
 ## Reactive Mastro – interactivity simplified

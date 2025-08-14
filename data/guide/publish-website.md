@@ -1,5 +1,5 @@
 ---
-title: Publish your website
+title: Publish your static website
 ---
 
 To publish your website to the internet, we need to:
