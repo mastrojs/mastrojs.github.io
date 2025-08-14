@@ -122,6 +122,7 @@ code {
   font-size: var(--font-size-code);
   background-color: var(--color-code-bg);
   padding: 0.2em 0.4em;
+  hyphens: manual;
 }
 pre {
   max-width: 100%;
@@ -338,6 +339,10 @@ main.hero {
   &:hover::after {
     content: " #";
     color: var(--color-accent);
+    @media (min-width: 1000px) {
+      position: absolute;
+      padding-left: 0.25em;
+    }
   }
 }
 
@@ -355,4 +360,8 @@ main.hero {
   ol, ul {
     padding-left: 1.2em;
   }
+}
+
+@view-transition {
+  navigation: auto;
 }
