@@ -1,5 +1,5 @@
 ---
-title: Server-side components and page handlers
+title: Mastro server-side compo­nents and page handlers
 ---
 
 Now that you know the basics of JavaScript, let's create a second page for your website. We'll be using a bit of server-side JavaScript and the minimal Mastro framework.
@@ -61,6 +61,20 @@ Now, to `import` the two functions we just created, you first need to convert th
 ## Page handlers
 
 All files in the `routes/` folder are sent out unmodified to your website's visitors – except for JavaScript files ending in `.server.js` or `.server.ts`. The code in these files is run and the result is sent to your website's visitors.
+
+:::tip
+## Trailing slashes
+
+Different hosting providers and site generators often serve the same file under [slightly different urls](https://github.com/slorber/trailing-slash-guide/#trailing-slash-guide). This is how it works in Mastro:
+
+| File                            | Url          |
+|:--------------------------------|:-------------|
+| `routes/file.html`              | `/file.html` |
+| `routes/folder/index.html`      | `/folder/`   |
+| `routes/file.server.js`         | `/file/`     |
+| `routes/folder/index.server.js` | `/folder/`   |
+
+:::
 
 Rename the `routes/index.html` file to `routes/index.server.js` (or create it if you don't have one yet) and make its contents:
 

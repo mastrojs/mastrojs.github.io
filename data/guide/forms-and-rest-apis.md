@@ -1,51 +1,9 @@
 ---
-title: HTTP, forms and REST APIs
+title: Forms and REST APIs
 next: false
 ---
 
-In the previous chapter, you learned how loading a web page into the browser (also known as the client) involves making a request to a server over the HTTP protocol. The server then sends back a HTTP response containing the HTML. In this chapter, you'll get some hands-on time, as you'll be using Mastro as a server web framework instead of as a static site generator.
-
-
-## Setup a local server
-
-Start your own server and run it locally. _Local_ means on your laptop (or desktop), as opposed to in some data center:
-
-1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you probably want to [install WSL](https://learn.microsoft.com/en-us/windows/wsl/) first.
-
-2.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) – a JavaScript runtime similar to Node.js. The easiest way is by copy-pasting the following into your terminal:
-
-        curl -fsSL https://deno.land/install.sh | sh
-
-    and hit enter.
-
-3.  [Navigate to the folder](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#navigation_on_the_command_line) where you want to create your new project folder in, for example type:
-
-        cd Desktop
-
-    and hit enter.
-
-4.  Then type (or copy-paste):
-
-        deno run -A jsr:@mastrojs/mastro@0.1.0/init
-
-    and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter for example `test-server` and hit enter (folder names with spaces are a bit of a pain on the command-line).
-
-5.  Then it will tell you to `cd test-server`, and from there you can enter:
-
-        deno task start
-
-    This will start your server! You can see the dummy page it's serving by opening the following URL in your web browser: http://localhost:8000 (The `8000` is the _port_. If you'd want to run multiple web servers on the same machine, each would need to use a different port.)
-
-    To stop the server again, switch back to the terminal and press `Ctrl-C` on your keyboard.
-
-Check out the contents of the generated folder. It's a bare-bones Mastro project, but now:
-
-- with a `deno.json` file, which specifies the Mastro version to use, and what happens if you type `deno task start` or `deno task generate`,
-- the `deno.lock` file, which remembers exactly which version of each package was used, and
-- the file in the `routes/` folder is now called `index.server.ts` instead of `index.server.js`, because it's [TypeScript](https://www.typescriptlang.org/) – JavaScript with potential type annotations. This allows `deno check` to find certain problems in your code even without running it.
-
-To edit the files in the newly created folder, you'll want to [install Visual Studio Code](https://code.visualstudio.com/) on your computer (or a similar code editor) and open that folder in it.
-
+Now that you have a local server set up, let's see what we can do with it.
 
 ## An HTML form
 
@@ -74,7 +32,7 @@ When you enter `hello world` in the text input and submit the form, the browser 
 
 Putting all the form's `input` values as query parameters in the URL of a `GET` request is one way to submit it. However, it's not very private (URLs are often recorded in server logs and are easily copy-pasted), and there are limits to how long a URL can be. That's why forms support a second method: submitting with an HTTP `POST` request, where the inputs are transmitted as part of the request body.
 
-Let's also change the `action` attribute of the form, so that it submits to the URL we're already on, instead of Google. That way, our server can handle the submission with a second function that we export from the same routes file – this time called `POST`.
+Let's also change the `action` attribute of the form, so that it submits to the URL we're already on, instead of Google. That way, our server can handle the submission (see previous chapter to [setup a local server](/guide/setup-mastro-as-server/)). Export a second function from the same routes file, this one called `POST`:
 
 ```ts title=routes/index.server.ts
 import { html, htmlToResponse } from "mastro";
@@ -216,6 +174,12 @@ These are not only conventions that everybody who knows HTTP will be familiar wi
 
 For example, results to a `GET` request can be cached in the browser, or in a proxy like a CDN. If the cache is still fresh, no need to bother the origin server again. However, for the other methods mentiond above, this wouldn't work: updates and deletions need to reach the origin server, otherwise they didn't really happen.
 
+:::tip
+## HTTP caching
+
+HTTP caching is itself a big and rather important topic, if you're looking to improve the performance of your non-static website. See the [MDN article on HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching).
+:::
+
 Similarly, `GET`, `PUT` and `DELETE` are defined by the HTTP specification to be [idempotent](https://developer.mozilla.org/en-US/docs/Glossary/Idempotent): doing the request once should have the same effect on the server as doing the same request multiple times (this is not guaranteed for `POST` and `PATCH`). This means that if the client is not sure whether an idempotent request reached the server (perhaps the network connection is bad and the request timed out), then the client can safely retry the same request. If both requests happen to reach the server, no harm is done (e.g. the second `PUT /todo/7` simply overwrites the first one). However, with a non-idempotent request like `POST /todo`, if both the original and retry reach the server, two todos are created instead of one. While the HTTP specification only talks about the effect on the server that the client _intended_, in practice it falls to the server to make sure the routes it exposes actually adhere to these semantics.
 
 While not the [full definition of REST](https://mb21.github.io/api-explorer/a-web-based-tool-to-semi-automatically-import-data-from-generic-rest-apis.html#rest), an HTTP API that works according to these principles is often called a REST API. There are a few more [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods), but the ones mentioned above are by far the most common ones. Also, a REST API can in principle expose any kind of operation. One example of a complex operation exposed over HTTP that we've seen before is `GET google.com/search?q=hello`. Or you might have a route that retrieves the newest item of an inbox, and at the same time also deletes it. Since that operation is not idempotent, you certainly cannot use `GET` for it, but for example `POST /inbox/pop` would work.
@@ -224,4 +188,4 @@ In our sample todo app, we load the existing todos not through the REST API, but
 
 In our todo app, we optimistically update the GUI before we know whether the update reached the server. This provides for a snappy user experience. However, if the request fails, we roll back the GUI to the state before. To see that behaviour in action, load the page in your browser, then in the terminal stop your server with `Ctrl-C`, then submit a new todo in the browser. You should see the GUI quickly flashing back to the original state. However, currently we don't display any error message, which is not optimal.
 
-This highlights a common pitfall when developing rich client-side apps (usually SPAs): loading states (e.g. to display a loading spinner), error handling and timeouts need to be explicitly handled in your JavaScript. This gives you more control, but also more ways to screw up. On the other hand, the browser gives you all of this for free when you develop a multi-page app (even with forms) – through a GUI which that browser's users will be familiar with.
+This highlights a common pitfall when developing rich client-side apps (usually [SPAs](/guide/javascript/#spa-vs-mpa)): loading states (e.g. to display a loading spinner), error handling and timeouts need to be explicitly handled in your JavaScript. This gives you more control, but also more ways to screw up. On the other hand, the browser gives you all of this for free when you develop a multi-page app (even with forms) – through a GUI which that browser's users will be familiar with.

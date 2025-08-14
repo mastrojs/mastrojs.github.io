@@ -9,9 +9,9 @@ In this chapter, you build your very first page.
 
 The simplest website is a single HTML file. In Mastro, each file in the `routes/` folder results in one or more files publicly accessible on your website.
 
-1. Create a new folder `routes`: when hovering over the name of your repository on the left side-pane, four small icons should appear. Click the second one from the left (a folder with a plus in it), type `routes`, and hit enter.
+1. If you've started from the template repository, delete all files in the `components` and `routes` folders by right-clicking each file individually, then select "Delete Permanently". Don't worry, we'll add them again in later chapters of this guide. If you want, you can also edit the `README.md` file.
 
-2. Create a new file `index.html`: with the `routes` folder still selected, this time click the leftmost of the four small icons (a sheet of paper with a plus icon in it), type `index.html`, and hit enter.
+2. Create a new file `routes/index.html`: with the `routes` folder selected, click the leftmost of the four small icons at the top (a sheet of paper with a plus icon in it), type `index.html`, and hit enter.
 
 3. The file opens on the right. Type (or copy-and-paste) the following HTML in it:
 
@@ -27,14 +27,13 @@ The simplest website is a single HTML file. In Mastro, each file in the `routes/
     </html>
     ```
 
-Hit `Ctrl-Shift-P` (Windows or Linux) or `Command-Shift-P` (Mac), type `mastro`, and when the _mastro: Preview and Generate Website_ item appears, hit enter.
+Hit `Ctrl-Shift-P` (Windows or Linux) or `Command-Shift-P` (Mac), type `mastro`, and when the "mastro: Preview and Generate Website" item appears, hit enter.
 
-<!--
 <details>
   <summary>Using Firefox?</summary>
-  In Firefox, this keyboard shortcut opens a new incognito window. Instead, you need to hit `Ctrl-P` (Windows or Linux) or `Command-P` (Mac) and type `>mastro` (note the `>`).
+
+  In Firefox, this keyboard shortcut unfortunately opens a new incognito window. Instead, you need to hit `Ctrl-P` (Windows or Linux) or `Command-P` (Mac) and type `>mastro` (note the `>`).
 </details>
--->
 
 This opens the _Mastro preview pane_ in a new tab to the right, displaying your `index.html` file, just like it would show in a web browser tab. Note how the text in the `<title>` is shown as the tab name, just like it would be in a browser's tab. The `body` is the part of the HTML file that is visible as the page itself.
 

@@ -35,7 +35,8 @@ And an ordered list:
 
 ## More info
 
-For more information about Markdown, see [CommonMark](https://commonmark.org).
+See [CommonMark](https://commonmark.org) for more
+information about Markdown.
 ```
 
 Now create a second blog post:
@@ -123,7 +124,7 @@ To read the markdown file from disk and convert the markdown to HTML, we use the
 
 Test following the links in the Mastro preview pane now. Congratulations, you have a working blog!
 
-## Debugging with `console.log`
+## Debugging with console.log
 
 Usually when programming, thinks go wrong at some point. It's fairly uncommon for a programmer to write out a program and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct, but the program crashes later on, or at least doesn't do what you wanted it to. In this second case, it can be useful to add `console.log()` statements in various places of your code and see what it prints into your browser's JavaScript console (what you used in a [previous chapter](/guide/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
 
@@ -193,7 +194,7 @@ You may want other people, that don’t know HTML, to contribute content to your
 :::
 
 
-## Third-party packages
+## Third-party packages on the server
 
 For complex functionality that would take you a long time to write yourself, it can be useful to install packages from [NPM](https://www.npmjs.com/) or [JSR](https://jsr.io/). However, be careful to take a bit of time to evaluate a package before adding it as a dependency to your project. Code quality and bundle size vary quite a lot among third-party packages. And you and your code will literally depend on that dependency not messing things up or slowing things down.
 
