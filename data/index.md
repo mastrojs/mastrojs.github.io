@@ -34,7 +34,7 @@ I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in
 Mastro offers you a clean slate to build on. [Install Deno](https://docs.deno.com/runtime/getting_started/installation/), and either use the [template repo](https://github.com/mastrojs/template-basic-deno) or run:
 
 ```sh title=Terminal
-deno run -A jsr:@mastrojs/mastro@0.1.2/init
+deno run -A jsr:@mastrojs/mastro@0.1.3/init
 ```
 
 <a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>

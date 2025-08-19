@@ -1,7 +1,7 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@mastrojs/mastro@0.1.2": "0.1.2",
+    "jsr:@mastrojs/mastro@0.1.3": "0.1.3",
     "jsr:@std/cli@^1.0.21": "1.0.21",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/fmt@^1.0.8": "1.0.8",
@@ -17,8 +17,8 @@
     "npm:ts-blank-space@0.6.1": "0.6.1"
   },
   "jsr": {
-    "@mastrojs/mastro@0.1.2": {
-      "integrity": "c2c2884f8d9d5d5b3e039c737d29557fa428bc7a32da9d9fa757d8db30c5d4f1",
+    "@mastrojs/mastro@0.1.3": {
+      "integrity": "f14da99d5a153b11edf77e62ede09fc18d9160d211900e1309e4bceb0ca0e73f",
       "dependencies": [
         "jsr:@std/fs",
         "jsr:@std/http",
@@ -112,7 +112,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@mastrojs/mastro@0.1.2"
+      "jsr:@mastrojs/mastro@0.1.3"
     ]
   }
 }
