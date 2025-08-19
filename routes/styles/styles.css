@@ -80,6 +80,12 @@ img {
   height: auto;
 }
 
+blockquote {
+  border-left: 1px solid lightgray;
+  padding-left: 1em;
+  margin-left: 0;
+}
+
 a {
   color: var(--color-accent);
 }

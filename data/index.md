@@ -38,7 +38,7 @@ deno run -A jsr:@mastrojs/mastro@0.1.3/init
 ```
 
 <a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>
-<a class="button -secondary" href="/guide/server-side-components/">Guide: Mastro</a>
+<a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
 <a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
 
 ## Fast for everyone

@@ -4,9 +4,9 @@ title: Interactivity with JavaScript in the browser
 
 In previous chapters, you've seen how to use JavaScript on the server to dynamically generate multiple pages of HTML. For most simple websites, that's all you need. If you want it to look fancy, invest in learning more about design and CSS.
 
-However, sometimes you want to add more interactivity. If you have a server running, you can get quite far with HTML forms (which we'll look at in the next chapter), and then sending different HTML to a user depending on what they submitted, or depending on what's currently in the database of the server.
+However, sometimes you want to add more interactivity. If you have a server running, you can get quite far with HTML forms (which we'll look at in an [later chapter](/guide/forms-and-rest-apis/)), and then sending different HTML to a user depending on what they submitted, or depending on what's currently in the database of the server.
 
-But that's not an option for a statically generated website. And for certain sorts of interactions, you don't want it to go through a page navigation (e.g. submitting a form and having the browser load the result page). Instead, you want the change to be immediate, and affect the page you're currently on without reloading it, to keep your scroll and cursor positions etc. That's when you need to use client-side JavaScript – i.e. JavaScript running in the user's browser. (See [Client-side and server-side JavaScript](/guide/javascript/#client-side-and-server-side-javascript) in the chapter introducing JavaScript.) A common example is to build a simple to-do list app.
+But that's not an option for a statically generated website. And for certain sorts of interactions, you don't want it to go through a page navigation (e.g. submitting a form and having the browser load the result page). Instead, you want the change to be immediate, and affect the page you're currently on without reloading it, to keep your scroll and cursor positions etc. That's when you need to use client-side JavaScript – i.e. JavaScript running in the user's browser. (See [Client-side and server-side JavaScript](/guide/javascript/#client-side-vs-server-side-javascript) in the chapter introducing JavaScript.) A common example is to build a simple to-do list app.
 
 
 ## A minimalistic to-do list app

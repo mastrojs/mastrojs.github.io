@@ -2,7 +2,7 @@
 title: A static blog from markdown files
 ---
 
-In the [previous chapter](/guide/server-side-components/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news/`. Now it's time to add some news to that page.
+In the [previous chapter](/guide/server-side-components-and-routing/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news/`. Now it's time to add some news to that page.
 
 One of the simplest ways to create a blog is to create a markdown file for each blog post. [Markdown](https://commonmark.org/help/) is just a simpler syntax for the most commonly used HTML elements when writing body text. It's fairly widespread nowadays, used in plain text note-taking apps, or to input text into GitHub or StackOverflow.
 
@@ -192,30 +192,3 @@ You may want other people, that don’t know HTML, to contribute content to your
 - If they prefer a more traditional, but still basic [CMS](https://en.wikipedia.org/wiki/Content_management_system), you can add a Git-based CMS like [Decap CMS](https://decapcms.org/) to your site, which lets them edit the `.md` files with a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) editor.
 - Finally, instead of storing your website’s content as markdown files directly in the repository together with your code, you can use a fully-fledged headless CMS like [Strapi](https://strapi.io/) or [Sanity](https://www.sanity.io/). You then need to change your code to fetch the content from the CMS API instead of from the `.md` files.
 :::
-
-
-## Third-party packages on the server
-
-For complex functionality that would take you a long time to write yourself, it can be useful to install packages from [NPM](https://www.npmjs.com/) or [JSR](https://jsr.io/). However, be careful to take a bit of time to evaluate a package before adding it as a dependency to your project. Code quality and bundle size vary quite a lot among third-party packages. And you and your code will literally depend on that dependency not messing things up or slowing things down.
-
-You can use the URL of any [ESM module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) as part of an import statement. However, if you'll use the library in lots of files, it's best to centralize it in an [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap). Then, there's only one place to change the version number, when the time comes to update it. When generating the static site, Mastro will look for an `import_map.json` (or alternatively `deno.json`) file.
-
-For example, you might want to use the [markdown-it package from npm](https://www.npmjs.com/package/markdown-it), instead of the `markdownToHtml` function that `mastro` exports (which uses [micromark](https://github.com/micromark/micromark#github-flavored-markdown-gfm) under the hood). Using the [esm.sh](https://esm.sh/) bundler and CDN:
-
-```json title="import_map.json"
-{
-  "imports": {
-    "markdown-it": "https://esm.sh/markdown-it@14.1.0?bundle"
-  }
-}
-```
-
-Then, we can use it in any server-side JavaScript file like:
-
-```js
-import markdownit from "markdown-it";
-```
-
-Instead of using esm.sh, you can of course also download the files and add them to your project, this is often done in a folder called `libs/` or `vendor/`. Then you don't even need the `import_map.json` file.
-
-It's important to remember that the `import_map.json` file will not automatically be loaded into the browser, and neither will any packages it contains. For that, you should use a separate import map as [you'll see](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) in the next chapter.

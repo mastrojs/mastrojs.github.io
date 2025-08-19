@@ -1,5 +1,5 @@
 ---
-title: Mastro server-side compo­nents and page handlers
+title: Mastro server-side compo­nents and routing
 ---
 
 Now that you know the basics of JavaScript, let's create a second page for your website. We'll be using a bit of server-side JavaScript and the minimal Mastro framework.
@@ -58,9 +58,11 @@ Notice the use of the `${ }` syntax inside the template literal to place the res
 Now, to `import` the two functions we just created, you first need to convert the home page from a HTML file to a JavaScript file.
 
 
-## Page handlers
+## Routing and page handlers
 
-All files in the `routes/` folder are sent out unmodified to your website's visitors – except for JavaScript files ending in `.server.js` or `.server.ts`. The code in these files is run and the result is sent to your website's visitors.
+All files in the `routes/` folder are sent out unmodified to your website's visitors – except for JavaScript files ending in `.server.js` or `.server.ts`. These files are often called page handlers.
+
+When a visitor requests a page of your website, the right page handler needs to be found. This process is known as routing. Once the route is found, the code in the handler is run, and the resulting page is sent to your website's visitor.
 
 :::tip
 ## Trailing slashes
