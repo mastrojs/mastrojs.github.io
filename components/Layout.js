@@ -14,6 +14,7 @@ export const Layout = (props) =>
           <meta name="description" content="${props.description}">
         `}
         <meta property="og:image" content="/og.png">
+        <script type="module" src="/scripts.js"></script>
         <script
           data-goatcounter="https://mastrojs.goatcounter.com/count"
           async
@@ -23,6 +24,16 @@ export const Layout = (props) =>
       <body>
         <header>
           <a href="/">Mastro 👨‍🍳</a>
+
+          <search>
+            <input type="search" placeholder="Search" aria-label="Search">
+            <div popover>
+              <h2 tabindex="-1">Search results</h2>
+              <button class="-minimal" aria-label="Close search results">✕</button>
+              <ul></ul>
+            </div>
+          </search>
+
           <div>
             <a href="https://github.com/mastrojs/mastro" rel="me">
               <svg role="img" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -47,19 +58,6 @@ export const Layout = (props) =>
 
         ${props.children}
 
-        <script>
-        document.querySelectorAll("figure > pre + button").forEach(btn =>
-          btn.addEventListener("click", e => {
-            const text = e.target.dataset.text || e.target.previousElementSibling.textContent.trimEnd();
-            navigator.clipboard.writeText(text);
-            const copied = e.target.parentElement.querySelector(".copied");
-            if (copied) {
-              copied.style.display = "block";
-              setTimeout(() => copied.style.display = "none", 2000);
-            }
-          })
-        );
-        </script>
       </body>
     </html>
   `;

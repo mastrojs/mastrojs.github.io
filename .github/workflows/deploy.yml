@@ -20,7 +20,7 @@ jobs:
         with:
           deno-version: v2.x
       - name: Build step
-        run: "deno task generate"
+        run: "deno task generateWPagefind"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -13,6 +13,7 @@ export const GET = async (req) => {
   const index = contents?.findIndex((c) => c.slug === pathname);
   const prev = index >= 0 ? contents[index - 1] : undefined;
   const next = index >= 0 ? contents[index + 1] : undefined;
+
   return htmlToResponse(
     Layout({
       title: meta.metaTitle || (meta.title ? `${meta.title} | Mastro` : "Mastro"),
@@ -20,7 +21,7 @@ export const GET = async (req) => {
       children: html`
         ${Sidebar(sidebar, currentPart, pathname)}
 
-        <main ${meta.layout ? `class=${meta.layout}` : ""}>
+        <main ${meta.layout === "hero" ? `class=hero` : "data-pagefind-body"}>
           <h1>${meta.title}</h1>
 
           ${content}
