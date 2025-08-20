@@ -41,6 +41,18 @@ deno run -A jsr:@mastrojs/mastro@0.1.3/init
 <a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
 <a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
 
+
+## Mastro in the media
+
+<div class="col2">
+
+  <a href="https://thenewstack.io/minimalist-mastro-framework-offers-modern-take-on-mpas/"><img alt="The New Stack" loading="lazy" src="/assets/home/thenewstack.svg"></a>
+
+  <a href="https://thathtml.blog/2024/12/new-custom-element-superclass-on-the-block/"><img alt="That HTML blog" loading="lazy" src="/assets/home/thathtmlblog.svg"></a>
+
+</div>
+
+
 ## Fast for everyone
 
 Mastro websites not only [load fast](https://pagespeed.web.dev/analysis/https-mastrojs-github-io/3n7m0iioqk?form_factor=mobile), they are also generated quickly.
@@ -52,6 +64,7 @@ To [process 500 markdown files](https://github.com/mb21/bench-framework-markdown
   | Eleventy |  0.7s |   |
   | Astro    |  2.2s |   |
   | Next.js  | 16.3s |   |
+
 
 ## Learn to work with the fabric of the web
 
@@ -74,4 +87,4 @@ The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI librar
 
 Something not working as expected? Would you like to contribute? Do you have a suggestion?
 
-<a class="button -secondary" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
+<a class="button" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>

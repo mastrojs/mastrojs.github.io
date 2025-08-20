@@ -293,6 +293,15 @@ main.hero {
   }
 }
 
+@media (min-width: 1000px) {
+.col2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 1em;
+}
+}
+
 .sidebar {
   padding-right: 1em;
   box-sizing: border-box;
