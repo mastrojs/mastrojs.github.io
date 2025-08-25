@@ -1,7 +1,7 @@
 ---
 title: The simplest website generator you’ve ever seen.
-metaTitle: 'Mastro: static site generation in your browser'
-description: Build and publish websites right from your browser.
+metaTitle: 'Mastro: the simplest website generator you’ve ever seen.'
+description: 'Static site generator and web framework built from first principles.'
 layout: hero
 ---
 
