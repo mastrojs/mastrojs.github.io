@@ -297,8 +297,10 @@ main.hero {
   .col2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 1em;
+    gap: 5em;
+    &.-vertical-center {
+      align-items: center;
+    }
   }
 }
 
@@ -346,6 +348,24 @@ search {
   a {
     text-decoration: none;
     font-weight: bold;
+  }
+}
+
+.pagespeed {
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  img {
+    width: 3.5em;
+    margin: 0.8em auto;
   }
 }
 

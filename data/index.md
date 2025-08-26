@@ -16,7 +16,7 @@ Mastro is mostly about what it doesn't have:
 - **No hosting offer** to sell you on: frankly, running a service is not what we're interested in.
 - **No update treadmill**: we use the platform and [almost no dependencies](https://jsr.io/@mastrojs/mastro/dependencies), which allows us to keep things small and low-maintenance.
 
-<p><img srcset="../../assets/vscode-example.webp 900w, ../../assets/vscode-example@2x.webp 1800w" src="../../assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot"></p>
+<p><img sizes="100vw" srcset="/assets/vscode-example.webp 900w, ../../assets/vscode-example@2x.webp 1800w" src="/assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot"></p>
 
 
 ## Easy for beginners
@@ -44,26 +44,13 @@ deno run -A jsr:@mastrojs/mastro@0.1.3/init
 
 ## Mastro in the media
 
-<div class="col2">
+<div class="col2 -vertical-center">
 
-  <a href="https://thenewstack.io/minimalist-mastro-framework-offers-modern-take-on-mpas/"><img alt="The New Stack" loading="lazy" src="/assets/home/thenewstack.svg"></a>
+  <a href="https://thenewstack.io/minimalist-mastro-framework-offers-modern-take-on-mpas/"><img alt="The New Stack" loading="lazy" src="/assets/home/thenewstack.svg" width="427"></a>
 
-  <a href="https://thathtml.blog/2024/12/new-custom-element-superclass-on-the-block/"><img alt="That HTML blog" loading="lazy" src="/assets/home/thathtmlblog.svg"></a>
+  <a href="https://thathtml.blog/2024/12/new-custom-element-superclass-on-the-block/"><img alt="That HTML blog" loading="lazy" src="/assets/home/thathtmlblog.svg" width="427"></a>
 
 </div>
-
-
-## Fast for everyone
-
-Mastro websites not only [load fast](https://pagespeed.web.dev/analysis/https-mastrojs-github-io/krzuxxl52f?form_factor=mobile), they are also generated quickly.
-To [process 500 markdown files](https://github.com/mb21/bench-framework-markdown/commit/87e5713b01d298394f866ec3cb86da46db910ada):
-
-  |          |       |   |
-  |:---------|------:|:--|
-  | Mastro   |  0.5s | &nbsp;🏁 |
-  | Eleventy |  0.7s |   |
-  | Astro    |  2.2s |   |
-  | Next.js  | 16.3s |   |
 
 
 ## Learn to work with the fabric of the web
@@ -73,6 +60,38 @@ Start with the fundamentals: HTML and CSS. Then build a static blog. Finally, ex
 While the guide uses Mastro, the patterns discussed are universal to web development.
 
 <a class="button" href="/guide/">Follow the guide</a>
+
+
+## Fast for everyone
+
+<div class="col2">
+
+<div class="pagespeed">
+
+**Mastro websites load fast**
+
+<a href="https://pagespeed.web.dev/analysis/https-mastrojs-github-io/krzuxxl52f?form_factor=mobile">
+
+- ![100%](/assets/home/circle.svg) Performance
+- ![100%](/assets/home/circle.svg) Accessibility
+- ![100%](/assets/home/circle.svg) SEO
+
+</a>
+</div>
+<div>
+
+**and build fast.** For [500 markdown files](https://github.com/mb21/bench-framework-markdown/commit/87e5713b01d298394f866ec3cb86da46db910ada):
+
+|          |       |         |
+|:---------|------:|:--------|
+| Mastro   |  0.5s | &nbsp;🏁 |
+| Eleventy |  0.7s |         |
+| Astro    |  2.2s |         |
+| Next.js  | 16.3s |         |
+
+</div>
+
+</div>
 
 
 ## Reactive Mastro – interactivity simplified
