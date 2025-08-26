@@ -16,7 +16,7 @@ Mastro is mostly about what it doesn't have:
 - **No hosting offer** to sell you on: frankly, running a service is not what we're interested in.
 - **No update treadmill**: we use the platform and [almost no dependencies](https://jsr.io/@mastrojs/mastro/dependencies), which allows us to keep things small and low-maintenance.
 
-<p><img src="../../assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot"></p>
+<p><img srcset="../../assets/vscode-example.webp 900w, ../../assets/vscode-example@2x.webp 1800w" src="../../assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot"></p>
 
 
 ## Easy for beginners
@@ -55,7 +55,7 @@ deno run -A jsr:@mastrojs/mastro@0.1.3/init
 
 ## Fast for everyone
 
-Mastro websites not only [load fast](https://pagespeed.web.dev/analysis/https-mastrojs-github-io/3n7m0iioqk?form_factor=mobile), they are also generated quickly.
+Mastro websites not only [load fast](https://pagespeed.web.dev/analysis/https-mastrojs-github-io/krzuxxl52f?form_factor=mobile), they are also generated quickly.
 To [process 500 markdown files](https://github.com/mb21/bench-framework-markdown/commit/87e5713b01d298394f866ec3cb86da46db910ada):
 
   |          |       |   |
