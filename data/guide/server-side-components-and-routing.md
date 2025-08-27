@@ -9,7 +9,7 @@ Usually, you'll want all pages of the website to have the same header and footer
 If you've been following the guide, you will already have a single `routes/index.html` file with `<header>`, `<main>` and `<footer>` elements, which we'll move to new locations. If not, you can simply create things as we go along. But make sure you've either:
 
 - set up GitHub and VS Code in your browser, as described in the [beginning of this guide](/guide/setup/) (recommended if you're not familiar with the command line), or
-- [started a new project with Deno](/#great-for-experienced-developers) on the command line.
+- [started a new project with Deno](/#powerful-for-experienced-developers) on the command line.
 
 
 ## Components

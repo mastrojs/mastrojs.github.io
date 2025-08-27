@@ -55,7 +55,7 @@ content-length: 6172
 
 Notice the `200 OK` on the first line? `200` is the HTTP response status code for "OK" – meaning the server understood the request and managed to send a response. Apart from success, [status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status) fall into three classes:
 
-- `3xx` (like `301` or `303`) are [redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/guide/Redirections).
+- `3xx` (like `301` or `303`) are [redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections).
 - `4xx` means something went wrong and the server thinks it's the client's fault. The most common one is `404 Not Found`, which means the server does not have the page which the client requested.
 - `5xx` means the server ran into some kind of problem when trying to answer. Perhaps it was overloaded or crashed due to a programming error.
 
