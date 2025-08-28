@@ -13,7 +13,7 @@ Finally, you can also use the Mastro server on the command-line as a local devel
 
 Start your own server and run it locally. _Local_ means on your laptop (or desktop), as opposed to in some data center:
 
-1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you probably want to [install WSL](https://learn.microsoft.com/en-us/windows/wsl/) first.
+1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you need to [install WSL](https://learn.microsoft.com/en-us/windows/wsl/) first.
 
 2.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) – a JavaScript runtime without a web browser, similar to Node.js. The easiest way is by copy-pasting the following into your terminal:
 
@@ -37,7 +37,7 @@ Start your own server and run it locally. _Local_ means on your laptop (or deskt
 
         deno task start
 
-    This will start your server! You can see the dummy page it's serving by opening the following URL in your web browser: http://localhost:8000 (The `8000` is the _port_. If you'd want to run multiple web servers on the same machine, each would need to use a different port.)
+    This will start your server! You can see the dummy page it's serving by opening the following URL in your web browser: [http://localhost:8000](http://localhost:8000) (The `8000` is the _port_. If you'd want to run multiple web servers on the same machine, each would need to use a different port.)
 
     To stop the server again, switch back to the terminal and press `Ctrl-C` on your keyboard.
 

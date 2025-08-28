@@ -31,11 +31,11 @@ With Mastro, there is very little to learn – except for web standards: HTML, C
 
 I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
 
-Mastro offers you a clean slate to build on. [Install Deno](https://docs.deno.com/runtime/getting_started/installation/), and either use the [template repo](https://github.com/mastrojs/template-basic-deno) or run:
-
-```sh title=Terminal
+```sh title=macOS/Linux/WSL
 deno run -A jsr:@mastrojs/mastro@0.1.3/init
 ```
+
+Use the [template repo](https://github.com/mastrojs/template-basic-deno) or run the above in a unix terminal. See the guide for [installation instructions](/guide/setup-mastro-cli-or-server/#setup-a-local-server).
 
 <a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>
 <a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
