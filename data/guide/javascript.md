@@ -11,6 +11,14 @@ JavaScript can be useful to add some interactivity to a page. Although ideally, 
 
 Since a browser is also known as a _client_, JavaScript that runs in the user's browser is known as _client-side JavaScript_. It is best used sparingly. Although unfortunately, some websites load millions of lines of JavaScript into the browser. Client-side JavaScript frameworks like React run the program to generate the HTML right in the browser of your user – every time the user loads the page. (Yes, even with "server-side rendering", React is still "hydrated" in the client, and even React Server Component trees are [reconciled](https://nextjs.org/docs/14/app/building-your-application/rendering/server-components) in the client.) This may make sense for an app like Google Docs, Figma, or Visual Studio Code. But for most websites, it just makes everything slow for little reason – especially on mobile phones, with their [limited computing power and slow networks](https://infrequently.org/series/performance-inequality/).
 
+:::tip
+## Test and improve your website's performance
+
+- [WebPageTest](https://www.webpagetest.org)
+- [PageSpeed Insights](https://pagespeed.web.dev/) and the "Lighthouse" tab in Chrome's dev tools
+- SpeedCurve's [Web Performance Guide](https://www.speedcurve.com/web-performance-guide/)
+:::
+
 However, JavaScript is a general-purpose programming language like any other. Nowadays, using e.g. Node.js or Deno, you can run JavaScript also on your server or laptop, generate the HTML there, and only send that to your user's browser – just like people have done with PHP or Ruby for ages. This is generally known as _server-side JavaScript_ – regardless of whether you run it on an actual server, or ahead of time with static site generation. The important part is that unlike client-side JavaScript, it doesn't run in the user's browser.
 
 With the exception of this and [one later chapter](/guide/interactivity-with-javascript-in-the-browser/), we'll be exclusively using server-side JavaScript in this guide.

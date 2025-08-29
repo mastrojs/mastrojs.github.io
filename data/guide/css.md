@@ -117,7 +117,9 @@ While the `margin` creates space around the element, `padding` creates space ins
 
 ![](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model/box-model-devtools.png)
 
-`padding: 1.5em 1em 1em 1em` sets four different properties in a clockwise fashion: `padding-top` to `1.5em`, then `padding-right`, `padding-bottom`, and `padding-left` to `0`.
+See e.g. [wizard zines: box model](https://wizardzines.com/comics/box-model/).
+
+`padding: 1.5em 1em 1em 1em` sets four different properties in a clockwise fashion: `padding-top` to `1.5em`, then `padding-right`, `padding-bottom`, and `padding-left` to `1em`.
 
 Now add the following at the bottom of `routes/styles.css`:
 
