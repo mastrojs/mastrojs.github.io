@@ -4,7 +4,7 @@ title: "Setup Mastro as a server"
 
 In the previous chapter, you learned how loading a web page into the browser (also known as the client) involves making a request to a server over the HTTP protocol. The server then sends back a HTTP response containing the HTML.
 
-In this chapter, you'll be using Mastro as a server web framework instead of as a [static site generator](/guide/why-html-css/#you-want-to-build-a-website%3F). This means that the HTML is generated on every request by the server, instead of beforehand when you generate the site. This comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
+In this chapter, you'll be using Mastro as a server web framework doing server-side rendering, instead of as a [static site generator](/guide/why-html-css/#you-want-to-build-a-website%3F) like we've done so far. This means that the HTML is generated on every request by the server, instead of beforehand when you generate the site. This comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
 
 Finally, you can also use the Mastro server on the command-line as a local development server, to preview your static site in a real browser instead of the [preview pane inside VS Code](/guide/setup/).
 

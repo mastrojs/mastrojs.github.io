@@ -1,6 +1,5 @@
 ---
 title: Forms and REST APIs
-next: false
 ---
 
 Now that you have a local server set up, let's see what we can do with it.
@@ -173,12 +172,6 @@ While you can expose any kind of operation over HTTP, a common need is to let th
 These are not only conventions that everybody who knows HTTP will be familiar with. There is also the added benefit that clients, the server, as well as proxies (servers that sit in-between the two), know these HTTP methods and their semantics.
 
 For example, results to a `GET` request can be cached in the browser, or in a proxy like a CDN. If the cache is still fresh, no need to bother the origin server again. However, for the other methods mentiond above, this wouldn't work: updates and deletions need to reach the origin server, otherwise they didn't really happen.
-
-:::tip
-## HTTP caching
-
-HTTP caching is itself a big and rather important topic, if you're looking to improve the performance of your non-static website. See the [MDN article on HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching).
-:::
 
 Similarly, `GET`, `PUT` and `DELETE` are defined by the HTTP specification to be [idempotent](https://developer.mozilla.org/en-US/docs/Glossary/Idempotent): doing the request once should have the same effect on the server as doing the same request multiple times (this is not guaranteed for `POST` and `PATCH`). This means that if the client is not sure whether an idempotent request reached the server (perhaps the network connection is bad and the request timed out), then the client can safely retry the same request. If both requests happen to reach the server, no harm is done (e.g. the second `PUT /todo/7` simply overwrites the first one). However, with a non-idempotent request like `POST /todo`, if both the original and retry reach the server, two todos are created instead of one. While the HTTP specification only talks about the effect on the server that the client _intended_, in practice it falls to the server to make sure the routes it exposes actually adhere to these semantics.
 

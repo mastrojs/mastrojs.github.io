@@ -77,6 +77,8 @@ const sidebar = [{
     { label: "URLs, HTTP and servers", slug: "/guide/urls-http-servers/" },
     { label: "Setup Mastro as a server", slug: "/guide/setup-mastro-cli-or-server/" },
     { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
+    { label: "Bundling, pregenerating assets and caching", slug: "/guide/bundling-assets-caching/" },
+    { label: "Web application architecture and the write-read-boundary", slug: "/guide/web-application-architecture-and-write-read-boundary/" },
   ],
 }, {
   label: "Reactive",
