@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "start": "deno serve --watch=. --allow-read --allow-env jsr:@mastrojs/mastro@0.1.3/server",
-    "generate": "deno eval \"import 'mastro/generate';\"",
+    "start": "deno serve --watch=. --allow-read --allow-env jsr:@mastrojs/mastro@0.2.1/server",
+    "generate": "deno run -A mastro/generator",
     "startWithPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site dist --serve",
     "generateWPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site dist",
     "checkLinks": "deno task generate && deno run --allow-env --allow-read --allow-net npm:linkinator dist -r --retry --retry-errors-jitter --skip jsr.io"
@@ -10,7 +10,7 @@
     "lineWidth": 100
   },
   "imports": {
-    "mastro": "jsr:@mastrojs/mastro@0.1.3",
+    "mastro": "jsr:@mastrojs/mastro@0.2.1",
     "markdown-it": "https://esm.sh/markdown-it@14.1.0?bundle",
     "markdown-it-anchor": "https://esm.sh/markdown-it-anchor@9.2.0?bundle",
     "markdown-it-container": "https://esm.sh/markdown-it-container@4.0.0?bundle",

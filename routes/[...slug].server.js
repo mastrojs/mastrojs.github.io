@@ -1,12 +1,12 @@
 import { Layout } from "../components/Layout.js";
 import { Sidebar } from "../components/Sidebar.js";
 import { Toc } from "../components/Toc.js";
-import { html, htmlToResponse, readMarkdownFileInFolder } from "mastro";
-import { mdToHtml } from "../helpers/markdown.js";
+import { html, htmlToResponse } from "mastro";
+import { readMd } from "../helpers/markdown.js";
 
 export const GET = async (req) => {
   const { pathname } = new URL(req.url);
-  const { content, meta } = await readMarkdownFileInFolder("data", pathname, mdToHtml);
+  const { content, meta } = await readMd(pathname);
 
   const currentPart = sidebar.find((part) => part.slug === `/${pathname.split("/")[1]}/`);
   const contents = currentPart?.contents;

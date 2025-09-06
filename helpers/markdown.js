@@ -2,7 +2,14 @@ import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import markdownItContainer from "markdown-it-container";
 import markdownItHighlightJs from "markdown-it-highlightjs";
-import { parseYamlFrontmatter, unsafeInnerHtml } from "mastro";
+import { unsafeInnerHtml } from "mastro";
+import { parseYamlFrontmatter, readMarkdownFileInFolder } from "mastro/markdown";
+
+/**
+ * Read a markdown file from the data folder
+ */
+export const readMd = (path) =>
+  readMarkdownFileInFolder("data", path, mdToHtml)
 
 /**
  * Custom markdown renderer with:
@@ -13,7 +20,7 @@ import { parseYamlFrontmatter, unsafeInnerHtml } from "mastro";
  * - copy code to clipboard button
  * - support for ` ```css title=styles.css ins={6-7} del={4-5}` syntax
  */
-export const mdToHtml = async (txt) => {
+const mdToHtml = async (txt) => {
   const { body, meta } = await parseYamlFrontmatter(txt);
   const content = unsafeInnerHtml(md.render(body));
   return { content, meta };
