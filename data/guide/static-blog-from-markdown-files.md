@@ -4,7 +4,7 @@ title: A static blog from markdown files
 
 In the [previous chapter](/guide/server-side-components-and-routing/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news/`. Now it's time to add some news to that page.
 
-One of the simplest ways to create a blog is to create a markdown file for each blog post. [Markdown](https://commonmark.org/help/) is just a simpler syntax for the most commonly used HTML elements when writing body text. It's fairly widespread nowadays, used in plain text note-taking apps, or to input text into GitHub or StackOverflow.
+One of the simplest ways to create a blog is to create a markdown file for each blog post. [Markdown](https://commonmark.org/help/) is just a simpler syntax for the most commonly used HTML elements when writing body text. It's fairly widespread nowadays. It's used for example in plain text note-taking apps, some messaging apps, and to input text into GitHub or StackOverflow.
 
 Since the markdown files themselves should not be published as part of the website, don't add them to the `routes/` folder. Instead, create a new folder called `data/` (this is just a convention). Inside that, add another folder called `posts/`, and inside that the markdown file:
 
@@ -17,8 +17,8 @@ date: 2024-01-30
 Markdown is just a simpler syntax for the most commonly used HTML
 elements when writing body text.
 
-A blank line marks a new paragraph (HTML `<p>`),
-and a line starting with `##` is a HTML `<h2>`:
+A blank line, like above, marks a new paragraph (HTML `<p>`).
+A line starting with `##` is an HTML `<h2>`:
 
 ## Lists
 
@@ -52,12 +52,11 @@ This is our second blog post.
 
 ## The index page
 
-Instead of changing our `routes/news.server.js` file in-place, first move it to a new folder `routes/news/` and rename it to `index.server.js`. This doesn't change anything, but we'll need the folder later for the detail pages anyway.
-
-To make the page list all your blog posts, change it to:
+Change the page that you created in the previous chapter so that it lists all your blog posts:
 
 ```js title=routes/news/index.server.js
-import { html, htmlToResponse, readMarkdownFiles } from "mastro";
+import { html, htmlToResponse } from "mastro";
+import { readMarkdownFiles } from "mastro/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async () => {
@@ -79,8 +78,6 @@ export const GET = async () => {
 };
 ```
 
-Note the `../../` when importing the `Layout` component, while previously it was just `../`. That's because this file is in the `news/` folder, so you need to go one level further up than before to get to the `components/` folder.
-
 The code imports the `readMarkdownFiles` function from mastro. Because that function requests the files from the computer's harddisk (which might take some time), we need to `await` it. This in turn forces us to mark up our `GET` function as `async` (short for [asynchronous](https://eloquentjavascript.net/11_async.html)).
 
 Since `posts` is an array, we can use its `.map()` method to loop over it and get each `post`. `post.path.slice(11, -3)` [slices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) off the first eleven and the last three character from the `post.path` string: in our case it removes the leading `/data/posts` and the trailing `.md` from the filename.
@@ -99,7 +96,8 @@ The `[slug]` is a parameter. When your server receives an HTTP request for `/new
 To read out the `slug` parameter, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, read out the URL as a string with `req.url`, and pass that to the `getParams` helper function, which returns an object with all parameters.
 
 ```js title=routes/news/[slug].server.js
-import { getParams, htmlToResponse, readMarkdownFile } from "mastro";
+import { getParams, htmlToResponse } from "mastro";
+import { readMarkdownFiles } from "mastro/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
@@ -128,8 +126,9 @@ Test following the links in the Mastro preview pane now. Congratulations, you ha
 
 Usually when programming, thinks go wrong at some point. It's fairly uncommon for a programmer to write out a program and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct, but the program crashes later on, or at least doesn't do what you wanted it to. In this second case, it can be useful to add `console.log()` statements in various places of your code and see what it prints into your browser's JavaScript console (what you used in a [previous chapter](/guide/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
 
-```js title=routes/news/[slug].server.js ins={6}
-import { getParams, htmlToResponse, readMarkdownFile } from "mastro";
+```js title=routes/news/[slug].server.js ins={7}
+import { getParams, htmlToResponse } from "mastro";
+import { readMarkdownFiles } from "mastro/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
@@ -156,8 +155,9 @@ It will generate the pages without parameters. But notice the error telling you 
 
 That's because Mastro cannot guess the paths for all the pages that we want to generate. In the preview (or on a running server) this works because the information is provided directly in the URL. But if we want to statically generate all the pages ahead of time, we need to tell Astro the paths of all our pages with route parameters. We do that by exporting a function called `getStaticPaths`, that returns an array of strings when called.
 
-```js title=routes/news/[slug].server.js ins={1,15-18}
-import { getParams, htmlToResponse, readDir, readMarkdownFile } from "mastro";
+```js title=routes/news/[slug].server.js ins={1,16-19}
+import { getParams, htmlToResponse, readDir } from "mastro";
+import { readMarkdownFile } from "mastro/markdown";
 import { Layout } from '../../components/Layout.js';
 
 export const GET = async (req) => {
@@ -189,6 +189,6 @@ Congratulations to your live blog!
 You may want other people, that don’t know HTML, to contribute content to your website. For a static site, you have basically three options:
 
 - If they’re comfortable with markdown, they can edit the `.md` files directly on GitHub with its built-in [text editor](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files), that has also a basic markdown preview.
-- If they prefer a more traditional, but still basic [CMS](https://en.wikipedia.org/wiki/Content_management_system), you can add a Git-based CMS like [Decap CMS](https://decapcms.org/) to your site, which lets them edit the `.md` files with a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) editor.
+- If they prefer a more traditional, but still basic [CMS](https://en.wikipedia.org/wiki/Content_management_system), you can add a Git-based CMS like [Decap CMS](https://decapcms.org/) to your site, which lets them edit the `.md` files with a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) editor, and saves them right back to your GitHub repository.
 - Finally, instead of storing your website’s content as markdown files directly in the repository together with your code, you can use a fully-fledged headless CMS like [Strapi](https://strapi.io/) or [Sanity](https://www.sanity.io/). You then need to change your code to fetch the content from the CMS API instead of from the `.md` files.
 :::

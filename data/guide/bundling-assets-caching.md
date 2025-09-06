@@ -4,9 +4,12 @@ title: Bundling, pregenerating assets and caching
 
 ## Bundling
 
-If you have a website with dozens, or even hundreds, of client-side JavaScript files, the time may have come to bundle them.
+If you have a website with dozens, or even hundreds, of different client-side JavaScript files, the time may have come to bundle them. Bundling multiple files into one is generally done because making one HTTP request is faster than making multiple. Yes, [even with HTTP/2](https://css-tricks.com/musings-on-http2-and-bundling/) and HTTP/3, [even today](https://dev.to/konnorrogers/why-we-still-bundle-with-http2-in-2022-3noo).
 
-Bundling multiple files into one is generally done because making one HTTP request is faster than making multiple (even with HTTP/2 and HTTP/3): especially if not all URLs are initially known to the client. In that case, the client might first need to request the HTML, which contains the URL to the first JavaScript module, which in turn contains the URL to another imported JavaScript module, and so forth. This results in a so-called network-waterfall, where each request has to complete before the next can be started. Especially on slow mobile connections, this can slow down the loading of lots of files dramatically.
+This is especially true if not all URLs are initially known to the client.
+Although that aspect could be mitigated with [`rel=preload`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload) for CSS, and [`rel="modulepreload"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/modulepreload) for JavaScript. But without any preload hints, the client first needs to request the HTML, which contains the URL to the first JavaScript module, which in turn contains the URL to another imported JavaScript module, and so forth. This results in a so-called network-waterfall, where each request has to complete before the next can be started. Especially on slow mobile connections, this can slow down the loading of lots of files dramatically.
+
+<!-- TODO: add waterfall in network dev tools -->
 
 The same can happen in CSS when using [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) or [@import](https://developer.mozilla.org/en-US/docs/Web/CSS/@import). Ideally, those should only be used in `<style>` tags directly in the initial HTML.
 
@@ -51,15 +54,15 @@ import { createImagesRoute } from "mastro/images";
 
 export const { GET, getStaticPaths } = createImagesRoute({
   hero: {
-    transform: image => image.resize(300, 300),
+    transform: (image) => image.resize(300, 300),
   },
   hero2x: {
-    transform: image => image.resize(600, 600),
+    transform: (image) => image.resize(600, 600),
   }
 });
 ```
 
-This declares the presets `hero` and `hero2x`. Assuming you have a file `images/blue-marble.jpg`, you could request resized versions in WebP format as follows:
+This uses the [mastro/images](https://jsr.io/@mastrojs/mastro/doc/images) helper to declare two presets: `hero` and `hero2x`. Assuming you have a file `images/blue-marble.jpg`, you could request resized versions in WebP format as follows:
 
 ```html
 <img alt="Planet Earth"
@@ -100,12 +103,14 @@ export const { GET, getStaticPaths } = createImagesRoute({
 
 Run `deno task pregenerate` and check what was written to the `dist/` folder.
 
-If you start the server with `deno task start` and access it on a `http://localhost:8000`, the images will still be rendered on the fly, enabling you to quickly change things when developing your website. However, when you open `http://127.0.0.1:8000` in your browser (that's using the IP address for localhost), the Mastro server will assume we're running in production and load the pregenerated image from the `dist/` folder. You should see in your browser's network dev tools that this is much quicker.
+If you start the server with `deno task start` and access it on a `http://localhost:8000`, the images will still be rendered on the fly, enabling you to quickly change things when developing your website. However, when you open `http://127.0.0.1:8000` in your browser (that's using the IP address for localhost), the Mastro server will assume we're running in production, and load the pregenerated image from the `dist/` folder. You should see in your browser's network dev tools that this is much quicker.
+
+Usually, serving the pregenerated assets with your normal web server will be fast enough. However, you could also push the `dist/_images/` folder to your CDN (content delivery network), and configure it to serve all URLs starting with `/_images/` directly from the CDN.
 
 
 ## Caching
 
-Storing data, so that future requests can be served faster, is known as _caching_. The place where it's stored is called a _cache_. Caching is either done because the data was expensive to compute, or because the cache is physically closer to where the data will be needed. That's what a content delivery network (CDN) is – a distributed cache with multiple locations across the globe, where the user will automatically connect to the one that's geographically closest to them.
+Storing data, so that future requests can be served faster, is known as _caching_. The place where it's stored is called a _cache_. Caching is either done because the data was expensive to compute, or because the cache is physically closer to where the data will be needed. That's what a CDN is – a distributed cache with multiple locations across the globe, where the user will automatically connect to the one that's geographically closest to them.
 
 Eagerly pregenerating assets in a build step, like we've seen above, is one kind of caching. Another kind is to store the result of one request for future requests to the same URL. This offers more flexibility and finer granularity, but has the disadvantage that the first request (until the cache is populated) will be slow.
 
@@ -116,3 +121,12 @@ The thing that's generally very difficult to get right with caching is _cache in
 
 If you want to improve performance and reduce load on your server by leveraging the browser cache and/or a CDN, the [MDN article on HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching) is a good place to start reading.
 :::
+
+
+## HTTP Streaming
+
+Caching is great, but sometimes you don't have that choice. For example, you might need the newest data from the database. To improve performance in that case, you should consider HTTP streaming. In HTTP/1.1, this was known as "chunked transfer encoding". But in HTTP/2 and HTTP/3, streaming is built right into the lower levels of the protocol.
+
+To support it, all you have to do, is not break it on any level of the stack: from the database driver, to the HTML templates, all the way to your web hosting provider and CDN proxy. If there's an `await` or similar anywhere in that chain, which blocks until the whole page is loaded, then it cannot be streamed continously as row after row from the database arrives.
+
+Mastro supports streaming with the [htmlToStreamingResponse](https://jsr.io/@mastrojs/mastro/doc/~/htmlToStreamingResponse) function, which can be used instead of `htmlToResponse`, which we've been using so far. Just make sure to place promises directly in the template instead of awaiting them. And for example for rows being returned from your database, make sure it's an [AsyncIterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols).

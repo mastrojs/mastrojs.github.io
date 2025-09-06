@@ -60,23 +60,21 @@ Now, to `import` the two functions we just created, you first need to convert th
 
 ## Routing and page handlers
 
-All files in the `routes/` folder are sent out unmodified to your website's visitors – except for JavaScript files ending in `.server.js` or `.server.ts`. These files are often called page handlers.
+Files in the `routes/` folder are sent out unmodified to your website's visitors – except for files ending in `.server.js` or `.server.ts`. These files should contain JavaScript functions that handle the generation of the page in question – these functions are often called _page handlers_.
 
-When a visitor requests a page of your website, the right page handler needs to be found. This process is known as routing. Once the route is found, the code in the handler is run, and the resulting page is sent to your website's visitor.
+When a visitor requests a page of your website, the right file needs to be found. This process is known as _routing_. Once the route is found, the code in the handler is run, and the resulting page is sent to your website's visitor.
 
-:::tip
-## Trailing slashes
+Different hosting providers and site generators often serve the same file under [slightly different urls](https://github.com/slorber/trailing-slash-guide/#trailing-slash-guide). In Mastro, the URL for a file does not end with a slash, while the URL for a folder does end with a slash. Since a folder itself cannot contain any code, an `index.html` or `index.server.js` file is used to represent the containing folder.
 
-Different hosting providers and site generators often serve the same file under [slightly different urls](https://github.com/slorber/trailing-slash-guide/#trailing-slash-guide). This is how it works in Mastro:
+| Type      | File                               | URL          |
+|:----------|:-----------------------------------|:-------------|
+| Static    | `routes/file.html`                 | `/file.html` |
+|           | `routes/folder/index.html`         | `/folder/`   |
+| Handler   | `routes/file.server.js`            | `/file`      |
+|           | `routes/folder/index.server.js`    | `/folder/`   |
+|           | `routes/folder/(folder).server.js` | `/folder/`   |
 
-| File                            | Url          |
-|:--------------------------------|:-------------|
-| `routes/file.html`              | `/file.html` |
-| `routes/folder/index.html`      | `/folder/`   |
-| `routes/file.server.js`         | `/file/`     |
-| `routes/folder/index.server.js` | `/folder/`   |
-
-:::
+Since having lots of files called `index.server.js` would get confusing quickly, you can also name it `(folder).server.js`, where `folder` is the name of the containing folder.
 
 Rename the `routes/index.html` file to `routes/index.server.js` (or create it if you don't have one yet) and make its contents:
 
@@ -170,11 +168,11 @@ export const GET = () =>
 
 Note how we pass an object of the form `{ title, children }` as an argument to the `Layout` function when calling it. That's the `props` object.
 
-Now finally all that work pays off: add that second page by creating a new file:
+Now finally all that work pays off: add that second page by creating a new file in a new folder:
 
-```js title=routes/news.server.js
+```js title=routes/news/index.server.js
 import { html, htmlToResponse } from "mastro";
-import { Layout } from "../components/Layout.js";
+import { Layout } from "../../components/Layout.js";
 
 export const GET = () =>
   htmlToResponse(
@@ -186,6 +184,8 @@ export const GET = () =>
     })
   );
 ```
+
+Note the `../../` when importing the `Layout` component, while previously it was just `../`. That's because this file is in the `news/` folder, so you need to go one level further up than before to get to the `components/` folder.
 
 To test whether that page works, enter `/news/` in the address bar of the Mastro preview pane and hit enter. Whenever you change anything in `components/Layout.js`, both pages will be updated!
 

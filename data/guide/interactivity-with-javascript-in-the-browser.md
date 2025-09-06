@@ -11,7 +11,8 @@ But that's not an option for a statically generated website. And for certain sor
 
 ## A minimalistic to-do list app
 
- If you want to reuse the `Layout` component like in previous chapters, create a new route (e.g. `routes/todo-list.server.js`). Or alternatively create a new HTML file:
+ Create a new HTML file
+ (or alternatively, if you want to reuse the `Layout` component like in previous chapters, create a new route like `routes/todo-list.server.js`).
 
 ```html title=routes/todo-list.html
 <!doctype html>
@@ -45,7 +46,7 @@ But that's not an option for a statically generated website. And for certain sor
 </script>
 ```
 
-Check out the minimalistic to-do list in the Mastro preview pane by navigating to `/todo-list/` and add a few to-dos.
+Check out the minimalistic to-do list in the Mastro preview pane by navigating to `/todo-list.html` and add a few to-dos.
 
 In HTML5, the `head` and `body` tags can be omitted and will be created by the browser. Check it out in the elements inspector in your browser's dev tools!
 
@@ -66,12 +67,12 @@ Be aware to never use `innerHTML` on untrusted input. You can try changing the c
 
 Then, using `prepend()`, we add our list item to the top of the `<ul id="todos">` element. And finally, we reset the `input`'s value to an empty string (`""`), so it's ready for the next to-do.
 
-Feel free to change the code or put a few `console.log()` statements in it to see what does what.
+Feel free to change the code, or put a few `console.log()` statements in it, to see what does what.
 
 
 ## Accessible interactivity
 
-Technically, you can attach event listeners to all kinds of HTML elements. But in order for screen readers, or keyboard-only users etc, to discover interactive elements, it's important to use elements like `<button>`, `<input>` or `<form>`. Don't make divs or spans interactive! And don't create links without an `href`: if you don't want a link click to trigger a page navigation, you most certainly should use a `<button>` instead. You can always use CSS to make your `<button class="link">` look like a link.
+Technically, you can attach event listeners to all kinds of HTML elements. But in order for screen readers, or keyboard-only users etc, to discover interactive elements, it's important to use elements like `<button>`, `<input>` or `<form>`. Don't make divs or spans interactive! And don't create links without an `href`: if you don't want a link click to trigger a page navigation, you should use a `<button>` instead. You can always use CSS to make your `<button class="link">` look like a link, or to make your `<a href="/go" class="button">` look like a button.
 
 Using meaningful HTML elements – a practice known as writing _semantic HTML_ – is enough to make simple websites accessible. But more complicated, interactive, parts of a web page may require additional annotations to ensure screen readers understand what's going on. That's what ARIA attributes are for. I can highly recommend reading [What I Wish Someone Told Me When I Was Getting Into ARIA](https://www.smashingmagazine.com/2025/06/what-i-wish-someone-told-me-aria/).
 

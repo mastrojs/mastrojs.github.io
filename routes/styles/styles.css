@@ -210,6 +210,10 @@ figure:has(> figcaption + pre) {
   }
 }
 
+td {
+  padding-right: 1em;
+}
+
 input:not(:is([type=radio], [type=checkbox], [type=file])) {
   font-family: inherit;
   font-size: 16px;
