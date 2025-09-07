@@ -66,13 +66,13 @@ When a visitor requests a page of your website, the right file needs to be found
 
 Different hosting providers and site generators often serve the same file under [slightly different urls](https://github.com/slorber/trailing-slash-guide/#trailing-slash-guide). In Mastro, the URL for a file does not end with a slash, while the URL for a folder does end with a slash. Since a folder itself cannot contain any code, an `index.html` or `index.server.js` file is used to represent the containing folder.
 
-| Type      | File                               | URL          |
-|:----------|:-----------------------------------|:-------------|
-| Static    | `routes/file.html`                 | `/file.html` |
-|           | `routes/folder/index.html`         | `/folder/`   |
-| Handler   | `routes/file.server.js`            | `/file`      |
-|           | `routes/folder/index.server.js`    | `/folder/`   |
-|           | `routes/folder/(folder).server.js` | `/folder/`   |
+| File in `routes/`           | URL          |
+|:----------------------------|:-------------|
+| `file.html`                 | `/file.html` |
+| `folder/index.html`         | `/folder/`   |
+| `file.server.js`            | `/file`      |
+| `folder/index.server.js`    | `/folder/`   |
+| `folder/(folder).server.js` | `/folder/`   |
 
 Since having lots of files called `index.server.js` would get confusing quickly, you can also name it `(folder).server.js`, where `folder` is the name of the containing folder.
 

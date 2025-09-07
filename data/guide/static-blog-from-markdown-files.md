@@ -6,7 +6,7 @@ In the [previous chapter](/guide/server-side-components-and-routing/), you set e
 
 One of the simplest ways to create a blog is to create a markdown file for each blog post. [Markdown](https://commonmark.org/help/) is just a simpler syntax for the most commonly used HTML elements when writing body text. It's fairly widespread nowadays. It's used for example in plain text note-taking apps, some messaging apps, and to input text into GitHub or StackOverflow.
 
-Since the markdown files themselves should not be published as part of the website, don't add them to the `routes/` folder. Instead, create a new folder called `data/` (this is just a convention). Inside that, add another folder called `posts/`, and inside that the markdown file:
+Since the markdown files themselves should not be published as part of the website, don't add them to the `routes/` folder. Instead, create a new folder called `data/`. Inside that, add another folder called `posts/`, and inside that the markdown file with the name `2024-01-30-hello-world.md`. The folder and file names are just conventions, meaning you could use different names as well if you really wanted. But for example starting the `.md` files with the date in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601), makes them sorted chronologically in all the places that sort files alphabetically.
 
 ```md title=data/posts/2024-01-30-hello-world.md
 ---
@@ -67,7 +67,7 @@ export const GET = async () => {
       children: posts.map((post) =>
         html`
           <p>
-            <a href="${"/news" + post.path.slice(11, -3)}/">
+            <a href="${"/news" + post.path.slice(11, -3)}">
               ${post.meta.title}
             </a>
           </p>
@@ -97,7 +97,7 @@ To read out the `slug` parameter, we use the `req` object (a standard JavaScript
 
 ```js title=routes/news/[slug].server.js
 import { getParams, htmlToResponse } from "mastro";
-import { readMarkdownFiles } from "mastro/markdown";
+import { readMarkdownFile } from "mastro/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
@@ -124,11 +124,13 @@ Test following the links in the Mastro preview pane now. Congratulations, you ha
 
 ## Debugging with console.log
 
-Usually when programming, thinks go wrong at some point. It's fairly uncommon for a programmer to write out a program and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct, but the program crashes later on, or at least doesn't do what you wanted it to. In this second case, it can be useful to add `console.log()` statements in various places of your code and see what it prints into your browser's JavaScript console (what you used in a [previous chapter](/guide/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
+Usually when programming, things go wrong at some point. It's not very common for a programmer to write out a program, and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct but the program crashes at some point when it's running, or it runs but doesn't do what you wanted it to.
+
+If your program starts running, it can be useful to add `console.log()` statements in various places of your code and see what it prints into the JavaScript console (what you used in a [previous chapter](/guide/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
 
 ```js title=routes/news/[slug].server.js ins={7}
 import { getParams, htmlToResponse } from "mastro";
-import { readMarkdownFiles } from "mastro/markdown";
+import { readMarkdownFile } from "mastro/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
@@ -144,8 +146,9 @@ export const GET = async (req) => {
 }
 ```
 
-After opening your browser's JavaScript console and clearing what's already printed out there with the button labelled `🚫`, open the page in the Mastro preview pane.
+After opening your browser's JavaScript console and clearing what's already printed out there with the button labelled `🚫`, open the page in the Mastro preview pane. (Or if you're running Mastro in a Terminal instead of with the VS Code extension, you need to reload the page in your browser and observe the output written by `console.log` in the Terminal.)
 
+If you don't see any output, it means that the `console.log` line was never run. Most likely, because the URL you entered for the page did not route to the page where you put the `console.log` in.
 
 ## Generating pages with route parameters
 
@@ -173,7 +176,7 @@ export const GET = async (req) => {
 
 export const getStaticPaths = async () => {
   const posts = await readDir("data/posts/");
-  return posts.map(p => "/news/" + p.slice(0, -3) + "/");
+  return posts.map(p => "/news/" + p.slice(0, -3));
 }
 ```
 

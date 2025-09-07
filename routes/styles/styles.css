@@ -123,6 +123,11 @@ p > a.button {
   margin-bottom: 1em;
 }
 
+@media (max-width: 1000px) {
+  p > code {
+    word-break: break-all;
+  }
+}
 code {
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: var(--font-size-code);
@@ -210,6 +215,15 @@ figure:has(> figcaption + pre) {
   }
 }
 
+table {
+  margin: 1em 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-align: left;
+}
 td {
   padding-right: 1em;
 }
