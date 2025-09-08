@@ -6,9 +6,9 @@ title: Bundling, pregenerating assets and caching
 
 For most websites, what negatively [impacts performance the most, is too much client-side JavaScript](/guide/javascript/#client-side-vs-server-side-javascript). But for some very interactive apps, a lot of client-side JavaScript is unavoidable.
 
-If you have dozens, or even hundreds, of different client-side JavaScript files, the time may have come to bundle them. Bundling multiple files into one is generally done because making one HTTP request is faster than making multiple. Yes, [even with HTTP/2](https://css-tricks.com/musings-on-http2-and-bundling/), and [even today](https://dev.to/konnorrogers/why-we-still-bundle-with-http2-in-2022-3noo). If you want to know for sure whether adding a bundler to your tech stack is worth the added complexity, you'll need to benchmark a typical user journey on your website under typical conditions – once with a bundler, and once without.
+If you have dozens, or even hundreds, of different client-side JavaScript files, the time may have come to bundle them. Bundling multiple files into one is generally done because making one HTTP request is faster than making multiple. Yes, [even with HTTP/2](https://css-tricks.com/musings-on-http2-and-bundling/), and [even today](https://dev.to/konnorrogers/why-we-still-bundle-with-http2-in-2022-3noo) – at least until [JavaScript Module Declarations](https://github.com/tc39/proposal-module-declarations) or something similar is standardized and implemented by browsers. If you want to know for sure whether adding a bundler to your tech stack is worth the added complexity, you'll need to benchmark a typical user journey on your website under typical conditions – once with a bundler, and once without.
 
-Making multiple HTTP request is especially slow, if not all URLs are initially known to the client. Although this aspect could be mitigated with [`rel=preload`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload) for CSS, and [`rel="modulepreload"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/modulepreload) for JavaScript. But without any preload hints, the client first needs to request the HTML, which contains the URL to the first JavaScript module, which in turn contains the URL to another imported JavaScript module, and so forth. This results in a so-called network-waterfall, where each request has to complete before the next can be started. Especially on slow mobile connections, this can slow down the loading of lots of files dramatically.
+Making multiple HTTP requests is especially slow if not all URLs are initially known to the client. Although this aspect could be mitigated with [`rel=preload`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload) for CSS, and [`rel="modulepreload"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/modulepreload) for JavaScript. But without any preload hints, the client first needs to request the HTML, which contains the URL to the first JavaScript module, which in turn contains the URL to another imported JavaScript module, and so forth. This results in a so-called network-waterfall, where each request has to complete before the next can be started. Especially on slow mobile connections, this can slow down the loading of lots of files dramatically.
 
 <!-- TODO: add waterfall in network dev tools -->
 
@@ -16,7 +16,36 @@ The same can happen in CSS when using [@font-face](https://developer.mozilla.org
 
 ### Bundling JavaScript
 
-When bundling JavaScript, to prevent e.g. clashes of variables with the same name in different files, the syntax needs to be parsed and variables renamed. JavaScript bundlers like [esbuild](https://esbuild.github.io/) or [Rolldown](https://rolldown.rs/) recursively follow the import statements and try to bundle only code that’s actually used (often called “tree-shaking”). This gets more complicated if not all pages of the website require the same JavaScript. For that case, bundlers try to create different chunks ("code-splitting"), balancing the ideals of fewer chunks, chunks containing no unnecessary code for that page, and little code being duplicated across chunks.
+When bundling JavaScript, to prevent e.g. clashes of variables with the same name in different files, the syntax needs to be parsed and variables renamed. JavaScript bundlers like [esbuild](https://esbuild.github.io/) recursively follow the import statements and try to bundle only code that’s actually used (often called “tree-shaking”).
+
+In Mastro, a route that bundles all JavaScript that's referenced from the `routes/app.client.ts` entry point, might look as follows:
+
+```ts title=routes/bundle.js.server.ts
+import * as esbuild from "npm:esbuild";
+
+export const GET = async () => {
+  const { outputFiles } = await esbuild.build({
+    entryPoints: ["routes/app.client.ts"],
+    bundle: true,
+    write: false,
+  });
+  return new Response(outputFiles[0].contents, {
+    headers: { "Content-Type": "text/javascript; charset=utf-8" },
+  });
+};
+```
+
+It could be consumed like:
+
+```html
+<script type="module" src="/bundle.js"></script>
+```
+
+If you decide to bundle all your client-side JavaScript, you most probably want to move the source files out of the `routes/` folder, perhaps in a new `client/` folder or similar, and adjust the `entryPoints` accordingly.
+
+As you can imagine, bundling of hundreds of files can be computationally expensive, and would take the server longer than generating a typical HTML page. When doing static site generation, this doesn't matter. But doing that every time a user makes a request to a server would be slow and wasteful. We'll look at [pregenerating assets later](#build-step).
+
+Bundling gets more complicated if not all pages of the website require the same JavaScript. For that case, some bundlers try to create different chunks ("code splitting"), balancing the conflicting goals of fewer chunks, chunks containing no unnecessary code for that page, and little code being duplicated across chunks.
 
 For both CSS and client-side JavaScript, there is usully a trade-off between loading only what you need for the current page (which is optimizing initial page load speed), over loading everything in a single request that the user might need if they afterwards also visit other pages (which is optimal overall, but only if the user does visit more pages).
 
@@ -42,8 +71,6 @@ Which can be consumed with:
 ```html
 <link rel="stylesheet" href="/styles.css">
 ```
-
-As you can imagine, bundling of hundreds of files can be computationally expensive, and would take the server longer than generating a typical HTML page. When doing static site generation, this doesn't matter. But doing that every time a user makes a request to a server would be slow and wasteful. We'll look at that later.
 
 
 ## Transforming images
@@ -106,7 +133,7 @@ Run `deno task pregenerate` and check what was written to the `dist/` folder.
 
 If you start the server with `deno task start` and access it on a `http://localhost:8000`, the images will still be rendered on the fly, enabling you to quickly change things when developing your website. However, when you open `http://127.0.0.1:8000` in your browser (that's using the IP address for localhost), the Mastro server will assume we're running in production, and load the pregenerated image from the `dist/` folder. You should see in your browser's network dev tools that this is much quicker.
 
-You can pregenerate not only images, CSS or JavaScript, but also entire HTML pages. Simply add a `export const pregenerate = true;`
+You can pregenerate not only images, CSS or JavaScript, but also entire HTML pages. Simply add a `export const pregenerate = true;` to your route.
 
 Usually, serving the pregenerated files with your normal web server will be fast enough. However, you could also push e.g. the `dist/_images/` folder to your CDN (content delivery network), and configure it to serve all URLs starting with `/_images/` directly from the CDN.
 
