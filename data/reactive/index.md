@@ -13,7 +13,7 @@ Server-side part is plain HTML:
 ```html
 <my-counter>
   Count is <span data-bind="count">0</span>
-  <button data-onclick="inc">+</button>
+  <button data-onclick="inc">Click me</button>
 </my-counter>
 ```
 
@@ -30,6 +30,22 @@ customElements.define("my-counter", class extends ReactiveElement {
   }
 })
 ```
+
+Result is:
+
+<my-counter>
+  Count is <span data-bind="count" style="width: 2ch; display: inline-block">0</span>
+  <button class="-minimal" data-onclick="inc">Click me</button>
+</my-counter>
+<script type="module">
+import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/mastro@0.2.1/reactive?bundle"
+customElements.define("my-counter", class extends ReactiveElement {
+  count = signal(0)
+  inc () {
+    this.count.set(c => c + 1)
+  }
+})
+</script>
 
 For more examples, see this [Todo list CodePen](https://codepen.io/mb2100/pen/EaYjRvW), [examples on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/reactive-mastro), or continue reading.
 
