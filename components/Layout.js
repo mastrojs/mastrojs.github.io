@@ -13,7 +13,7 @@ export const Layout = (props) =>
         ${props.description && html`
           <meta name="description" content="${props.description}">
         `}
-        <meta property="og:image" content="/og.png">
+        <meta property="og:image" content="/assets/og.png">
         <script type="module" src="/scripts.js"></script>
         <script
           data-goatcounter="https://mastrojs.goatcounter.com/count"
