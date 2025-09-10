@@ -20,6 +20,7 @@ export const Layout = (props) =>
           async
           src="//gc.zgo.at/count.js"
         ></script>
+        <link rel="alternate" type="application/atom+xml" href="/feed.xml">
       </head>
       <body>
         <header>

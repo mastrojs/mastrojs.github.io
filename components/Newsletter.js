@@ -7,9 +7,10 @@ export const Newsletter = () =>
       <h2>Stay in touch</h2>
 
       <p>
-        Get notified when new major versions of Mastro, or new chapters of the <a
-          href="/guide/"
-        >guide</a>, are released:
+        Want to know about new major versions of Mastro, or new chapters of the
+        <a href="/guide/">guide</a>? Follow us on
+        <a href="https://bsky.app/profile/mastrojs.bsky.social">Bluesky</a>,
+        or subscribe to our <a href="/feed.xml">Atom feed</a> or newsletter:
       </p>
 
       <form
