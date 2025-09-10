@@ -231,7 +231,8 @@ td {
 input:not(:is([type=radio], [type=checkbox], [type=file])) {
   font-family: inherit;
   font-size: 16px;
-  border: 2px solid #bbbbbb;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
   box-sizing: border-box;
   padding: 0.5em;
   width: 100%;
@@ -346,10 +347,6 @@ search {
     max-width: calc(100vw - 13.5rem);
   }
 
-  > input[type=search] {
-    border-width: 1px;
-    border-radius: 5px;
-  }
   h2 {
     font-size: 1.5rem;
     margin-top: 1em;
@@ -397,7 +394,7 @@ search {
     margin-top: 0;
     position: fixed;
     left: 0;
-    height: calc(100vh - 4em);
+    height: calc(100vh - 6rem);
     width: var(--width-nav);
     > summary {
       display: none;
@@ -449,6 +446,7 @@ search {
 .tip {
   color: var(--color-tip);
   background-color: var(--color-tip-bg);
+  border-radius: 5px;
   padding: 0.5em 1.5em;
   > h2 {
     font-size: 1.2em;

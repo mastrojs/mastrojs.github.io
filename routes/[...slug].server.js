@@ -1,4 +1,5 @@
 import { Layout } from "../components/Layout.js";
+import { Newsletter } from "../components/Newsletter.js";
 import { Sidebar } from "../components/Sidebar.js";
 import { Toc } from "../components/Toc.js";
 import { html, htmlToResponse } from "mastro";
@@ -28,6 +29,10 @@ export const GET = async (req) => {
 
           ${contents && index === -1
             ? Toc({ contents })
+            : ""}
+
+          ${["/", "/guide/"].includes(pathname)
+            ? Newsletter()
             : ""}
         </main>
 
