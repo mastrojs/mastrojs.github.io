@@ -126,7 +126,7 @@ Test following the links in the Mastro preview pane now. Congratulations, you ha
 
 Usually when programming, things go wrong at some point. It's not very common for a programmer to write out a program, and get exactly what they wanted the first time they run it. Perhaps you get a syntax error and the program doesn't even start running. Or perhaps the JavaScript syntax was correct but the program crashes at some point when it's running, or it runs but doesn't do what you wanted it to.
 
-If your program starts running, it can be useful to add `console.log()` statements in various places of your code and see what it prints into the JavaScript console (what you used in a [previous chapter](/guide/javascript/#getting-your-feet-wet-with-javascript)). Give it a try:
+If your program starts running, it can be useful to add `console.log()` statements in various places of your code and see what it prints into the JavaScript console (what you used in a [previous chapter](/guide/javascript/)). Give it a try:
 
 ```js title=routes/news/[slug].server.js ins={7}
 import { getParams, htmlToResponse } from "mastro";

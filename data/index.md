@@ -9,7 +9,7 @@ A simple file-based [router](/guide/server-side-components-and-routing/#routing-
 Mastro gets out of the way, so that you can focus on building awesome websites.
 
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a framework distilled to its essence.
-- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create lean [MPA](/guide/javascript/) websites that load blazingly [fast](#fast-for-everyone).
+- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create lean [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load blazingly [fast](#fast-for-everyone).
 - **No bundler** (until you [add one](/guide/bundling-assets-caching/)): your code arrives in the browser exactly as you wrote it.
 - **No magic**: use normal `<img>` and `<a>` tags referencing HTTP-first [assets](/guide/bundling-assets-caching/#transforming-images).
 - **No VC-money**: this forces us to stay lean ourselves, and prevents eventual enshitification.

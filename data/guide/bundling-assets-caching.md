@@ -4,7 +4,7 @@ title: Bundling, pregenerating assets and caching
 
 ## Bundling
 
-For most websites, what negatively [impacts performance the most, is too much client-side JavaScript](/guide/javascript/#client-side-vs-server-side-javascript). But for some very interactive apps, a lot of client-side JavaScript is unavoidable.
+For most websites, what negatively [impacts performance the most, is too much client-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript). But for some very interactive apps, a lot of client-side JavaScript is unavoidable.
 
 If you have dozens, or even hundreds, of different client-side JavaScript files, the time may have come to bundle them. Bundling multiple files into one is generally done because making one HTTP request is faster than making multiple. Yes, [even with HTTP/2](https://css-tricks.com/musings-on-http2-and-bundling/), and [even today](https://dev.to/konnorrogers/why-we-still-bundle-with-http2-in-2022-3noo) – at least until [JavaScript Module Declarations](https://github.com/tc39/proposal-module-declarations) or something similar is standardized and implemented by browsers. If you want to know for sure whether adding a bundler to your tech stack is worth the added complexity, you'll need to benchmark a typical user journey on your website under typical conditions – once with a bundler, and once without.
 

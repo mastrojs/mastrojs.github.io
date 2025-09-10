@@ -4,7 +4,8 @@ metaTitle: 'Learn to build a website for free with HTML, CSS and JavaScript'
 description: 'Learn the fundamental web technologies by building your very first website and putting it live – all in your browser.'
 ---
 
-Learn the fundamental web technologies (HTML, CSS and JavaScript) by building your first website and putting it live – all in your browser.
+Build your first website and put it live – all in your browser.
+Start with the fundamentals: HTML and CSS. Then build a static blog, and implement a to-do list app: once with plain JavaScript, then reactively. Finally, run a server with a REST API, and learn about caching and different architectures.
 
 While the guide uses the Mastro framework, the patterns discussed are universal.
 
