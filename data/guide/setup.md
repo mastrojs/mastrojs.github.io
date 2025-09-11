@@ -48,6 +48,6 @@ See also [VS Code for the Web's browser support](https://code.visualstudio.com
 2. Click **Trust Publishers & Install**
 3. Close the two tabs of the just installed extensions ([Mastro](https://marketplace.visualstudio.com/items?itemName=mastro.mastro-vscode-extension) and [FAST Tagged Template Literals](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates)).
 
-![](../../../assets/vscode-extensions.png)
+![](/assets/vscode-extensions.png)
 
 Done? Congrats, you're all set up now! You can switch back to the _Explorer_ view (the topmost icon in the activity bar on the left) to finally write some HTML.

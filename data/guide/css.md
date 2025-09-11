@@ -11,12 +11,14 @@ Add the following line to link a CSS file to your page:
 <html>
   <head>
     <title>My website</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   ...
 ```
 
 And create the corresponding CSS style sheet file in the `routes` folder. (You could choose another name, but `styles.css` is fairly common.)
+
+Since `/styles.css` starts with a slash, it is an absolute path. Because your `index.html` is in the same folder, the relative path `href="styles.css"` or `href="./styles.css"` would have worked here as well.
 
 ```css title=routes/styles.css
 body {
@@ -48,7 +50,7 @@ Wrap your existing content in a `main` element, indenting everything in it by tw
 <html>
   <head>
     <title>My website</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <header>
@@ -184,7 +186,7 @@ A few more links I can highly recommend:
   - [@scope rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope) instead of CSS Modules
   - [Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries): like media query but asks a container element's size
   - [:has() pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has), which is a sort of parent selector
-- There are many methodologies to structure your CSS (like BEM or rscss), and tools to generate CSS (ranging from the relatively simple like SCSS or CSS modules, to the complex like Tailwind). However, for a convincing argument in favour of simply sticking to global CSS and element selectors, I highly recommend [Heydon Pickering's article](https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/).
+- There are many methodologies to structure your CSS (like BEM or rscss), and tools to generate CSS (ranging from the relatively simple like SCSS or CSS modules, to the complex like Tailwind). And while you can [colocate CSS files with compontents in Mastro](/guide/bundling-assets-caching/#bundling-css), for a convincing argument in favour of simply sticking to global CSS with element selectors, I highly recommend [Heydon Pickering's article on styling HTML elements](https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/).
 
 And once you're ready to ponder the nature of the medium web:
 

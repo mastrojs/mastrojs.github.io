@@ -144,7 +144,7 @@ new Response(body, { headers: { "Content-Type": "text/html" } })
 
 As you've just seen, plain old HTML forms can get you a long way – all without requiring any fragile client-side JavaScript. However, if you really need to avoid that page reload, here's how.
 
-We start with the [initial reactive to-do list app](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) and move the script to its own file: `routes/todo-list.client.ts`. This time, instead of saving the to-dos in `localStorage`, we want to save them to a (mock) database on the server. To make HTTP requests to the server without doing a full page reload, we use the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function.
+We start with the [initial reactive to-do list app](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) and move the script to its own file: `routes/todo-list.client.ts`. The `.ts` suffix means it's a TypeScript file, and because it ends in `.client.ts`, Mastro will automatically transform it to JavaScript. This time, instead of saving the to-dos in `localStorage`, we want to save them to a (mock) database on the server. To make HTTP requests to the server without doing a full page reload, we use the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function.
 
 It's a handful of files, so best if you check them out [on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server). Or even better: [download the mastro repo as a zip](https://github.com/mastrojs/mastro/archive/refs/heads/main.zip) and open the `examples/todo-list-server/` folder in VS Code. In the terminal, you can `cd mastro/examples/todo-list-server/` and then `deno task start`.
 

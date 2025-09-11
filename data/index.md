@@ -19,8 +19,8 @@ Mastro gets out of the way, so that you can focus on building awesome websites.
 <p>
 <picture>
   <source media="(width < 550px)" sizes="100vw" srcset="/assets/vscode-example-mobile.webp 512w, /assets/vscode-example-mobile@2x.webp 1024w">
-  <source media="(width >= 550px)" sizes="100vw" srcset="/assets/vscode-example.webp 900w, ../../assets/vscode-example@2x.webp 1800w">
-  <img  src="/assets/vscode-example.webp" width="1800" height="1017" alt="Screenshot">
+  <source media="(width >= 550px)" sizes="100vw" srcset="/assets/vscode-example.webp 900w, /assets/vscode-example@2x.webp 1800w">
+  <img  src="/assets/vscode-example.webp" width="1800" height="1017" loading="lazy" alt="Screenshot">
 </picture>
 </p>
 

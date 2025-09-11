@@ -42,7 +42,7 @@ We're using the `docs/` folder, because that's the only folder name GitHub Pages
 
 So far, we haven't saved any of the changes we made back to GitHub. To do that, switch to the _Source Control_ view in the activity bar on the left.
 
-![](../../../assets/vscode-source-control.png)
+![](/assets/vscode-source-control.png)
 
 The first time, a blue box might be there with the text:
 

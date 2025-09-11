@@ -60,7 +60,9 @@ Now, to `import` the two functions we just created, you first need to convert th
 
 ## Routing and page handlers
 
-Files in the `routes/` folder are sent out unmodified to your website's visitors – except for files ending in `.server.js` or `.server.ts`. These files should contain JavaScript functions that handle the generation of the page in question – these functions are often called _page handlers_.
+Files in the `routes/` folder are sent out unmodified to your website's visitors – except for files ending in `.server.js` (and if you're using Mastro on the terminal, also `.server.ts` and `.client.ts` TypeScript files).
+
+The `.server.js` files should contain JavaScript functions that handle the generation of the page in question – these functions are often called _page handlers_.
 
 When a visitor requests a page of your website, the right file needs to be found. This process is known as _routing_. Once the route is found, the code in the handler is run, and the resulting page is sent to your website's visitor.
 
