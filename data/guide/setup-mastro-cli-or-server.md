@@ -29,7 +29,7 @@ Start your own server and run it locally. _Local_ means on your laptop (or deskt
 
 4.  Then type (or copy-paste):
 
-        deno run -A jsr:@mastrojs/mastro@0.2.1/init
+        deno run -A jsr:@mastrojs/mastro@0.3.1/init
 
     and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter for example `test-server` and hit enter (folder names with spaces are a bit of a pain on the command-line).
 

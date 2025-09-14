@@ -44,10 +44,10 @@ If you don't want to deal with the complexities of a bundler, you can use the ve
 
 ```html
 <script type="module">
-  import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/mastro@0.2.1/reactive?bundle"
+  import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/mastro@0.3.1/reactive?bundle"
 ```
 
-Instead of referencing the esm.sh CDN directly, you can of course also [**download Reactive Mastro**](https://esm.sh/@jsr/mastrojs__mastro@0.2.1/es2022/reactive.bundle.mjs) and host it together with your other static assets.
+Instead of referencing the esm.sh CDN directly, you can of course also [**download Reactive Mastro**](https://esm.sh/@jsr/mastrojs__mastro@0.3.1/es2022/reactive.bundle.mjs) and host it together with your other static assets.
 
 Either way, we recommend using an [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) so that you can refer to the file in all your own JavaScript modules using the shorthand `mastro/reactive`. That way, there is only one place to update the version number, and changing it will not change your own JavaScript files, which would invalidate their cache.
 
@@ -61,7 +61,7 @@ Here's a complete example that you can save as a `.html` file and open it in you
     <script type="importmap">
       {
         "imports": {
-          "mastro/reactive": "https://esm.sh/jsr/@mastrojs/mastro@0.2.1/reactive?bundle"
+          "mastro/reactive": "https://esm.sh/jsr/@mastrojs/mastro@0.3.1/reactive?bundle"
         }
       }
     </script>

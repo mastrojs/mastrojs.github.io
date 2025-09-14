@@ -38,7 +38,7 @@ Result is:
   <button class="-minimal" data-onclick="inc">Click me</button>
 </my-counter>
 <script type="module">
-import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/mastro@0.2.1/reactive?bundle"
+import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/mastro@0.3.1/reactive?bundle"
 customElements.define("my-counter", class extends ReactiveElement {
   count = signal(0)
   inc () {
