@@ -5,8 +5,8 @@ description: 'No bloat, no magic, no config. Mastro gets out of the way, so that
 layout: hero
 ---
 
-A simple file-based [router](/guide/server-side-components-and-routing/#routing-and-page-handlers), a handful of [composable functions](https://jsr.io/@mastrojs/mastro/doc) to return [standard Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects. Serve HTML, JSON, or whatever. No magic, no config.
-Mastro gets out of the way, so that you can focus on building awesome websites.
+A file-based [router](/guide/server-side-components-and-routing/#routing-and-page-handlers), and a handful of [composable functions](https://jsr.io/@mastrojs/mastro/doc) to return standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects. This simple, yet powerful, interface unifies static site generation and on-demand rendering HTML, JSON, etc.
+No magic, no config. Just focus on building awesome websites.
 
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a framework distilled to its essence.
 - **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create lean [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load blazingly [fast](#fast-for-everyone).
