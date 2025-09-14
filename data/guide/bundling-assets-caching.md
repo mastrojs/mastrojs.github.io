@@ -112,7 +112,7 @@ Actually, we’ve started the guide with an extreme application of this strategy
     "pregenerate": "deno run -A mastro/generator --pregenerateOnly",
 ```
 
-Then add `deno task pregenerate` to your CI/CD workflow. This will generate a `dist/` folder just like `generate` would for a static site. But this time, it will only attempt to generate routes with the following line added:
+Then add `deno task pregenerate` to your CI/CD workflow. This will generate a `generated/` folder just like `deno task generate` would for a static site. But this time, it will only attempt to generate routes with the following line added:
 
 ```js title=routes/_images/[...slug].server.ts ins={3}
 import { createImagesRoute } from "mastro/images";
@@ -129,13 +129,13 @@ export const { GET, getStaticPaths } = createImagesRoute({
 });
 ```
 
-Run `deno task pregenerate` and check what was written to the `dist/` folder.
+Run `deno task pregenerate` and check what was written to the `generated/` folder.
 
-If you start the server with `deno task start` and access it on a `http://localhost:8000`, the images will still be rendered on the fly, enabling you to quickly change things when developing your website. However, when you open `http://127.0.0.1:8000` in your browser (that's using the IP address for localhost), the Mastro server will assume we're running in production, and load the pregenerated image from the `dist/` folder. You should see in your browser's network dev tools that this is much quicker.
+If you start the server with `deno task start` and access it on a `http://localhost:8000`, the images will still be rendered on the fly, enabling you to quickly change things when developing your website. However, when you open `http://127.0.0.1:8000` in your browser (that's using the IP address for localhost), the Mastro server will assume we're running in production, and load the pregenerated image from the `generated/` folder. You should see in your browser's network dev tools that this is much quicker.
 
 You can pregenerate not only images, CSS or JavaScript, but also entire HTML pages. Simply add a `export const pregenerate = true;` to your route.
 
-Usually, serving the pregenerated files with your normal web server will be fast enough. However, you could also push e.g. the `dist/_images/` folder to your CDN (content delivery network), and configure it to serve all URLs starting with `/_images/` directly from the CDN.
+Usually, serving the pregenerated files with your normal web server will be fast enough. However, you could also push e.g. the `generated/_images/` folder to your CDN (content delivery network), and configure it to serve all URLs starting with `/_images/` directly from the CDN.
 
 
 ## Caching

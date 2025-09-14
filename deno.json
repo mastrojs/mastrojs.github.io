@@ -2,9 +2,9 @@
   "tasks": {
     "start": "deno serve --watch=. --allow-read --allow-env jsr:@mastrojs/mastro@0.2.1/server",
     "generate": "deno run -A mastro/generator",
-    "startWithPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site dist --serve",
-    "generateWPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site dist",
-    "checkLinks": "deno task generate && deno run --allow-env --allow-read --allow-net npm:linkinator dist -r --retry --retry-errors-jitter --skip jsr.io"
+    "startWithPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site generated --serve",
+    "generateWPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site generated",
+    "checkLinks": "deno task generate && deno run --allow-env --allow-read --allow-net npm:linkinator generated -r --retry --retry-errors-jitter --skip jsr.io"
   },
   "fmt": {
     "lineWidth": 100
