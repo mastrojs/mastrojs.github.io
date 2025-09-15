@@ -33,6 +33,8 @@ customElements.define("my-counter", class extends ReactiveElement {
 
 Result is:
 
+:::tip
+
 <my-counter>
   Count is <span data-bind="count" style="width: 2ch; display: inline-block">0</span>
   <button class="-minimal" data-onclick="inc">Click me</button>
@@ -46,6 +48,8 @@ customElements.define("my-counter", class extends ReactiveElement {
   }
 })
 </script>
+
+:::
 
 For more examples, see this [Todo list CodePen](https://codepen.io/mb2100/pen/EaYjRvW), [examples on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/reactive-mastro), or continue reading.
 

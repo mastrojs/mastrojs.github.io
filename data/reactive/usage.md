@@ -2,19 +2,19 @@
 title: Using Reactive Mastro
 ---
 
-You register your custom element once with `window.customElements.define('my-counter', class extends ReactiveElement { })` (the name must start with a lowercase letter and contain a hyphen), and then you can use it wherever in your HTML body, e.g. `<my-counter></my-counter>`. No JavaScript imports nor manually calling a constructor needed.
+You register your custom element once with `window.customElements.define('my-counter', class extends ReactiveElement { })` (the name must start with a lowercase letter and contain a hyphen), and then you can use it wherever in your HTML body, e.g. `<my-counter></my-counter>`.
 
 Your class extends Reactive Mastro's `ReactiveElement` class, which in turn extends the browser's `HTMLElement` class. Thus you're almost using plain
-custom elements, and have access to all native callbacks and methods (such as [attaching shadow DOM](https://github.com/mastrojs/mastro/issues/2)), should you choose to use them. However, what `ReactiveElement` does for you on `connectedCallback`, is two things:
+custom elements, and have access to all native callbacks and methods, should you choose to use them (e.g. [attaching a shadow DOM](https://github.com/mastrojs/mastro/issues/2#issuecomment-2518410192)). However, what `ReactiveElement` does for you on `connectedCallback`, is two things:
 
 - attach event listeners to handle your `data-on*` attributes (e.g. `data-onclick`), and
-- bind signals to the DOM elements you put `data-bind` on.
+- bind signals to the DOM elements that you put a `data-bind` attribute on.
 
-This enables a declarative developer experience (similar to React):
+This enables a declarative developer experience (similar to React, Solid, or Svelte, etc):
 
-- When an event (e.g. a `click` event) fires, the event listener calls an _action_ method (`inc` in the counter example above).
-- That method updates a central _state_ (the signal, which is a public field of your class).
-- The signal in turn causes the _view_ (i.e. the DOM) to automatically be updated in all the affected places.
+1. When an event (e.g. a `click` event) fires, the event listener calls an _action_ method (`inc` in the example on the [landing page](/reactive/)).
+2. That method updates a central _state_ (the signal, which is a public field of your class).
+3. The signal in turn causes the _view_ (i.e. the DOM) to automatically be updated in all the affected places.
 
 This makes sure your model (the signal) stays in sync with your view (the DOM), and saves you from the spaghetti code that happens all too quickly when manually updating the DOM using jQuery or vanilla JavaScript. For a longer introduction to this approach of state management, see for example [Solid's docs](https://docs.solidjs.com/guides/state-management).
 
@@ -55,7 +55,7 @@ Implementing an `initialHtml` function has the advantage that you can also dynam
 
 ## Server-side rendering even more
 
-However, often you don't need the ability to client-side render the whole component. Instead, you would prefer to server-render almost all your HTML, and never send it to the client as JavaScript. That's where Reactive Mastro really shines: you can ship even less JavaScript to the client than in an islands architecture. See the "counter" example at the very top of this page? Note that the HTML never shows up in the client-side JavaScript. This is a pattern [some call HTML web components](https://hawkticehurst.com/2023/11/a-year-working-with-html-web-components/). In a big application with lots of content, this approach can significantly reduce your JavaScript bundle size.
+However, often you don't need the ability to client-side render the whole component. Instead, you would prefer to server-render almost all your HTML, and never send it to the client as JavaScript. That's where Reactive Mastro really shines: you can ship even less JavaScript to the client than in an islands architecture. See the "counter" example on the [Reactive Mastro landing page](/reactive/)? Note that the HTML never shows up in the client-side JavaScript. This is a pattern [some call HTML web components](https://hawkticehurst.com/2023/11/a-year-working-with-html-web-components/). In a big application with lots of content, this approach can significantly reduce your JavaScript bundle size.
 
 It also enables you to more clearly think about what your page will look like before JavaScript finishes loading and executing, or when it fails to execute at all – an old idea called [progressive enhancement](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement).
 

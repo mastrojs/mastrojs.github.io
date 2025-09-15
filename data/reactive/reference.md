@@ -22,6 +22,14 @@ or nested properties:
 ```
 This sets arbitrary [JavaScript properties, not attributes](https://stackoverflow.com/a/6004028/214446) on an element.
 
+#### Set an attribute
+
+The following [sets an attribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute) – unless the `myField` signal conatains `null`, in which case the attribute is removed. The signal's value is automatically converted to a string.
+
+```html
+<div data-bind="attributes.hidden=myField"></div>
+```
+
 #### Toggle a class
 ```html
 <div data-bind="class.myCssClass=myField"></div>

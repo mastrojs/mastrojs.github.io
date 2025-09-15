@@ -358,6 +358,6 @@ The most durable place would probably be a server with a database, but that woul
     todos = localSignal([]);
 ```
 
-This concludes the last chapter of the Mastro Guide about static site generation.
+## Next steps
 
-However, you can continue with the [Reactive Mastro docs](/reactive/), or continue this guide and learn about URLs, HTTP and servers, as well as how to use Mastro to run a server and build HTML forms, and REST APIs.
+You can continue reading more examples and strategies, including _islands architecture_, in the [Reactive Mastro docs](/reactive/usage/). Or you can continue directly with this guide and learn about URLs, HTTP and servers, as well as how to use Mastro to generate HTML forms and REST APIs on-demand.
