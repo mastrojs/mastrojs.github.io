@@ -2,12 +2,17 @@
 title: "Setup: GitHub, VS Code and Mastro"
 ---
 
-The Mastro _Visual Studio Code for the Web_ extension lets you run the
-Mastro static site generator (SSG) right in your browser.
+There are various ways to run Mastro, which is a general-purpose web framework and static site generator. The by far easiest way is with the Mastro _Visual Studio Code for the Web_ extension, which lets you run Mastro as a static site generator right in your browser. No need to install anything or learn how to use the command line.
 
-No need to install anything or mess around with the command line. Never wait for a slow deployment pipeline again: you'll know immediately if the generation failed for whatever reason.
+:::tip
+## Alternative option: command line
 
-Since all the processing happens upfront, and the generated files are served from a CDN close to your users, a static site is extremely fast and secure.
+If you're already comfortable with the command line and prefer a local installation over _VS Code for the Web_, you can [setup Mastro on the command line](/guide/setup-mastro-cli-or-server/#different-ways-to-run-mastro).
+
+Once you've done that, you can jump to the [next chapter](/guide/html/).
+:::
+
+Either way, since all the processing happens upfront, and the generated files are served from a CDN close to your users, a static site is extremely fast and secure.
 We'll be using GitHub Pages, which hosts your static site for free.
 
 

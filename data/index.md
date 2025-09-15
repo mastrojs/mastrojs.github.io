@@ -5,7 +5,7 @@ description: 'No bloat, no magic, no config. Mastro gets out of the way, so that
 layout: hero
 ---
 
-A file-based [router](/guide/server-side-components-and-routing/#routing-and-page-handlers), and a handful of [composable functions](https://jsr.io/@mastrojs/mastro/doc) to return standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects. This simple, yet powerful, interface unifies static site generation and on-demand rendering HTML, JSON, etc.
+A file-based [router](/guide/server-side-components-and-routing/#routing-and-page-handlers), and a handful of [composable functions](https://jsr.io/@mastrojs/mastro/doc) to return standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects. This simple, yet powerful, interface unifies static site generation and on-demand rendering of HTML, JSON, etc.
 No magic, no config. Just focus on building awesome websites.
 
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a framework distilled to its essence.
@@ -49,7 +49,7 @@ I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in
 deno run -A jsr:@mastrojs/mastro@0.3.1/init
 ```
 
-Start with the [template repo](https://github.com/mastrojs/template-basic-deno), run the above in a terminal, or see [installation instructions](/guide/setup-mastro-cli-or-server/#setup-a-local-server).
+Start with the [template repo](https://github.com/mastrojs/template-basic-deno), run the above in a terminal, or see [installation instructions](/guide/setup-mastro-cli-or-server/).
 
 <a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>
 <a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>

@@ -10,7 +10,9 @@ To publish your website to the internet, we need to:
 
 :::tip
 ## Alternative option: CI/CD pipeline
-If you want to set up a CI/CD pipeline, instead of commiting the output folder, see the docs on [using Deno on the command line](https://github.com/mastrojs/mastro#server-or-ssg-with-deno-on-the-command-line).
+If you are comfortable with the command line and/or GitHub Actions, you can set up a CI/CD pipeline instead of commiting the output folder. To do that, see [Deploy static site with CI/CD](/guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd).
+
+Once you've done that, you can jump to the [next chapter](/guide/css/).
 :::
 
 ## One-time setup
@@ -21,7 +23,7 @@ Configure [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-g
 
 1. On GitHub, navigate to the **page of the repository** you created in the previous chapter: `https://github.com/your-user-name/your-repository-name/`
 2. Click the **Settings** tab on the top right (possibly hiding in a `...` menu).
-3. In the **Code and automation** section of the sidebar, click **Pages**.
+3. In the **Code and automation** section of the left sidebar, click **Pages**.
 4. Under **Source**, make sure that **Deploy from a branch** is selected.
 5. Under **Branch**,
     - switch the branch from `None` to `main`,

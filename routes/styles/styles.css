@@ -34,6 +34,11 @@ html {
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
+  scroll-padding-top: 3em;
+  scroll-behavior: smooth;
+  @media screen and (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -224,7 +229,7 @@ table {
   font-variant-numeric: lining-nums tabular-nums;
   text-align: left;
 }
-td {
+td:not(:last-child), th:not(:last-child) {
   padding-right: 1em;
 }
 

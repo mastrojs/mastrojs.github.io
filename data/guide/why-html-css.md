@@ -15,7 +15,7 @@ The following are your four major options. Starting with those giving you the le
 
 - Use a **static site generator** such as Jekyll, Hugo or Eleventy. This doesn't require you to run a server, because a static site generator produces the entire website ahead of time. It is then served to your website visitors from a CDN, which is what services like Netlify or GitHub Pages offer you for free (if you have a modest number of visitors). While there are usually some ready-made templates, these tools give you the full power to write your own HTML and CSS, giving you full control over the design and layout of the page.
 
-- Use a **web framework running on a server** like Ruby on Rails, Django or Laravel. In addition of HTML and CSS, these require knowledge of the programming language they're using (Ruby, Python or PHP, respecitvely). Because they server-side render the page on every visit, they also require a server and a database. If you're not sure, you probably don't need a full-stack framework.
+- Use a **web framework running on a server** like Ruby on Rails, Django or Laravel. In addition of HTML and CSS, these require knowledge of the programming language they're using (Ruby, Python or PHP, respecitvely). Because they server-side render the page on every visit, they also require a server (and usually also a database). If you're not sure, you probably don't need a full-blown framework on a running server.
 
 In the first half of this guide, we'll be using Mastro as a simple static site generator. In later chapters, we'll use it as a web server.
 
