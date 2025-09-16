@@ -16,7 +16,7 @@ Here's a table listing the various ways you can run Mastro. Either locally (mean
 |                 | Local development                                                               | Prod static site                                                                              | Prod server                                                                |
 |-----------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | VS Code for Web | [Setup in-browser](/guide/setup/)                                               | [Publish static site](/guide/publish-website/)                                                | -                                                                          |
-| Command line    | [Setup local server](/guide/setup-mastro-cli-or-server/#setup-local-development-server) | [Deploy static site via CI/CD](/guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd) | [Deploy server](/guide/cli-deploy-production/#deploy-server-to-production) |
+| Command line    | [Setup local server](/guide/cli-install/#setup-local-development-server) | [Deploy static site via CI/CD](/guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd) | [Deploy server](/guide/cli-deploy-production/#deploy-server-to-production) |
 
 ## Setup local development server
 

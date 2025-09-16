@@ -49,7 +49,7 @@ I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in
 deno run -A jsr:@mastrojs/mastro@0.3.1/init
 ```
 
-Start with the [template repo](https://github.com/mastrojs/template-basic-deno), run the above in a terminal, or see [installation instructions](/guide/setup-mastro-cli-or-server/).
+Start with the [template repo](https://github.com/mastrojs/template-basic-deno), run the above in a terminal, or see [installation instructions](/guide/cli-install/).
 
 <a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>
 <a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>

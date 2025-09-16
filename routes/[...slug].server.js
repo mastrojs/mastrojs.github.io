@@ -81,7 +81,7 @@ const sidebar = [{
     { label: "Third-party packages", slug: "/guide/third-party-packages/" },
     { label: "Interactivity with JavaScript in the browser", slug: "/guide/interactivity-with-javascript-in-the-browser/" },
     { label: "URLs, HTTP and servers", slug: "/guide/urls-http-servers/" },
-    { label: "Setup Mastro on the command line", slug: "/guide/setup-mastro-cli-or-server/" },
+    { label: "Setup Mastro on the command line", slug: "/guide/cli-install/" },
     { label: "Deploy server or static site with CI/CD", slug: "/guide/cli-deploy-production/" },
     { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
     { label: "Bundling, pregenerating assets and caching", slug: "/guide/bundling-assets-caching/" },

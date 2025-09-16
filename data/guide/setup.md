@@ -7,7 +7,7 @@ There are various ways to run Mastro, which is a general-purpose web framework a
 :::tip
 ## Alternative option: command line
 
-If you're already comfortable with the command line and prefer a local installation over _VS Code for the Web_, you can [setup Mastro on the command line](/guide/setup-mastro-cli-or-server/#different-ways-to-run-mastro).
+If you're already comfortable with the command line and prefer a local installation over _VS Code for the Web_, you can [setup Mastro on the command line](/guide/cli-install/#different-ways-to-run-mastro).
 
 Once you've done that, you can jump to the [next chapter](/guide/html/).
 :::

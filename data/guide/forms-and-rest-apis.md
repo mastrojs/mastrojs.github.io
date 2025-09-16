@@ -31,7 +31,7 @@ When you enter `hello world` in the text input and submit the form, the browser 
 
 Putting all the form's `input` values as query parameters in the URL of a `GET` request is one way to submit it. However, it's not very private (URLs are often recorded in server logs and are easily copy-pasted), and there are limits to how long a URL can be. That's why forms support a second method: submitting with an HTTP `POST` request, where the inputs are transmitted as part of the request body.
 
-Let's also change the `action` attribute of the form, so that it submits to the URL we're already on, instead of Google. That way, our server can handle the submission (see previous chapter to [setup a local server](/guide/setup-mastro-cli-or-server/)). Export a second function from the same routes file, this one called `POST`:
+Let's also change the `action` attribute of the form, so that it submits to the URL we're already on, instead of Google. That way, our server can handle the submission (see previous chapter to [setup a local server](/guide/cli-install/)). Export a second function from the same routes file, this one called `POST`:
 
 ```ts title=routes/index.server.ts
 import { html, htmlToResponse } from "mastro";
