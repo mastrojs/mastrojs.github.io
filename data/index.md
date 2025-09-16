@@ -92,8 +92,6 @@ Start with the [template repo](https://github.com/mastrojs/template-basic-deno),
 
 Work with the fabric of the web instead of fighting it. Start with the fundamentals: HTML and CSS. Then build a static blog, and implement a to-do list app: once with plain JavaScript, then reactively. Finally, run a server with a REST API, and learn about caching and different architectures.
 
-While the guide uses Mastro, the patterns discussed are universal to web development.
-
 <a class="button" href="/guide/">Follow the guide</a>
 
 
