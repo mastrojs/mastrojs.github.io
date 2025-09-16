@@ -68,3 +68,15 @@ Check out the contents of the generated folder. It's a bare-bones Mastro project
 - the file in the `routes/` folder is now called `index.server.ts` instead of `index.server.js`, because it's [TypeScript](https://www.typescriptlang.org/) – JavaScript with type annotations. This allows `deno check` to find certain problems in your code even without running it.
 
 Congrats, you're all set now to work locally on your project.
+
+:::tip
+## Version control with Git
+
+Just changing your project's files on your computer will not change them on GitHub. To commit and push your changes, you can either:
+
+- continue to use the [_Source Control_ view](/guide/publish-website/#save-changes-and-publish-to-the-web) built into VS Code,
+- install a GUI like [GitHub Desktop](https://github.com/apps/desktop) or [Git Up](https://gitup.co/), or
+- use `git` on the command line, see e.g. this [cheat sheet](https://git-scm.com/cheat-sheet).
+
+Either way, in the long run it pays off to make the [right mental model for Git](https://mb21.github.io/blog/2023/12/13/right-mental-model-for-git.html).
+:::
