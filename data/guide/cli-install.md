@@ -64,7 +64,7 @@ Check out the contents of the generated folder. It's a bare-bones Mastro project
 
 - with a `deno.json` file, which specifies the Mastro version to use, and what happens if you type `deno task start` or `deno task generate`,
 - the `deno.lock` file, which remembers exactly which version of each package was used,
-- the `server.ts` file, which is executed to start up the server, and
+- the `server.ts` file, which is executed to start up the server (here you might add customizations like middleware), and
 - the file in the `routes/` folder is now called `index.server.ts` instead of `index.server.js`, because it's [TypeScript](https://www.typescriptlang.org/) – JavaScript with type annotations. This allows `deno check` to find certain problems in your code even without running it.
 
 Congrats, you're all set now to work locally on your project.

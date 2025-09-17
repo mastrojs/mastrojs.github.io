@@ -106,13 +106,14 @@ Because bundling CSS and JavaScript, and transforming images, are expensive comp
 
 Actually, we’ve started the guide with an extreme application of this strategy: static site generation. There, not only images and bundles are pre-computed, but also every single HTML file is pre-generated. Thus for a static site, the above works very well. But if you're running a server, you may want to pregenerate the images in a build step. Add a `pregenerate` task to your `deno.json`:
 
-```json title=deno.json ins={3}
+```json title=deno.json ins={4}
 {
   "tasks": {
+    "generate": "deno run -A mastro/generator",
     "pregenerate": "deno run -A mastro/generator --pregenerateOnly",
 ```
 
-Then add `deno task pregenerate` to your CI/CD workflow. This will generate a `generated/` folder just like `deno task generate` would for a static site. But this time, it will only attempt to generate routes with the following line added:
+Then add `deno task pregenerate` to your CI/CD workflow (e.g. when using Deno Deploy, add it as your "Build command"). This will generate a `generated/` folder just like `deno task generate` would for a static site. But this time, it will only attempt to generate routes with the following line added:
 
 ```js title=routes/_images/[...slug].server.ts ins={3}
 import { createImagesRoute } from "mastro/images";
@@ -155,7 +156,7 @@ If you want to improve performance and reduce load on your server by leveraging 
 
 ## HTTP Streaming
 
-Caching is great, but sometimes it's not an option – for example when you need the absolute newest data from the database. To improve performance in a case like that, you should consider HTTP streaming. In HTTP/1.1, this was known as "chunked transfer encoding". But in HTTP/2 and HTTP/3, streaming is built right into the lower levels of the protocol.
+Caching is great, but sometimes it's not an option – for example when you need the absolute newest data from the database. To improve performance in a case like that, you should consider HTTP streaming, where each chunk of the HTML page is sent from the server as soon as it's ready. That way, a user may already see the first row of a big data set in their browser, while the last row hasn't even been read out from the database yet. In HTTP/1.1, this was known as "chunked transfer encoding". But in HTTP/2 and HTTP/3, streaming is built right into the lower levels of the protocol.
 
 To support it, all you have to do, is not break it on any level of the stack: from the database driver, to the HTML templates, all the way to your web hosting provider and CDN proxy. If there's an `await` or similar anywhere in that chain, which blocks until the whole page is loaded, then it cannot be streamed.
 
