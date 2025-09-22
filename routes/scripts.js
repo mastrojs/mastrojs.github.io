@@ -22,6 +22,27 @@ if (searchInput && popover && ul) {
       searchInput.value = "";
     }
   });
+  const appendResults = (ul, results) => {
+    const lis = results.map(() => {
+      // create lis in order
+      const li = document.createElement("li");
+      ul.append(li);
+      return li;
+    });
+    results.forEach(async (r, i) => {
+      // populate lis as soon as data arrives over the network
+      const { meta, url, sub_results } = await r.data();
+      lis[i].innerHTML = `
+        <a href="${url}">${meta.title}</a>
+        <ul>${sub_results.map(r =>
+          `<li>
+            ${r.url === url ? "" : `<a href="${r.url}">${r.title}</a>`}
+            <p>${r.excerpt}</p>
+          </li>`).join("")}
+        </ul>
+      `;
+    });
+  };
   let pagefindP;
   searchInput.addEventListener("focus", () => {
     // using pagefind@1.0.4 because of https://github.com/Pagefind/pagefind/issues/729
@@ -36,14 +57,9 @@ if (searchInput && popover && ul) {
       if (search) {
         ul.innerHTML = "";
         popover.showPopover();
-        if (search.results?.length) {
-          search.results.forEach(async r => {
-            const { meta, url, excerpt } = await r.data();
-            const li = document.createElement("li");
-            li.innerHTML = '<a href="' + url + '">' + meta.title + '</a>' +
-              '<div>' + excerpt + '</div>';
-            ul.append(li);
-          });
+        const { results } = search;
+        if (results?.length) {
+          appendResults(ul, results.slice(0, 10));
         } else {
           ul.innerHTML = "<li>No results.</li>";
         }

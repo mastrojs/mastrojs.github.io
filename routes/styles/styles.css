@@ -362,12 +362,23 @@ search {
     right: 0;
   }
   li {
+    font-size: 1rem;
     list-style-type: none;
-    margin-bottom: 1em;
+    margin: 0.75em 0 1em 0;
+    > p {
+      margin: 0;
+    }
   }
   a {
     text-decoration: none;
     font-weight: bold;
+  }
+  > div > ul {
+    padding-left: 0;
+    > li {
+      font-size: 1.25rem;
+      margin-bottom: 2em;
+    }
   }
 }
 
