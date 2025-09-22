@@ -1,6 +1,6 @@
 ---
 title: The simplest web framework and site generator you've ever seen.
-metaTitle: 'Mastro: the simplest web framework and site generator you’ve ever seen.'
+metaTitle: 'Mastro: the simplest web framework and site generator'
 description: 'No bloat, no magic, no config. Mastro gets out of the way, so that you can focus on building awesome websites.'
 layout: hero
 ---
