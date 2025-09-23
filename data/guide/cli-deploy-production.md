@@ -16,6 +16,8 @@ Now that you're familiar with Deno on the command line, let's look at how instea
 deno task generate
 ```
 
+### GitHub Pages
+
 To deploy your static site to GitHub Pages using the [GitHub Actions](https://docs.github.com/en/actions) CI/CD service, add the following file to your GitHub repository:
 
 ```yaml title=.github/workflows/deploy.yml
@@ -67,6 +69,59 @@ Then configure [GitHub Pages](https://docs.github.com/en/pages/getting-started-w
 4. Under **Source**, make sure that **GitHub Actions** is selected.
 
 Congratulations! Each time you push a change to your code to GitHub, it should now be auto-deployed to GitHub Pages. Point your browser to `https://your-user-name.github.io/your-repository-name/` to see your live website.
+
+### Cloudflare Workers
+
+To host your static site on Cloudflare instead of GitHub Pages, we need a [wrangler.json config](https://developers.cloudflare.com/workers/wrangler/configuration/#assets):
+
+```json title=wrangler.json
+{
+  "name": "my-static-page",
+  "compatibility_date": "2025-08-23",
+  "assets": {
+    "directory": "./generated"
+  }
+}
+```
+
+To build the `generated` folder, we'll still use GitHub Actions:
+
+```yaml title=.github/workflows/deploy.yml
+name: Deploy Site
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Build package
+        run: deno task make
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --config wrangler.json
+```
+
+After [creating your Cloudflare application](https://developers.cloudflare.com/workers/get-started/dashboard/), add [your credentials](https://developers.cloudflare.com/workers/wrangler/system-environment-variables/#supported-environment-variables) (`CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`) to [GitHub secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
+
+Congratulations! Pushing to GitHub should now deploy your static site to Cloudflare.
 
 
 ## Deploy server to production
