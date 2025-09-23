@@ -46,7 +46,7 @@ With Mastro, there is very little to learn – except for the web standards HTML
 I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
 
 ```sh title=Terminal
-deno run -A jsr:@mastrojs/mastro@0.3.1/init
+deno run -A jsr:@mastrojs/mastro@0.3.2/init
 ```
 
 Start with the [template repo](https://github.com/mastrojs/template-basic-deno), run the above in a terminal, or see [installation instructions](/guide/cli-install/).
