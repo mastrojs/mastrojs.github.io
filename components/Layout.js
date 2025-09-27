@@ -25,6 +25,7 @@ export const Layout = (props) =>
       <body>
         <header>
           <a href="/">Mastro 👨‍🍳</a>
+          <a href="/guide/">Docs</a>
 
           <search>
             <input type="search" placeholder="Search" aria-label="Search">
