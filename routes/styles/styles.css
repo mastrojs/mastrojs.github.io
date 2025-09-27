@@ -266,11 +266,19 @@ header {
 
   @media (max-width: 1000px) {
     backdrop-filter: blur(20px);
-    padding-left: 0.5em;
+    padding: 0em 0.5em;
   }
-  > a:first-child {
+  > a {
     color: var(--color-main);
     text-decoration: none;
+    padding-right: 1rem;
+    @media (max-width: 1000px) {
+      padding-right: 0.25em;
+    }
+    &:nth-child(2) {
+      font-size: 1rem;
+      padding: 0.5em;
+    }
   }
 }
 
@@ -318,6 +326,14 @@ main.hero {
 }
 
 @media (min-width: 1000px) {
+  .mainCta {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 2em;
+    align-items: center;
+    margin: 1lh 0 2lh 0;
+  }
+
   .col2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -344,12 +360,12 @@ main.hero {
 }
 
 search {
-  margin: 0.5em auto 0 2em;
+  margin: 0.5em auto 0 1em;
   font-size: 1rem;
   font-weight: normal;
   @media (max-width: 1000px) {
-    margin-left: 0.5em;
-    max-width: calc(100vw - 13.5rem);
+    margin-left: 0;
+    max-width: calc(100vw - 15rem);
   }
 
   h2 {

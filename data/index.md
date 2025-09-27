@@ -5,16 +5,25 @@ description: 'No bloat, no magic, no config. Mastro gets out of the way, so that
 layout: hero
 ---
 
-A file-based [router](/guide/server-side-components-and-routing/#routing-and-page-handlers), and a handful of [composable functions](https://jsr.io/@mastrojs/mastro/doc) to return standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects. This simple, yet powerful, interface unifies static site generation and on-demand rendering of HTML, JSON, etc.
-No magic, no config. Just focus on building awesome websites.
+Static site generation and on-demand rendering of HTML or JSON – it all works exactly the same in Mastro: a file-based [router](/guide/server-side-components-and-routing/#routing-and-page-handlers), and a handful of [composable functions](https://jsr.io/@mastrojs/mastro/doc) to return standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects.
+No magic, no config – just focus on building awesome websites.
 
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a framework distilled to its essence.
-- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create lean [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load blazingly [fast](#fast-for-everyone).
-- **No bundler** (until you [add one](/guide/bundling-assets-caching/)): your code arrives in the browser exactly as you wrote it.
+- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load blazingly [fast](#fast-for-everyone).
+- **No bundler** (until you [add one](/guide/bundling-assets-caching/)): your code arrives in the browser exactly how you wrote it.
 - **No magic**: use normal `<img>` and `<a>` tags referencing HTTP-first [assets](/guide/bundling-assets-caching/#transforming-images).
-- **No VC-money**: this forces us to stay lean ourselves, and prevents eventual enshitification.
-- **No hosting offer** to sell you on: frankly, running a service is not what we're interested in.
-- **No update treadmill**: we use web standards and virtually no [dependencies](https://jsr.io/@mastrojs/mastro/dependencies), which allows us to keep things small and low-maintenance.
+- **No VC-money**: this forces us to stay lean and prevents eventual enshitification.
+- **No hosting offer**: selling a service is not what we're interested in.
+- **No update treadmill**: we use web standards instead of relying on many [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
+
+<div class="mainCta">
+
+<a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+
+```sh
+deno run -A jsr:@mastrojs/mastro@0.3.2/init
+```
+</div>
 
 <p>
 <picture>
@@ -37,7 +46,7 @@ No magic, no config. Just focus on building awesome websites.
 
 With Mastro, there is very little to learn – except for the web standards HTML, CSS, and JavaScript. The popular VS Code editor also runs in the browser: put your first website live without installing anything on your computer.
 
-<a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+<a class="button" href="https://github.dev/mastrojs/template-basic">Get started on GitHub.dev</a>
 <a class="button -secondary" href="/guide/setup/">Guide: Setup</a>
 
 
@@ -51,7 +60,7 @@ deno run -A jsr:@mastrojs/mastro@0.3.2/init
 
 Start with the [template repo](https://github.com/mastrojs/template-basic-deno), run the above in a terminal, or see [installation instructions](/guide/cli-install/).
 
-<a class="button" href="https://github.com/mastrojs/mastro/">Star Mastro on GitHub</a>
+<a class="button" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 <a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
 <a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
 
@@ -105,6 +114,8 @@ The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI librar
 
 ## Join the community
 
-Something not working as expected? Would you like to contribute? Do you have a question?
+It's still early days. But we're looking to build a community of all kinds of people passionate about crafting websites, that are helping each other to do so.
+
+Something not working as expected or confusing? Would you like to contribute? Do you have a question?
 
 <a class="button" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
