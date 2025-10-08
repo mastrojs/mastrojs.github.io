@@ -398,6 +398,40 @@ search {
   }
 }
 
+.tabs {
+  position: relative;
+  margin-top: 4em;
+  pre {
+    border-top: 1px solid grey;
+  }
+  summary {
+    z-index: 10;
+    display: block;
+    position: absolute;
+    top: -2.25em;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: var(--color-code-bg);
+    padding: 0.25em 1em;
+    height: 1.7em;
+    overflow: clip;
+    word-break: break-all;
+    font-size: 0.9rem;
+    @media (max-width: 1000px) {
+      font-size: 0.725rem;
+    }
+  }
+  > details[open] > summary {
+    border-top: 1px solid grey;
+    height: 1.9em;
+    pointer-events: none;
+  }
+  > details:nth-child(2) > summary {
+    left: 11.75em;
+  }
+}
+
 .pagespeed {
   ul {
     display: grid;

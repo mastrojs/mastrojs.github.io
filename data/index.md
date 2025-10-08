@@ -64,6 +64,60 @@ Start with the [template repo](https://github.com/mastrojs/template-basic-deno),
 <a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
 <a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
 
+## A taste of Mastro
+
+<div class="tabs">
+<details name="example" open>
+<summary>routes/index.server.ts</summary>
+
+```ts
+import { html, htmlToResponse } from "mastro";
+import { readMarkdownFiles } from "mastro/markdown";
+import { Layout } from "../components/Layout.ts";
+
+export const GET = async (req: Request) => {
+  const posts = await readMarkdownFiles("data/posts/*.md");
+  return htmlToResponse(
+    Layout({
+      title: "Hello world",
+      children: posts.map((post) => html`
+        <p>${post.meta.title}</p>
+      `)
+    })
+  );
+}
+```
+</details>
+<details name="example">
+<summary>components/Layout.ts</summary>
+
+```ts
+import { html, type Html } from "mastro";
+
+interface Props {
+  title: string;
+  children: Html;
+}
+
+export const Layout = (props: Props) =>
+  html`
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>${props.title}</title>
+      </head>
+      <body>
+        <h1>${props.title}</h1>
+        ${props.children}
+      </body>
+    </html>
+  `;
+```
+
+</details>
+</div>
+
+Want to see more? Have a look at some [examples](https://github.com/mastrojs/mastro/tree/main/examples/), the [source of this website](https://github.com/mastrojs/mastrojs.github.io), or [try Mastro online](https://github.dev/mastrojs/template-basic)!
 
 ## Fast for everyone
 
@@ -116,6 +170,6 @@ The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI librar
 
 It's still early days. But we're looking to build a community of all kinds of people passionate about crafting websites, that are helping each other to do so.
 
-Something not working as expected or confusing? Would you like to contribute? Do you have a question?
+Something not working as expected or confusing? Would you like to contribute or have a question?
 
 <a class="button" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>

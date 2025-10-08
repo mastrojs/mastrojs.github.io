@@ -53,10 +53,8 @@ export const GET = async (req) => {
           `}
         </footer>
 
-        ${currentPart && html`
-          <link rel="stylesheet" media="(prefers-color-scheme: light)" href="/styles/highlightjs-stackoverflow-light.min.css">
-          <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="/styles/highlightjs-stackoverflow-dark.min.css">
-        `}
+        <link rel="stylesheet" media="(prefers-color-scheme: light)" href="/styles/highlightjs-stackoverflow-light.min.css">
+        <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="/styles/highlightjs-stackoverflow-dark.min.css">
       `,
     }),
   );
