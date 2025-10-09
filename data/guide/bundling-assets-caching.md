@@ -150,7 +150,7 @@ The thing that's generally very difficult to get right with caching is _cache in
 :::tip
 ### HTTP caching
 
-If you want to improve performance and reduce load on your server by leveraging the browser cache and/or a CDN, the [MDN article on HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching) is a good place to start reading.
+If you want to improve performance and reduce load on your server by leveraging the browser cache and/or a CDN, the [MDN article on HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching), or [this guide to HTTP caching](https://www.jonoalderson.com/performance/http-caching/) are both good places to start reading.
 :::
 
 

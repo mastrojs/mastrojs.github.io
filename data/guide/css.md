@@ -181,8 +181,9 @@ A few more links I can highly recommend:
 - Check out [The least amount of CSS for a decent looking site](https://thecascade.dev/article/least-amount-of-css/)
 - Once you are comfortable with the basics, you'll want to read the article [Things I wish I’d known about CSS](https://davesmyth.com/things-i-wish-id-known-about-css).
 - Bookmark the CSS-Tricks guides for [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [grid](https://css-tricks.com/snippets/css/complete-guide-grid/).
-- Learn about _design tokens_ in the video [What are Design Tokens](https://www.youtube.com/watch?v=wtTstdiBuUk). Start by defining your design tokens for fonts and colors as [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), and use [color-mix](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to change the brightness or transparency of colors where needed.
+- Learn about _design tokens_ in the video [What are Design Tokens](https://www.youtube.com/watch?v=wtTstdiBuUk). Start by defining your design tokens for fonts and colors as [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), and use [color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to change the brightness or transparency of colors where needed.
 - If you don't need to support old versions of Safari (i.e. supporting Safari >=17 is fine), then you can use many new CSS features that make your life easier:
+  - [color() function](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color) (nice [introduction](https://piccalil.li/blog/a-pragmatic-guide-to-modern-css-colours-part-one/))
   - [CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting) instead of SASS/SCSS
   - [@scope rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope) instead of CSS Modules
   - [Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries): like media query but asks a container element's size
