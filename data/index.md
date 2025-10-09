@@ -50,7 +50,7 @@ With Mastro, there is very little to learn – except for the web standards HTML
 <a class="button -secondary" href="/guide/setup/">Guide: Setup</a>
 
 
-## Powerful for experienced developers
+## Experienced developers – do you want off the frontend treadmill?
 
 I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
 
