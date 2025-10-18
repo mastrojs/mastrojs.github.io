@@ -2,11 +2,9 @@
 title: "Install Mastro on the command line"
 ---
 
-In the previous chapter, you learned how loading a web page into the browser (also known as the client) involves making a request to a server over the HTTP protocol. The server then sends back a HTTP response containing the HTML.
-
 In this chapter, we'll install Mastro as a development server on your laptop using the command line. This setup can be used to later deploy a statically generated site (like we've done so far with the VS Code extension), as well as using Mastro as a server web framework doing on-demand server-side rendering.
 
-Running a server means that the HTML is generated on every request by the server, instead of beforehand as when you generate a static site. This comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
+On-demand rendering (which some people also call server-side-rendering or SSR) means that the HTML is generated on every request by the server. Instead, when you generate a static site, the whole website is generated upfront. On-demand rendering comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
 
 
 ## Different ways to run Mastro
@@ -20,11 +18,13 @@ Here's a table listing the various ways you can run Mastro. Either locally (mean
 
 ## Setup local development server
 
-To preview your website in a browser, while you work on it, start a local development server.
+In this section, we'll be using the modern [Deno](https://deno.com) JavaScript runtime, which makes our live quite a bit easier compared to Node.js. (No `npm install` step required, `Deno.serve` and TypeScript type-checking are built-in, etc.) However, you can also [use Mastro with Node.js](https://github.com/mastrojs/template-basic-node).
 
-1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you can try PowerShell, or for additional compatibility [use WSL](https://learn.microsoft.com/en-us/windows/wsl/).
+To preview your website in a browser, while you work on it, let's start a local development server.
 
-2.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) – a JavaScript runtime without a web browser, similar to Node.js. The easiest way is by copy-pasting the following into your terminal:
+1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you can use PowerShell, or for additional compatibility with Linux servers [use WSL](https://learn.microsoft.com/en-us/windows/wsl/).
+
+2.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/): the easiest way is by copy-pasting the following into your terminal:
 
     ```sh
     curl -fsSL https://deno.land/install.sh | sh
@@ -43,7 +43,7 @@ To preview your website in a browser, while you work on it, start a local develo
 4.  Then type (or copy-paste):
 
     ```sh
-    deno run -A jsr:@mastrojs/mastro@0.3.2/init
+    deno run -A npm:@mastrojs/init@latest
     ```
 
     and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter for example `test-server` and hit enter (folder names with spaces are a bit of a pain on the command-line).
@@ -60,9 +60,9 @@ To preview your website in a browser, while you work on it, start a local develo
 
 To edit the files in the newly created folder, you'll want to [install Visual Studio Code](https://code.visualstudio.com/) on your computer (or a similar code editor) and open the newly created project folder in it.
 
-Check out the contents of the generated folder. It's a bare-bones Mastro project, but now:
+Check out the contents of the generated folder. It's a bare-bones Mastro project, but now with:
 
-- with a `deno.json` file, which specifies the Mastro version to use, and what happens if you type `deno task start` or `deno task generate`,
+- a `deno.json` file, which specifies the Mastro version to use, and what happens if you type `deno task start` or `deno task generate`,
 - the `deno.lock` file, which remembers exactly which version of each package was used,
 - the `server.ts` file, which is executed to start up the server (here you might add customizations like middleware), and
 - the file in the `routes/` folder is now called `index.server.ts` instead of `index.server.js`, because it's [TypeScript](https://www.typescriptlang.org/) – JavaScript with type annotations. This allows `deno check` to find certain problems in your code even without running it.
