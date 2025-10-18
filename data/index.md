@@ -71,8 +71,8 @@ Start with the [template repo](https://github.com/mastrojs/template-basic-deno),
 <summary>routes/index.server.ts</summary>
 
 ```ts
-import { html, htmlToResponse } from "mastro";
-import { readMarkdownFiles } from "mastro/markdown";
+import { html, htmlToResponse } from "@mastrojs/mastro";
+import { readMarkdownFiles } from "@mastrojs/markdown";
 import { Layout } from "../components/Layout.ts";
 
 export const GET = async (req: Request) => {
@@ -92,7 +92,7 @@ export const GET = async (req: Request) => {
 <summary>components/Layout.ts</summary>
 
 ```ts
-import { html, type Html } from "mastro";
+import { html, type Html } from "@mastrojs/mastro";
 
 interface Props {
   title: string;

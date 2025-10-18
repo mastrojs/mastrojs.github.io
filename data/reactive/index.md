@@ -20,7 +20,7 @@ Server-side part is plain HTML:
 Client-side part is plain JavaScript:
 
 ```js
-import { ReactiveElement, signal } from "mastro/reactive"
+import { ReactiveElement, signal } from "@mastrojs/reactive"
 
 customElements.define("my-counter", class extends ReactiveElement {
   count = signal(0)

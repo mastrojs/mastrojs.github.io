@@ -19,7 +19,7 @@ If you've been following the guide, you will already have a single `routes/index
 2. Move the `<header>` and its contents to a new file `components/Header.js` and wrap it in a bit of JavaScript:
 
 ```js title=components/Header.js
-import { html } from "mastro";
+import { html } from "@mastrojs/mastro";
 
 export const Header = () =>
   html`
@@ -39,7 +39,7 @@ There are a few things going on here:
 Analogous to `Header.js`, create a second file:
 
 ```js title=components/Footer.js
-import { html } from "mastro";
+import { html } from "@mastrojs/mastro";
 
 export const Footer = () =>
   html`
@@ -81,7 +81,7 @@ Since having lots of files called `index.server.js` would get confusing quickly,
 Rename the `routes/index.html` file to `routes/index.server.js` (or create it if you don't have one yet) and make its contents:
 
 ```js title=routes/index.server.js ins={1-7,14,21,24-25}
-import { html, htmlToResponse } from "mastro";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 import { Header } from "../components/Header.js";
 import { Footer } from "../components/Footer.js";
 
@@ -124,7 +124,7 @@ Load the page in the Mastro preview to see whether it still works!
 Now you're almost ready to create that second page. Just one more thing to move to its own component file, because we want to reuse it: the skeleton of the page, often called `Layout`. Create a new file:
 
 ```js title=components/Layout.js
-import { html } from "mastro";
+import { html } from "@mastrojs/mastro";
 import { Header } from "./Header.js";
 import { Footer } from "./Footer.js";
 
@@ -153,7 +153,7 @@ The above component is still just a function, but a function that takes one argu
 Now you can reduce your `routes/index.server.js` file to:
 
 ```js title=routes/index.server.js
-import { html, htmlToResponse } from "mastro";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 import { Layout } from "../components/Layout.js";
 
 export const GET = () =>
@@ -173,7 +173,7 @@ Note how we pass an object of the form `{ title, children }` as an argument to t
 Now finally all that work pays off: add that second page by creating a new file in a new folder:
 
 ```js title=routes/news/index.server.js
-import { html, htmlToResponse } from "mastro";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = () =>

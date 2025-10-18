@@ -1,4 +1,4 @@
-import { atomResponse } from "mastro/feed";
+import { atomResponse } from "@mastrojs/feed";
 
 const baseUrl = "https://mastrojs.github.io/";
 const updated = new Date("2025-09-10");

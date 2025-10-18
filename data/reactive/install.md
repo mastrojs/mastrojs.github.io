@@ -6,15 +6,15 @@ There are basically two ways to install Reactive Mastro. Using a package manager
 
 ## Using a package manager
 
-If your project uses Node.js and a bundler, you can add the `mastro` package as a dependency. For example using `npm/npx` and [JSR’s npm compatibility layer](https://jsr.io/docs/with/node):
+If your project uses Node.js and a bundler, you can add the `@mastrojs/reactive` package as a dependency. For example using `npm/npx` and [JSR’s npm compatibility layer](https://jsr.io/docs/with/node):
 
-    npx jsr add @mastrojs/mastro
+    npx jsr add @mastrojs/reactive
 
-Or with any of the following package managers:
+Or with any of the following package managers, which support JSR natively:
 
-    pnpm add jsr:@mastrojs/mastro
-    yarn add jsr:@mastrojs/mastro
-    deno add jsr:@mastrojs/mastro
+    pnpm add jsr:@mastrojs/reactive
+    yarn add jsr:@mastrojs/reactive
+    deno add jsr:@mastrojs/reactive
 
 Then, for example using the [Astro web framework](https://astro.build/), you can use Reactive Mastro in a `.astro` component like:
 
@@ -61,7 +61,7 @@ Here's a complete example that you can save as a `.html` file and open it in you
     <script type="importmap">
       {
         "imports": {
-          "mastro/reactive": "https://esm.sh/jsr/@mastrojs/mastro@0.3.2/reactive?bundle"
+          "@mastrojs/reactive": "https://esm.sh/jsr/@mastrojs/reactive@0.4.0?bundle"
         }
       }
     </script>
@@ -73,7 +73,7 @@ Here's a complete example that you can save as a `.html` file and open it in you
     </my-counter>
 
     <script type="module">
-      import { ReactiveElement, signal } from "mastro/reactive"
+      import { ReactiveElement, signal } from "@mastrojs/reactive"
 
       customElements.define("my-counter", class extends ReactiveElement {
         count = signal(0)

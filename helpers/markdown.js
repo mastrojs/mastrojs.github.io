@@ -1,9 +1,9 @@
+import { parseYamlFrontmatter, readMarkdownFileInFolder } from "@mastrojs/markdown";
+import { unsafeInnerHtml } from "@mastrojs/mastro";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import markdownItContainer from "markdown-it-container";
 import markdownItHighlightJs from "markdown-it-highlightjs";
-import { unsafeInnerHtml } from "mastro";
-import { parseYamlFrontmatter, readMarkdownFileInFolder } from "mastro/markdown";
 
 /**
  * Read a markdown file from the data folder

@@ -1,4 +1,4 @@
-import { html } from "mastro";
+import { html } from "@mastrojs/mastro";
 
 export const Sidebar = (sidebar, currentPart, currentPath) =>
   currentPart && html`

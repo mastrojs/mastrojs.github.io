@@ -163,7 +163,7 @@ The initial to-do list app from above, rewritten with Reactive Mastro looks as f
 <script type="importmap">
   {
     "imports": {
-      "mastro/reactive": "https://esm.sh/jsr/@mastrojs/mastro@0.3.2/reactive?bundle"
+      "@mastrojs/reactive": "https://esm.sh/jsr/@mastrojs/reactive@0.4.0?bundle"
     }
   }
 </script>
@@ -182,7 +182,7 @@ The initial to-do list app from above, rewritten with Reactive Mastro looks as f
 </todo-list>
 
 <script type="module">
-  import { computed, html, ReactiveElement, signal } from "mastro/reactive";
+  import { computed, html, ReactiveElement, signal } from "@mastrojs/reactive";
 
   customElements.define("todo-list", class extends ReactiveElement {
     newTitle = signal("");
@@ -227,7 +227,7 @@ The initial to-do list app from above, rewritten with Reactive Mastro looks as f
 
 At first, this looks more complex. And for simple cases that's true. There, you might be better off just using plain JavaScript without any library – especially when coupled with a few nifty lines of CSS. But as your app grows, the initial increase in complexity is quickly outweighed by the structure this approach brings; using signals to store the single source of truth, and allowing you to not repeatedly write `document.createElement()`, `.append()`, `.addEventListener()`, etc.
 
-The first thing you might notice is the `<script type="importmap">`. That [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) allows you to write `import { ... } from "mastro/reactive"` in your JavaScript modules instead of the full URL. And when it's time to update the URL (perhaps because you want to update to a new version of the library), you just need to do so in one place.
+The first thing you might notice is the `<script type="importmap">`. That [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) allows you to write `import { ... } from "@mastrojs/reactive"` in your JavaScript modules instead of the full URL. And when it's time to update the URL (perhaps because you want to update to a new version of the library), you just need to do so in one place.
 
 `customElements.define('todo-list', myClass)` registers the `<todo-list>` custom HTML element (the name must start with a lowercase letter and must contain a hyphen), which allows you to use it with `<todo-list></todo-list>` wherever in your HTML.
 
@@ -251,7 +251,7 @@ Once you've gotten familiar with the way Reactive Mastro works, adding the dropd
 <script type="importmap">
   {
     "imports": {
-      "mastro/reactive": "https://esm.sh/mastro@0.3.2/reactive?bundle"
+      "@mastrojs/reactive": "https://esm.sh/mastrojs/reactive@0.4.0?bundle"
     }
   }
 </script>
@@ -276,7 +276,7 @@ Once you've gotten familiar with the way Reactive Mastro works, adding the dropd
 </todo-list>
 
 <script type="module">
-  import { computed, html, ReactiveElement, signal } from "mastro/reactive";
+  import { computed, html, ReactiveElement, signal } from "@mastrojs/reactive";
 
   customElements.define("todo-list", class extends ReactiveElement {
     newTitle = signal("");
@@ -335,7 +335,7 @@ There is still a major flaw in the to-do list app. When the user reloads the pag
 The most durable place would probably be a server with a database, but that would require us to run those, and the user to create an account and log in. The next best thing is to store the to-dos in the user's browser using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage#examples). To do that, replace the `todos` signal with a newly defined `localSignal`. Change the start of the `script` element as follows:
 
 ```js ins={3-16, 21} del={20}
-  import { computed, html, ReactiveElement, signal } from "mastro/reactive";
+  import { computed, html, ReactiveElement, signal } from "@mastrojs/reactive";
 
   const localSignal = (initialVal, key) => {
     try {

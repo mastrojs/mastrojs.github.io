@@ -55,8 +55,8 @@ This is our second blog post.
 Change the page that you created in the previous chapter so that it lists all your blog posts:
 
 ```js title=routes/news/index.server.js
-import { html, htmlToResponse } from "mastro";
-import { readMarkdownFiles } from "mastro/markdown";
+import { html, htmlToResponse } from "@mastrojs/mastro";
+import { readMarkdownFiles } from "@mastrojs/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async () => {
@@ -96,8 +96,8 @@ The `[slug]` is a parameter. When your server receives an HTTP request for `/new
 To read out the `slug` parameter, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, read out the URL as a string with `req.url`, and pass that to the `getParams` helper function, which returns an object with all parameters.
 
 ```js title=routes/news/[slug].server.js
-import { getParams, htmlToResponse } from "mastro";
-import { readMarkdownFile } from "mastro/markdown";
+import { getParams, htmlToResponse } from "@mastrojs/mastro";
+import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
@@ -129,8 +129,8 @@ Usually when programming, things go wrong at some point. It's not very common fo
 If your program starts running, it can be useful to add `console.log()` statements in various places of your code and see what it prints into the JavaScript console (what you used in a [previous chapter](/guide/javascript/)). Give it a try:
 
 ```js title=routes/news/[slug].server.js ins={7}
-import { getParams, htmlToResponse } from "mastro";
-import { readMarkdownFile } from "mastro/markdown";
+import { getParams, htmlToResponse } from "@mastrojs/mastro";
+import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
@@ -159,8 +159,8 @@ It will generate the pages without parameters. But notice the error telling you 
 That's because Mastro cannot guess the paths for all the pages that we want to generate. In the preview (or on a running server) this works because the information is provided directly in the URL. But if we want to statically generate all the pages ahead of time, we need to tell Astro the paths of all our pages with route parameters. We do that by exporting a function called `getStaticPaths`, that returns an array of strings when called.
 
 ```js title=routes/news/[slug].server.js ins={1,16-19}
-import { getParams, htmlToResponse, readDir } from "mastro";
-import { readMarkdownFile } from "mastro/markdown";
+import { getParams, htmlToResponse, readDir } from "@mastrojs/mastro";
+import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from '../../components/Layout.js';
 
 export const GET = async (req) => {

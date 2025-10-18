@@ -9,7 +9,7 @@ Now that you have a local server set up, let's see what we can do with it.
 Clicking a link on a web page causes the browser to make a HTTP `GET` request to the URL specified in the link's `src` attribute and render the response. But did you know there was another way to cause the browser to make a `GET` request? It's actually the default behaviour of HTML forms. Try it:
 
 ```ts title=routes/index.server.ts ins={9-12}
-import { html, htmlToResponse } from "mastro";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 
 export const GET = () =>
   htmlToResponse(
@@ -34,7 +34,7 @@ Putting all the form's `input` values as query parameters in the URL of a `GET` 
 Let's also change the `action` attribute of the form, so that it submits to the URL we're already on, instead of Google. That way, our server can handle the submission (see previous chapter to [setup a local server](/guide/cli-install/)). Export a second function from the same routes file, this one called `POST`:
 
 ```ts title=routes/index.server.ts
-import { html, htmlToResponse } from "mastro";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 
 export const GET = () =>
   htmlToResponse(
@@ -83,7 +83,7 @@ Of course, usually you'd want to not just display the submitted text, but perhap
 Installing a real database, like PostgreSQL, is out of scope for this guide. However, we can quickly add a mock database: simply storing guestbook entries in a variable on our server. Thus beware, every time you restart the server, all data will be lost!
 
 ```ts title=routes/index.server.ts ins={3-4,11-15,31-43}
-import { html, htmlToResponse } from "mastro";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 
 const guestbook = ["Peter"];
 

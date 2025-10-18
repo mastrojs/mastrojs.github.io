@@ -31,7 +31,7 @@ Server HTML:
 Client JS:
 
 ```js
-import { html, ReactiveElement, signal } from "mastro/reactive";
+import { html, ReactiveElement, signal } from "@mastrojs/reactive";
 
 customElements.define("my-counter", class extends ReactiveElement {
   count = signal(parseInt(this.getAttribute("start") || "0", 10));
@@ -89,7 +89,7 @@ Server HTML:
 Client JS:
 
 ```js
-import { ReactiveElement, signal } from "mastro/reactive";
+import { ReactiveElement, signal } from "@mastrojs/reactive";
 
 customElements.define("simple-tabs", class extends ReactiveElement {
   activeTab = signal("home");
@@ -113,7 +113,7 @@ As we've seen in the previous examples, the canonical version of state lives in 
 For example, to synchornize all counters on the page:
 
 ```js
-import { ReactiveElement, signal } from "mastro/reactive";
+import { ReactiveElement, signal } from "@mastrojs/reactive";
 
 const globalCount = signal(0);
 

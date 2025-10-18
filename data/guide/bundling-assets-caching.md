@@ -54,7 +54,7 @@ For both CSS and client-side JavaScript, there is usully a trade-off between loa
 CSS is easier to bundle than JavaScript. The simplest way is to just concatenate all CSS files found in alphabetical order. This is a reasonalbe strategy if you don't have megabytes of CSS, and still allows you to colocate the CSS source files in the same folder with the corresponding component (e.g. `/components/Header/header.css`). In Mastro, a route that does that might look as follows:
 
 ```js title=routes/styles.css.server.js
-import { findFiles, readTextFile } from "mastro";
+import { findFiles, readTextFile } from "@mastrojs/mastro";
 
 export const GET = async () => {
   const files = await findFiles("components/**/*.css");
@@ -78,7 +78,7 @@ Which can be consumed with:
 Another example of an expensive route would be transforming images (e.g. resizing or compressing into WebP format). In Mastro, such a route might look as follows:
 
 ```js title=routes/_images/[...slug].server.ts
-import { createImagesRoute } from "mastro/images";
+import { createImagesRoute } from "@mastrojs/images";
 
 export const { GET, getStaticPaths } = createImagesRoute({
   hero: {
@@ -116,7 +116,7 @@ Actually, we’ve started the guide with an extreme application of this strategy
 Then add `deno task pregenerate` to your CI/CD workflow (e.g. when using Deno Deploy, add it as your "Build command"). This will generate a `generated/` folder just like `deno task generate` would for a static site. But this time, it will only attempt to generate routes with the following line added:
 
 ```js title=routes/_images/[...slug].server.ts ins={3}
-import { createImagesRoute } from "mastro/images";
+import { createImagesRoute } from "@mastrojs/images";
 
 export const pregenerate = true;
 

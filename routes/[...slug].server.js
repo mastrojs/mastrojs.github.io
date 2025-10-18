@@ -2,7 +2,7 @@ import { Layout } from "../components/Layout.js";
 import { Newsletter } from "../components/Newsletter.js";
 import { Sidebar } from "../components/Sidebar.js";
 import { Toc } from "../components/Toc.js";
-import { html, htmlToResponse } from "mastro";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 import { readMd } from "../helpers/markdown.js";
 
 export const GET = async (req) => {
