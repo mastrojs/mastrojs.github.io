@@ -8,8 +8,9 @@ import { readMd } from "../helpers/markdown.js";
 export const GET = async (req) => {
   const { pathname } = new URL(req.url);
   const { content, meta } = await readMd(pathname);
+  const pathSegments = pathname.split("/");
 
-  const currentPart = sidebar.find((part) => part.slug === `/${pathname.split("/")[1]}/`);
+  const currentPart = sidebar.find((part) => part.slug === `/${pathSegments[1]}/`);
   const contents = currentPart?.contents;
   const index = contents?.findIndex((c) => c.slug === pathname);
   const prev = index >= 0 ? contents[index - 1] : undefined;
@@ -27,7 +28,7 @@ export const GET = async (req) => {
 
           ${content}
 
-          ${contents && index === -1
+          ${contents && pathSegments.length === 3
             ? Toc({ contents })
             : ""}
 
