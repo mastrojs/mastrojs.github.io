@@ -20,9 +20,16 @@ No magic, no config – just focus on building awesome websites.
 
 <a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
 
+<div>
+
 ```sh
-deno run -A jsr:@mastrojs/mastro@0.3.2/init
+deno run -A npm:@mastrojs/init@latest
 ```
+
+```sh
+npx @mastrojs/init@latest
+```
+</div>
 </div>
 
 <p>
@@ -54,11 +61,18 @@ With Mastro, there is very little to learn – except for the web standards HTML
 
 I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
 
-```sh title=Terminal
-deno run -A jsr:@mastrojs/mastro@0.3.2/init
+To create a new project with Deno (recommended) or Node.js, run the corresponding command below. Alternatively, start with the [Deno template](https://github.com/mastrojs/template-basic-deno), [Node.js template](https://github.com/mastrojs/template-basic-node), or see [installation instructions](/guide/cli-install/).
+
+<div class="col2">
+
+```sh title=Deno
+deno run -A npm:@mastrojs/init@latest
 ```
 
-Start with the [template repo](https://github.com/mastrojs/template-basic-deno), run the above in a terminal, or see [installation instructions](/guide/cli-install/).
+```sh title=Node.js
+npx @mastrojs/init@latest
+```
+</div>
 
 <a class="button" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 <a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
@@ -168,8 +182,10 @@ The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI librar
 
 ## Join the community
 
-It's still early days. But we're looking to build an inclusive community of all kinds of people, united by a shared passion for crafting websites, and who are helping each other to learn new things.
+It's still early days. But we're looking to build an inclusive community of all kinds of people, united by a shared passion for crafting websites and learning new things.
 
-Something not working as expected or confusing? Would you like to contribute or have a question?
+If you have any questions, or want to talk about future plans, please start a GitHub Discussion.
+Something not working as expected or confusing? That's a bug: please open a GitHub issue.
 
-<a class="button" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
+<a class="button" href="https://github.com/mastrojs/mastro/discussions/new/choose">Start a GitHub discussion</a>
+<a class="button -secondary" href="https://github.com/mastrojs/mastro/issues/">GitHub issues</a>
