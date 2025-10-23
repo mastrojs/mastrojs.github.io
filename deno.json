@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "start": "deno serve --watch=. --allow-read --allow-env jsr:@mastrojs/mastro@0.3.2/server",
+    "start": "deno serve --watch=. --allow-read --allow-env jsr:@mastrojs/mastro/server",
     "generate": "deno run -A @mastrojs/mastro/generator",
     "startWithPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site generated --serve",
     "generateWPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site generated",
@@ -11,12 +11,12 @@
   },
   "imports": {
     "@mastrojs/feed": "jsr:@mastrojs/feed@^0.0.1",
-    "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.0.3",
-    "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.3.2",
-    "markdown-it": "https://esm.sh/markdown-it@14.1.0?bundle",
-    "markdown-it-anchor": "https://esm.sh/markdown-it-anchor@9.2.0?bundle",
-    "markdown-it-container": "https://esm.sh/markdown-it-container@4.0.0?bundle",
-    "markdown-it-highlightjs": "https://esm.sh/markdown-it-highlightjs@4.2.0?bundle",
+    "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.0.9",
+    "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.4.1",
+    "markdown-it": "npm:markdown-it@14.1.0",
+    "markdown-it-anchor": "npm:markdown-it-anchor@9.2.0",
+    "markdown-it-container": "npm:markdown-it-container@4.0.0",
+    "markdown-it-highlightjs": "npm:markdown-it-highlightjs@4.2.0",
     "pagefind": "npm:pagefind@1.0.4"
   }
 }
