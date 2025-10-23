@@ -11,6 +11,8 @@ If you have a static site, you can deploy to [GitHub Pages](https://pages.github
 
 Let's look at how you can generate your static site within a _Continuous Integration / Continuous Delivery_ (CI/CD) service. This ensures a reproducible environment (i.e. that it not only works on your computer), and makes sure that you haven't forgotten to add any needed files to git (which can happen easily). Basically, this is just running the following command on the CI/CD server instead of on your laptop.
 
+<div class="col2">
+
 ```sh title=Deno
 deno task generate
 ```
@@ -18,18 +20,21 @@ deno task generate
 ```sh title=Node.js
 pnpm run generate
 ```
+</div>
 
 Depending on whether you use Deno or Node.js, and what your deploy target is, we may have docs covering exactly your use-case.
 
-|                      | Deploy to<br>GitHub Pages | Deploy to<br>Cloudflare |
-|:---------------------|:--------------------------|:------------------------|
-| SSG with **Deno**    | [docs][denoGh]            | [docs][denoCf]          |
-| SSG with **Node.js** | [docs][nodeGh]            | [docs][nodeCf]          |
+|                      | Deploy to<br>GitHub Pages | Deploy to<br>Cloudflare | Deploy to <br>Netlify |
+|:---------------------|:---------------|:---------------|---------------------|
+| SSG with **Deno**    | [docs][denoGh] | [docs][denoCf] | [docs][denoNetlify] |
+| SSG with **Node.js** | [docs][nodeGh] | [docs][nodeCf] | [docs][nodeNetlify] |
 
 [denoGh]: /guide/deploy/ssg-deno-github-pages/
 [denoCf]: /guide/deploy/ssg-deno-cloudflare/
+[denoNetlify]: /guide/deploy/ssg-deno-netlify/
 [nodeGh]: /guide/deploy/ssg-node-github-pages/
 [nodeCf]: /guide/deploy/ssg-node-cloudflare/
+[nodeNetlify]: /guide/deploy/ssg-node-netlify/
 
 ## Deploy server to production
 
