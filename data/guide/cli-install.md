@@ -2,19 +2,28 @@
 title: "Install Mastro on the command line"
 ---
 
-In this chapter, we'll install Mastro as a development server on your laptop using the command line. This setup can be used to later deploy a statically generated site (like we've done so far with the VS Code extension), as well as using Mastro as a server web framework doing on-demand server-side rendering.
+In this chapter, we'll install Mastro as a development server on your laptop using the command line. This setup can be used to later deploy a statically generated site (like we've done so far with the [VS Code extension](/guide/setup/)), but also to run Mastro as a server web framework doing on-demand server-side rendering.
 
-On-demand rendering (which some people also call server-side-rendering or SSR) means that the HTML is generated on every request by the server. Instead, when you generate a static site, the whole website is generated upfront. On-demand rendering comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
+When generating a static site, the whole website is generated upfront.
+On the other hand, when on-demand rendering (which some people also call server-side-rendering or SSR), the HTML is generated on every request by the server. This comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
 
 
 ## Different ways to run Mastro
 
 Here's a table listing the various ways you can run Mastro. Either locally (meaning on your laptop or desktop), or on a production system in some data center, to host your live website. And either using _VS Code for Web_ in your browser, or by installing things and using the command line.
 
-|                 | Local development                                                               | Prod static site                                                                              | Prod server                                                                |
-|-----------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| VS Code for Web | [Setup in-browser](/guide/setup/)                                               | [Publish static site](/guide/publish-website/)                                                | -                                                                          |
-| Command line    | [Setup local server](/guide/cli-install/#setup-local-development-server) | [Deploy static site via CI/CD](/guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd) | [Deploy server](/guide/cli-deploy-production/#deploy-server-to-production) |
+|                          | Local development               | Prod static site (SSG)                  | Prod server (SSR)       |
+|--------------------------|---------------------------------|-----------------------------------------|-------------------------|
+| VS Code for Web (online) | [Try][try] or [Setup][vsLocal]  | [Publish static site][vsProd]           | -                       |
+| Command line             | [Setup local server][cliLocal]  | [Deploy static site via CI/CD][cliProd] | [Deploy server][server] |
+
+[try]: https://github.dev/mastrojs/template-basic
+[vsLocal]: /guide/setup/
+[cliLocal]: /guide/cli-install/#setup-local-development-server
+[vsProd]: /guide/publish-website/
+[cliProd]: /guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd
+[server]: /guide/cli-deploy-production/#deploy-server-to-production
+
 
 ## Setup local development server
 
