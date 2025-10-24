@@ -23,11 +23,11 @@ No magic, no config – just focus on building awesome websites.
 <div>
 
 ```sh
-deno run -A npm:@mastrojs/init@latest
+deno run -A npm:@mastrojs/create-mastro@latest
 ```
 
 ```sh
-npx @mastrojs/init@latest
+pnpm create @mastrojs/mastro@latest
 ```
 </div>
 </div>
@@ -66,11 +66,11 @@ To create a new project with Deno (recommended) or Node.js, run the correspondin
 <div class="col2">
 
 ```sh title=Deno
-deno run -A npm:@mastrojs/init@latest
+deno run -A npm:@mastrojs/create-mastro@latest
 ```
 
 ```sh title=Node.js
-npx @mastrojs/init@latest
+pnpm create @mastrojs/mastro@latest
 ```
 </div>
 
@@ -182,10 +182,10 @@ The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI librar
 
 ## Join the community
 
-It's still early days. But we're looking to build an inclusive community of all kinds of people, united by a shared passion for crafting websites and learning new things.
+It's still early days. But we're looking to build an inclusive community of all kinds of people, united by a shared passion for crafting websites, learning new things, and helping each other.
 
-If you have any questions, or want to talk about future plans, please start a GitHub Discussion.
-Something not working as expected or confusing? That's a bug: please open a GitHub issue.
+If you have a question, need help, or want to talk about future plans, please start a GitHub Discussion.
+Something not working as expected or confusing? We consider that a bug – either in the code or in the docs. Please open an issue.
 
 <a class="button" href="https://github.com/mastrojs/mastro/discussions/new/choose">Start a GitHub discussion</a>
 <a class="button -secondary" href="https://github.com/mastrojs/mastro/issues/">GitHub issues</a>

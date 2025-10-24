@@ -336,8 +336,11 @@ main.hero {
 
   .col2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 5em;
+    &.-gap1 {
+      gap: 1em;
+    }
     &.-vertical-center {
       align-items: center;
     }

@@ -78,6 +78,23 @@ export const GET = async () => {
 };
 ```
 
+:::tip
+## On the command line?
+
+If you're on the command line, as opposed to using the Mastro VSCode for Web extension, then you need to install the [`@mastrojs/markdown` package](https://jsr.io/@mastrojs/markdown):
+
+<div class="col2 -gap1">
+
+```sh title=Deno
+deno add jsr:@mastrojs/markdown
+```
+
+```sh title=Node.js
+pnpm add jsr:@mastrojs/markdown
+```
+</div>
+:::
+
 The code imports the `readMarkdownFiles` function from mastro. Because that function requests the files from the computer's harddisk (which might take some time), we need to `await` it. This in turn forces us to mark up our `GET` function as `async` (short for [asynchronous](https://eloquentjavascript.net/11_async.html)).
 
 Since `posts` is an array, we can use its `.map()` method to loop over it and get each `post`. `post.path.slice(11, -3)` [slices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) off the first eleven and the last three character from the `post.path` string: in our case it removes the leading `/data/posts` and the trailing `.md` from the filename.

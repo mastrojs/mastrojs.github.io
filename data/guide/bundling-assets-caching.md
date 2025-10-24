@@ -75,7 +75,20 @@ Which can be consumed with:
 
 ## Transforming images
 
-Another example of an expensive route would be transforming images (e.g. resizing or compressing into WebP format). In Mastro, such a route might look as follows:
+Another example of an expensive route would be transforming images (e.g. resizing or compressing into WebP format). One way to do that is, with the [`@mastrojs/images` package](https://jsr.io/@mastrojs/images):
+
+<div class="col2 -gap1">
+
+```sh title=Deno
+deno add jsr:@mastrojs/images
+```
+
+```sh title=Node.js
+pnpm add jsr:@mastrojs/images
+```
+</div>
+
+Then you can add a route like:
 
 ```js title=routes/_images/[...slug].server.ts
 import { createImagesRoute } from "@mastrojs/images";
@@ -90,7 +103,7 @@ export const { GET, getStaticPaths } = createImagesRoute({
 });
 ```
 
-This uses the [mastro/images](https://jsr.io/@mastrojs/mastro/doc/images) helper to declare two presets: `hero` and `hero2x`. Assuming you have a file `images/blue-marble.jpg`, you could request resized versions in WebP format as follows:
+This declares two presets: `hero` and `hero2x`. Assuming you have a file `images/blue-marble.jpg`, you could request resized versions in WebP format as follows:
 
 ```html
 <img alt="Planet Earth"
