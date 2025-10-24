@@ -23,11 +23,11 @@ No magic, no config – just focus on building awesome websites.
 <div>
 
 ```sh
-deno run -A npm:@mastrojs/init@latest
+deno run -A npm:@mastrojs/create-mastro@latest
 ```
 
 ```sh
-npx @mastrojs/init@latest
+pnpm create @mastrojs/mastro@latest
 ```
 </div>
 </div>
@@ -66,11 +66,11 @@ To create a new project with Deno (recommended) or Node.js, run the correspondin
 <div class="col2">
 
 ```sh title=Deno
-deno run -A npm:@mastrojs/init@latest
+deno run -A npm:@mastrojs/create-mastro@latest
 ```
 
 ```sh title=Node.js
-npx @mastrojs/init@latest
+pnpm create @mastrojs/mastro@latest
 ```
 </div>
 

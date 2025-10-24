@@ -52,7 +52,7 @@ To preview your website in a browser, while you work on it, let's start a local 
 4.  Then type (or copy-paste):
 
     ```sh
-    deno run -A npm:@mastrojs/init@latest
+    deno run -A npm:@mastrojs/create-mastro@latest
     ```
 
     and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter for example `test-server` and hit enter (folder names with spaces are a bit of a pain on the command-line).
