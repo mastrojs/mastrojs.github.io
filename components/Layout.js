@@ -25,7 +25,7 @@ export const Layout = (props) =>
       <body>
         <header>
           <a href="/">Mastro 👨‍🍳</a>
-          <a href="/guide/">Docs</a>
+          <a href="/guide/" class="headerLink">Docs</a>
 
           <button class="-minimal" id="searchBtn">
             <svg width="20" height="20" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
@@ -34,13 +34,14 @@ export const Layout = (props) =>
             <span>Search</span>
           </button>
           <search popover>
-            <input type="search" placeholder="Search" aria-label="Search">
+            <input type="search" placeholder="Search docs" aria-label="Search">
             <h2 tabindex="-1" style="display: none;">Search results</h2>
             <button class="-minimal" aria-label="Close search results">✕</button>
             <ul></ul>
           </search>
 
           <div>
+            <a href="/blog/" class="headerLink">Blog</a>
             <a href="https://github.com/mastrojs/mastro" rel="me">
               <svg role="img" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <title>GitHub</title>

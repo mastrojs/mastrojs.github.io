@@ -1,4 +1,4 @@
-import { parseYamlFrontmatter, readMarkdownFileInFolder } from "@mastrojs/markdown";
+import { parseYamlFrontmatter, readMarkdownFileInFolder, readMarkdownFiles } from "@mastrojs/markdown";
 import { unsafeInnerHtml } from "@mastrojs/mastro";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
@@ -6,9 +6,18 @@ import markdownItContainer from "markdown-it-container";
 import markdownItHighlightJs from "markdown-it-highlightjs";
 
 /**
+ * Get all markdown files
+ */
+export const readMdFiles = async () => {
+  const files = await readMarkdownFiles("data/blog/**.md");
+  files.reverse();
+  return files.map(md => ({...md, path: md.path.slice(5, -3) + "/"}));
+}
+
+/**
  * Read a markdown file from the data folder
  */
-export const readMd = (path) =>
+export const readMd = (path: string) =>
   readMarkdownFileInFolder("data", path, mdToHtml)
 
 /**
@@ -20,8 +29,8 @@ export const readMd = (path) =>
  * - copy code to clipboard button
  * - support for ` ```css title=styles.css ins={6-7} del={4-5}` syntax
  */
-const mdToHtml = async (txt) => {
-  const { body, meta } = await parseYamlFrontmatter(txt);
+const mdToHtml = (txt: string) => {
+  const { body, meta } = parseYamlFrontmatter(txt);
   const content = unsafeInnerHtml(md.render(body));
   return { content, meta };
 };
@@ -34,9 +43,15 @@ const md = markdownIt({ html: true, typographer: true })
   .use(markdownItHighlightJs, { auto: false });
 const defaultRender = md.renderer.rules.fence;
 
-md.use((md) => {
+md.use((md: any) => {
   // see https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md
-  md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+  md.renderer.rules.fence = (
+    tokens: Array<{info: string; content: string}>,
+    idx: number,
+    options: unknown,
+    env: unknown,
+    self: unknown,
+) => {
     const { title, ranges } = parseInfo(tokens[idx].info);
     const pre = ranges
       ? `<pre>${ranges.map((range) =>
@@ -51,14 +66,14 @@ md.use((md) => {
   };
 });
 
-const copyBtn = (text) =>
+const copyBtn = (text?: string) =>
   `<button title="Copy to clipboard"${
     text ? ` data-text="${escapeForAttribute(text)}"` : ""
     }>⧉</button><div class="copied">Copied!</div>`;
 const titleRegex = /title=([^ ]+)/;
 const insDelRegex = /(ins|del)={[^=]+}/g;
 
-const parseInfo = (info) => {
+const parseInfo = (info: string) => {
   const title = info.match(titleRegex)?.[1];
   const ranges = info.match(insDelRegex)?.flatMap((match) => {
     const [insOrDel, ranges] = match.split("=");
@@ -75,7 +90,14 @@ const parseInfo = (info) => {
 /**
  * Render code block considering deletion markers
  */
-const renderCode = (ranges, tokens, idx, options, env, self) => {
+const renderCode = (
+  ranges: Array<{ insOrDel: string; from: number; to: number;}>,
+  tokens:  Array<{content: string}>,
+  idx: number,
+  options: unknown,
+  env: unknown,
+  self: unknown,
+) => {
   const lines = tokens[idx].content.split("\n");
   const copyLines = [...lines];
   const deletions = ranges.filter((range) => range.insOrDel === "del");
@@ -105,12 +127,12 @@ const renderCode = (ranges, tokens, idx, options, env, self) => {
   return htmlLines.join("\n");
 }
 
-const escapeForHtml = (st) =>
+const escapeForHtml = (st: string) =>
   st.replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
 
-const escapeForAttribute = (str) =>
+const escapeForAttribute = (str: string) =>
   escapeForHtml(str)
     .replaceAll("'", "&#39;")
     .replaceAll('"', "&quot;");

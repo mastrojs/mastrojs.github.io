@@ -267,8 +267,17 @@ header {
   @media (max-width: 1000px) {
     backdrop-filter: blur(20px);
     padding: 0em 0.5em;
+    font-size: 1.25rem;
   }
-  > a {
+  > div {
+    display: flex;
+    @media (min-width: 1000px) {
+      > a:first-child {
+        margin-right: 1em;
+      }
+    }
+  }
+  > a, .headerLink {
     color: var(--color-main);
     text-decoration: none;
     padding-right: 1rem;
@@ -276,10 +285,13 @@ header {
       padding-right: 0.25em;
     }
   }
-  > :where(a, button):not(:first-child) {
+  .headerLink {
     font-size: 1rem;
-    font-weight: 550;
-    padding: 0.5em;
+    font-weight: bold;
+    padding: 0.575em;
+    @media (max-width: 1000px) {
+      padding-top: 0.3em;
+    }
   }
 }
 
@@ -366,9 +378,11 @@ main.hero {
 
 #searchBtn {
   margin-right: auto;
+  padding: 0.5rem;
   > svg {
     position: relative;
-    top: 3px;
+    top: -2px;
+    left: -7px;
   }
   > span {
     display: none;
