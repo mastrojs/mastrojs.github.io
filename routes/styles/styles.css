@@ -233,7 +233,7 @@ td:not(:last-child), th:not(:last-child) {
   padding-right: 1em;
 }
 
-input:not(:is([type=radio], [type=checkbox], [type=file])) {
+input:not(:where([type=radio], [type=checkbox], [type=file])) {
   font-family: inherit;
   font-size: 16px;
   border: 1px solid #bbbbbb;
@@ -275,10 +275,11 @@ header {
     @media (max-width: 1000px) {
       padding-right: 0.25em;
     }
-    &:nth-child(2) {
-      font-size: 1rem;
-      padding: 0.5em;
-    }
+  }
+  > :where(a, button):not(:first-child) {
+    font-size: 1rem;
+    font-weight: 550;
+    padding: 0.5em;
   }
 }
 
@@ -354,31 +355,59 @@ main.hero {
   box-shadow: 5px 10px 40px color-mix(in srgb, var(--color-main), transparent 30%);
   border: 0;
   border-radius: 15px;
-  padding: 0 1em 1em 1em;
+  padding: 1em;
   box-sizing: border-box;
+  min-width: min(40em, 100vw);
   width: min(40em, 100vw);
   @media (min-width: 1000px) {
     margin-left: 10rem;
   }
 }
 
+#searchBtn {
+  margin-right: auto;
+  > svg {
+    position: relative;
+    top: 3px;
+  }
+  > span {
+    display: none;
+  }
+  @media (min-width: 1000px) {
+    > svg {
+      display: none;
+    }
+    > span {
+      font-size: 16px;
+      font-weight: normal;
+      color: #757575;
+      border: 1px solid #bbbbbb;
+      border-radius: 5px;
+      padding: 0.5em 4em 0.5em 0.75em;
+      margin-top: -0.1em;
+      display: block;
+      cursor: text;
+    }
+  }
+}
 search {
-  margin: 0.5em auto 0 1em;
   font-size: 1rem;
   font-weight: normal;
   @media (max-width: 1000px) {
-    margin-left: 0;
     max-width: calc(100vw - 15rem);
   }
 
-  h2 {
+  > input {
+    width: calc(100% - 2em);
+  }
+  > h2 {
     font-size: 1.5rem;
     margin-top: 1em;
   }
-  button {
+  > button {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: -12px;
   }
   li {
     font-size: 1rem;

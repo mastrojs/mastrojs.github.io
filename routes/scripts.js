@@ -12,16 +12,13 @@ document.querySelectorAll("figure > pre + button").forEach(btn =>
 );
 
 // search box
-const searchInput = document.querySelector("search > input");
-const popover = document.querySelector("search > [popover]");
+const searchBtn = document.querySelector("#searchBtn");
+const popover = document.querySelector("#searchBtn + search[popover]");
+const searchInput = document.querySelector("#searchBtn + search > input");
+const h2 = popover.querySelector("h2");
 const ul = popover.querySelector("ul");
 if (searchInput && popover && ul) {
   searchInput.value = "";
-  popover.addEventListener("beforetoggle", e => {
-    if (e.newState === "closed") {
-      searchInput.value = "";
-    }
-  });
   const appendResults = (ul, results) => {
     const lis = results.map(() => {
       // create lis in order
@@ -44,35 +41,39 @@ if (searchInput && popover && ul) {
     });
   };
   let pagefindP;
-  searchInput.addEventListener("focus", () => {
+  searchBtn.addEventListener("click", () => {
+    popover.showPopover();
+    searchInput.focus();
     // using pagefind@1.0.4 because of https://github.com/Pagefind/pagefind/issues/729
     pagefindP = import("/pagefind/pagefind.js");
     pagefindP.then(p => p.init());
   });
-  popover.querySelector("button").addEventListener("click", () => popover.hidePopover())
+  popover.querySelector("button").addEventListener("click", () => {
+    popover.hidePopover();
+  });
   searchInput.addEventListener("input", async () => {
     const { value } = searchInput;
-    if (value) {
-      const search = await pagefindP.then(p => p.debouncedSearch(value));
-      if (search) {
-        ul.innerHTML = "";
-        popover.showPopover();
-        const { results } = search;
-        if (results?.length) {
-          appendResults(ul, results.slice(0, 10));
-        } else {
-          ul.innerHTML = "<li>No results.</li>";
-        }
-      }
+    const search = await pagefindP.then(p => p.debouncedSearch(value));
+    if (!search) {
+      // debounce detected subsequent call was already made
+      return;
+    }
+    const { results } = search;
+    if (results?.length) {
+      h2.style.display = "block";
+      ul.innerHTML = "";
+      appendResults(ul, results.slice(0, 10));
+    } else if (value) {
+      ul.innerHTML = "<li>No results.</li>";
     } else {
-      popover.hidePopover();
+      h2.style.display = "none";
+      ul.innerHTML = "";
     }
   });
 
   document.addEventListener("keyup", e => {
     const { activeElement } = document;
     const firstItem = popover.querySelector("a");
-    const h2 = popover.querySelector("h2");
     if (activeElement === searchInput || activeElement === h2) {
       if (e.key === "Enter") {
         h2.focus();

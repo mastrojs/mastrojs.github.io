@@ -27,13 +27,17 @@ export const Layout = (props) =>
           <a href="/">Mastro 👨‍🍳</a>
           <a href="/guide/">Docs</a>
 
-          <search>
+          <button class="-minimal" id="searchBtn">
+            <svg width="20" height="20" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-width="2" stroke="currentColor" d="m16.1507,15.85658l6.04878,6.04878l-6.04878,-6.04878za7.533,7.533 0 1 1 -10.653,-10.653a7.533,7.533 0 0 1 10.653,10.653" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+            </svg>
+            <span>Search</span>
+          </button>
+          <search popover>
             <input type="search" placeholder="Search" aria-label="Search">
-            <div popover>
-              <h2 tabindex="-1">Search results</h2>
-              <button class="-minimal" aria-label="Close search results">✕</button>
-              <ul></ul>
-            </div>
+            <h2 tabindex="-1" style="display: none;">Search results</h2>
+            <button class="-minimal" aria-label="Close search results">✕</button>
+            <ul></ul>
           </search>
 
           <div>
