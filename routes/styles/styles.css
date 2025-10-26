@@ -478,6 +478,10 @@ search {
   }
 }
 
+.center-text {
+  text-align: center;
+}
+
 .pagespeed {
   ul {
     display: grid;

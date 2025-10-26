@@ -41,14 +41,20 @@ export const GET = async (req) => {
           ${["/", "/guide/"].includes(pathname) || isBlog
             ? Newsletter()
             : ""}
-
           ${pathname === "/" ? html`
-            <p style="text-align: center">
+            <p class="center-text">
               <button class="-minimal" onclick="document.documentElement.scrollTop=0">
                 ↑ Back to top
               </button>
             </p>
             ` : ""}
+          ${isBlog
+            ? html`
+                <p class="center-text">
+                  <a href="/" class="button -minimal">Try Mastro now →</a>
+                </p>
+                `
+            : ""}
         </main>
 
         <footer>

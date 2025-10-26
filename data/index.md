@@ -182,7 +182,7 @@ The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI librar
 
 ## Join the community
 
-It's still early days. But we're looking to build an inclusive community of all kinds of people, united by a shared passion for crafting websites, learning new things, and helping each other.
+It's still early days. But we're looking to build an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe. A place to ask questions and learn new things, where people help each other out.
 
 If you have a question, need help, or want to talk about future plans, please start a GitHub Discussion.
 Something not working as expected or confusing? We consider that a bug – either in the code or in the docs. Please open an issue.
