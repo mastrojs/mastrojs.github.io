@@ -4,7 +4,7 @@ title: Build static site with Deno and deploy to Netlify
 
 [← Other deployment options](/guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd)
 
-Go to your Netlify dashboard and select **Add new site**, then choose **Import an existing project** and follow the instruction to connect with your GitHub repository.
+Go to your [Netlify dashboard](https://app.netlify.com/) and select **Add new site**, then choose **Import an existing project** and follow the instruction to connect with your GitHub repository.
 
 Set the following **Publish settings**:
 

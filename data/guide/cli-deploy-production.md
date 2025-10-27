@@ -52,11 +52,24 @@ deno run --allow-read --allow-net --allow-env server.ts
 node server.ts
 ```
 
-One option is to use **Deno Deploy**. To do so, [join Deno Deploy<sup>EA</sup>](https://docs.deno.com/deploy/early-access/) (Early Access), and set up a [new app](https://app.deno.com/) with the following build configuration:
+```sh title=Bun
+bun server.ts
+```
 
-- Framework preset: No Preset
-- Install command: `deno install`
-- Build command: blank
-- Dynamic App -> Entrypoint: `server.ts`
+Be sure to run one of those in production and not `deno/pnpm/bun run start` as those run with the `--watch` flag.
+
+|                         | Deploy to [Deno Deploy][dd] | Deploy to [Render][rd] |
+|:------------------------|:-------------------|:-------------------|
+| Server with **Deno**    | [docs][denoDeploy] | [docs][denoRender] |
+| Server with **Node.js** | -                  | [docs][nodeRender] |
+| Server with **Bun**     | -                  | [docs][bunRender] |
+
+[dd]: https://deno.com/deploy
+[rd]: https://render.com/
+[denoDeploy]: /guide/deploy/ssr-deno-deploy/
+[denoRender]: /guide/deploy/ssr-deno-render/
+[nodeRender]: /guide/deploy/ssr-node-render/
+[bunRender]: /guide/deploy/ssr-bun-render/
+
 
 In the next chapter, let's look at some fun things you can do with a server.
