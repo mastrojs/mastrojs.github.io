@@ -25,7 +25,7 @@ Then, for example using the [Astro web framework](https://astro.build/), you can
 </my-counter>
 
 <script>
-  import { ReactiveElement, signal } from "@mastrojs/mastro/reactive"
+  import { ReactiveElement, signal } from "@mastrojs/reactive"
 
   customElements.define("my-counter", class extends ReactiveElement {
     count = signal(0)
@@ -44,7 +44,7 @@ If you don't want to deal with the complexities of a bundler, you can use the ve
 
 ```html
 <script type="module">
-  import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/reactive@0.4.0?bundle"
+  import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/reactive@0.4.1?bundle"
 ```
 
 Instead of referencing the esm.sh CDN directly, you can of course also [**download Reactive Mastro**](https://esm.sh/@jsr/mastrojs__reactive@0.4.0/es2022/mastrojs__reactive.bundle.mjs) and host it together with your other static assets.
@@ -61,7 +61,7 @@ Here's a complete example that you can save as a `.html` file and open it in you
     <script type="importmap">
       {
         "imports": {
-          "@mastrojs/reactive": "https://esm.sh/jsr/@mastrojs/reactive@0.4.0?bundle"
+          "@mastrojs/reactive": "https://esm.sh/jsr/@mastrojs/reactive@0.4.1?bundle"
         }
       }
     </script>
