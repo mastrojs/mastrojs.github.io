@@ -2,7 +2,7 @@
 title: Run Bun server and deploy to Render
 ---
 
-[← Other deployment options](/guide/cli-deploy-production/#deploy-server-to-production)
+[← Other deployment options](/guide/deploy/#deploy-server-to-production)
 
 To deploy your dynamically rendered Mastro app to Render using Bun,
 go to your [Render dashboard](https://dashboard.render.com/) and select **New > Web Service**, and connect with your GitHub repository.

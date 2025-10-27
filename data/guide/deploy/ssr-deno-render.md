@@ -2,7 +2,7 @@
 title: Run Node.js server and deploy to Render
 ---
 
-[← Other deployment options](/guide/cli-deploy-production/#deploy-server-to-production)
+[← Other deployment options](/guide/deploy/#deploy-server-to-production)
 
 While Render doesn't come with Deno preinstalled, we can install it in the build command.
 

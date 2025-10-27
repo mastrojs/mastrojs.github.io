@@ -21,8 +21,8 @@ Here's a table listing the various ways you can run Mastro. Either locally (mean
 [vsLocal]: /guide/setup/
 [cliLocal]: /guide/cli-install/#setup-local-development-server
 [vsProd]: /guide/publish-website/
-[cliProd]: /guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd
-[server]: /guide/cli-deploy-production/#deploy-server-to-production
+[cliProd]: /guide/deploy/#deploy-static-site-with-ci%2Fcd
+[server]: /guide/deploy/#deploy-server-to-production
 
 
 ## Setup local development server

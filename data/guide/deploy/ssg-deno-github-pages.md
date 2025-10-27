@@ -2,7 +2,7 @@
 title: Build static site with Deno and deploy to GitHub Pages
 ---
 
-[← Other deployment options](/guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd)
+[← Other deployment options](/guide/deploy/#deploy-static-site-with-ci%2Fcd)
 
 To deploy your static site to GitHub Pages using the [GitHub Actions](https://docs.github.com/en/actions) CI/CD service, add the following file to your GitHub repository:
 

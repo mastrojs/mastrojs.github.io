@@ -2,7 +2,7 @@
 title: Build static site with Node.js and deploy to Cloudflare
 ---
 
-[← Other deployment options](/guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd)
+[← Other deployment options](/guide/deploy/#deploy-static-site-with-ci%2Fcd)
 
 To host your static site on Cloudflare, we need a [wrangler.json config](https://developers.cloudflare.com/workers/wrangler/configuration/#assets):
 

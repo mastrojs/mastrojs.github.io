@@ -2,7 +2,7 @@
 title: Run Node.js server and deploy to Render
 ---
 
-[← Other deployment options](/guide/cli-deploy-production/#deploy-server-to-production)
+[← Other deployment options](/guide/deploy/#deploy-server-to-production)
 
 Be sure to [set a Node.js version](https://render.com/docs/node-version) in a format Render.com understands and set it to Node >=v24.
 

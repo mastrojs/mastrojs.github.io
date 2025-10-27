@@ -99,7 +99,7 @@ const sidebar = [{
     { label: "Interactivity with JavaScript in the browser", slug: "/guide/interactivity-with-javascript-in-the-browser/" },
     { label: "URLs, HTTP and servers", slug: "/guide/urls-http-servers/" },
     { label: "Setup Mastro on the command line", slug: "/guide/cli-install/" },
-    { label: "Deploy server or static site with CI/CD", slug: "/guide/cli-deploy-production/" },
+    { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
     { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
     { label: "Bundling, pregenerating assets and caching", slug: "/guide/bundling-assets-caching/" },
     { label: "Web application architecture and the write-read-boundary", slug: "/guide/web-application-architecture-and-write-read-boundary/" },

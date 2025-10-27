@@ -10,7 +10,7 @@ To publish your website to the internet, we need to:
 
 :::tip
 ## Alternative option: CI/CD pipeline
-If you are comfortable with the command line and/or GitHub Actions, you can set up a CI/CD pipeline instead of commiting the output folder. To do that, see [Deploy static site with CI/CD](/guide/cli-deploy-production/#deploy-static-site-with-ci%2Fcd).
+If you are comfortable with the command line and/or GitHub Actions, you can set up a CI/CD pipeline instead of commiting the output folder. To do that, see [Deploy static site with CI/CD](/guide/deploy/#deploy-static-site-with-ci%2Fcd).
 
 Once you've done that, you can jump to the [next chapter](/guide/css/).
 :::
