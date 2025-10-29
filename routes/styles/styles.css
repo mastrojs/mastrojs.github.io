@@ -338,25 +338,41 @@ main.hero {
   }
 }
 
-@media (min-width: 1000px) {
-  .mainCta {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 2em;
-    align-items: center;
-    margin: 1lh 0 2lh 0;
+.tip {
+  color: var(--color-tip);
+  background-color: var(--color-tip-bg);
+  border-radius: 5px;
+  padding: 0.5em 1.5em;
+  > h2 {
+    font-size: 1.2em;
+    margin-top: 1.25em;
   }
+  a {
+    color: var(--color-tip);
+  }
+  ol, ul {
+    padding-left: 1.2em;
+  }
+}
 
+
+@media (min-width: 1000px) {
   .col2 {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 5em;
-    &.-gap1 {
-      gap: 1em;
-    }
     &.-vertical-center {
       align-items: center;
     }
+  }
+}
+.col3 > ul {
+  list-style-type: none;
+  padding-left: 0;
+  @media (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1em;
   }
 }
 
@@ -556,23 +572,6 @@ search {
       position: absolute;
       padding-left: 0.25em;
     }
-  }
-}
-
-.tip {
-  color: var(--color-tip);
-  background-color: var(--color-tip-bg);
-  border-radius: 5px;
-  padding: 0.5em 1.5em;
-  > h2 {
-    font-size: 1.2em;
-    margin-top: 1.25em;
-  }
-  a {
-    color: var(--color-tip);
-  }
-  ol, ul {
-    padding-left: 1.2em;
   }
 }
 

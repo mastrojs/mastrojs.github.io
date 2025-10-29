@@ -16,21 +16,8 @@ No magic, no config – just focus on building awesome websites.
 - **No hosting offer**: selling a service is not what we're interested in.
 - **No update treadmill**: we use web standards instead of relying on many [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
 
-<div class="mainCta">
-
 <a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
-
-<div>
-
-```sh
-deno run -A npm:@mastrojs/create-mastro@latest
-```
-
-```sh
-pnpm create @mastrojs/mastro@latest
-```
-</div>
-</div>
+<a class="button -secondary" href="#experienced-developers-–-do-you-want-off-the-frontend-treadmill%3F">Install with Deno, Node.js or Bun</a>
 
 <p>
 <picture>
@@ -61,17 +48,27 @@ With Mastro, there is very little to learn – except for the web standards HTML
 
 I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
 
-To create a new project with Deno (recommended) or Node.js, run the corresponding command below. Alternatively, start with the [Deno template](https://github.com/mastrojs/template-basic-deno), [Node.js template](https://github.com/mastrojs/template-basic-node), or see [installation instructions](/guide/cli-install/).
+There are various way to [install and deploy Mastro](/guide/cli-install/).
 
-<div class="col2">
+<div class="col3">
 
-```sh title=Deno
-deno run -A npm:@mastrojs/create-mastro@latest
-```
+- **Deno**  ([template](https://github.com/mastrojs/template-basic-deno))
 
-```sh title=Node.js
-pnpm create @mastrojs/mastro@latest
-```
+  ```sh
+  deno run -A npm:@mastrojs/create-mastro@latest
+  ```
+
+- **Node.js**  ([template](https://github.com/mastrojs/template-basic-node))
+
+  ```sh
+  pnpm create @mastrojs/mastro@latest
+  ```
+
+- **Bun**  ([template](https://github.com/mastrojs/template-basic-bun))
+
+  ```sh
+  bun create @mastrojs/mastro@latest
+  ```
 </div>
 
 <a class="button" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>

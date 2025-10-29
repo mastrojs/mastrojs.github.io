@@ -22,7 +22,7 @@ With Node.js now supporting TypeScript natively, I started to wonder: how much w
 
 ## Deno namespace adieu
 
-So I got to work. Targeting Node.js v24 (which will gratuate to LTS this month), we got builtin TypeScript type-stripping, `--watch` flag, a test runner, and `URLPattern` support. The first step was obviously to remove all calls to functions in the `Deno` namespace (like `Deno.readTextFile`), and replace them with the Node.js equivalents, which run just fine in Deno as well. This was mostly painless.
+So I got to work. Targeting Node.js v24 LTS, we got builtin TypeScript type-stripping, `--watch` flag, a test runner, and `URLPattern` support. The first step was obviously to remove all calls to functions in the `Deno` namespace (like `Deno.readTextFile`), and replace them with the Node.js equivalents, which run just fine in Deno as well. This was mostly painless.
 
 Pretty much the only case where I decided to still use a Deno-only function when it was available was for writing a stream to a file. Because look at that – please let me know if there's a better way!
 

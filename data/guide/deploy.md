@@ -56,7 +56,7 @@ node server.ts
 bun server.ts
 ```
 
-Be sure to run one of those in production and not `deno/pnpm/bun run start` as those run with the `--watch` flag.
+Be sure to run one of those in production and not `deno/pnpm/bun run start`, as those run with the `--watch` flag.
 
 |                         | Deploy to [Deno Deploy][dd] | Deploy to [Render][rd] |
 |:------------------------|:-------------------|:-------------------|
