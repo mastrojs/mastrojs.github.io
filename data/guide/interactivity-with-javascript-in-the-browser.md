@@ -235,7 +235,7 @@ The `customElements.define` method requires us to supply it with a [class](https
 
 Our fields are all signals. A signal `todos` is read out with `todos()` (a function call), and changed with `todos.set(newArray)`. The `...array` [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) creates a new array, which is necessary for the signal to be updated. We initialize the `newTitle`, which represents what's currently in the text `input`, with an empty string. The `todos` is initialized with an empty array. And `renderedTodos` is set to a `computed` value, which always reacts to changes to any of the signals used within it (like `this.todos()`), returning an array of `html` strings – one for each todo.
 
-Finally, our class `extends` the `ReactiveElement` class, which we imported from `mastro/reactive`. This allows us to
+Finally, our class `extends` the `ReactiveElement` class, which we imported from `@mastrojs/reactive`. This allows us to
 
 - use the `data-bind` attribute in our HTML to bind fields to the DOM elements, so that they are automatically updated whenever the signal changes, and
 - use `data-on*` attributes (e.g. `data-onsubmit`) to cause our methods to be called on events (this also uses `addEventListener`s behind the scenes).
