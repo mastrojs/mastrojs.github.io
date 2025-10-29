@@ -15,6 +15,7 @@ No magic, no config – just focus on building awesome websites.
 - **No VC-money**: this forces us to stay lean and prevents eventual enshitification.
 - **No hosting offer**: selling a service is not what we're interested in.
 - **No update treadmill**: we use web standards instead of relying on many [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
+- **No lock-in**: if you don't like some aspect of Mastro, just fork the code – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
 
 <a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
 <a class="button -secondary" href="#experienced-developers-–-do-you-want-off-the-frontend-treadmill%3F">Install with Deno, Node.js or Bun</a>
@@ -36,54 +37,13 @@ No magic, no config – just focus on building awesome websites.
 </div>
 
 
-## Easy for beginners – no installation needed
-
-With Mastro, there is very little to learn – except for the web standards HTML, CSS, and JavaScript. The popular VS Code editor also runs in the browser: put your first website live without installing anything on your computer.
-
-<a class="button" href="https://github.dev/mastrojs/template-basic">Get started on GitHub.dev</a>
-<a class="button -secondary" href="/guide/setup/">Guide: Setup</a>
-
-
-## Experienced developers – do you want off the frontend treadmill?
-
-I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
-
-There are various way to [install and deploy Mastro](/guide/cli-install/).
-
-<div class="col3">
-
-- **Deno**  ([template](https://github.com/mastrojs/template-basic-deno))
-
-  ```sh
-  deno run -A npm:@mastrojs/create-mastro@latest
-  ```
-
-- **Node.js**  ([template](https://github.com/mastrojs/template-basic-node))
-
-  ```sh
-  pnpm create @mastrojs/mastro@latest
-  ```
-
-- **Bun**  ([template](https://github.com/mastrojs/template-basic-bun))
-
-  ```sh
-  bun create @mastrojs/mastro@latest
-  ```
-</div>
-
-<a class="button" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
-<a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
-<a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
-
-## A taste of Mastro
-
 <div class="tabs">
 <details name="example" open>
 <summary>routes/index.server.ts</summary>
 
 ```ts
-import { html, htmlToResponse } from "@mastrojs/mastro";
 import { readMarkdownFiles } from "@mastrojs/markdown";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 import { Layout } from "../components/Layout.ts";
 
 export const GET = async (req: Request) => {
@@ -128,7 +88,48 @@ export const Layout = (props: Props) =>
 </details>
 </div>
 
-Want to see more? Have a look at some [examples](https://github.com/mastrojs/mastro/tree/main/examples/), the [source of this website](https://github.com/mastrojs/mastrojs.github.io), or [try Mastro online](https://github.dev/mastrojs/template-basic)!
+Want to see more? Have a look at some [small examples](https://github.com/mastrojs/mastro/tree/main/examples/), or the [source of this website](https://github.com/mastrojs/mastrojs.github.io).
+
+
+## Easy for beginners – no installation needed
+
+With Mastro, there is very little to learn – except for the web standards HTML, CSS, and JavaScript. The popular VS Code editor also runs in the browser: put your first website live without installing anything on your computer.
+
+<a class="button" href="https://github.dev/mastrojs/template-basic">Get started on GitHub.dev</a>
+<a class="button -secondary" href="/guide/setup/">Guide: Setup</a>
+
+
+## Experienced developers – do you want off the frontend treadmill?
+
+I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
+
+There are [various way to run Mastro](/guide/cli-install/). If you're unsure which runtime to pick, we recommend [Deno](https://deno.com).
+
+<div class="col3">
+
+- **Deno**  ([template](https://github.com/mastrojs/template-basic-deno))
+
+  ```sh
+  deno run -A npm:@mastrojs/create-mastro@latest
+  ```
+
+- **Node.js**  ([template](https://github.com/mastrojs/template-basic-node))
+
+  ```sh
+  pnpm create @mastrojs/mastro@latest
+  ```
+
+- **Bun**  ([template](https://github.com/mastrojs/template-basic-bun))
+
+  ```sh
+  bun create @mastrojs/mastro@latest
+  ```
+</div>
+
+<a class="button" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
+<a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
+<a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
+
 
 ## Fast for everyone
 
