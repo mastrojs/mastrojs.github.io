@@ -535,11 +535,9 @@ search {
   summary {
     font-weight: bold;
   }
-  ul {
-    padding-left: 1em;
-  }
   li {
     list-style-type: none;
+    padding-left: 1em;
   }
   a {
     color: var(--color-main);

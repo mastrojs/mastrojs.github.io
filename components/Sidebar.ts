@@ -1,5 +1,6 @@
 import { html } from "@mastrojs/mastro";
 import type { SidebarItem } from "../routes/[...slug].server.ts";
+import { Toc } from "./Toc.ts";
 
 export const Sidebar = (
   sidebar: SidebarItem[],
@@ -22,19 +23,10 @@ export const Sidebar = (
               <li>
                 <details ${part.slug === currentPart.slug ? "open" : ""}>
                   <summary>${part.label}</summary>
-                  <ul>
-                    ${part.contents?.map((chapter) =>
-                      html`
-                        <li>
-                          <a href="${chapter.slug}" ${chapter.slug === currentPath
-                            ? "aria-current=page"
-                            : ""}>
-                            ${chapter.label}
-                          </a>
-                        </li>
-                      `
-                    )}
-                  </ul>
+                  ${Toc({
+                    contents: part.contents || [],
+                    currentPath,
+                  })}
                 </details>
               </li>
             `
