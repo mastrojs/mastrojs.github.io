@@ -103,26 +103,26 @@ With Mastro, there is very little to learn – except for the web standards HTML
 
 I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of hard to debug abstractions collapse upon themselves. All those moments will be lost in time, like tears in rain. Time to let them die.
 
-There are [various way to run Mastro](/guide/cli-install/). If you're unsure which runtime to pick, we recommend [Deno](https://deno.com).
+There are [various way to run Mastro](/guide/cli-install/). If you're unsure which runtime to pick, we recommend [Deno](https://deno.com). For Node.js, [`pnpm`](https://pnpm.io/) is [recommended](https://jsr.io/docs/npm-compatibility) (although `npm` and `yarn` also work).
 
 <div class="col3">
 
 - **Deno**  ([template](https://github.com/mastrojs/template-basic-deno))
 
   ```sh
-  deno run -A npm:@mastrojs/create-mastro@latest
+  deno run -A npm:@mastrojs/create-mastro@0.0.8
   ```
 
 - **Node.js**  ([template](https://github.com/mastrojs/template-basic-node))
 
   ```sh
-  pnpm create @mastrojs/mastro@latest
+  pnpm create @mastrojs/mastro@0.0.8
   ```
 
 - **Bun**  ([template](https://github.com/mastrojs/template-basic-bun))
 
   ```sh
-  bun create @mastrojs/mastro@latest
+  bun create @mastrojs/mastro@0.0.8
   ```
 </div>
 
