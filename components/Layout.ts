@@ -31,7 +31,7 @@ export const Layout = (props: Props) =>
       <body>
         <header>
           <a href="/">Mastro 👨‍🍳</a>
-          <a href="/guide/#table-of-contents" class="headerLink">Docs</a>
+          <a href="/guide/docs/" class="headerLink">Docs</a>
 
           <button class="-minimal" id="searchBtn">
             <svg width="20" height="20" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">

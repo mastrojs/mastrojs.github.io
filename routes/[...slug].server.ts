@@ -41,7 +41,7 @@ export const GET = async (req: Request) => {
 
           ${content}
 
-          ${contents && pathSegments.length === 3
+          ${(pathSegments.length === 3 || pathname === "/guide/docs/") && contents
             ? Toc({ contents })
             : ""}
 
