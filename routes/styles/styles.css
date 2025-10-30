@@ -62,6 +62,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
   font-size: 2.75em;
+  @media (max-width: 1000px) {
+    font-size: 2.5em;
+  }
 }
 h2 {
   font-size: 2em;
@@ -335,10 +338,14 @@ main.hero {
   h1 {
     text-align: center;
     margin: 2em 0 1em 0;
+    @media (max-width: 1000px) {
+      font-size: 2.25em;
+    }
   }
 }
 
 .toc {
+  padding-left: 0;
   div {
     font-weight: bold;
     margin-top: 0.75em;
@@ -422,6 +429,7 @@ main.hero {
       font-weight: normal;
       color: #757575;
       border: 1px solid #bbbbbb;
+      background-color: color-mix(in srgb, var(--color-bg), transparent 30%);
       border-radius: 5px;
       padding: 0.5em 4em 0.5em 0.75em;
       margin-top: -0.1em;
@@ -530,17 +538,20 @@ search {
   padding-right: 1em;
   box-sizing: border-box;
   overflow-y: scroll;
-  font-size: 0.75em;
   margin-top: 3rem;
-  padding-left: 1em;
   @media (min-width: 1000px) {
+    font-size: 0.75em;
     margin-top: 0;
+    padding-left: 1em;
     position: fixed;
     left: 0;
     height: calc(100vh - 6rem);
     width: var(--width-nav);
     > summary {
       display: none;
+    }
+    > nav > ul {
+      margin-top: 0;
     }
   }
   summary {
