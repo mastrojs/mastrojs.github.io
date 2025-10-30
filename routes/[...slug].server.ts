@@ -118,7 +118,7 @@ const sidebar = [{
       { label: "Intro: Why learn HTML and CSS?", slug: "/guide/why-html-css/" },
       { label: "Setup: GitHub and VS Code for Web", slug: "/guide/setup/" },
       { label: "Start with HTML", slug: "/guide/html/" },
-      { label: "Publish your static website", slug: "/guide/publish-website/" },
+      { label: "Publish your website to GitHub Pages", slug: "/guide/publish-website/" },
       { label: "Style with CSS", slug: "/guide/css/" },
       { label: "Introducing JavaScript", slug: "/guide/javascript/" },
     ],

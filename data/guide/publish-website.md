@@ -1,12 +1,8 @@
 ---
-title: Publish your static website
+title: Publish your website
 ---
 
-To publish your website to the internet, we need to:
-
-1. Enable _GitHub Pages_ on your GitHub repository (this only needs to be done once)
-2. Generate the static site (this creates a new `docs/` folder with all the public files)
-3. Save changes to GitHub
+You can publish your website to the internet directly from within _VS Code_ – without leaving your browser.
 
 :::tip
 ## Alternative option: CI/CD pipeline
@@ -14,6 +10,13 @@ If you are comfortable with the command line and/or GitHub Actions, you can set 
 
 Once you've done that, you can jump to the [next chapter](/guide/css/).
 :::
+
+To publish your website, we need to:
+
+1. Enable _GitHub Pages_ on your GitHub repository (this only needs to be done once)
+2. Generate the static site (this creates a new `docs/` folder with all the public files)
+3. Save changes to GitHub
+
 
 ## One-time setup
 
