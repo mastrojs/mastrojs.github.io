@@ -1,6 +1,11 @@
 import { html } from "@mastrojs/mastro";
+import type { SidebarItem } from "../routes/[...slug].server.ts";
 
-export const Toc = (props) =>
+interface Props {
+  contents: SidebarItem[];
+}
+
+export const Toc = (props: Props) =>
   html`
     <ol>
       ${props.contents.map((ch) => html`

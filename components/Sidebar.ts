@@ -1,6 +1,11 @@
 import { html } from "@mastrojs/mastro";
+import type { SidebarItem } from "../routes/[...slug].server.ts";
 
-export const Sidebar = (sidebar, currentPart, currentPath) =>
+export const Sidebar = (
+  sidebar: SidebarItem[],
+  currentPart: SidebarItem | undefined,
+  currentPath: string,
+) =>
   currentPart && html`
     <script type="module">
     const onChange = () =>

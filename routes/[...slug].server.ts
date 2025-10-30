@@ -1,12 +1,18 @@
-import { Layout } from "../components/Layout.js";
-import { Newsletter } from "../components/Newsletter.js";
-import { Sidebar } from "../components/Sidebar.js";
-import { Toc } from "../components/Toc.js";
+import { Layout } from "../components/Layout.ts";
+import { Newsletter } from "../components/Newsletter.ts";
+import { Sidebar } from "../components/Sidebar.ts";
+import { Toc } from "../components/Toc.ts";
 import { fmtIsoDate } from "../helpers/date.ts";
 import { findFiles, html, htmlToResponse } from "@mastrojs/mastro";
 import { readMd } from "../helpers/markdown.ts";
 
-export const GET = async (req) => {
+export interface SidebarItem {
+  label: string;
+  contents?: SidebarItem[];
+  slug?: string;
+};
+
+export const GET = async (req: Request) => {
   const { pathname } = new URL(req.url);
   const { content, meta } = await readMd(pathname);
   const pathSegments = pathname.split("/");
@@ -14,9 +20,7 @@ export const GET = async (req) => {
 
   const currentPart = sidebar.find((part) => part.slug === `/${pathSegments[1]}/`);
   const contents = currentPart?.contents;
-  const index = contents?.findIndex((c) => c.slug === pathname);
-  const prev = index >= 0 ? contents[index - 1] : undefined;
-  const next = index >= 0 ? contents[index + 1] : undefined;
+  const { prev, next } = getPrevNext(contents, pathname);
 
   return htmlToResponse(
     Layout({
@@ -86,6 +90,16 @@ export const getStaticPaths = async () => {
   return files.map(file => file.endsWith("/index.md")
     ? file.slice(5, -8)
     : file.slice(5, -3) + "/");
+}
+
+const getPrevNext = (contents: SidebarItem[] | undefined, pathname: string) => {
+  const index = contents?.findIndex((c) => c.slug === pathname);
+  return index && index >= 0 && contents
+    ? {
+      prev: contents[index - 1],
+      next: contents[index + 1],
+    }
+    : {};
 }
 
 const sidebar = [{

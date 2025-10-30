@@ -1,6 +1,12 @@
-import { html } from "@mastrojs/mastro";
+import { html, type Html } from "@mastrojs/mastro";
 
-export const Layout = (props) =>
+interface Props {
+  children: Html;
+  description?: string;
+  title?: string;
+}
+
+export const Layout = (props: Props) =>
   html`
     <!DOCTYPE html>
     <html lang="en">
