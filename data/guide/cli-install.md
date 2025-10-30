@@ -27,7 +27,7 @@ Here's a table listing the various ways you can run Mastro. Either locally (mean
 
 ## Setup local development server
 
-In this section, we'll be using the modern [Deno](https://deno.com) JavaScript runtime, which makes our life quite a bit easier compared to other runtimes: No `npm install` step required, `Deno.serve` and TypeScript type-checking are built-in, etc. However, you can also [use Mastro with Node.js](https://github.com/mastrojs/template-basic-node) or [with Bun](https://github.com/mastrojs/template-basic-bun).
+In this section, we'll be using the modern [Deno](https://deno.com) JavaScript runtime, which makes our life quite a bit easier compared to other runtimes. No messing with `npm install` and `node_modules` folders. And in Deno, niceties like TypeScript, `Deno.serve`, and a formatter are all built-in and pre-configured. However, you can also use Mastro [with Node.js](https://github.com/mastrojs/template-basic-node) or [with Bun](https://github.com/mastrojs/template-basic-bun), should you choose to do so.
 
 To preview your website in a browser, while you work on it, let's start a local development server.
 

@@ -2,7 +2,7 @@
 title: Introducing JavaScript
 ---
 
-One of the easiest ways to get your feet wet with JavaScript, is still in your browser.
+Now that you got a taste of HTML and CSS, let's talk about JavaScript. It's the third language that the browser understands. One of the easiest ways to get your feet wet with JavaScript, is in your browser's console.
 
 Open your [browser's developer tools](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#how_to_open_the_devtools_in_your_browser) again. (Ideally on your published web page, but anywhere will do). But this time, switch to the tab named **Console**.
 

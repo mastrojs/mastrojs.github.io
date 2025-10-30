@@ -2,14 +2,14 @@
 title: Mastro server-side compo­nents and routing
 ---
 
-Now that you know the basics of JavaScript, let's create a second page for your website. We'll be using a bit of server-side JavaScript and the minimal Mastro framework.
+In this chapter, we'll be using a bit of server-side JavaScript to create a second page for your website.
 
-Usually, you'll want all pages of the website to have the same header and footer. While you _could_ add the same `<header>` and `<footer>` tags in every file for every page, this approach becomes more tedious the more pages you add. And when you would modify the header or footer in one file, it's easy to forget to change all the other files. The solution is to move the header and footer to their own reusable _components_, and include those where you need them.
+Usually, you'll want all pages of the website to have the same header and footer. While you _could_ add the same `<header>` and `<footer>` tags in every file for every page, this approach becomes more tedious the more pages you add. And when you change the header or footer in one file, it's easy to forget to change all the other files. The solution is to move the header and footer to their own reusable _components_, and include those where you need them.
 
 If you've been following the guide, you will already have a single `routes/index.html` file with `<header>`, `<main>` and `<footer>` elements, which we'll move to new locations. If not, you can simply create things as we go along. But make sure you've either:
 
 - set up GitHub and VS Code in your browser, as described in the [beginning of this guide](/guide/setup/) (recommended if you're not familiar with the command line), or
-- [started a new project with Deno](/guide/cli-install/#setup-local-development-server) on the command line.
+- [started a new project](/guide/cli-install/#setup-local-development-server) on the command line.
 
 
 ## Components
