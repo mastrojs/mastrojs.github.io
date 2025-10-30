@@ -18,16 +18,19 @@ export const GET = async (req: Request) => {
   const pathSegments = pathname.split("/");
   const isBlog = pathSegments[1] === "blog";
 
-  const currentPart = sidebar.find((part) => part.slug === `/${pathSegments[1]}/`);
-  const contents = currentPart?.contents;
-  const { prev, next } = getPrevNext(contents, pathname);
+  const guideOrReactive = sidebar.find((part) => part.slug === `/${pathSegments[1]}/`);
+  const contents = guideOrReactive?.contents;
+  const flattened = contents && contents.some(item => "contents" in item)
+    ? contents.flatMap((item) => "contents" in item ? item.contents : [])
+    : contents;
+  const { prev, next } = getPrevNext(flattened, pathname);
 
   return htmlToResponse(
     Layout({
       title: meta.metaTitle || (meta.title ? `${meta.title} | Mastro` : "Mastro"),
       description: meta.description,
       children: html`
-        ${Sidebar(sidebar, currentPart, pathname)}
+        ${Sidebar(sidebar, guideOrReactive, pathname)}
 
         <main ${meta.layout === "hero" ? `class=hero` : (isBlog ? "" : "data-pagefind-body")}>
           <h1>${meta.title}</h1>
@@ -93,37 +96,52 @@ export const getStaticPaths = async () => {
 }
 
 const getPrevNext = (contents: SidebarItem[] | undefined, pathname: string) => {
-  const index = contents?.findIndex((c) => c.slug === pathname);
-  return index && index >= 0 && contents
-    ? {
-      prev: contents[index - 1],
-      next: contents[index + 1],
-    }
-    : {};
+  if (!contents) {
+    return {};
+  } else {
+    const index = contents.findIndex((c) => c.slug === pathname);
+    return index >= 0
+      ? {
+        prev: contents[index - 1],
+        next: contents[index + 1],
+      }
+      : {};
+  }
 }
 
 const sidebar = [{
   label: "Guide",
   slug: "/guide/",
-  contents: [
-    { label: "Intro: Why learn HTML and CSS?", slug: "/guide/why-html-css/" },
-    { label: "Setup: GitHub and VS Code for Web", slug: "/guide/setup/" },
-    { label: "Start with HTML", slug: "/guide/html/" },
-    { label: "Publish your static website", slug: "/guide/publish-website/" },
-    { label: "Style with CSS", slug: "/guide/css/" },
-    { label: "Introducing JavaScript", slug: "/guide/javascript/" },
-    { label: "Client-side vs server-side JavaScript, SPA vs MPA", slug: "/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/" },
-    { label: "Server-side components and routing", slug: "/guide/server-side-components-and-routing/" },
-    { label: "A static blog from markdown files", slug: "/guide/static-blog-from-markdown-files/" },
-    { label: "Third-party packages", slug: "/guide/third-party-packages/" },
-    { label: "Interactivity with JavaScript in the browser", slug: "/guide/interactivity-with-javascript-in-the-browser/" },
-    { label: "URLs, HTTP and servers", slug: "/guide/urls-http-servers/" },
-    { label: "Setup Mastro on the command line", slug: "/guide/cli-install/" },
-    { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
-    { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
-    { label: "Bundling, pregenerating assets and caching", slug: "/guide/bundling-assets-caching/" },
-    { label: "Web application architecture and the write-read-boundary", slug: "/guide/web-application-architecture-and-write-read-boundary/" },
-  ],
+  contents: [{
+    label: "HTML, CSS and JavaScript",
+    contents: [
+      { label: "Intro: Why learn HTML and CSS?", slug: "/guide/why-html-css/" },
+      { label: "Setup: GitHub and VS Code for Web", slug: "/guide/setup/" },
+      { label: "Start with HTML", slug: "/guide/html/" },
+      { label: "Publish your static website", slug: "/guide/publish-website/" },
+      { label: "Style with CSS", slug: "/guide/css/" },
+      { label: "Introducing JavaScript", slug: "/guide/javascript/" },
+    ],
+  }, {
+    label: "Static site generation",
+    contents: [
+      { label: "Client-side vs server-side JavaScript, SPA vs MPA", slug: "/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/" },
+      { label: "Server-side components and routing", slug: "/guide/server-side-components-and-routing/" },
+      { label: "A static blog from markdown files", slug: "/guide/static-blog-from-markdown-files/" },
+      { label: "Third-party packages", slug: "/guide/third-party-packages/" },
+      { label: "Interactivity with JavaScript in the browser", slug: "/guide/interactivity-with-javascript-in-the-browser/" },
+    ],
+  }, {
+    label: "Running a server",
+    contents: [
+      { label: "URLs, HTTP and servers", slug: "/guide/urls-http-servers/" },
+      { label: "Setup Mastro on the command line", slug: "/guide/cli-install/" },
+      { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
+      { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
+      { label: "Bundling, pregenerating assets and caching", slug: "/guide/bundling-assets-caching/" },
+      { label: "Web application architecture and the write-read-boundary", slug: "/guide/web-application-architecture-and-write-read-boundary/" },
+    ],
+  }],
 }, {
   label: "Reactive",
   slug: "/reactive/",

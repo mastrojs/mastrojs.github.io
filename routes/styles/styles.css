@@ -338,6 +338,16 @@ main.hero {
   }
 }
 
+.toc {
+  div {
+    font-weight: bold;
+    margin-top: 0.75em;
+  }
+  li {
+    list-style-type: none;
+  }
+}
+
 .tip {
   color: var(--color-tip);
   background-color: var(--color-tip-bg);
@@ -522,6 +532,7 @@ search {
   overflow-y: scroll;
   font-size: 0.75em;
   margin-top: 3rem;
+  padding-left: 1em;
   @media (min-width: 1000px) {
     margin-top: 0;
     position: fixed;
@@ -535,9 +546,11 @@ search {
   summary {
     font-weight: bold;
   }
+  details > ol {
+    padding-left: 1em;
+  }
   li {
     list-style-type: none;
-    padding-left: 1em;
   }
   a {
     color: var(--color-main);

@@ -24,7 +24,7 @@ export const Sidebar = (
                 <details ${part.slug === currentPart.slug ? "open" : ""}>
                   <summary>${part.label}</summary>
                   ${Toc({
-                    contents: part.contents || [],
+                    contents: part.contents,
                     currentPath,
                   })}
                 </details>
