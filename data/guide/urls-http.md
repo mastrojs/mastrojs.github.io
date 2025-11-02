@@ -1,10 +1,12 @@
 ---
-title: URLs, HTTP and servers
+title: URLs and HTTP
 ---
 
 During this whole guide so far, you've been using Mastro as a static site generator: when you hit the "Generate" button, it creates the html files, which GitHub Pages exposes to the web somehow. But how? What actually happens when you hit enter in your web browser after typing in some URL like `https://mastrojs.github.io/guide/`?
 
 Broadly speaking, your browser makes a request to a server, and that server sends back the HTML. A server is ultimately a computer that usually sits in a data center, and is running a program that answers these requests. Confusingly, that program is also called a server.
+
+In this chapter, we take a closer look at URLs and the HTTP protocol. In the next chapter, we'll set up a server outselves.
 
 
 ## Anatomy of a URL

@@ -123,7 +123,7 @@ const sidebar = [{
       { label: "Introducing JavaScript", slug: "/guide/javascript/" },
     ],
   }, {
-    label: "Static site generation",
+    label: "Static site generation (SSG)",
     contents: [
       { label: "Client-side vs server-side JavaScript, SPA vs MPA", slug: "/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/" },
       { label: "Server-side components and routing", slug: "/guide/server-side-components-and-routing/" },
@@ -132,10 +132,10 @@ const sidebar = [{
       { label: "Interactivity with JavaScript in the browser", slug: "/guide/interactivity-with-javascript-in-the-browser/" },
     ],
   }, {
-    label: "Running a server",
+    label: "Running a server (SSR)",
     contents: [
-      { label: "URLs, HTTP and servers", slug: "/guide/urls-http-servers/" },
-      { label: "Setup Mastro on the command line", slug: "/guide/cli-install/" },
+      { label: "URLs and HTTP", slug: "/guide/urls-http/" },
+      { label: "Mastro as a server on the command line", slug: "/guide/cli-install/" },
       { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
       { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
       { label: "Bundling, pregenerating assets and caching", slug: "/guide/bundling-assets-caching/" },
