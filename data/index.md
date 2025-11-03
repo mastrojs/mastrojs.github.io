@@ -91,12 +91,29 @@ export const Layout = (props: Props) =>
 Want to see more? Have a look at some [examples](https://github.com/mastrojs/mastro/tree/main/examples/), or the [source of this website](https://github.com/mastrojs/mastrojs.github.io).
 
 
-## Easy for beginners – no installation needed
+## Easy for beginners
 
-With Mastro, there is very little to learn – except for the web standards HTML, CSS, and JavaScript. The popular VS Code editor also runs in the browser: put your first website live without installing anything on your computer.
+With Mastro, there is very little to learn – except for the web standards HTML, CSS, and JavaScript.
+
+<div class="col2">
+<div>
+
+### No installation needed
+
+The popular VS Code editor also runs in the browser: put your first website live without installing anything on your computer.
 
 <a class="button" href="https://github.dev/mastrojs/template-basic">Get started on GitHub.dev</a>
-<a class="button -secondary" href="/guide/setup/">Guide: Setup</a>
+
+</div>
+<div>
+
+### Learn the fundamentals
+
+Start with HTML and CSS. Then build a blog, and a to-do list app with JavaScript. Finally, run a server with a REST API.
+
+<a class="button" href="/guide/">Follow the guide</a>
+</div>
+</div>
 
 
 ## Experienced developers – do you want off the frontend treadmill?
@@ -127,8 +144,7 @@ There are [various way to run Mastro](/guide/cli-install/). If you're unsure whi
 </div>
 
 <a class="button" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
-<a class="button -secondary" href="/guide/server-side-components-and-routing/">Guide: Mastro</a>
-<a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
+<a class="button -secondary" href="/docs/">Docs</a>
 
 
 ## Fast for everyone
@@ -163,18 +179,11 @@ There are [various way to run Mastro](/guide/cli-install/). If you're unsure whi
 </div>
 
 
-## Learn web development – from fundamentals to advanced techniques
-
-Work with the fabric of the web instead of fighting it. Start with the fundamentals: HTML and CSS. Then build a static blog, and implement a to-do list app: once with plain JavaScript, then reactively. Finally, run a server with a REST API, and learn about caching and different architectures.
-
-<a class="button" href="/guide/">Follow the guide</a>
-
-
 ## Reactive Mastro – interactivity simplified
 
-The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI library for MPAs.
+When you need client-side interactivity, add Reactive Mastro – a tiny reactive GUI library for MPAs.
 
-<a class="button" href="/reactive/">Build interactive user interfaces</a>
+<a class="button" href="/reactive/">Get started</a>
 <a class="button -secondary" href="/reactive/why-reactive-mastro/">Why Reactive Mastro?</a>
 
 
@@ -182,8 +191,17 @@ The final part of Mastro is a tiny (2.8k min.gz) client-side reactive GUI librar
 
 It's still early days. But we're looking to build an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe. A place to ask questions and learn new things, where people help each other out.
 
-If you have a question, need help, or want to talk about future plans, please start a GitHub Discussion.
-Something not working as expected or confusing? We consider that a bug – either in the code or in the docs. Please open an issue.
+<div class="col2">
+<div>
+
+Do you have a question, need help, or want to talk about future plans?
 
 <a class="button" href="https://github.com/mastrojs/mastro/discussions/new/choose">Start a GitHub discussion</a>
-<a class="button -secondary" href="https://github.com/mastrojs/mastro/issues/">GitHub issues</a>
+</div>
+<div>
+
+Something not working as expected or confusing? We consider that a bug.
+
+<a class="button -secondary" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
+</div>
+</div>

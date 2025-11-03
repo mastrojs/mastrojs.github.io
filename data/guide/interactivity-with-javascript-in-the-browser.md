@@ -54,7 +54,7 @@ If you have relatively little CSS and JavaScript, you can put them directly in t
 
 ```html
 <link rel="stylesheet" href="/styles.css">
-<script type="module" src="/script.js"></script>
+<script type="module" src="/scripts.js"></script>
 ```
 
 The HTML elements on the page are made availlable to JavaScript as the DOM (document object model). For example, the `document.querySelector` method returns the first element that matches the specified CSS selector. Above, we use `document.querySelector("#todos")` to select the element with `id="todos"`. You can try writing that in the JavaScript console of your browser's dev tools and see what it returns. Using an `id` is a common technique to mark up an element on a page for JavaScript to find. Be aware however that there can be only one element on a page with any given `id`. If you want to mark up multiple elements, you should use `class="myClass` and look for them with `document.querySelectorAll(.myClass)`, which returns a list of all matched elements.

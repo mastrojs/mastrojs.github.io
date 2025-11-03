@@ -18,8 +18,8 @@ export const GET = async (req: Request) => {
   const pathSegments = pathname.split("/");
   const isBlog = pathSegments[1] === "blog";
 
-  const guideOrReactive = sidebar.find((part) => part.slug === `/${pathSegments[1]}/`);
-  const contents = guideOrReactive?.contents;
+  const part = sidebar.find((part) => part.slug === `/${pathSegments[1]}/`);
+  const contents = part?.contents;
   const flattened = contents && contents.some(item => "contents" in item)
     ? contents.flatMap((item) => "contents" in item ? item.contents : [])
     : contents;
@@ -27,10 +27,10 @@ export const GET = async (req: Request) => {
 
   return htmlToResponse(
     Layout({
-      title: meta.metaTitle || (meta.title ? `${meta.title} | Mastro` : "Mastro"),
+      title: meta.metaTitle || (meta.title ? `${meta.title} | Mastro ${part?.label}` : "Mastro"),
       description: meta.description,
       children: html`
-        ${Sidebar(sidebar, guideOrReactive, pathname)}
+        ${Sidebar(sidebar, part, pathname)}
 
         <main ${meta.layout === "hero" ? `class=hero` : (isBlog ? "" : "data-pagefind-body")}>
           <h1>${meta.title}</h1>
@@ -41,7 +41,7 @@ export const GET = async (req: Request) => {
 
           ${content}
 
-          ${(pathSegments.length === 3 || pathname === "/guide/docs/") && contents
+          ${(pathSegments.length === 3) && contents
             ? Toc({ contents })
             : ""}
 
@@ -142,6 +142,14 @@ const sidebar = [{
       { label: "Web application architecture and the write-read-boundary", slug: "/guide/web-application-architecture-and-write-read-boundary/" },
     ],
   }],
+}, {
+  label: "Docs",
+  slug: "/docs/",
+  contents: [
+    { label: "Routing", slug: "/docs/routing/" },
+    { label: "Components and HTML", slug: "/docs/html-components/" },
+    { label: "Installation and setup", slug: "/docs/install-setup/" },
+  ],
 }, {
   label: "Reactive",
   slug: "/reactive/",
