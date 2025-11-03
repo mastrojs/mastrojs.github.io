@@ -4,7 +4,7 @@ date: 2025-10-29
 author: Mauro Bieg
 ---
 
-In our last blog post, I talked about [What I learned porting Mastro from Deno to Node.js](/blog/2025-10-27-what-learned-porting-from-deno-to-node-js.md). The next step was of course to get Mastro working on Bun as well.
+In our last blog post, I talked about [What I learned porting Mastro from Deno to Node.js](/blog/2025-10-27-what-learned-porting-from-deno-to-node-js/). The next step was of course to get Mastro working on Bun as well.
 
 And again, there were some gotchas that took me some time to resolve. Let’s go through them.
 

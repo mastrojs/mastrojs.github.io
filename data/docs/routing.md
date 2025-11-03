@@ -96,4 +96,4 @@ export const getStaticPaths = async () => {
 }
 ```
 
-See the guide for an example of a [static blog from markdown files](http://localhost:8000/guide/static-blog-from-markdown-files/).
+See the guide for an example of a [static blog from markdown files](/guide/static-blog-from-markdown-files/).

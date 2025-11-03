@@ -63,7 +63,7 @@ To preview your website in a browser, while you work on it, let's start a local 
     deno task start
     ```
 
-    This will start your server! You can see the dummy page it's serving by opening the following URL in your web browser: [http://localhost:8000](http://localhost:8000) (The `8000` is the _port_. If you'd want to run multiple web servers on the same machine, each would need to use a different port.)
+    This will start your server! You can see the dummy page it's serving by opening the following URL in your web browser: <a rel="nofollow" href="http://localhost:8000">http://localhost:8000</a> (The `8000` is the _port_. If you'd want to run multiple web servers on the same machine, each would need to use a different port.)
 
     To stop the server again, switch back to the terminal and press `Ctrl-C` on your keyboard.
 

@@ -39,7 +39,7 @@ Finally, there is HTMX, where every interaction makes a request to the server wh
 
 For signals, we currently use the [maverick-js/signals](https://github.com/maverick-js/signals) library, mostly because it's tiny (~1kB minzipped). But we could consider switching that out with [signal-polyfill](https://github.com/proposal-signals/signal-polyfill) or similar if that would suit our needs better.
 
-Besides that, the implementation of Reactive Mastro is just three very small files: one for [`html`](https://github.com/mastrojs/mastro/blob/main/src/html.ts) rendering, one for the [`ReactiveElement`](https://github.com/mastrojs/mastro/blob/main/src/reactive/reactive.ts) base class and one to parse the [`data-bind`](https://github.com/mastrojs/mastro/blob/main/src/reactive/reactive.util.ts) syntax.
+Besides that, the implementation of Reactive Mastro is just three very small files: one for [`html`](https://github.com/mastrojs/mastro/blob/main/src/core/html.ts) rendering, one for the [`ReactiveElement`](https://github.com/mastrojs/reactive/blob/main/reactive.ts) base class and one to parse the [`data-bind`](https://github.com/mastrojs/reactive/blob/main/reactive.util.ts) syntax.
 
 ### Custom elements
 

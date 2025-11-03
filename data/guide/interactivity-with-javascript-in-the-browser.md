@@ -151,7 +151,7 @@ Information of previous user interactions or events, that still hangs around, is
 
 The solution to this problem that React.js popularized is that you separate the state out from the rest of the program in a special kind of variable. You then write a so-called `render` function that takes the state as input, and returns what the HTML/DOM should look like. When a user changes a dropdown (or another event happens), you do _not_ update the DOM directly. Instead, you update the state. And on each state change, the framework automatically reruns your render function and updates the DOM. That way, the state and DOM are guaranteed to always be in sync. For a longer introduction to this approach of state management, see for example [Solid's docs](https://docs.solidjs.com/guides/state-management) (a more modern alternative to React).
 
-Mastro comes with its own minimal take on a client-side rendering library: [Reactive Mastro](https://github.com/mastrojs/mastro/tree/main/src/reactive). Like many other reactive libraries (but unlike React), it uses _signals_ to hold state.
+Mastro comes with its own minimal take on a client-side rendering library: [Reactive Mastro](https://github.com/mastrojs/reactive/blob/main/reactive.ts). Like many other reactive libraries (but unlike React), it uses _signals_ to hold state.
 
 To avoid having to add ids or classes, and then look for the elements with `querySelector`, we use [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) – a part of the [web components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) suite of technologies built into browsers.
 
