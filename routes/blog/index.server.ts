@@ -5,6 +5,7 @@ import { readMdFiles } from "../../helpers/markdown.ts";
 
 export const GET = async () => {
   const posts = await readMdFiles();
+  posts.sort((a, b) => a.meta.date < b.meta.date ? 1 : -1);
   return htmlToResponse(
     Layout({
       title: "Blog | Mastro",
