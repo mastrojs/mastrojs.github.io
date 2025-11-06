@@ -253,6 +253,10 @@ form {
   }
 }
 
+section {
+  margin: 4em 0;
+}
+
 header {
   display: flex;
   justify-content: space-between;

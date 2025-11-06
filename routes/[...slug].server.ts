@@ -49,17 +49,20 @@ export const GET = async (req: Request) => {
             ? Newsletter()
             : ""}
           ${pathname === "/" ? html`
-            <p class="center-text">
-              <button class="-minimal" onclick="document.documentElement.scrollTop=0">
-                ↑ Back to top
-              </button>
-            </p>
+            <section class="center-text">
+              <p><em>This is the end of the page. Yet it may be the beginning of your journey with Mastro.</em></p>
+              <p>
+                <a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+                <a class="button -secondary" href="/docs/">Get started</a>
+              </p>
+            </section>
             ` : ""}
           ${isBlog
             ? html`
-                <p class="center-text">
-                  <a href="/" class="button -minimal">Try Mastro now →</a>
-                </p>
+                <section class="center-text">
+                  <p><em>This is the end of the page. Yet it may be the beginning of your journey with Mastro.</em></p>
+                  <p><a href="/" class="button">Discover Mastro →</a></p>
+                </section>
                 `
             : ""}
         </main>
