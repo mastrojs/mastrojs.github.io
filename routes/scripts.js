@@ -19,6 +19,12 @@ const h2 = popover.querySelector("h2");
 const ul = popover.querySelector("ul");
 if (searchInput && popover && ul) {
   searchInput.value = "";
+  const getPart = (url) => {
+    const part = url.split("/")[1];
+    return part
+      ? part[0].toUpperCase() + part.slice(1) + ": "
+      : "";
+  }
   const appendResults = (ul, results) => {
     const lis = results.map(() => {
       // create lis in order
@@ -30,7 +36,7 @@ if (searchInput && popover && ul) {
       // populate lis as soon as data arrives over the network
       const { meta, url, sub_results } = await r.data();
       lis[i].innerHTML = `
-        <a href="${url}">${meta.title}</a>
+        <a href="${url}">${getPart(url) + meta.title}</a>
         <ul>${sub_results.map(r =>
           `<li>
             ${r.url === url ? "" : `<a href="${r.url}">${r.title}</a>`}
