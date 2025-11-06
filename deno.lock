@@ -3,9 +3,9 @@
   "specifiers": {
     "jsr:@mastrojs/feed@^0.0.1": "0.0.1",
     "jsr:@mastrojs/markdown@0.0.9": "0.0.9",
-    "jsr:@mastrojs/mastro@*": "0.4.1",
-    "jsr:@mastrojs/mastro@0": "0.4.1",
-    "jsr:@mastrojs/mastro@0.4.1": "0.4.1",
+    "jsr:@mastrojs/mastro@*": "0.5.0",
+    "jsr:@mastrojs/mastro@0": "0.5.0",
+    "jsr:@mastrojs/mastro@0.5.0": "0.5.0",
     "jsr:@std/cli@^1.0.23": "1.0.23",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/fmt@^1.0.8": "1.0.8",
@@ -45,8 +45,8 @@
         "npm:micromark-extension-gfm"
       ]
     },
-    "@mastrojs/mastro@0.4.1": {
-      "integrity": "6e10adf782988ec85af29c9786d71cea6efb7bf57916f5942eb969088a23cde1",
+    "@mastrojs/mastro@0.5.0": {
+      "integrity": "8253a787dc3d6a928a7ba631638d2d1f67fd8836b04feaad178dc42b61311019",
       "dependencies": [
         "jsr:@std/http",
         "jsr:@std/media-types",
@@ -502,7 +502,7 @@
     "dependencies": [
       "jsr:@mastrojs/feed@^0.0.1",
       "jsr:@mastrojs/markdown@0.0.9",
-      "jsr:@mastrojs/mastro@0.4.1",
+      "jsr:@mastrojs/mastro@0.5.0",
       "npm:markdown-it-anchor@9.2.0",
       "npm:markdown-it-container@4.0.0",
       "npm:markdown-it-highlightjs@4.2.0",

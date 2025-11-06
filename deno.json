@@ -12,7 +12,7 @@
   "imports": {
     "@mastrojs/feed": "jsr:@mastrojs/feed@^0.0.1",
     "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.0.9",
-    "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.4.1",
+    "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.5.0",
     "markdown-it": "npm:markdown-it@14.1.0",
     "markdown-it-anchor": "npm:markdown-it-anchor@9.2.0",
     "markdown-it-container": "npm:markdown-it-container@4.0.0",
