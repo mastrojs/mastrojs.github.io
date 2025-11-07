@@ -70,7 +70,7 @@ We don't have specific docs for every combination of JavaScript runtime and host
 | Server with **Node.js** | -                  | [docs][nodeRender] |
 | Server with **Bun**     | -                  | [docs][bunRender] |
 
-[dd]: https://deno.com/deploy
+[dd]: https://deno.com/deploy/
 [rd]: https://render.com/
 [denoDeploy]: /guide/deploy/ssr-deno-deploy/
 [denoRender]: /guide/deploy/ssr-deno-render/
