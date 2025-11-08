@@ -17,7 +17,7 @@ Not compromising on developer experience, Mastro feels like a framework – but 
 - **No update treadmill**: we use web standards instead of relying on complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
 - **No lock-in**: swap out calls to the Mastro library later on. Or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
 
-<a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+<a class="button" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
 <a class="button -secondary" href="#experienced-developers-–-do-you-want-off-the-frontend-treadmill%3F">Install with Deno, Node.js or Bun</a>
 
 <p>
@@ -102,7 +102,7 @@ With Mastro, there is very little to learn – except for the web standards HTML
 
 The popular VS Code editor also runs in the browser: put your first website live without installing anything on your computer.
 
-<a class="button" href="https://github.dev/mastrojs/template-basic">Get started on GitHub.dev</a>
+<a class="button" data-goatcounter-click="home.try" data-goatcounter-title="beginners" href="https://github.dev/mastrojs/template-basic">Get started on GitHub.dev</a>
 
 </div>
 <div>
@@ -143,7 +143,7 @@ There are [various way to run Mastro](/guide/cli-install/). If you're unsure whi
   ```
 </div>
 
-<a class="button" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
+<a class="button" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 <a class="button -secondary" href="/docs/">Docs</a>
 
 
@@ -196,12 +196,12 @@ It's still early days. But we're looking to build an inclusive community, where 
 
 Do you have a question, need help, or want to talk about future plans?
 
-<a class="button" href="https://github.com/mastrojs/mastro/discussions/new/choose">Start a GitHub discussion</a>
+<a class="button" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions/new/choose">Start a GitHub discussion</a>
 </div>
 <div>
 
 Something not working as expected or confusing? We consider that a bug.
 
-<a class="button -secondary" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
+<a class="button -secondary" data-goatcounter-click="home.github.issues" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
 </div>
 </div>
