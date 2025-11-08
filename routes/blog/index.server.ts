@@ -1,5 +1,6 @@
 import { html, htmlToResponse } from "@mastrojs/mastro";
 import { Layout } from "../../components/Layout.ts";
+import { Newsletter } from "../../components/Newsletter.ts";
 import { fmtIsoDate } from "../../helpers/date.ts";
 import { readMdFiles } from "../../helpers/markdown.ts";
 
@@ -18,7 +19,10 @@ export const GET = async () => {
               <a href=${post.path}>${post.meta.title}</a>
             </p>
             `)}
+          ${Newsletter()}
         </main>
+        <footer>
+        </footer>
         `,
     })
   );
