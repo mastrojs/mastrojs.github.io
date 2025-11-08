@@ -1,4 +1,4 @@
-import { parseYamlFrontmatter, readMarkdownFileInFolder, readMarkdownFiles } from "@mastrojs/markdown";
+import { parseYamlFrontmatter, readMarkdownFiles } from "@mastrojs/markdown";
 import { unsafeInnerHtml } from "@mastrojs/mastro";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
@@ -8,17 +8,11 @@ import markdownItHighlightJs from "markdown-it-highlightjs";
 /**
  * Get all markdown files
  */
-export const readMdFiles = async () => {
+export const readBlogFiles = async () => {
   const files = await readMarkdownFiles("data/blog/**.md");
   files.reverse();
   return files.map(md => ({...md, path: md.path.slice(5, -3) + "/"}));
 }
-
-/**
- * Read a markdown file from the data folder
- */
-export const readMd = (path: string) =>
-  readMarkdownFileInFolder("data", path, mdToHtml)
 
 /**
  * Custom markdown renderer with:
@@ -29,7 +23,7 @@ export const readMd = (path: string) =>
  * - copy code to clipboard button
  * - support for ` ```css title=styles.css ins={6-7} del={4-5}` syntax
  */
-const mdToHtml = (txt: string) => {
+export const mdToHtml = (txt: string) => {
   const { body, meta } = parseYamlFrontmatter(txt);
   const content = unsafeInnerHtml(md.render(body));
   return { content, meta };

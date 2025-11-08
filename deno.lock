@@ -2,7 +2,7 @@
   "version": "5",
   "specifiers": {
     "jsr:@mastrojs/feed@^0.0.1": "0.0.1",
-    "jsr:@mastrojs/markdown@0.0.9": "0.0.9",
+    "jsr:@mastrojs/markdown@0.1.2": "0.1.2",
     "jsr:@mastrojs/mastro@*": "0.5.0",
     "jsr:@mastrojs/mastro@0": "0.5.0",
     "jsr:@mastrojs/mastro@0.5.0": "0.5.0",
@@ -36,8 +36,8 @@
         "jsr:@mastrojs/mastro@0"
       ]
     },
-    "@mastrojs/markdown@0.0.9": {
-      "integrity": "9d68c15b5860ea2bde9943518c23e3e6288a6655cbd31b8e611cc37a895ecf50",
+    "@mastrojs/markdown@0.1.2": {
+      "integrity": "ae87c5dcb55e0d1924886395d4ffe90b639adbbba669995ef4fd08646bceb76e",
       "dependencies": [
         "jsr:@mastrojs/mastro@0",
         "npm:js-yaml",
@@ -501,7 +501,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@mastrojs/feed@^0.0.1",
-      "jsr:@mastrojs/markdown@0.0.9",
+      "jsr:@mastrojs/markdown@0.1.2",
       "jsr:@mastrojs/mastro@0.5.0",
       "npm:markdown-it-anchor@9.2.0",
       "npm:markdown-it-container@4.0.0",

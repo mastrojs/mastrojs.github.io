@@ -2,10 +2,10 @@ import { html, htmlToResponse } from "@mastrojs/mastro";
 import { Layout } from "../../components/Layout.ts";
 import { Newsletter } from "../../components/Newsletter.ts";
 import { fmtIsoDate } from "../../helpers/date.ts";
-import { readMdFiles } from "../../helpers/markdown.ts";
+import { readBlogFiles } from "../../helpers/markdown.ts";
 
 export const GET = async () => {
-  const posts = await readMdFiles();
+  const posts = await readBlogFiles();
   posts.sort((a, b) => a.meta.date < b.meta.date ? 1 : -1);
   return htmlToResponse(
     Layout({

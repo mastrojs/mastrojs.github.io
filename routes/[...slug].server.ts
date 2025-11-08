@@ -3,8 +3,9 @@ import { Newsletter } from "../components/Newsletter.ts";
 import { Sidebar } from "../components/Sidebar.ts";
 import { Toc } from "../components/Toc.ts";
 import { fmtIsoDate } from "../helpers/date.ts";
-import { findFiles, html, htmlToResponse } from "@mastrojs/mastro";
-import { readMd } from "../helpers/markdown.ts";
+import { serveMarkdownFolder } from "@mastrojs/markdown";
+import { html, htmlToResponse } from "@mastrojs/mastro";
+import { mdToHtml } from "../helpers/markdown.ts";
 
 export interface SidebarItem {
   label: string;
@@ -12,9 +13,11 @@ export interface SidebarItem {
   slug?: string;
 };
 
-export const GET = async (req: Request) => {
+export const { GET, getStaticPaths } = serveMarkdownFolder({
+  folder: "data",
+  mdToHtml,
+}, ({ content, meta }, req) => {
   const { pathname } = new URL(req.url);
-  const { content, meta } = await readMd(pathname);
   const pathSegments = pathname.split("/");
   const isBlog = pathSegments[1] === "blog";
 
@@ -89,14 +92,7 @@ export const GET = async (req: Request) => {
       `,
     }),
   );
-};
-
-export const getStaticPaths = async () => {
-  const files = await findFiles("data/**/*.md");
-  return files.map(file => file.endsWith("/index.md")
-    ? file.slice(5, -8)
-    : file.slice(5, -3) + "/");
-}
+});
 
 const getPrevNext = (contents: SidebarItem[] | undefined, pathname: string) => {
   if (!contents) {
