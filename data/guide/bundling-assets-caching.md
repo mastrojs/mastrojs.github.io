@@ -127,7 +127,7 @@ Actually, we’ve started the guide with an extreme application of this strategy
 {
   "tasks": {
     "generate": "deno run -A mastro/generator",
-    "pregenerate": "deno run -A mastro/generator --pregenerateOnly",
+    "pregenerate": "deno run -A mastro/generator --only-pregenerate",
 ```
 
 Then add `deno task pregenerate` to your CI/CD workflow (e.g. when using Deno Deploy, add it as your "Build command"). This will generate a `generated/` folder just like `deno task generate` would for a static site. But this time, it will only attempt to generate routes with the following line added:
