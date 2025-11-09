@@ -69,7 +69,7 @@ export const POST = async (req: Request) => {
 }
 ```
 
-Note the [label](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label) element, which tells the user what they're expected to enter in the `input` field. It's important (e.g. for visually impaired users) that you use a proper `label`, and not just display some text somewhere, which e.g. screen readers are not able to associate with the `input`. To test whether it's correct, click the label: the text field should then receive focus.
+Note the [label](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label) element, which tells the user what they're expected to enter in the `input` field. It's important (e.g. for visually impaired users) that you use a proper `label`, and not just display some text somewhere, which e.g. screen readers are not able to associate with the `input`. You can either nest the `<input>` inside the `<label>` (like above), or alternatively link them by using the same unique string in the `label`'s `for` attribute and the `input`'s `id` attribute (not the `name` attribute, which is the key that's sent to the server). To test whether the `label` and `input` are associated correctly together, click the label: the text field should then receive focus.
 
 To let TypeScript know that we're expecting the `req` argument to be of type `Request`, we write `req: Request` (which would not be valid in JavaScript). That way, TypeScript can help us check whether we're using `req` in a correct way. (Try writing e.g. `req.form()` instead of `req.formData()` and VS Code will underline it red.)
 

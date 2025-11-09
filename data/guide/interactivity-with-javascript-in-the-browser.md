@@ -74,7 +74,14 @@ Feel free to change the code, or put a few `console.log()` statements in it, to 
 
 Technically, you can attach event listeners to all kinds of HTML elements. But in order for screen readers, or keyboard-only users etc, to discover interactive elements, it's important to use elements like `<button>`, `<input>` or `<form>`. Don't make divs or spans interactive! And don't create links without an `href`: if you don't want a link click to trigger a page navigation, you should use a `<button>` instead. You can always use CSS to make your `<button class="link">` look like a link, or to make your `<a href="/go" class="button">` look like a button.
 
-Using meaningful HTML elements – a practice known as writing _semantic HTML_ – is enough to make simple websites accessible. But more complicated, interactive, parts of a web page may require additional annotations to ensure screen readers understand what's going on. That's what ARIA attributes are for. I can highly recommend reading [What I Wish Someone Told Me When I Was Getting Into ARIA](https://www.smashingmagazine.com/2025/06/what-i-wish-someone-told-me-aria/).
+Using meaningful HTML elements – a practice known as writing _semantic HTML_ – is enough to make simple websites accessible. But more complicated, interactive, parts of a web page may require additional annotations to ensure screen readers understand what's going on. That's what ARIA attributes are for.
+
+:::tip
+## Accessibility
+
+- I can highly recommend reading [What I Wish Someone Told Me When I Was Getting Into ARIA](https://www.smashingmagazine.com/2025/06/what-i-wish-someone-told-me-aria/).
+- [MDN: Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
+:::
 
 
 ## Filtering the to-do list
