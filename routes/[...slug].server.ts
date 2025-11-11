@@ -138,7 +138,7 @@ const sidebar = [{
       { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
       { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
       { label: "Bundling, pregenerating assets and caching", slug: "/guide/bundling-assets-caching/" },
-      { label: "Web application architecture and the write-read-boundary", slug: "/guide/web-application-architecture-and-write-read-boundary/" },
+      { label: "Web application architecture and the write-read boundary", slug: "/guide/web-application-architecture-and-write-read-boundary/" },
     ],
   }],
 }, {
