@@ -34,7 +34,7 @@ html {
   overflow-wrap: break-word;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
-  scroll-padding-top: 3em;
+  scroll-padding-top: 1em;
   scroll-behavior: smooth;
   @media screen and (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
@@ -303,7 +303,7 @@ header {
 }
 
 main, footer {
-  max-width: 70ch;
+  max-width: 43em;
   margin-left: auto;
   margin-right: auto;
 }

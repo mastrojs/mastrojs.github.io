@@ -1,15 +1,13 @@
 ---
-title: The simple web framework and site generator you could have built yourself.
+title: The simplest web framework and site generator yet.
 metaTitle: 'Mastro: the simplest web framework and site generator'
 description: 'No bloat, no magic, no config. Mastro gets out of the way, so that you can focus on building awesome websites.'
 layout: hero
 ---
 
-But since you didn't, take Mastro as a starting point. It fills in the few missing pieces that aren't built into modern browsers and JavaScript runtimes:
-a file-based [router](/guide/server-side-components-and-routing/#routing-and-page-handlers), and a handful of [composable functions](https://jsr.io/@mastrojs/mastro/doc) to return standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects. Static site generation and on-demand rendering of HTML or JSON – it all works exactly the same in Mastro.
-Not compromising on developer experience, Mastro feels like a framework – but actually it's just a tiny library.
-
-- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is distilled to the essence.
+- **Minimal yet powerful**: Mastro fills in the few missing pieces that aren't yet built into the platform: a file-based [router](/docs/routing/) and a handful of [composable functions](/docs/html-components/) to return standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects.
+- **Static site generation and on-demand server rendering** of HTML or JSON [works all the same](/docs/routing/#route-handlers).
+- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro feels like a framework but is just a library.
 - **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load blazingly [fast](#fast-for-everyone).
 - **No bundler** (until you [add one](/guide/bundling-assets-caching/)): your code arrives in the browser exactly how you wrote it.
 - **No magic**: use normal `<img>` and `<a>` tags referencing HTTP-first [assets](/guide/bundling-assets-caching/#transforming-images).
@@ -18,7 +16,7 @@ Not compromising on developer experience, Mastro feels like a framework – but 
 - **No lock-in**: swap out calls to the Mastro library later on. Or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
 
 <a class="button" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
-<a class="button -secondary" href="#experienced-developers-–-do-you-want-off-the-frontend-treadmill%3F">Install with Deno, Node.js or Bun</a>
+<a class="button -secondary" href="#powerful-for-experienced-developers">Install with Deno, Node.js or Bun</a>
 
 <p>
 <picture>
@@ -116,7 +114,7 @@ Start with HTML and CSS. Then build a blog, and a to-do list app with JavaScript
 </div>
 
 
-## Experienced developers – do you want off the frontend treadmill?
+## Powerful for experienced developers
 
 I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of complex abstractions collapse upon themselves. All those codebases will be lost in time, like tears in rain. Time to let them die.
 
