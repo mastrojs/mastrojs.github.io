@@ -58,7 +58,7 @@ Since having lots of files called `index.server.js` would get confusing quickly,
 
 ## Route handlers
 
-A route handler like `index.server.ts` needs to export a function named `GET` (when [running a server](/docs/install-setup/#ssg%2C-ssr-and-deploying), other HTTP verbs like `POST` are also supported). It receives a standard [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) objects and needs to return a standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object (or a `Promise` of such, meaning the function can be `async`), for example:
+A route handler usually needs to export a function named `GET`. When [running a server](/docs/install-setup/#ssg%2C-ssr-and-deploying), other HTTP verbs like `POST` are also supported. The function receives a standard [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) objects and needs to return a standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object (or a `Promise` of such, meaning the function can be `async`), for example:
 
 ```ts title=routes/index.server.ts
 export const GET = (req: Request) => {

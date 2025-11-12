@@ -35,7 +35,7 @@ Or use the [template repo](https://github.com/mastrojs/template-basic-bun).
 
 ## SSG, SSR and deploying
 
-Mastro supports both _static site generation_ (SSG) and running a server with on-demand _server-side rendering_ (SSR).
+Mastro supports both _static site generation_ (SSG) and running a server with on-demand _server-side rendering_ (SSR). See [the guide for more info](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server).
 
 To start your local development server, run:
 
