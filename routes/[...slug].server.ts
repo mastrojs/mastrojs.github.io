@@ -30,7 +30,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
 
   return htmlToResponse(
     Layout({
-      title: meta.metaTitle || (meta.title ? `${meta.title} | Mastro ${part?.label}` : "Mastro"),
+      title: meta.metaTitle || (meta.title ? `${meta.title} | Mastro ${pageTitlePrefix(pathname)}` : "Mastro"),
       description: meta.description,
       children: html`
         ${Sidebar(sidebar, part, pathname)}
@@ -93,6 +93,18 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
     }),
   );
 });
+
+export const pageTitlePrefix = (path: string) => {
+  const segments = path.split("/");
+  if (segments.length > 2) {
+    const part = segments[1];
+    return part
+      ? (part[0].toUpperCase() + part.slice(1))
+      : "";
+  } else {
+    return "";
+  }
+}
 
 const getPrevNext = (contents: SidebarItem[] | undefined, pathname: string) => {
   if (!contents) {
