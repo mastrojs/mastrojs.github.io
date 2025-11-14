@@ -4,11 +4,11 @@ title: Introducing JavaScript
 
 Now that you got a taste of HTML and CSS, let's talk about JavaScript. It's the third language that the browser understands. One of the easiest ways to get your feet wet with JavaScript, is in your browser's console.
 
-Open your [browser's developer tools](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#how_to_open_the_devtools_in_your_browser) again. (Ideally on your published web page, but anywhere will do). But this time, switch to the tab named **Console**.
+Open your [browser's developer tools](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#how_to_open_the_devtools_in_your_browser) again. (Perhaps on your published web page, or right here on this one). But this time, switch to the tab named **Console**.
 
 ![](https://developer.chrome.com/static/docs/devtools/console/javascript/image/the-console-99991743a015_2880.png)
 
-This is an interactive JavaScript console, which means that you can type in JavaScript, hit `enter`, and it will calculate the result. Try adding two numbers by typing:
+This is an interactive JavaScript console, which means that you can type in JavaScript, hit `enter`, and it will calculate the result. Try adding two **numbers** by typing:
 
 ```js title=Console
 1 + 2
@@ -16,7 +16,7 @@ This is an interactive JavaScript console, which means that you can type in Java
 
 After hitting `enter`, a new line will be shown with the result: `3`.
 
-A piece of text, that a program works with, is called a _string_. In JavaScript, strings are usually wrapped in either single quotes or double quotes. Type:
+A piece of text, that a program works with, is called a _string_. In JavaScript, **strings** need to be wrapped either in single quotes `'`, double quotes `"`, or backticks `` ` ``. Type:
 
 ```js title=Console
 '1' + "2 cats"
@@ -24,29 +24,34 @@ A piece of text, that a program works with, is called a _string_. In JavaScript,
 
 and hit `enter`. It returns `"12 cats"` (this time with quotes). That's because when working on strings (as opposed to numbers), the `+` operator concatenates them together.
 
-If you want your program to remember something for later, assign it to a variable. Create the variable `myName` and assign it the string `"Peter"` by typing:
+If you want your program to remember something for later, assign it to a variable. Create the **variable** `myName` and assign the string `"Peter"` to the variable:
 
 ```js title=Console
 const myName = "Peter";
 ```
 
-The semicolon at the end is customary to mark the end of a statement. Statements (as opposed to expressions) will not directly give a result – that's why it prints a line saying `undefined`.
+You can see that it printed out `undefined`. That's because the assignment statement itself doesn't return anything (as opposed to expressions). The semicolon is optional, but customary to mark the end of a statement.
 
-A third way to write a string is to wrap it in backticks. This allows you to put variables (and other expressions) in it using `${ }`:
+The `const` at the beginning means you are declaring a **constant**: you cannot assign to this variable again within this part of the program (or within the same console session). You can try writing the above statement again, and you'll get the error:
+
+> redeclaration of const myName
+
+The third way to write a string is to wrap it in **backticks**. This allows you to put variables (and other expressions) in it using `${ }`:
 
 ```js title=Console
 `I am ${myName} and ${3 * 10} years old`
 ```
 
+
 ## Functions
 
-If you want to execute the same kind of computation multiple times, you need a function. One way to write a function that returns the string `"Hello World"`, and assign that function to the variable `hello` is:
+If you want to execute the same kind of computation multiple times, you need a function. One way to write a function that returns the string `"Hello World"`, and assign that function to the variable `hello` is as follows. (This is a so-called Arrow function, but there is an older [function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) as well.)
 
 ```js title=Console
 const hello = () => "Hello World";
 ```
 
-Again, assignments always return `undefined`. But now you can call the function:
+Since it's an assignment, it prints undefined into the console. But now you can call the function:
 
 ```js title=Console
 hello()
@@ -67,31 +72,43 @@ helloName("Peter")
 ```
 
 
-## Objects and arrays
+## Objects
 
-Finally, let's give you a sneak peak on JavaScript objects (which hold key-value pairs):
+Finally, let's give you a sneak peak on JavaScript [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) (which hold key-value pairs):
 
 ```js title=Console
 const person = { firstName: "Arthur", lastName: "Dent", age: 42 };
+
 `${person.firstName} ${person.lastName} is ${person.age} years old.`
 ```
 
-And arrays, which act like lists:
+
+## Arrays
+
+And a sneak peak of [arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections), which act like lists:
 
 ```js title=Console
 const shoppingList = ["bread", "milk", "butter"];
+
 const rememberFn = (item) => `Remember the ${item}!`;
 shoppingList.map(rememberFn)
 ```
 
-`.map()` calls the method `map` on the `shoppingList`. A method is a function attached to an object. All arrays come with a `map` method. When you call it, you need to give it a special kind of argument: a function.
+`.map()` calls the method `map` on the `shoppingList`. A method is a function attached to an object. All arrays come with a `map` method. When you call it, you need to give it a special kind of argument: a function. The last two lines could also have been written as a single line:
 
-Feel free to toy around a bit more in the JavaScript console. You can always reload the page to reset everything, meaning you'll lose all your variables.
+```js title=Console
+shoppingList.map((item) => `Remember the ${item}!`)
+```
+
+Feel free to toy around a bit more in the JavaScript console. You can always reload the page to reset everything, meaning you'll lose all your variables. This will allow you to declare them again with `const`.
 
 
 ## The power of programming
 
-The good news is that with JavaScript – like with any general-purpose programming language – you can create arbitrarily complex programs. That's also the bad news. Either way, this crash course should be enough for you to read and write some basic JavaScript.
+The good news is that with JavaScript – like with any general-purpose programming language – you can create arbitrarily complex programs. Since we're all human and usually make mistakes, that's also the bad news.
+
+Either way, this crash course should be enough for you to read and write some basic JavaScript, and follow the rest of the guide.
+
 
 :::tip
 ## Want to learn more JavaScript?
