@@ -18,22 +18,21 @@ layout: hero
 <a class="button" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
 <a class="button -secondary" href="#powerful-for-experienced-developers">Install with Deno, Node.js or Bun</a>
 
-<p>
-<picture>
-  <source media="(width < 550px)" sizes="100vw" srcset="/assets/vscode-example-mobile.webp 512w, /assets/vscode-example-mobile@2x.webp 1024w">
-  <source media="(width >= 550px)" sizes="100vw" srcset="/assets/vscode-example.webp 900w, /assets/vscode-example@2x.webp 1800w">
-  <img  src="/assets/vscode-example.webp" width="1800" height="1017" loading="lazy" alt="Screenshot">
-</picture>
-</p>
+<div class="tip center-text">
 
-<div class="col2 -vertical-center">
+## As seen on the Internet!
 
-  <a href="https://thenewstack.io/minimalist-mastro-framework-offers-modern-take-on-mpas/"><img alt="The New Stack" loading="lazy" src="/assets/home/thenewstack.svg" width="427"></a>
+<div class="flex">
 
-  <a href="https://thathtml.blog/2024/12/new-custom-element-superclass-on-the-block/"><img alt="That HTML blog" loading="lazy" src="/assets/home/thathtmlblog.svg" width="427"></a>
+  <a href="https://thenewstack.io/minimalist-mastro-framework-offers-modern-take-on-mpas/"><img alt="The New Stack" loading="lazy" src="/assets/home/thenewstack.svg" width="400" height="48"></a>
+
+  <a href="https://typescript.fm/43#t=38m22s"><img alt="TypeScript.fm" loading="lazy" srcset="/assets/home/typescriptfm@2x.webp 2x, /assets/home/typescriptfm.webp" width="110" height="110"></a>
+
+  <a href="https://thathtml.blog/2024/12/new-custom-element-superclass-on-the-block/"><img alt="That HTML blog" loading="lazy" src="/assets/home/thathtmlblog.svg" width="400" height="91"></a>
 
 </div>
 
+</div>
 
 <div class="tabs">
 <details name="example" open>
@@ -116,7 +115,7 @@ Start with HTML and CSS. Then build a blog, and a to-do list app with JavaScript
 
 ## Powerful for experienced developers
 
-I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of complex abstractions collapse upon themselves. All those codebases will be lost in time, like tears in rain. Time to let them die.
+> I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of complex abstractions collapse upon themselves. All those codebases will be lost in time, like tears in rain. Time to let them die.
 
 There are [various way to run Mastro](/guide/cli-install/). If you're unsure which runtime to pick, we recommend [Deno](https://deno.com). For Node.js, `pnpm` is [recommended](https://jsr.io/docs/npm-compatibility), although `npm` and `yarn` also work.
 
@@ -153,7 +152,7 @@ There are [various way to run Mastro](/guide/cli-install/). If you're unsure whi
 
 **Websites built with Mastro load fast**
 
-<a href="https://pagespeed.web.dev/analysis/https-mastrojs-github-io/krzuxxl52f?form_factor=mobile">
+<a href="https://pagespeed.web.dev/">
 
 - ![100%](/assets/home/circle.svg) Performance
 - ![100%](/assets/home/circle.svg) Accessibility

@@ -35,6 +35,7 @@ export const Layout = (props: Props) =>
 
           <button class="-minimal" id="searchBtn">
             <svg width="20" height="20" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+              <title>Search</title>
               <path stroke-width="2" stroke="currentColor" d="m16.1507,15.85658l6.04878,6.04878l-6.04878,-6.04878za7.533,7.533 0 1 1 -10.653,-10.653a7.533,7.533 0 0 1 10.653,10.653" stroke-linejoin="round" stroke-linecap="round" fill="none" />
             </svg>
             <span>Search</span>
