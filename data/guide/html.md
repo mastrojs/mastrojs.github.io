@@ -9,7 +9,9 @@ In this chapter, you build your very first page.
 
 The simplest website is a single HTML file. In Mastro, each file in the `routes/` folder results in one or more files publicly accessible on your website.
 
-1. If you've started from the template repository, delete all files in the `components` and `routes` folders by right-clicking each file individually, then select "Delete Permanently". Don't worry, we'll add them again in later chapters of this guide. If you want, you can also edit the `README.md` file.
+If you've started from the template repository, you'll have a few more folders besides the `routes/` folder. You can ignore them for now.
+
+1. Open the `routes/` folder. You'll see that it already contains two files (`index.server.js` and `styles.css`). You can either delete them or just ignore them.
 
 2. Create a new file `routes/index.html`: with the `routes` folder selected, click the leftmost of the four small icons at the top (a sheet of paper with a plus icon in it), type `index.html`, and hit enter.
 
@@ -35,7 +37,9 @@ Hit `Ctrl-Shift-P` (Windows or Linux) or `Command-Shift-P` (Mac), type `mastro`,
   In Firefox, this keyboard shortcut unfortunately opens a new incognito window. Instead, you need to hit `Ctrl-P` (Windows or Linux) or `Command-P` (Mac) and type `>mastro` (note the `>`).
 </details>
 
-This opens the _Mastro preview pane_ in a new tab to the right, displaying your `index.html` file, just like it would show in a web browser tab. Note how the text in the `<title>` is shown as the tab name, just like it would be in a browser's tab. The `body` is the part of the HTML file that is visible as the page itself.
+This opens the _Mastro preview pane_ in a new tab to the right. Try to remember how to open the preview pane, as you might sometimes close it.
+
+The pane will now preview your `index.html` file, just like it would show in a web browser tab. Note how the text in the `<title>` is shown as the tab name, just like it would be in a browser's tab. The `body` is the part of the HTML file that is visible as the page itself.
 
 
 ## Content first

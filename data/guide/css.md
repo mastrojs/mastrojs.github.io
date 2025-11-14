@@ -16,9 +16,11 @@ Add the following line to link a CSS file to your page:
   ...
 ```
 
-And create the corresponding CSS style sheet file in the `routes` folder. (You could choose another name, but `styles.css` is fairly common.)
+If it doesn't exist yet, create the file `routes/styles.css`. (You could choose another name, but `styles.css` is fairly common.)
 
-Since `/styles.css` starts with a slash, it is an absolute path. Because your `index.html` is in the same folder, the relative path `href="styles.css"` or `href="./styles.css"` would have worked here as well.
+Since the path in `href="/styles.css"` starts with a slash, it is an absolute path. Because your `index.html` is in the same folder, the relative path `href="styles.css"` or `href="./styles.css"` would have worked here as well.
+
+Replace whatever is currently in `routes/styles.css` with the following CSS:
 
 ```css title=routes/styles.css
 body {
@@ -31,11 +33,12 @@ body {
 
 The above is a minimalistic style sheet, which applies four CSS properties to the HTML `body` element.
 
+`font-family: Helvetica, Arial, sans-serif` instructs the browser to use the Helvetica font if availlable, otherwise look for the Arial font, and in the worst case, to fall back to its default sans-serif font.
 Font-related properties (like `font-family`, `font-size`, `color`, etc.) are [inherited](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Inheritance) by default, meaning that they will affect all descendants of `body` in the HTML document tree. However, this is the exception. Most properties are not inherited.
 
 For example, the `max-width` property is not inherited. It constrains the width of the `body` to not be wider than `30em`. An `em` is a relative unit and is equal to the font-size. Since the font-size of that element is `18px` (pixels), `30em` equals `30 * 18px`, which equals `540px`. Unless you work with a print designer who is used to absolute units like inches, centimeters and pixels, it's best to quickly forget again that the element is 540 pixels wide, as it doesn't really matter. Quite the contrary: it's good practice to use the `em` unit to specify things that should change if the font-size also changes – like the width of the text in this case.
 
-The final declaration in the above example is `margin: 0 auto;`. This sets `margin-top` and `margin-bottom` to `0`, and `margin-left` and `margin-right` to `auto`, which has the effect of centering the element horizontally. If you don't see that happening, try making the preview pane wider.
+The final declaration in the above example is `margin: 0 auto;`. This sets `margin-top` and `margin-bottom` to `0`, and `margin-left` and `margin-right` to `auto`, which has the effect of centering the element horizontally (if it's not taking the whole width already). If you don't see that happening, try making the preview pane wider.
 
 
 ## Header and Footer
