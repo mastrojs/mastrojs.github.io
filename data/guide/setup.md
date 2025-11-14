@@ -2,7 +2,7 @@
 title: "Setup: GitHub, VS Code and Mastro"
 ---
 
-There are various ways to run Mastro, which is a general-purpose web framework and static site generator. The by far easiest way is with the Mastro _Visual Studio Code for the Web_ extension, which lets you run Mastro as a static site generator right in your browser. No need to install anything or learn how to use the command line.
+There are various ways to run Mastro, which is a general-purpose web framework and static site generator. By far the easiest way is with the Mastro _Visual Studio Code for the Web_ extension, which lets you run Mastro as a static site generator right in your browser. No need to install anything or learn how to use the command line.
 
 :::tip
 ## Alternative option: command line
@@ -12,7 +12,7 @@ If you're already comfortable with the command line and prefer a local installat
 Once you've done that, you can jump to the [next chapter](/guide/html/).
 :::
 
-Either way, since all the processing happens upfront, and the generated files are served from a CDN close to your users, a static site is extremely fast and secure.
+Since all the processing happens upfront, and the generated files are served from a CDN close to your users, a static site is extremely fast and secure.
 We'll be using GitHub Pages, which hosts your static site for free.
 
 
@@ -28,7 +28,7 @@ If you want, you can buy and [configure a custom domain](https://docs.github.com
 
     - Open Mastro's [basic template repository](https://github.com/mastrojs/template-basic).
     - In the upper right, click the green button **Use this template**, and from the dropdown select **Create a new repository**.
-    - Choose a repository name (something short and descriptive like `blog`, or `cooking-website`, or even the domain name of your future website), and click **Create repository**.
+    - Choose a repository name (something short and descriptive like `blog`, or `cooking-website`, or even the domain name of your future website), and click **Create repository**. (To deploy to GitHub Pages for free, your repo needs to be public.)
 
 
 ## Open _Visual Studio Code for the Web_
@@ -55,4 +55,4 @@ See also [VS Code for the Web's browser support](https://code.visualstudio.com
 
 ![](/assets/vscode-extensions.png)
 
-Done? Congrats, you're all set up now! You can switch back to the _Explorer_ view (the topmost icon in the activity bar on the left) to finally write some HTML.
+Done? Congrats, you're all set up now! You can switch back to the _Explorer_ view by clicking the topmost icon ⧉ in the activity bar on the left. Now you should see your files and folders again. Next up, finally write some HTML!

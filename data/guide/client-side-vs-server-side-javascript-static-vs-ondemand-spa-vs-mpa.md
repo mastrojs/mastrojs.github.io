@@ -34,7 +34,7 @@ We'll only be using server-side JavaScript in the next couple of chapters of thi
 
 ## Static site generation vs running a server
 
-In the first half of this guide, we'll be using Mastro as a _static site generator_ – i.e. running the JavaScript ahead of time, to pregenerate all pages of the website. This means the website will be very fast, and doesn't require you to run a server, which you might have to harden against load spikes or attacks.
+In the first half of this guide, we'll be using Mastro as a _static site generator_ – i.e. running the JavaScript ahead of time, to pregenerate all pages of the website. This means the website will be very fast, and doesn't require you to run a server, which you might have to harden against load spikes or attacks. Unless you have specific requirements, this is the best way to run a modern website.
 
 In later chapters of this guide, we'll use Mastro as a _web server_, which will run the JavaScript to generate a page each time a user visits the page. (Some people call this _server-side rendering_ or _SSR_.) While more complex to operate, running a server gives you the ability to return a potentially different page each time it is visited.
 

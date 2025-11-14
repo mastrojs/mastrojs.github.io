@@ -186,7 +186,7 @@ When you need client-side interactivity, add Reactive Mastro – a tiny reactive
 
 ## Join the community
 
-It's still early days. But we're looking to build an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe. A place to ask questions and learn new things, where people help each other out.
+We're looking to build an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe, and help each other out. A place to ask questions and learn new things.
 
 <div class="col2">
 <div>
@@ -197,7 +197,7 @@ Do you have a question, need help, or want to talk about future plans?
 </div>
 <div>
 
-Something not working as expected or confusing? We consider that a bug.
+Something not working as expected? We consider that a bug.
 
 <a class="button -secondary" data-goatcounter-click="home.github.issues" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
 </div>
