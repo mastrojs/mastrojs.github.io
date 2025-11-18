@@ -2,11 +2,21 @@
 title: Bundling, pregenerating assets and caching
 ---
 
+If you build your project in such a way that it only has a handful of client-side JavaScript files, you can enjoy the benefits of not having to deal with a bundler:
+
+- In error messages and other places in your browser's dev tools, line numbers are correct and stack traces are always readable – even in production and logs.
+- You can use the JavaScript debugger built into your browser's dev tools without finicky source maps.
+- Not bundling doesn't add another layer that you need to debug when things go wrong (e.g. when your bundle is unexpectedly large and you don't know why).
+- No messing with different build configs for client, server, tests, dev and production.
+- No bundler update treadmill from Webpack to Vite to whatever's next.
+- During development, the server starts up immediately, and changes are reflected instantly. It's a truly awesome developer experience.
+
+But for some very interactive apps, a lot of client-side JavaScript is unavoidable. And for most websites, what negatively [impacts performance the most, is too much client-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript). Thus if you have dozens, or even hundreds, of different client-side JavaScript files, the time may have come to bundle them.
+
+
 ## Bundling
 
-For most websites, what negatively [impacts performance the most, is too much client-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript). But for some very interactive apps, a lot of client-side JavaScript is unavoidable.
-
-If you have dozens, or even hundreds, of different client-side JavaScript files, the time may have come to bundle them. Bundling multiple files into one is generally done because making one HTTP request is faster than making multiple. Yes, [even with HTTP/2](https://css-tricks.com/musings-on-http2-and-bundling/), and [even today](https://dev.to/konnorrogers/why-we-still-bundle-with-http2-in-2022-3noo) – at least until [JavaScript Module Declarations](https://github.com/tc39/proposal-module-declarations) or something similar is standardized and implemented by browsers. If you want to know for sure whether adding a bundler to your tech stack is worth the added complexity, you'll need to benchmark a typical user journey on your website under typical conditions – once with a bundler, and once without.
+Bundling multiple files into one is generally done because making one HTTP request is faster than making multiple. Yes, [even with HTTP/2](https://css-tricks.com/musings-on-http2-and-bundling/), and [even today](https://dev.to/konnorrogers/why-we-still-bundle-with-http2-in-2022-3noo) – at least until [JavaScript Module Declarations](https://github.com/tc39/proposal-module-declarations) or something similar is standardized and implemented by browsers. If you want to know for sure whether adding a bundler to your tech stack is worth the added complexity, you'll need to benchmark a typical user journey on your website under typical conditions – once with a bundler, and once without.
 
 Making multiple HTTP requests is especially slow if not all URLs are initially known to the client. Although this aspect could be mitigated with [`rel=preload`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload) for CSS, and [`rel="modulepreload"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/modulepreload) for JavaScript. But without any preload hints, the client first needs to request the HTML, which contains the URL to the first JavaScript module, which in turn contains the URL to another imported JavaScript module, and so forth. This results in a so-called network-waterfall, where each request has to complete before the next can be started. Especially on slow mobile connections, this can slow down the loading of lots of files dramatically.
 
@@ -16,7 +26,7 @@ The same can happen in CSS when using [@font-face](https://developer.mozilla.org
 
 ### Bundling JavaScript
 
-When bundling JavaScript, to prevent e.g. clashes of variables with the same name in different files, the syntax needs to be parsed and variables renamed. JavaScript bundlers like [esbuild](https://esbuild.github.io/) recursively follow the import statements and try to bundle only code that’s actually used (often called “tree-shaking”).
+When bundling JavaScript, to prevent e.g. clashes of variables with the same name in different files, the syntax needs to be parsed and some things need to be wrapped in functions and/or renamed. JavaScript bundlers like [esbuild](https://esbuild.github.io/) recursively follow the import statements and try to bundle only code that’s actually used. This is called "dead-code elimination", or in the JavaScript world also "tree-shaking" (but beware that the bundler must assume that [importing a module can have side-effects](https://esbuild.github.io/api/#ignore-annotations)).
 
 In Mastro, a route that bundles all JavaScript that's referenced from the `routes/app.client.ts` entry point, might look as follows:
 
