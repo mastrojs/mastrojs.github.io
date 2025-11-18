@@ -58,9 +58,11 @@ To publish your website, see [deploy to production in the guide](/guide/deploy/)
 
 ## TypeScript
 
-While you can also just use JavaScript, Mastro supports [TypeScript](https://www.typescriptlang.org/) out of the box. Since Deno, Node.js and Bun support type-stripping TypeScript on the fly, server files are directly executed by the respective runtime.
+While you can also just use JavaScript, Mastro supports [TypeScript](https://www.typescriptlang.org/) out of the box. Since Deno, Node.js and Bun all natively support type-stripping, server TypeScript files are directly executed by the respective runtime.
 
-However, browsers are not there yet. Therefore, files in the `routes/` folder that end with `*.client.ts` are transpiled to `*.client.js` on the fly using [ts-blank-space](https://www.npmjs.com/package/ts-blank-space) – both when they are served via the server, and when a static site is generated. This also rewrites imports from `.ts` to `.js`, e.g. `import foo from "./foo.ts"` is transformed to `import foo from "./foo.js"`. (To see the gory details, look for the `tsToJs` function in [Mastro's `server.ts` implementation](https://github.com/mastrojs/mastro/blob/main/src/server.ts).).
+However, browsers are not there yet. Therefore, files in the `routes/` folder that end with `*.client.ts` are transpiled to `*.client.js` on the fly using [ts-blank-space](https://www.npmjs.com/package/ts-blank-space) – both when they are served via the server, and when a static site is generated. This also rewrites imports from `.ts` to `.js`, e.g. `import foo from "./foo.ts"` is transformed to `import foo from "./foo.js"`. (To see the gory details, look for the `tsToJs` function in [Mastro's `staticFiles.ts`](https://github.com/mastrojs/mastro/blob/main/src/staticFiles.ts).)
+
+Using `ts-blank-space`, which simply puts spaces and newlines where the types would have been, has the nice property of preserving the correct line numbers in error messages and stack traces. That's why we added it to Mastro, even though we're otherwise [no-bundler](/guide/bundling-assets-caching/), and wouldn't add more disruptive transforms like JSX.
 
 By itself, neither starting the server nor loading a `.client.ts` file will perform any type-checking. To check your project for type errors, run:
 
@@ -98,6 +100,13 @@ Deno.serve(async (req) => {
 If there is demand, we could introduce a `@mastrojs/middleware` package that formalizes this concept somewhat.
 
 
-## Bundling, build/pregenerate step and asset pipeline
+## Next steps
 
-To bundle client-side JavaScript, CSS or transform images, see [Bundling, pregenerating assets and caching in the guide](/guide/bundling-assets-caching/)
+- [Deploy your static site to production](https://mastrojs.github.io/guide/deploy/#deploy-static-site-with-ci%2Fcd)
+- [Deploy your server to production](https://mastrojs.github.io/guide/deploy/#deploy-server-to-production)
+- [Add extensions](/#batteries-optional)
+- [Bundle client-side JavaScript, CSS or transform images](/guide/bundling-assets-caching/)
+
+Do you have a question, need help, or would like to talk about future plans? Please [start a GitHub discussion](https://github.com/mastrojs/mastro/discussions/new/choose).
+
+Something not working as expected? We consider that a bug. [Open a GitHub issue](https://github.com/mastrojs/mastro/issues/).
