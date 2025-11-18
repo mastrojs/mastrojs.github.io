@@ -176,6 +176,18 @@ There are [various way to run Mastro](/guide/cli-install/). If you're unsure whi
 </div>
 
 
+## Extensible
+
+The minimal [Mastro core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included". But it is easily extended, simply by calling functions. There is a growing list of official extensions (usually just a single file wrapping a carefully chosen external dependency), and a lot of NPM and JSR [packages you can install](https://mastrojs.github.io/guide/third-party-packages/) and that are know to work well with Mastro.
+
+- [Reactive Mastro](/reactive/) – client-side reactive GUI library
+- [@mastrojs/markdown](https://jsr.io/@mastrojs/markdown) – generate HTML from markdown
+- [@mastrojs/images](https://jsr.io/@mastrojs/images) – transform images (resize, compress, etc)
+- [@mastrojs/og-image](https://jsr.io/@mastrojs/og-image) – generate images from text
+- [@mastrojs/feed](https://jsr.io/@mastrojs/feed) – generate an Atom feed
+- [Kysely](https://www.kysely.dev/) – type-safe SQL query builder
+
+
 ## Reactive Mastro – interactivity simplified
 
 When you need client-side interactivity, add Reactive Mastro – a tiny reactive GUI library for MPAs.
