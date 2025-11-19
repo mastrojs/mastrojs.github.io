@@ -1,5 +1,5 @@
 ---
-title: What I struggled with when porting Mastro to Bun
+title: What I learned porting Mastro to Bun
 date: 2025-10-29
 author: Mauro Bieg
 ---

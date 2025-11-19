@@ -1,5 +1,5 @@
 ---
-title: "Generate og:images from text with the Canvas API"
+title: "How to generate og:images from text with Canvas"
 date: 2025-11-16
 author: Mauro Bieg
 ---
