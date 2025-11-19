@@ -104,7 +104,7 @@ If there is demand, we could introduce a `@mastrojs/middleware` package that for
 
 - [Deploy your static site to production](https://mastrojs.github.io/guide/deploy/#deploy-static-site-with-ci%2Fcd)
 - [Deploy your server to production](https://mastrojs.github.io/guide/deploy/#deploy-server-to-production)
-- [Add extensions](/#batteries-optional)
+- [Add extensions](/#extensible)
 - [Bundle client-side JavaScript, CSS or transform images](/guide/bundling-assets/)
 
 Do you have a question, need help, or would like to talk about future plans? Please [start a GitHub discussion](https://github.com/mastrojs/mastro/discussions/new/choose).
