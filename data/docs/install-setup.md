@@ -62,7 +62,7 @@ While you can also just use JavaScript, Mastro supports [TypeScript](https://www
 
 However, browsers are not there yet. Therefore, files in the `routes/` folder that end with `*.client.ts` are transpiled to `*.client.js` on the fly using [ts-blank-space](https://www.npmjs.com/package/ts-blank-space) – both when they are served via the server, and when a static site is generated. This also rewrites imports from `.ts` to `.js`, e.g. `import foo from "./foo.ts"` is transformed to `import foo from "./foo.js"`. (To see the gory details, look for the `tsToJs` function in [Mastro's `staticFiles.ts`](https://github.com/mastrojs/mastro/blob/main/src/staticFiles.ts).)
 
-Using `ts-blank-space`, which simply puts spaces and newlines where the types would have been, has the nice property of preserving the correct line numbers in error messages and stack traces. That's why we added it to Mastro, even though we're otherwise [no-bundler](/guide/bundling-assets-caching/), and wouldn't add more disruptive transforms like JSX.
+Using `ts-blank-space`, which simply puts spaces and newlines where the types would have been, has the nice property of preserving the correct line numbers in error messages and stack traces. That's why we added it to Mastro, even though we're otherwise [no-bundler](/guide/bundling-assets/), and wouldn't add more disruptive transforms like JSX.
 
 By itself, neither starting the server nor loading a `.client.ts` file will perform any type-checking. To check your project for type errors, run:
 
@@ -105,7 +105,7 @@ If there is demand, we could introduce a `@mastrojs/middleware` package that for
 - [Deploy your static site to production](https://mastrojs.github.io/guide/deploy/#deploy-static-site-with-ci%2Fcd)
 - [Deploy your server to production](https://mastrojs.github.io/guide/deploy/#deploy-server-to-production)
 - [Add extensions](/#batteries-optional)
-- [Bundle client-side JavaScript, CSS or transform images](/guide/bundling-assets-caching/)
+- [Bundle client-side JavaScript, CSS or transform images](/guide/bundling-assets/)
 
 Do you have a question, need help, or would like to talk about future plans? Please [start a GitHub discussion](https://github.com/mastrojs/mastro/discussions/new/choose).
 

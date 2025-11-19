@@ -1,5 +1,5 @@
 ---
-title: Bundling, pregenerating assets and caching
+title: Bundling and pregenerating assets
 ---
 
 If you build your project in such a way that it only has a handful of client-side JavaScript files, you can enjoy the benefits of not having to deal with a bundler:

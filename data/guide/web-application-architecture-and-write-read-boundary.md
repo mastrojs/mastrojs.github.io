@@ -64,7 +64,7 @@ Additionally, what a lot of companies end up doing as their business grows, and 
 
 Let's look at an architecture that is a mix of the two previously discussed.
 
-You still have a web server that's talking to a central database, but instead of returning HTML, this time it just returns JSON data over a REST API (or GraphQL, or tRPC, or whatever is hip nowadays). This is the so-called backend. For the frontend, because you want to build a highly interactive app, you move all the templates and GUI-logic into the browser, possibly even doing an [SPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa). Because this entails a lot of JavaScript, you then usually need a [bundler](/guide/bundling-assets-caching/#bundling).
+You still have a web server that's talking to a central database, but instead of returning HTML, this time it just returns JSON data over a REST API (or GraphQL, or tRPC, or whatever is hip nowadays). This is the so-called backend. For the frontend, because you want to build a highly interactive app, you move all the templates and GUI-logic into the browser, possibly even doing an [SPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa). Because this entails a lot of JavaScript, you then usually need a [bundler](/guide/bundling-assets/#bundling).
 
 While you're usually sacrificing initial page load speed with this architecture, you hope that users get smoother and quicker interactions later on. For company-internal tools, or other apps that users tend to open once and then keep open for a relatively long time, this may be the right trade-off.
 
