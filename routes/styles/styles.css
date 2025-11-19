@@ -583,7 +583,6 @@ search {
     text-decoration: none;
     line-height: 1.25;
     display: inline-block;
-    padding-bottom: 0.5em;
   }
   [aria-current=page] {
     font-weight: bold;
