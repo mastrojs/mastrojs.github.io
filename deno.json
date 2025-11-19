@@ -10,10 +10,10 @@
     "lineWidth": 100
   },
   "imports": {
-    "@mastrojs/og-image": "jsr:@mastrojs/og-image@^0.0.7",
+    "@mastrojs/og-image": "jsr:@mastrojs/og-image@^0.0.8",
     "@mastrojs/feed": "jsr:@mastrojs/feed@^0.0.1",
-    "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.1.2",
-    "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.5.0",
+    "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.1.4",
+    "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.5.1",
     "markdown-it": "npm:markdown-it@14.1.0",
     "markdown-it-anchor": "npm:markdown-it-anchor@9.2.0",
     "markdown-it-container": "npm:markdown-it-container@4.0.0",

@@ -2,11 +2,11 @@
   "version": "5",
   "specifiers": {
     "jsr:@mastrojs/feed@^0.0.1": "0.0.1",
-    "jsr:@mastrojs/markdown@0.1.2": "0.1.2",
-    "jsr:@mastrojs/mastro@*": "0.5.0",
-    "jsr:@mastrojs/mastro@0": "0.5.0",
-    "jsr:@mastrojs/mastro@0.5.0": "0.5.0",
-    "jsr:@mastrojs/og-image@^0.0.7": "0.0.7",
+    "jsr:@mastrojs/markdown@0.1.4": "0.1.4",
+    "jsr:@mastrojs/mastro@*": "0.5.1",
+    "jsr:@mastrojs/mastro@0": "0.5.1",
+    "jsr:@mastrojs/mastro@0.5.1": "0.5.1",
+    "jsr:@mastrojs/og-image@^0.0.8": "0.0.8",
     "jsr:@std/cli@^1.0.23": "1.0.23",
     "jsr:@std/encoding@1": "1.0.10",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
@@ -39,8 +39,8 @@
         "jsr:@mastrojs/mastro@0"
       ]
     },
-    "@mastrojs/markdown@0.1.2": {
-      "integrity": "ae87c5dcb55e0d1924886395d4ffe90b639adbbba669995ef4fd08646bceb76e",
+    "@mastrojs/markdown@0.1.4": {
+      "integrity": "52320a35a8a0244e24e04ca9af2cde628acf1d82ee9867693f071d952416953e",
       "dependencies": [
         "jsr:@mastrojs/mastro@0",
         "npm:js-yaml",
@@ -48,16 +48,16 @@
         "npm:micromark-extension-gfm"
       ]
     },
-    "@mastrojs/mastro@0.5.0": {
-      "integrity": "8253a787dc3d6a928a7ba631638d2d1f67fd8836b04feaad178dc42b61311019",
+    "@mastrojs/mastro@0.5.1": {
+      "integrity": "7604fd8a000db194565d6714efcd6d774053ec59d362d6f2b76f095862e3f7e4",
       "dependencies": [
         "jsr:@std/http",
         "jsr:@std/media-types",
         "npm:ts-blank-space"
       ]
     },
-    "@mastrojs/og-image@0.0.7": {
-      "integrity": "32ac8d4b62e65b76d1112d654bbbe2069c1cebdc447acc9e43531a821a875ce5",
+    "@mastrojs/og-image@0.0.8": {
+      "integrity": "6f15142170fc672305857ec9f116929ee733e4f3b156ca627f515e55365f1323",
       "dependencies": [
         "jsr:@std/encoding@1",
         "npm:canvaskit-wasm"
@@ -520,9 +520,9 @@
   "workspace": {
     "dependencies": [
       "jsr:@mastrojs/feed@^0.0.1",
-      "jsr:@mastrojs/markdown@0.1.2",
-      "jsr:@mastrojs/mastro@0.5.0",
-      "jsr:@mastrojs/og-image@^0.0.7",
+      "jsr:@mastrojs/markdown@0.1.4",
+      "jsr:@mastrojs/mastro@0.5.1",
+      "jsr:@mastrojs/og-image@^0.0.8",
       "npm:markdown-it-anchor@9.2.0",
       "npm:markdown-it-container@4.0.0",
       "npm:markdown-it-highlightjs@4.2.0",
