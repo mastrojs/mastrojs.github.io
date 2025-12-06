@@ -522,13 +522,27 @@ search {
     height: 1.9em;
     pointer-events: none;
   }
+
+  /* temp hack. TODO: make this generic */
   > details:nth-child(2) > summary {
     left: 11.75em;
+  }
+  > details:nth-child(3) {
+    @media (max-width: 550px) {
+      display: none;
+    }
+    > summary {
+      left: 23.9em;
+    }
   }
 }
 
 .center-text {
   text-align: center;
+}
+
+.margin-top {
+  margin-top: 3em;
 }
 
 .pagespeed {

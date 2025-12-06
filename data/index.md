@@ -5,20 +5,26 @@ description: 'No bloat, no magic, no config. Mastro gets out of the way, so that
 layout: hero
 ---
 
-- **Minimal yet powerful**: Mastro fills in the few missing pieces that aren't yet built into the platform: a file-based [router](/docs/routing/) and a handful of [composable functions](/docs/html-components/) to return standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) objects.
-- **Static site generation and on-demand server rendering** of HTML or JSON [works all the same](/docs/routing/#route-handlers).
-- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro feels like a framework but is just a library.
-- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load blazingly [fast](#fast-for-everyone).
-- **No bundler** (until you [add one](/guide/bundling-assets/)): your code arrives in the browser exactly how you wrote it.
-- **No magic**: use normal `<img>` and `<a>` tags referencing HTTP-first [assets](/guide/bundling-assets/#transforming-images).
-- **No VC-money**: no eventual enshitification – selling a service is not what we're interested in.
-- **No update treadmill**: we use web standards instead of relying on complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
-- **No lock-in**: swap out calls to the Mastro library later on. Or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+<div class="center-text">
+
+No leaky abstractions between you and the high-performance engine that is a modern browser.
 
 <a class="button" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
 <a class="button -secondary" href="#powerful-for-experienced-developers">Install with Deno, Node.js or Bun</a>
+</div>
 
-<div class="tip center-text">
+- **Minimal yet powerful**: a [router](/docs/routing/), and a few [composable functions](/docs/html-components/) to return standard [Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response).
+- **Static site generation, on-demand server rendering HTML or JSON** – it all [works the same](/docs/routing/#route-handlers).
+- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is actually just a tiny library.
+- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load blazingly [fast](#fast-for-everyone).
+- **No bundler** (until you [add one](/guide/bundling-assets/)): your code arrives in the browser exactly how you wrote it.
+- **No magic**: use plain `<img>` and `<a>` tags referencing HTTP-first [assets](/guide/bundling-assets/#transforming-images).
+- **No VC-money**: no eventual enshitification – selling a service is not what we're interested in.
+- **No update treadmill**: we use web standards instead of relying on complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
+- **No lock-in**: swap out some calls to Mastro, or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+
+
+<div class="tip center-text margin-top">
 
 ## As seen on the Internet!
 
@@ -83,6 +89,22 @@ export const Layout = (props: Props) =>
 ```
 
 </details>
+
+<details name="example" open>
+<summary>routes/api.server.ts</summary>
+
+```ts
+import { jsonResponse } from "@mastrojs/mastro";
+import * as db from "../../models/todo.ts";
+
+export const POST = async (req: Request) => {
+  const data = await req.json();
+  const todo = await db.addTodo(data);
+  return jsonResponse(todo);
+};
+```
+
+</details>
 </div>
 
 Want to see more? Have a look at some [examples](https://github.com/mastrojs/mastro/tree/main/examples/), or the [source of this website](https://github.com/mastrojs/mastrojs.github.io).
@@ -115,7 +137,7 @@ Start with HTML and CSS. Then build a blog, and a to-do list app with JavaScript
 
 ## Powerful for experienced developers
 
-> I've seen things you people wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of complex abstractions collapse upon themselves. All those codebases will be lost in time, like tears in rain. Time to let them die.
+> I've seen things you wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of complex abstractions collapse upon themselves. All those websites will be lost in time, like tears in rain. Time to let them die.
 
 There are [various way to run Mastro](/guide/cli-install/). If you're unsure which runtime to pick, we recommend [Deno](https://deno.com). For Node.js, `pnpm` is [recommended](https://jsr.io/docs/npm-compatibility), although `npm` and `yarn` also work.
 
@@ -178,7 +200,7 @@ There are [various way to run Mastro](/guide/cli-install/). If you're unsure whi
 
 ## Extensible
 
-The minimal [Mastro core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included". But it is easily extended, simply by calling functions. There is a growing list of official extensions (usually just a single file wrapping a carefully chosen external dependency), and a lot of NPM and JSR [packages you can install](https://mastrojs.github.io/guide/third-party-packages/) and that are know to work well with Mastro.
+The minimal [Mastro core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included". But it is easily extended, simply by calling functions. There is a growing list of official extensions (usually just a single file wrapping a carefully chosen external dependency), and NPM and JSR packages you can [install](https://mastrojs.github.io/guide/third-party-packages/) which work well with Mastro.
 
 - [Reactive Mastro](/reactive/) – client-side reactive GUI library
 - [@mastrojs/markdown](https://jsr.io/@mastrojs/markdown) – generate HTML from markdown
@@ -186,6 +208,7 @@ The minimal [Mastro core package](https://jsr.io/@mastrojs/mastro) doesn’t com
 - [@mastrojs/og-image](https://jsr.io/@mastrojs/og-image) – generate images from text
 - [@mastrojs/feed](https://jsr.io/@mastrojs/feed) – generate an Atom feed
 - [Kysely](https://www.kysely.dev/) – type-safe SQL query builder
+- [Sveltia CMS](https://github.com/mastrojs/template-sveltia-cms) – git-based CMS
 
 
 ## Reactive Mastro – interactivity simplified
