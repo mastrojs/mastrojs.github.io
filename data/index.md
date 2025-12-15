@@ -5,26 +5,30 @@ description: 'No bloat, no magic, no config. Mastro gets out of the way, so that
 layout: hero
 ---
 
-<div class="center-text">
+<p class="center-text mt-3">
+Let nothing get between you and the high-performance engine that is a modern browser.
+</p>
 
-No leaky abstractions between you and the high-performance engine that is a modern browser.
+<div class="herolist">
 
-<a class="button" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
-<a class="button -secondary" href="#powerful-for-experienced-developers">Install with Deno, Node.js or Bun</a>
+- **Minimal yet powerful**: a [router](/docs/routing/), and a few [composable functions](/docs/html-components/) to return [Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response).
+- **It all works the same**: static site generation, server rendering HTML, or even JSON.
+- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a tiny library.
+- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
+- **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly as you wrote it.
+- **No magic**: use plain `<img>` and `<a>` tags referencing HTTP-first [assets](/guide/bundling-assets/#transforming-images).
+- **No VC-money**: no eventual enshitification – selling is none of our business.
+- **No update treadmill**: we use web standards instead of complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
+- **No lock-in**: swap out Mastro or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+
 </div>
 
-- **Minimal yet powerful**: a [router](/docs/routing/), and a few [composable functions](/docs/html-components/) to return standard [Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response).
-- **Static site generation, on-demand server rendering HTML or JSON** – it all [works the same](/docs/routing/#route-handlers).
-- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is actually just a tiny library.
-- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load blazingly [fast](#fast-for-everyone).
-- **No bundler** (until you [add one](/guide/bundling-assets/)): your code arrives in the browser exactly how you wrote it.
-- **No magic**: use plain `<img>` and `<a>` tags referencing HTTP-first [assets](/guide/bundling-assets/#transforming-images).
-- **No VC-money**: no eventual enshitification – selling a service is not what we're interested in.
-- **No update treadmill**: we use web standards instead of relying on complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
-- **No lock-in**: swap out some calls to Mastro, or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+<p class="center-text mt-3">
+  <a class="button" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+  <a class="button -secondary" href="#powerful-for-experienced-developers">Install with Deno, Node.js or Bun</a>
+</p>
 
-
-<div class="tip center-text margin-top">
+<div class="tip center-text mt-3 mb-6">
 
 ## As seen on the Internet!
 
@@ -46,10 +50,11 @@ No leaky abstractions between you and the high-performance engine that is a mode
 
 ```ts
 import { readMarkdownFiles } from "@mastrojs/markdown";
-import { html, htmlToResponse } from "@mastrojs/mastro";
+import { html, htmlToResponse, jsonResponse } from "@mastrojs/mastro";
 import { Layout } from "../components/Layout.ts";
+import * as db from "../models/comments.ts";
 
-export const GET = async (req: Request) => {
+export const GET = async () => {
   const posts = await readMarkdownFiles("data/posts/*.md");
   return htmlToResponse(
     Layout({
@@ -59,7 +64,13 @@ export const GET = async (req: Request) => {
       `)
     })
   );
-}
+};
+
+export const POST = async (req: Request) => {
+  const data = await req.json();
+  const comment = await db.addComment(data);
+  return jsonResponse(comment);
+};
 ```
 </details>
 <details name="example">
@@ -86,22 +97,6 @@ export const Layout = (props: Props) =>
       </body>
     </html>
   `;
-```
-
-</details>
-
-<details name="example" open>
-<summary>routes/api.server.ts</summary>
-
-```ts
-import { jsonResponse } from "@mastrojs/mastro";
-import * as db from "../../models/todo.ts";
-
-export const POST = async (req: Request) => {
-  const data = await req.json();
-  const todo = await db.addTodo(data);
-  return jsonResponse(todo);
-};
 ```
 
 </details>
