@@ -122,7 +122,7 @@ import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
-  const { slug } = getParams(req.url);
+  const { slug } = getParams(req);
   const post = await readMarkdownFile(`data/posts/${slug}.md`);
   return htmlToResponse(
     Layout({
@@ -136,7 +136,7 @@ export const GET = async (req) => {
 To extract the `slug` parameter, we used [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring). Equivalently, we could also have written:
 
 ```js
-const slug = getParams(req.url).slug;
+const slug = getParams(req).slug;
 ```
 
 To read the markdown file from disk and convert the markdown to HTML, we use the `readMarkdownFile` function (which is an `async` function and therefore we need to `await` it).
@@ -155,7 +155,7 @@ import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
-  const { slug } = getParams(req.url);
+  const { slug } = getParams(req);
   console.log('the slug variable holds the value', slug)
   const post = await readMarkdownFile(`data/posts/${slug}.md`);
   return htmlToResponse(
@@ -185,7 +185,7 @@ import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from '../../components/Layout.js';
 
 export const GET = async (req) => {
-  const { slug } = getParams(req.url);
+  const { slug } = getParams(req);
   const post = await readMarkdownFile(`data/posts/${slug}.md`);
   return htmlToResponse(
     Layout({

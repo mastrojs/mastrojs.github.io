@@ -77,7 +77,7 @@ Using route parameters, a single route can represent lots of different pages wit
 import { getParams } from "@mastrojs/mastro";
 
 export const GET = (req: Request) => {
-  const { slug } = getParams(req.url);
+  const { slug } = getParams(req);
   return new Response(`Current URL path is /blog/${slug}/`);
 }
 ```
