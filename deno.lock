@@ -3,9 +3,9 @@
   "specifiers": {
     "jsr:@mastrojs/feed@^0.0.1": "0.0.1",
     "jsr:@mastrojs/markdown@0.1.4": "0.1.4",
-    "jsr:@mastrojs/mastro@*": "0.5.1",
-    "jsr:@mastrojs/mastro@0": "0.5.1",
-    "jsr:@mastrojs/mastro@0.5.1": "0.5.1",
+    "jsr:@mastrojs/mastro@*": "0.6.1",
+    "jsr:@mastrojs/mastro@0": "0.6.1",
+    "jsr:@mastrojs/mastro@0.6.1": "0.6.1",
     "jsr:@mastrojs/og-image@^0.0.8": "0.0.8",
     "jsr:@std/cli@^1.0.23": "1.0.23",
     "jsr:@std/encoding@1": "1.0.10",
@@ -21,7 +21,7 @@
     "jsr:@std/streams@^1.0.13": "1.0.13",
     "npm:@types/node@*": "24.2.0",
     "npm:canvaskit-wasm@0.40": "0.40.0",
-    "npm:js-yaml@^4.1.0": "4.1.0",
+    "npm:js-yaml@^4.1.0": "4.1.1",
     "npm:markdown-it-anchor@9.2.0": "9.2.0_@types+markdown-it@14.1.2_markdown-it@14.1.0",
     "npm:markdown-it-container@4.0.0": "4.0.0",
     "npm:markdown-it-highlightjs@4.2.0": "4.2.0",
@@ -48,8 +48,8 @@
         "npm:micromark-extension-gfm"
       ]
     },
-    "@mastrojs/mastro@0.5.1": {
-      "integrity": "7604fd8a000db194565d6714efcd6d774053ec59d362d6f2b76f095862e3f7e4",
+    "@mastrojs/mastro@0.6.1": {
+      "integrity": "e28f9d67ce55e5b0f192f0bd70059241bdb152bf3b7f4e9461ab59df6b923034",
       "dependencies": [
         "jsr:@std/http",
         "jsr:@std/media-types",
@@ -207,8 +207,8 @@
     "highlight.js@11.11.1": {
       "integrity": "sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w=="
     },
-    "js-yaml@4.1.0": {
-      "integrity": "sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==",
+    "js-yaml@4.1.1": {
+      "integrity": "sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==",
       "dependencies": [
         "argparse"
       ],
@@ -521,7 +521,7 @@
     "dependencies": [
       "jsr:@mastrojs/feed@^0.0.1",
       "jsr:@mastrojs/markdown@0.1.4",
-      "jsr:@mastrojs/mastro@0.5.1",
+      "jsr:@mastrojs/mastro@0.6.1",
       "jsr:@mastrojs/og-image@^0.0.8",
       "npm:markdown-it-anchor@9.2.0",
       "npm:markdown-it-container@4.0.0",
