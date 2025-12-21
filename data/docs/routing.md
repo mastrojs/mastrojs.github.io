@@ -2,18 +2,17 @@
 title: "Routing"
 ---
 
-Mastro uses a file-based router.
-Files in your project's `routes/` folder are sent out unmodified to your website's visitors – with the following two exceptions:
+Files in your project's `routes` folder are sent out unmodified to your website's visitors – with the following two exceptions:
 
 1. `*.client.ts` files are type-stripped and served as `*.client.js` (see [TypeScript](/docs/install-setup/#typescript)).
 2. `*.server.js` (or `*.server.ts`) files are route handlers (or page handlers) that should contain JavaScript functions that handle the generation of the page in question.
 
-The folder structure in the `routes/` folder determines under what URL a static file or a dynamic route is served.
+Mastro's default router is file-based. This means the folder structure in the `routes` folder determines under what URL a route is served.
 
 
 ## Static files
 
-As such, the simplest Mastro website is an `index.html` file placed in the `routes/` folder. Other static files can also be placed there (e.g. `routes/favicon.ico`), and organized to your liking.
+Just like route handlers, static files are also placed in the `routes` folder. The simplest Mastro website is thus a single `routes/index.html` file. Other static files can also be placed there (e.g. `routes/favicon.ico`).
 
 For example, if you'd like to have a folder called `assets`, create it, and add a file `routes/assets/styles.css`, and perhaps one `routes/assets/scripts.js`. Then reference them like:
 
@@ -41,7 +40,7 @@ To link to other pages, or to place images on your page, use the standard [`<a>`
 For links (and also for references to static files), it's easiest to always use _absolute paths_ that start with a `/`. For example `href="/assets/styles.css"` above.
 
 
-## Files and folders
+## Slashes in the file-based router
 
 Different hosting providers often serve the same file under [slightly different urls](https://github.com/slorber/trailing-slash-guide/blob/main/docs/Hosting-Providers.md). In Mastro, the URL for a file does not end with a slash, while the URL for a folder does end with a slash. Since a folder itself cannot contain any code, an `index.html` or `index.server.js` file is used to represent the containing folder.
 
@@ -58,7 +57,9 @@ Since having lots of files called `index.server.js` would get confusing quickly,
 
 ## Route handlers
 
-A route handler usually needs to export a function named `GET`. When [running a server](/docs/install-setup/#ssg%2C-ssr-and-deploying), other HTTP verbs like `POST` are also supported. The function receives a standard [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) objects and needs to return a standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object (or a `Promise` of such, meaning the function can be `async`), for example:
+A route handler is a function that receives a standard [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object, and returns a standard [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object (or a `Promise` of such, meaning the function can be `async`).
+
+Using the default file-based router, this function needs to be exported under the name of a HTTP method. For example for an HTTP GET:
 
 ```ts title=routes/index.server.ts
 export const GET = (req: Request) => {
@@ -66,12 +67,12 @@ export const GET = (req: Request) => {
 }
 ```
 
-Therefore, route handlers can be used to generate HTML, JSON, XML, plain text (like the above example), binary data such as images, or whatever else you can think of. If you're running a server, a `Response` can also [represent a redirect](https://developer.mozilla.org/en-US/docs/Web/API/Response/redirect_static).
+Since they return a standard `Response` object, route handlers can be used to generate HTML, JSON, XML, plain text (like the above example), binary data such as images, or whatever else you can think of. If you're [running a server](/docs/install-setup/#ssg%2C-ssr-and-deploying), a `Response` can also [represent a redirect](https://developer.mozilla.org/en-US/docs/Web/API/Response/redirect_static).
 
 
 ## Route parameters
 
-Using route parameters, a single route can represent lots of different pages with the same basic url structure. For example, to match any URL of the form `/blog/*/`, you could use a route parameter called `slug`:
+Using route parameters, a single route can represent many different pages with the same basic url structure. For example, to match any URL of the form `/blog/*/`, you could use a route parameter called `slug`:
 
 ```ts title=routes/blog/[slug].server.ts
 import { getParams } from "@mastrojs/mastro";
@@ -86,7 +87,7 @@ Above, `slug` is just an example name for the parameter. You can **name paramete
 
 To capture URL segments containing slashes (often called **rest parameters**), use `[...slug]` instead of `[slug]`.
 
-Both of these can be used as the name of a folder inside `routes/`, or like above, as part of the route handler file name. To **debug** and `console.log` your routes, you can `import { routes } from "@mastrojs/mastro"`.
+Both of these can be used as the name of a folder inside `routes/`, or like above, as part of the route handler file name. To **debug** and `console.log` your routes, you can `import { loadRoutes } from "@mastrojs/mastro"`.
 
 When you're using Mastro as a **static site generator** and have a route with a route parameter, Mastro cannot guess which URL paths you want to generate. In that case, you need to export an additional function `getStaticPaths`, which needs to return an array of strings (or a `Promise` of such):
 
@@ -97,3 +98,30 @@ export const getStaticPaths = async () => {
 ```
 
 See the guide for an example of a [static blog from markdown files](/guide/static-blog-from-markdown-files/).
+
+
+## Programmatic router
+
+As an alternative to the file-based router, Mastro also offers a programmatic router, which is similar to Express.js or Hono.
+
+Modify the `server.ts` file in your project to something like the following.
+
+```ts title=server.ts
+import { getParams } from "@mastrojs/mastro";
+import { Mastro } from "@mastrojs/mastro/server";
+
+const fetchHandler = new Mastro()
+  .get("/", () => new Response("Hello world")
+  .post("/", () => new Response("Hello HTTP POST")
+  .get("/blog/:slug/" => (req) => {
+    const { slug } = getParams(req);
+    return new Response(`Hello ${slug}`);
+  })
+  .createHandler();
+
+Deno.serve(fetchHandler);
+```
+
+If you're not using Deno, the last line will look different, but the `fetchHandler` will also take the place of `mastro.fetch` from the file-based router.
+
+If you have more than a few routes, it makes sense to place their route handlers in dedicated files and import them (instead of inline, like in the example above). However, with the programmatic router, they don't need to be in the `routes` folder.
