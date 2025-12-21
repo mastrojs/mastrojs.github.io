@@ -44,18 +44,43 @@ Let nothing get between you and the high-performance engine that is a modern bro
 
 </div>
 
+<div class="col2 full-width frontcode">
+<div>
+
+```ts title=routes/hello.server.js
+// Respond to a HTTP GET with plain text
+export const GET = () => {
+  return new Response("Hello World");
+}
+```
+
+```ts title=routes/api.server.ts
+import { jsonResponse } from "@mastrojs/mastro";
+import { addComment } from "../models/comments.ts";
+
+// Respond to a HTTP POST with JSON
+export const POST = async (req: Request) => {
+  const data = await req.json();
+  const comment = await addComment(data);
+  return jsonResponse(comment);
+};
+```
+
+</div>
+
+<div>
 <div class="tabs">
 <details name="example" open>
 <summary>routes/index.server.ts</summary>
 
 ```ts
 import { readMarkdownFiles } from "@mastrojs/markdown";
-import { html, htmlToResponse, jsonResponse } from "@mastrojs/mastro";
+import { html, htmlToResponse } from "@mastrojs/mastro";
 import { Layout } from "../components/Layout.ts";
-import * as db from "../models/comments.ts";
 
+// Respond with HTML
 export const GET = async () => {
-  const posts = await readMarkdownFiles("data/posts/*.md");
+  const posts = await readMarkdownFiles("posts/*.md");
   return htmlToResponse(
     Layout({
       title: "Hello world",
@@ -64,12 +89,6 @@ export const GET = async () => {
       `)
     })
   );
-};
-
-export const POST = async (req: Request) => {
-  const data = await req.json();
-  const comment = await db.addComment(data);
-  return jsonResponse(comment);
 };
 ```
 </details>
@@ -101,8 +120,10 @@ export const Layout = (props: Props) =>
 
 </details>
 </div>
+</div>
+</div>
 
-Want to see more? Have a look at some [examples](https://github.com/mastrojs/mastro/tree/main/examples/), or the [source of this website](https://github.com/mastrojs/mastrojs.github.io).
+Look at [more examples](https://github.com/mastrojs/mastro/tree/main/examples/), or the [source of this website](https://github.com/mastrojs/mastrojs.github.io).
 
 
 ## Easy for beginners

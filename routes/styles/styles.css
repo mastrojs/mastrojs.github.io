@@ -420,7 +420,7 @@ main.hero {
     }
   }
 }
-.col3 > ul {
+.col3:not(:has(>ul)), .col3 > ul {
   list-style-type: none;
   padding-left: 0;
   @media (min-width: 1000px) {
@@ -428,6 +428,15 @@ main.hero {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1em;
   }
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 :popover-open {
@@ -517,6 +526,7 @@ search {
 
 .tabs {
   position: relative;
+  top: 2em;
   margin-top: 4em;
   pre {
     border-top: 1px solid grey;
@@ -568,6 +578,12 @@ search {
 }
 .mb-6 {
   margin-bottom: 6em;
+}
+
+.frontcode {
+  gap: 1em;
+  padding: 1em;
+  box-sizing: border-box;
 }
 
 .pagespeed {
