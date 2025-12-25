@@ -6,6 +6,7 @@
   --color-code-del: rgba(255, 156, 142, 0.6);
   --color-bg: white;
   --color-main: hsl(224, 10%, 10%);
+  --color-tabs-bg: #ebeaea;
   --color-tip: rgb(102, 8, 145);
   --color-tip-bg: rgb(237, 209, 250);
   --font-size-code: 0.8rem;
@@ -18,6 +19,7 @@
     --color-code-del: rgba(134, 45, 39, 0.6);
     --color-bg: rgb(23, 24, 28);
     --color-main: white;
+    --color-tabs-bg: rgb(50, 55, 67);
     --color-tip: rgb(235, 204, 250);
     --color-tip-bg: rgb(64, 34, 78);
   }
@@ -265,7 +267,7 @@ section {
   margin: 4em 0;
 }
 
-header {
+body > header {
   display: flex;
   justify-content: space-between;
   font-size: 1.5rem;
@@ -528,47 +530,59 @@ search {
   }
 }
 
-.tabs {
-  position: relative;
-  top: 2em;
-  margin-top: 4em;
-  pre {
-    border-top: 1px solid grey;
-  }
-  summary {
-    z-index: 10;
-    display: block;
-    position: absolute;
-    top: -2.25em;
-    cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-    background-color: var(--color-code-bg);
-    padding: 0.25em 1em;
-    height: 1.7em;
-    overflow: clip;
-    word-break: break-all;
-    font-size: 0.9rem;
-    @media (max-width: 1000px) {
-      font-size: 0.725rem;
+section.tab-group {
+  margin: 1em 0;
+  > header {
+    /* height: 1.8em; */
+    label {
+      background-color: var(--color-tabs-bg);
+      cursor: pointer;
+      padding: 0.5em 1em;
+      word-break: break-all;
+      font-size: 0.9rem;
+      @media (max-width: 1000px) {
+        font-size: 0.725rem;
+      }
+      &:has(input:checked) {
+        border-top: 1px solid grey;
+        position: relative;
+        z-index: 20;
+      }
+      &:hover {
+        background: color-mix(in srgb, var(--color-tabs-bg), black 10%);
+      }
     }
-  }
-  > details[open] > summary {
-    border-top: 1px solid grey;
-    height: 1.9em;
-    pointer-events: none;
+    input {
+      /* To allow screen reader to still access these. */
+      opacity: 0;
+      position: absolute;
+      pointer-events: none;
+    }
   }
 
-  /* temp hack. TODO: make this generic */
-  > details:nth-child(2) > summary {
-    left: 11.75em;
+  &:has(.tab1:not(:checked)) #content1,
+  &:has(.tab2:not(:checked)) #content2,
+  &:has(.tab3:not(:checked)) #content3,
+  &:has(.tab4:not(:checked)) #content4 {
+    display: none;
   }
-  > details:nth-child(3) {
-    @media (max-width: 550px) {
-      display: none;
+
+  > div {
+    position: relative;
+    z-index: 10;
+    background-color: var(--color-tabs-bg);
+    border-top: 1px solid grey;
+    padding: 0.5em 0.75em 1px 0.75em;
+
+    > p {
+      margin: 0.5em 0;
     }
-    > summary {
-      left: 23.9em;
+  }
+
+  &.-code {
+    --color-tabs-bg: var(--color-code-bg);
+    > div {
+      padding: 0;
     }
   }
 }

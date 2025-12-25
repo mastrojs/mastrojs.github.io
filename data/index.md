@@ -69,9 +69,13 @@ export const POST = async (req: Request) => {
 </div>
 
 <div>
-<div class="tabs">
-<details name="example" open>
-<summary>routes/index.server.ts</summary>
+<section class="tab-group -code">
+<header>
+  <label><input type="radio" name="htmlcode" class="tab1" checked>routes/index.server.ts</label>
+  <label><input type="radio" name="htmlcode" class="tab2">components/Layout.ts</label>
+</header>
+
+<div tabindex=0 id="content1">
 
 ```ts
 import { readMarkdownFiles } from "@mastrojs/markdown";
@@ -91,9 +95,8 @@ export const GET = async () => {
   );
 };
 ```
-</details>
-<details name="example">
-<summary>components/Layout.ts</summary>
+</div>
+<div tabindex=0 id="content2">
 
 ```ts
 import { html, type Html } from "@mastrojs/mastro";
@@ -118,8 +121,8 @@ export const Layout = (props: Props) =>
   `;
 ```
 
-</details>
 </div>
+</section>
 </div>
 </div>
 
@@ -155,34 +158,50 @@ Start with HTML and CSS. Then build a blog, and a to-do list app with JavaScript
 
 > I've seen things you wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of complex abstractions collapse upon themselves. All those websites will be lost in time, like tears in rain. Time to let them die.
 
-There are [various way to run Mastro](/guide/cli-install/). If you're unsure which runtime to pick, we recommend [Deno](https://deno.com). For Node.js, `pnpm` is [recommended](https://jsr.io/docs/npm-compatibility), although `npm` and `yarn` also work.
+There are various [ways to run Mastro](/guide/cli-install/). If you're unsure which runtime to pick, we recommend [Deno](https://deno.com).
 
-<div class="col3">
+<section class="tab-group">
+  <header>
+    <label><input type="radio" name="install" class="tab1" checked>Deno</label>
+    <label><input type="radio" name="install" class="tab2">Node.js</label>
+    <label><input type="radio" name="install" class="tab3">Bun</label>
+    <label><input type="radio" name="install" class="tab4">CF Workers</label>
+  </header>
 
-- **Deno**  ([template](https://github.com/mastrojs/template-basic-deno))
+  <div tabindex=0 id="content1">
+
+  Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-deno)):
 
   ```sh
   deno run -A npm:@mastrojs/create-mastro@0.0.9
   ```
+  </div>
+  <div tabindex=0 id="content2">
 
-- **Node.js**  ([template](https://github.com/mastrojs/template-basic-node))
+  Mastro requires Node.js >= 24. Since it's a [JSR package](https://jsr.io/@mastrojs/mastro), `pnpm` is recommended (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)).
+  Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-node)):
 
   ```sh
   pnpm create @mastrojs/mastro@0.0.9
   ```
+  </div>
+  <div tabindex=0 id="content3">
 
-- **Bun**  ([template](https://github.com/mastrojs/template-basic-bun))
+  Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-bun)):
 
   ```sh
   bun create @mastrojs/mastro@0.0.9
   ```
+  </div>
+  <div tabindex=0 id="content4">
 
-- **Cloudflare**  ([template](https://github.com/mastrojs/template-basic-cloudflare))
+  Use Deno, Node.js, or Bun to generate a static site for the Cloudflare CDN. However, to run code on-demand in a [Cloudflare Worker](https://workers.cloudflare.com/), copy into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-cloudflare)):
 
   ```sh
   pnpm create @mastrojs/mastro@0.0.9 --cloudflare
   ```
-</div>
+  </div>
+</section>
 
 <a class="button" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 <a class="button -secondary" href="/docs/">Docs</a>
