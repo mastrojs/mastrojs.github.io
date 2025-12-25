@@ -430,13 +430,17 @@ main.hero {
   }
 }
 
-.full-width {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+@media (min-width: 1000px) {
+  .breakout {
+    padding: 0 2em;
+    box-sizing: border-box;
+    --width: min(100vw, 86em);
+    width: var(--width);
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-inline: calc(-0.5 * var(--width));
+  }
 }
 
 :popover-open {
@@ -580,10 +584,8 @@ search {
   margin-bottom: 6em;
 }
 
-.frontcode {
+.gap1 {
   gap: 1em;
-  padding: 1em;
-  box-sizing: border-box;
 }
 
 .pagespeed {

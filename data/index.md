@@ -44,7 +44,7 @@ Let nothing get between you and the high-performance engine that is a modern bro
 
 </div>
 
-<div class="col2 full-width frontcode">
+<div class="col2 breakout gap1">
 <div>
 
 ```ts title=routes/hello.server.js
@@ -162,19 +162,25 @@ There are [various way to run Mastro](/guide/cli-install/). If you're unsure whi
 - **Deno**  ([template](https://github.com/mastrojs/template-basic-deno))
 
   ```sh
-  deno run -A npm:@mastrojs/create-mastro@0.0.8
+  deno run -A npm:@mastrojs/create-mastro@0.0.9
   ```
 
 - **Node.js**  ([template](https://github.com/mastrojs/template-basic-node))
 
   ```sh
-  pnpm create @mastrojs/mastro@0.0.8
+  pnpm create @mastrojs/mastro@0.0.9
   ```
 
 - **Bun**  ([template](https://github.com/mastrojs/template-basic-bun))
 
   ```sh
-  bun create @mastrojs/mastro@0.0.8
+  bun create @mastrojs/mastro@0.0.9
+  ```
+
+- **Cloudflare**  ([template](https://github.com/mastrojs/template-basic-cloudflare))
+
+  ```sh
+  pnpm create @mastrojs/mastro@0.0.9 --cloudflare
   ```
 </div>
 
