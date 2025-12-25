@@ -32,7 +32,7 @@ Let nothing get between you and the high-performance engine that is a modern bro
 
 ## As seen on the Internet!
 
-<div class="flex">
+<div class="flex-center">
 
   <a href="https://thenewstack.io/minimalist-mastro-framework-offers-modern-take-on-mpas/"><img alt="The New Stack" loading="lazy" src="/assets/home/thenewstack.svg" width="400" height="48"></a>
 
@@ -44,7 +44,7 @@ Let nothing get between you and the high-performance engine that is a modern bro
 
 </div>
 
-<div class="col2 breakout gap1">
+<div class="col2 breakout gap-1">
 <div>
 
 ```ts title=routes/hello.server.js
