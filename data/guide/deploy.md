@@ -62,6 +62,17 @@ bun server.ts
 
 Be sure to run one of those in production and not deno/pnpm/bun `run start`, as those run with the `--watch` flag that restarts the server on file changes – great for local development, but unnecessary in production.
 
+:::tip
+### Cloudflare Workers
+
+Cloudflare Workers come with their own JavaScript runtime called _workerd_. They don't support running on-demand code with Deno, Node.js or Bun.
+To run your server code on-demand on the edge using Cloudflare, use the Mastro template for Cloudflare Workers. Either via the [template repo](https://github.com/mastrojs/template-basic-cloudflare) or:
+
+```sh
+pnpm create @mastrojs/mastro@0.0.9 --cloudflare
+```
+:::
+
 We don't have specific docs for every combination of JavaScript runtime and hosting provider, but here are some starting points:
 
 |                         | Deploy to [Deno Deploy][dd] | Deploy to [Render][rd] |

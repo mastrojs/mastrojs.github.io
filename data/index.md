@@ -158,7 +158,7 @@ Start with HTML and CSS. Then build a blog, and a to-do list app with JavaScript
 
 > I've seen things you wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of complex abstractions collapse upon themselves. All those websites will be lost in time, like tears in rain. Time to let them die.
 
-There are various [ways to run Mastro](/guide/cli-install/). If you're unsure which runtime to pick, we recommend [Deno](https://deno.com).
+There are various [ways to run Mastro](/guide/cli-install/) and [deploy to production](/guide/deploy/). To get started, the easiest is [Deno](https://deno.com).
 
 <section class="tab-group">
   <header>
