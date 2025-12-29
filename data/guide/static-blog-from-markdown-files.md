@@ -67,7 +67,7 @@ export const GET = async () => {
       children: posts.map((post) =>
         html`
           <p>
-            <a href="${"/news" + post.path.slice(11, -3)}">
+            <a href="${"/news" + post.path.slice(11, -3) + "/"}">
               ${post.meta.title}
             </a>
           </p>
@@ -110,13 +110,13 @@ Have a look at `/news/` in the Mastro preview pane. Clicking one of the links wi
 
 Now to the page that shows an individual blog post – often called a detail page. (Having an _index page_ linking to _detail pages_ is a very common pattern on websites: whether it's a blog, a newspaper or newsfeed, or a shop.)
 
-Create the detail pages for the individual blog posts by creating the file `routes/news/[slug].server.js`.
+Create the detail pages for the individual blog posts by creating the file `routes/news/[slug]/index.server.js`.
 
-The `[slug]` is a parameter. When your server receives an HTTP request for `/news/2024-01-30-hello-world`, the request will be routed to the `routes/news/[slug].server.js` file. A collection of URLs that are handled the same way are called a route. In Mastro, placing a file in the `routes/` folder creates a route. Finally, you could have named it whatever you want, but `slug` is a common name for the part of a URL that identifies a specific page.
+The `[slug]` is a parameter. When your server receives an HTTP request for `/news/2024-01-30-hello-world/`, the request will be routed to the `routes/news/[slug]/index.server.js` file. A collection of URLs that are handled the same way are called a route. In Mastro, placing a file in the `routes/` folder creates a route. Finally, you could have named the parameter whatever you want, but `slug` is a common name for the part of a URL that identifies a specific page.
 
-To read out the `slug` parameter, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, read out the URL as a string with `req.url`, and pass that to the `getParams` helper function, which returns an object with all parameters.
+To read out the `slug` parameter, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, and pass it to the `getParams` helper function, which returns an object with all parameters.
 
-```js title=routes/news/[slug].server.js
+```js title=routes/news/[slug]/index.server.js
 import { getParams, htmlToResponse } from "@mastrojs/mastro";
 import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from "../../components/Layout.js";
@@ -149,14 +149,14 @@ Usually when programming, things go wrong at some point. It's not very common fo
 
 If your program starts running, it can be useful to add `console.log()` statements in various places of your code and see what it prints into the JavaScript console (what you used in a [previous chapter](/guide/javascript/)). Give it a try:
 
-```js title=routes/news/[slug].server.js ins={7}
+```js title=routes/news/[slug]/index.server.js ins={7}
 import { getParams, htmlToResponse } from "@mastrojs/mastro";
 import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from "../../components/Layout.js";
 
 export const GET = async (req) => {
   const { slug } = getParams(req);
-  console.log('the slug variable holds the value', slug)
+  console.log("the slug variable holds the value", slug)
   const post = await readMarkdownFile(`data/posts/${slug}.md`);
   return htmlToResponse(
     Layout({
@@ -175,14 +175,14 @@ If you don't see any output, it means that the `console.log` line was never run.
 
 Try generating all your HTML files: click the **Generate** button in the top-right corner of the Mastro preview pane.
 
-It will generate the pages without parameters. But notice the error telling you that "/routes/news/[slug].server.js should export a function named getStaticPaths".
+It will generate the pages without parameters. But notice the error telling you that "/routes/news/[slug]/index.server.js should export a function named getStaticPaths".
 
 That's because Mastro cannot guess the paths for all the pages that we want to generate. In the preview (or on a running server) this works because the information is provided directly in the URL. But if we want to statically generate all the pages ahead of time, we need to tell Astro the paths of all our pages with route parameters. We do that by exporting a function called `getStaticPaths`, that returns an array of strings when called.
 
-```js title=routes/news/[slug].server.js ins={1,16-19}
+```js title=routes/news/[slug]/index.server.js ins={1,16-19}
 import { getParams, htmlToResponse, readDir } from "@mastrojs/mastro";
 import { readMarkdownFile } from "@mastrojs/markdown";
-import { Layout } from '../../components/Layout.js';
+import { Layout } from "../../../components/Layout.js";
 
 export const GET = async (req) => {
   const { slug } = getParams(req);
@@ -197,7 +197,7 @@ export const GET = async (req) => {
 
 export const getStaticPaths = async () => {
   const posts = await readDir("data/posts/");
-  return posts.map(p => "/news/" + p.slice(0, -3));
+  return posts.map(p => "/news/" + p.slice(0, -3) + "/");
 }
 ```
 
