@@ -116,6 +116,10 @@ button, a.button {
   color: light-dark(white, black);
   text-decoration: none;
   text-align: center;
+  @media (max-width: 1000px) {
+    font-size: 16px;
+    padding: 0.8em 1.1em;
+  }
   &:hover:not(:active) {
     transform: translateY(-2px);
     box-shadow: 0 2px 0 0 black;
@@ -584,6 +588,12 @@ section.tab-group {
     > div {
       padding: 0;
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  body .hide-mobile {
+    display: none;
   }
 }
 

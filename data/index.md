@@ -13,6 +13,7 @@ Let nothing get between you and the high-performance engine that is a modern bro
 
 - **Minimal yet powerful**: a [router](/docs/routing/), and a few [composable functions](/docs/html-components/) to return [Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response).
 - **It all works the same**: static site generation, server rendering HTML, or even JSON.
+- **Multi-runtime**: works on Deno, Node.js, Bun and Workers.
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a tiny library.
 - **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
 - **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly as you wrote it.
@@ -24,8 +25,9 @@ Let nothing get between you and the high-performance engine that is a modern bro
 </div>
 
 <p class="center-text mt-3">
-  <a class="button" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
-  <a class="button -secondary" href="#powerful-for-experienced-developers">Install with Deno, Node.js or Bun</a>
+  <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+  <a class="button -secondary" href="#powerful-for-experienced-developers">Get started</a>
+  <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">Mastro on GitHub ☆</a>
 </p>
 
 <div class="tip center-text mt-3 mb-6">
