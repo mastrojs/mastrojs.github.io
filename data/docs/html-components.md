@@ -6,7 +6,7 @@ To construct HTML, Mastro exports the [`html`](https://jsr.io/@mastrojs/mastro/d
 
 For syntax-highlighting, be sure to configure your editor accordingly. For example for VS Code, we recommend the [FAST Tagged Template Literals extension](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates).
 
-Using a template literals means that you have complete control over your HTML. You're free to [write HTML instead of XHTML](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). That being said, while it says `html` on the tin, you can actually also use this to construct `SVG` or `XML` strings. It's just not going to be enforced that it's valid XML unless you run it through a [validator](https://validator.w3.org/) (which you should be doing anyway).
+Using template literals means that you have complete control over your HTML. You're free to [write HTML instead of XHTML](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). That being said, while it says `html` on the tin, you can actually also use this to construct `SVG` or `XML` strings. It's just not going to be enforced that it's valid XML unless you run it through a [validator](https://validator.w3.org/) (which you should be doing anyway).
 
 ```ts
 import { html, renderToString } from "@mastrojs/mastro";
@@ -119,7 +119,7 @@ async function * mapIterable<T, R> (
 }
 ```
 
-We use our own `mapIterable` function, because while standard [Iterator helpers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/map) are specced and implemented, [Async Iterator Helpers](https://github.com/tc39/proposal-async-iterator-helpers) are still a work in progress.
+We use our own `mapIterable` function, because while standard [Iterator helpers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/map) are specced and implemented, [async iterator helpers](https://github.com/tc39/proposal-async-iterator-helpers) are still a work in progress.
 
 
 ## Reading files

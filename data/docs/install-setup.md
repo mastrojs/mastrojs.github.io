@@ -2,42 +2,18 @@
 title: "Installation and setup"
 ---
 
-There are [various way to run Mastro](/guide/cli-install/). If you prefer the command-line over running Mastro in the browser as a VS Code extension, make sure one of the following JavaScript runtimes is installed. If you're unsure which runtime to pick, we recommend [Deno](https://deno.com).
+There are [various way to run Mastro](/guide/cli-install/#different-ways-to-run-mastro). If you prefer the command-line, see:
 
-Running one of the following commands downloads the corresponding template repository into a newly created folder.
-
-### Deno
-
-```sh
-deno run -A npm:@mastrojs/create-mastro@0.0.8
-```
-
-Or use the [template repo](https://github.com/mastrojs/template-basic-deno).
-
-### Node.js
-
-Mastro supports [Node.js >= 24](https://nodejs.org/en/about/previous-releases). `pnpm` is [recommended](https://jsr.io/docs/npm-compatibility), although `npm` and `yarn` also work.
-
-```sh
-pnpm create @mastrojs/mastro@0.0.8
-```
-
-Or use the [template repo](https://github.com/mastrojs/template-basic-node).
-
-### Bun
-
-```sh
-bun create @mastrojs/mastro@0.0.8
-```
-
-Or use the [template repo](https://github.com/mastrojs/template-basic-bun).
+<a href="/#powerful-for-experienced-developers" class="button">Installing Mastro</a>
 
 
 ## SSG, SSR and deploying
 
 Mastro supports both _static site generation_ (SSG) and running a server with on-demand _server-side rendering_ (SSR). See [the guide for more info](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server).
 
-To start your local development server, run:
+### Start a server
+
+To start a local development server:
 
 - Deno: `deno task start`
 - Node.js: `pnpm run start`
@@ -45,13 +21,15 @@ To start your local development server, run:
 
 This actually runs the same server as you would probably run in production for on-demand rendering (with the exception of the `--watch` flag). Check out the `deno.json`/`package.json`, which is just running the `server.ts` file that was in the template repo. This `server.ts` is the entrypoint to your application, and where you call the `mastro.fetch` handler – yes, Mastro is basically just a library.
 
-To generate a static site, run:
+### Generate a static site
 
 - Deno: `deno task generate`
-- Node.js: `pnpm run generatet`
-- Bun: `bun run generatet`
+- Node.js: `pnpm run generate`
+- Bun: `bun run generate`
 
 This will create a `generated` folder by passing synthetic `Request` objects to your route handlers.
+
+To see the generate CLI options, append `--help`. For example: `deno task generate --help`
 
 To publish your website, see [deploy to production in the guide](/guide/deploy/).
 
