@@ -12,8 +12,12 @@ Let nothing get between you and the high-performance engine that is a modern bro
 <div class="herolist">
 
 - **Minimal yet powerful**: a [router](/docs/routing/), and a few [composable functions](/docs/html-components/) to return [Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response).
-- **It all works the same**: static site generation, server rendering HTML, or even JSON.
+- **Supports _SSG_ and _SSR_**: static site generation and on-demand [server-side rendering](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server).
+- **It all works the same**: HTML pages, JSON REST API, RSS feed, you name it.
 - **Multi-runtime**: works on Deno, Node.js, Bun and Workers.
+
+<!-- -->
+
 - **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a tiny library.
 - **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
 - **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly as you wrote it.
@@ -27,7 +31,7 @@ Let nothing get between you and the high-performance engine that is a modern bro
 <p class="center-text mt-3">
   <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
   <a class="button -secondary" href="#powerful-for-experienced-developers">Get started</a>
-  <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">Mastro on GitHub ☆</a>
+  <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 </p>
 
 <div class="tip center-text mt-3 mb-6">
@@ -89,7 +93,7 @@ export const GET = async () => {
   const posts = await readMarkdownFiles("posts/*.md");
   return htmlToResponse(
     Layout({
-      title: "Hello world",
+      title: "My blog",
       children: posts.map((post) => html`
         <p>${post.meta.title}</p>
       `)
@@ -149,7 +153,7 @@ The popular VS Code editor also runs in the browser: put your first website li
 
 ### Learn the fundamentals
 
-Start with HTML and CSS. Then build a blog, and a to-do list app with JavaScript. Finally, run a server with a REST API.
+Start with HTML and CSS. Then build a static blog, a to-do list app with JavaScript. Finally, run a server with a REST API.
 
 <a class="button" href="/guide/">Follow the guide</a>
 </div>
