@@ -1,6 +1,7 @@
 import { html, type Html } from "@mastrojs/mastro";
 
 interface Props {
+  canonical?: string;
   children: Html;
   description?: string;
   title?: string;
@@ -16,6 +17,9 @@ export const Layout = (props: Props) =>
         <title>${props.title}</title>
         <link rel="stylesheet" href="/styles/styles.css">
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+        ${props.canonical && html`
+          <link rel="canonical" href="${props.canonical}">
+        `}
         ${props.description && html`
           <meta name="description" content="${props.description}">
         `}

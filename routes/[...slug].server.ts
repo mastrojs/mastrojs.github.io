@@ -32,6 +32,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
     Layout({
       title: meta.metaTitle || (meta.title ? `${meta.title} | Mastro ${pageTitlePrefix(pathname)}` : "Mastro"),
       description: meta.description,
+      canonical: meta.canonical,
       children: html`
         ${Sidebar(sidebar, part, pathname)}
 
