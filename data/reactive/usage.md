@@ -135,17 +135,28 @@ customElements.define("my-counter", class extends ReactiveElement {
 
 ## Initializing state from the server
 
-Often, you need to initialize some state not with a simple static value (like `0` in the counter example), but with a dynamic value from the server (for example a user object, or an array of todo items from the database). If you inline the JavaScript in your HTML (suitable for smaller JS snippets), you can include that data as a variable:
+Often, you need to initialize some state not with a simple static value (like `0` in the counter example), but with a dynamic value from the server (for example a user object, or an array of todo items from the database).
 
-```html
-<my-profile></my-profile>
-<script type="module">
-  const clientUser = ${JSON.serialize(serverUser)};
-  customElements.define("my-profile", class extends ReactiveElement {
-    user = signal(clientUser);
+For tiny scripts that you inline in your HTML, you can include that data as a variable. For example, here `Profile` is a Mastro server component that renders the HTML for the `<my-profile>` client-component:
+
+```js title=components/Profile.js
+export const Profile = async () => {
+  const user = await db.loadUser();
+  return html`
+    <my-profile></my-profile>
+    <script type="module">
+      const clientUser = ${JSON.stringify(user)};
+      customElements.define("my-profile", class extends ReactiveElement {
+        user = signal(clientUser);
+        // rest of client component
+      }
+    </script>
+  `;
+};
+
 ```
 
-If your JavaScript is in a separate, cacheable static file however, there are a few different strategies.
+But usually your JavaScript is in a separate, cacheable static file. For that case, there are a few different strategies.
 
 Primitive values like strings are best put on attributes in the HTML, like in the counter above:
 
@@ -156,31 +167,48 @@ Primitive values like strings are best put on attributes in the HTML, like in th
 ```js
 class extends ReactiveElement {
   count = signal(parseInt(this.getAttribute("start") || "0", 10));
+  // rest of client component
+}
 ```
 
-This works also for more complex values that are serializable as JSON:
+### Initializing from JSON
 
-```html
-<my-profile user=${JSON.serialize(user)}></my-profile>
+This same approach works also for more complex values that are serializable as JSON:
+
+```js title=components/Profile.js
+export const Profile = async () => {
+  const user = await db.loadUser();
+  return html`
+    <my-profile user=${JSON.stringify(user)}></my-profile>
+  `;
+}
 ```
 
-```js
+```js title=routes/js/my-profile.js
 customElements.define("my-profile", class extends ReactiveElement {
   user = signal(JSON.parse(this.getAttribute("user")));
+  // rest of client component
+}
 ```
+
+### Initializing from HTML
 
 For a fast initial page load, and a good user experience when the JavaScript has not yet loaded, or fails to load, you may server-side render your data to HTML. To then initialize the JavaScript signal, you can parse the HTML back to JSON. This solves the so-called _double data problem_, where most server-side rendering JS frameworks send the same data twice: once as HTML, and once as JSON. Depending on the structure of the data and the HTML serialization, this may of course be a bit more involved than the following simple example:
 
-```html
-<name-list>
-  <ul>
-    ${names.map(name => html`<li>${name}</li>`}
-  </ul>
-</name-list>
+```js title=components/NameList.js
+export const NameList = async (props) => html`
+  <name-list>
+    <ul>
+      ${props.names.map(name => html`<li>${name}</li>`}
+    </ul>
+  </name-list>
+`;
 ```
 
-```js
+```js title=routes/js/name-list.js
 customElements.define("name-list", class extends ReactiveElement {
   names = signal(Array.from(this.querySelectorAll('li')).map(el => el.innerText))
+  // rest of client component
+}
 ```
 
