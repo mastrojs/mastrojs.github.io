@@ -368,7 +368,7 @@ main.hero {
     }
   }
 }
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .herolist {
     margin-top: 3em;
     li {

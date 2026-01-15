@@ -11,9 +11,10 @@ Let nothing get between you and the high-performance engine that is a modern bro
 
 <div class="herolist">
 
-- **Minimal yet powerful**: a [router](/docs/routing/), and a few [composable functions](/docs/html-components/) to return [Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response).
-- **Supports _SSG_ and _SSR_**: static site generation and on-demand [server-side rendering](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server).
+- **Minimal yet powerful**: what you need to jump-start any new web project – nothing more.
 - **It all works the same**: HTML pages, JSON REST API, RSS feed, you name it.
+- **_SSG_ and _SSR_**: static site generation and on-demand [server-side rendering](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server).
+- **Composable abstractions**: a [router](/docs/routing/), and a few [functions](/docs/html-components/) to return [standard Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) – that's it.
 - **Multi-runtime**: works on Deno, Node.js, Bun and Workers.
 
 <!-- -->
