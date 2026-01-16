@@ -18,7 +18,7 @@ Configure [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-g
 
 If you've started with Mastro's [basic template repository](https://github.com/mastrojs/template-basic), you should already have a `.github/workflows/deploy.yml` file containing a workflow to deploy your website.
 
-After you've enabled GitHub Actions, you'll need to make a change for your website to go live.
+After you've enabled GitHub Actions, you'll need to push a change for your website to go live. Let's do that next.
 
 
 ## Save changes and publish to the web

@@ -4,23 +4,22 @@ title: Styling with CSS
 
 The most important thing of any website is the content. Now that you've taken care of that with some HTML, you can turn to making it look a bit nicer. For that, you need CSS.
 
-Add the following line to link a CSS file to your page:
+To tell the browser to use the `styles.css` file to style your page, add the following line:
 
 ```html title=routes/index.html ins={5}
 <!doctype html>
 <html>
   <head>
     <title>My website</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   ...
 ```
 
-If it doesn't exist yet, create the file `routes/styles.css`. (You could choose another name, but `styles.css` is fairly common.)
+Because your `index.html` is in the same folder as `styles.css`, the relative path `href="styles.css"` works here (or the equivalent `href="./styles.css"`). If you would want to refer to `styles.css` from other pages than the root index page, you would have to write it as an absolute path, starting with a slash: `href="/styles.css"`.
 
-Since the path in `href="/styles.css"` starts with a slash, it is an absolute path. Because your `index.html` is in the same folder, the relative path `href="styles.css"` or `href="./styles.css"` would have worked here as well.
-
-Replace whatever is currently in `routes/styles.css` with the following CSS:
+If it doesn't exist yet, create the file `routes/styles.css`. (You could choose another name, but make sure it's the same you just added in the HTML.)
+Replace whatever is currently in `styles.css` with the following CSS:
 
 ```css title=routes/styles.css
 body {
@@ -53,7 +52,7 @@ Wrap your existing content in a `main` element, indenting everything in it by tw
 <html>
   <head>
     <title>My website</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header>

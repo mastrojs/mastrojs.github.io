@@ -4,6 +4,8 @@ title: Build static site with Node.js and deploy to GitHub Pages
 
 [← Other deployment options](/guide/deploy/#deploy-static-site-with-ci%2Fcd)
 
+If you're hosting your website with GitHub Pages on a sub-directory (e.g. `https://my-name.github.io/my-repo` instead of `https://my-name.github.io` or instead of a custom domain), be sure to use Mastro's [`ghPagesBasePath` helper function](https://jsr.io/@mastrojs/mastro/doc/~/ghPagesBasePath).
+
 To deploy your static site to GitHub Pages using the [GitHub Actions](https://docs.github.com/en/actions) CI/CD service, add the following file to your GitHub repository. This uses Node.js and `pnpm`.
 
 ```yaml title=.github/workflows/deploy.yml

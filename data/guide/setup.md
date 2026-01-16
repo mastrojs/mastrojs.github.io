@@ -2,12 +2,12 @@
 title: "Setup: GitHub, VS Code and Mastro"
 ---
 
-There are various ways to run Mastro, which is a general-purpose web framework and static site generator. By far the easiest way is with the Mastro _Visual Studio Code for the Web_ extension, which lets you run Mastro as a static site generator right in your browser. No need to install anything or learn how to use the command line.
+There are various [ways to run Mastro](/guide/cli-install/#different-ways-to-run-mastro), which is a general-purpose web framework and static site generator. By far the easiest way is with the Mastro _Visual Studio Code for the Web_ extension, which lets you run Mastro as a static site generator right in your browser. No need to install anything or learn how to use the command line.
 
 :::tip
 ## Alternative option: command line
 
-If you're already comfortable with the command line and prefer a local installation over _VS Code for the Web_, you can [setup Mastro on the command line](/guide/cli-install/#different-ways-to-run-mastro).
+If you're already comfortable with the command line and prefer a local installation over _VS Code for the Web_, you can [setup Mastro on the command line](/#powerful-for-experienced-developers).
 
 Once you've done that, you can jump to the [next chapter](/guide/html/).
 :::

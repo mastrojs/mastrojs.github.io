@@ -26,7 +26,7 @@ The same can happen in CSS when using [@font-face](https://developer.mozilla.org
 
 ### Bundling JavaScript
 
-When bundling JavaScript, to prevent e.g. clashes of variables with the same name in different files, the syntax needs to be parsed and some things need to be wrapped in functions and/or renamed. JavaScript bundlers like [esbuild](https://esbuild.github.io/) recursively follow the import statements and try to bundle only code that’s actually used. This is called "dead-code elimination", or in the JavaScript world also "tree-shaking" (but beware that the bundler must assume that [importing a module can have side-effects](https://esbuild.github.io/api/#ignore-annotations)).
+When bundling JavaScript, the syntax needs to be parsed and some things need to be wrapped in functions and/or renamed (e.g. to prevent clashes of variables with the same name in different modules). JavaScript bundlers like [esbuild](https://esbuild.github.io/) recursively follow the import statements and try to bundle only code that’s actually used. This is called "dead-code elimination", or in the JavaScript world also "tree-shaking" (but beware that the bundler must assume that [importing a module can have side-effects](https://esbuild.github.io/api/#ignore-annotations)).
 
 In Mastro, a route that bundles all JavaScript that's referenced from the `routes/app.client.ts` entry point, might look as follows:
 
@@ -131,7 +131,9 @@ This declares two presets: `hero` and `hero2x`. Assuming you have a file `images
 
 Because bundling CSS and JavaScript, and transforming images, are expensive computations, it’s common for frameworks to do this only once, in a build step, before starting the server. These pre-built files are often called _assets_.
 
-Actually, we’ve started the guide with an extreme application of this strategy: static site generation. There, not only images and bundles are pre-computed, but also every single HTML file is pre-generated. Thus for a static site, the above works very well. But if you're running a server, you may want to pregenerate the images in a build step. Add a `pregenerate` task to your `deno.json`:
+Actually, we’ve started the guide with an extreme application of this strategy: static site generation. There, not only images and bundles are pre-computed, but also every single HTML file is pre-generated. Thus for a static site, the above code is sufficient. But if you're running a server, you may want to pregenerate images (or even certain HTML pages) in a build step.
+
+Add a `pregenerate` task to your `deno.json`:
 
 ```json title=deno.json ins={4}
 {
@@ -140,7 +142,7 @@ Actually, we’ve started the guide with an extreme application of this strategy
     "pregenerate": "deno run -A mastro/generator --only-pregenerate",
 ```
 
-Then add `deno task pregenerate` to your CI/CD workflow (e.g. when using Deno Deploy, add it as your "Build command"). This will generate a `generated/` folder just like `deno task generate` would for a static site. But this time, it will only attempt to generate routes with the following line added:
+Then add `deno task pregenerate` to your CI/CD workflow (e.g. when using Deno Deploy, add it as your "Build command"). This will generate a `generated/` folder just like `deno task generate` would for a static site. But this time, it will only attempt to generate routes that have the following line added:
 
 ```js title=routes/_images/[...slug].server.ts ins={3}
 import { createImagesRoute } from "@mastrojs/images";
@@ -170,9 +172,9 @@ Usually, serving the pregenerated files with your normal web server will be fast
 
 Storing data, in order for future requests to be served faster, is known as _caching_. The place where it's stored is called a _cache_. Caching is either done because the data was expensive to compute, or because the cache is physically closer to where the data will be needed. That's what a CDN is – a distributed cache with multiple locations across the globe, where the user will automatically connect to the one that's geographically closest to them.
 
-Eagerly pregenerating assets in a build step, like we've seen above, is one kind of caching. Another kind is to store the result of one request for future requests to the same URL. This offers more flexibility and finer granularity, but has the disadvantage that the first request (until the cache is populated) will be slow.
+Eagerly pregenerating assets in a build step, like we've seen above, is one kind of caching. Another kind is to store the result of one request for future requests to the same URL (either in a CDN, an in-memory cache of your server, on using Redis or similar). This offers more flexibility and finer granularity, but has the disadvantage that the first request (until the cache is populated) will be slow.
 
-The thing that's generally very difficult to get right with caching is _cache invalidation_: the question of when and how to remove a result from the cache, because it's no longer up to date. With static site generation, we typically just regenerate the whole site – every time any part of it is changed. This is very easy to implement and reason about, but for websites with millions of pages, it usually takes too long. Another strategy is to set a time-to-live: tell the cache that it should invalidate an entry if it's older than a certain number of seconds, minutes or days. This is also easy to implement, but means of course that when you update a page, visitors will still see the old version of the page until it expires. There are many more caching strategies, each with their own subtleties to consider.
+The thing that's generally very difficult to get right with caching is _cache invalidation_: the question of when and how to remove a result from the cache, because it's no longer up to date. With static site generation, we typically just regenerate the whole site every time any part of it has changed. This is very easy to implement and reason about, but for websites with millions of pages, it usually takes too long. Another strategy is to set a time-to-live: tell the cache that it should invalidate an entry if it's older than a certain number of seconds, minutes or days. This is also easy to implement, but means that when you update a page, visitors will still see the old version of the page until it expires. There are many more caching strategies, each with their own subtleties to consider.
 
 :::tip
 ### HTTP caching

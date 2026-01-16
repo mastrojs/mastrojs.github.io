@@ -1,5 +1,5 @@
 ---
-title: Web application architecture and the write-read boundary
+title: Different web application architectures
 ---
 
 If we look at how the data flows through applications in production systems, it typically passes through some (or all) of the following steps:
@@ -8,15 +8,15 @@ If we look at how the data flows through applications in production systems, it 
 
 - <span>a.</span> Database<br>(or .md files, or external service with API)
 - <span>b.</span> Build step<br>(e.g. CI/CD runner)
-- <span>c.</span> Web server<br>(code + perhaps in-memory cache)
+- <span>c.</span> Web server<br>(templates + perhaps in-memory cache)
 - <span>d.</span> CDN<br>(cache + perhaps edge compute)
 - <span>e.</span> Browser<br>(browser cache + perhaps client-side JS)
 
 </div>
 
-It's a long path from the data source to the user's browser. In each step, the data is transformed by some code, or cached, or both. In his book [Designing Data-Intensive Applications](https://dataintensive.net), Martin Kleppmann calls the path from source until the data is stored the _write-path_. Whenever the data changes, it is eagerly pushed down the write-path. Only once a user request comes in, the data is read from there and lazily pulled out – that path from the cache to the user's browser he calls the _read-path_.
+It's a long path from the data source to the user's browser. In each step, the data is transformed by some code, or cached, or both. In his book [Designing Data-Intensive Applications](https://dataintensive.net), Martin Kleppmann calls the path from source until the data is stored the _write-path_. Whenever the data changes, it is eagerly pushed down the write-path. Only once a user request comes in, the data is read from there and lazily pulled out – that path from the cache hit to the user's browser he calls the _read-path_.
 
-The further down in the chain you push the data, the more steps you pre-compute. That means you have more work upfront, but less work once the request comes in, also resulting in a faster response.
+The further down in the chain you push the data, the more steps you pre-compute. That means you have more work upfront, but less work once the request comes in – which usually means a faster response.
 
 Let’s call the place where the write-path and read-path meet the _write-read boundary_. Changing your architecture and moving that boundary around leads to very different performance characteristics. Let’s look at a few examples.
 
@@ -27,16 +27,16 @@ The dataflow for a statically generated site deployed with GitHub Pages, like we
 
 <div class="diagram">
 
-- <span>a.</span> Source: Markdown files directly in the repo
+- <span>a.</span> Markdown files directly in the repo
 - <span>b.</span> Build step running in GitHub Actions
 - <span>d.</span> Deploy to GitHub’s CDN
 - <span>e.</span> Browser (GitHub Pages sets `Cache-Control` headers with time-to-live of 10 mins)
 
 </div>
 
-If the user visited the page already within the last 10 minutes, it will still be in their browser cache and can be read from there. In that case, the write-read boundary is the browser cache. If it’s not cached there, the browser will download it from the CDN. In that case the write-read boundary is the CDN cache.
+If the user visited the page already within the last 10 minutes (GitHub Pages' time-to-live), it will still be in their browser cache and can be read from there. In that case, the write-read boundary is the browser cache. If it’s not cached there, the browser will download it from the CDN. In that case the write-read boundary is the CDN cache.
 
-Either way, the write-read boundary is very close to the user. That’s why the website is very fast – at the cost of having to statically pre-compute the whole page ahead of time.
+Either way, the write-read boundary is very close to the user. That’s why the website is very fast – with the disadvantage of always having to statically pre-compute the whole page ahead of time, every time anything is changed.
 
 
 ## Server-rendered page with database
@@ -60,7 +60,7 @@ To speed things up, you may have to move the write-read boundary closer to the u
 Additionally, what a lot of companies end up doing as their business grows, and their website receives more and more traffic, is to add more web servers (horizontal scaling). As for the central database – the single source of truth – you can get away with buying a faster server (vertical scaling) for some time, but at some point you'll have to take load off that database by adding caches further down, thereby moving the write-read boundary closer to the user. Typically, this is either done with an in-memory cache on each web server, or a distributed cache like Redis that can be shared across all the web servers, or both.
 
 
-## Client-side JS frontend with API server backend
+## API server backend with client-side frontend
 
 Let's look at an architecture that is a mix of the two previously discussed.
 

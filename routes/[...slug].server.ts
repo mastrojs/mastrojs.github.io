@@ -151,7 +151,7 @@ const sidebar = [{
       { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
       { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
       { label: "Bundling and pregenerating assets", slug: "/guide/bundling-assets/" },
-      { label: "Web application architecture and the write-read boundary", slug: "/guide/web-application-architecture-and-write-read-boundary/" },
+      { label: "Web application architectures", slug: "/guide/web-application-architectures/" },
     ],
   }],
 }, {
@@ -161,6 +161,7 @@ const sidebar = [{
     { label: "Routing", slug: "/docs/routing/" },
     { label: "Components and HTML", slug: "/docs/html-components/" },
     { label: "Installation and setup", slug: "/docs/install-setup/" },
+    { label: "Next steps & getting help", slug: "/docs/next-steps-and-help/" },
   ],
 }, {
   label: "Reactive",

@@ -212,7 +212,7 @@ Congratulations to your live blog!
 
 You may want other people, that don’t know HTML, to contribute content to your website. For a static site, you have basically three options:
 
-- If they’re comfortable with markdown, they can edit the `.md` files directly on GitHub with its built-in [text editor](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files), that has also a basic markdown preview.
-- If they prefer a more traditional, but still basic [CMS](https://en.wikipedia.org/wiki/Content_management_system), you can add a Git-based CMS like [Pages CMS](https://pagescms.org/) to your site, which lets them edit the `.md` files with a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) editor, and saves them right back to your GitHub repository.
+- If they’re comfortable with markdown, they can edit the `.md` files directly on GitHub. Either with github.dev, or with the built-in [text editor](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files), which also a basic markdown preview.
+- If they prefer a more traditional, but still basic [CMS](https://en.wikipedia.org/wiki/Content_management_system), you can add a Git-based CMS like [Sveltia CMS](https://github.com/mastrojs/template-sveltia-cms) to your site, which lets them edit the `.md` files with a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) editor, and saves them right back to your GitHub repository.
 - Finally, instead of storing your website’s content as markdown files directly in the repository together with your code, you can use a fully-fledged headless CMS like [Strapi](https://strapi.io/) or [Sanity](https://www.sanity.io/). You then need to change your code to fetch the content from the CMS API instead of from the `.md` files.
 :::

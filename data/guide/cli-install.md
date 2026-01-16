@@ -10,7 +10,7 @@ In this chapter, we'll install Mastro as a development server on your laptop usi
 
 ## Different ways to run Mastro
 
-Here's a table listing the various ways you can run Mastro. Either locally (meaning on your laptop or desktop), or on a production system in some data center, to host your live website. And either using _VS Code for Web_ in your browser, or by installing things and using the command line.
+Here's a table listing the various ways you can run Mastro. Either locally (meaning on your laptop), or on a production system in some data center (to host your live website). And either using _VS Code for Web_ in your browser, or by installing things and using the command line.
 
 |                          | Local development               | Prod static site (SSG)                  | Prod server (SSR)       |
 |--------------------------|---------------------------------|-----------------------------------------|-------------------------|
@@ -27,9 +27,9 @@ Here's a table listing the various ways you can run Mastro. Either locally (mean
 
 ## Setup local development server
 
-In this section, we'll be using the modern [Deno](https://deno.com) JavaScript runtime, which makes our life quite a bit easier compared to other runtimes. No messing with `npm install` and `node_modules` folders. And in Deno, niceties like TypeScript, `Deno.serve`, and a formatter are all built-in and pre-configured. However, you can also use Mastro [with Node.js](https://github.com/mastrojs/template-basic-node) or [with Bun](https://github.com/mastrojs/template-basic-bun), should you choose to do so.
+In this section, we'll be using the modern [Deno](https://deno.com) JavaScript runtime, which makes our life quite a bit easier compared to other runtimes. (No messing with `npm install` and `node_modules` folders. And in Deno, niceties like TypeScript, `Deno.serve`, and a formatter are all built-in and pre-configured.) However, you can also use Mastro [with Node.js](https://github.com/mastrojs/template-basic-node) or [with Bun](https://github.com/mastrojs/template-basic-bun), should you choose to do so.
 
-To preview your website in a browser, while you work on it, let's start a local development server.
+To preview your website in a browser while you work on it, let's start a local development server.
 
 1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you can use PowerShell, or for additional compatibility with Linux servers [use WSL](https://learn.microsoft.com/en-us/windows/wsl/).
 
@@ -55,9 +55,9 @@ To preview your website in a browser, while you work on it, let's start a local 
     deno run -A npm:@mastrojs/create-mastro@latest
     ```
 
-    and hit enter. This Mastro initalization script will ask you for a folder name for your new server project. Enter for example `test-server` and hit enter (folder names with spaces are a bit of a pain on the command-line).
+    and hit enter. This Mastro initalization script will ask you for a folder name for your new project. Enter for example `mastro-test` and hit enter (we're using a dash, because folder names with spaces are a bit of a pain on the command-line).
 
-5.  Then it will tell you to `cd test-server`, and from there you can enter:
+5.  Then it will tell you to `cd mastro-test`, and from there you can enter:
 
     ```sh
     deno task start
@@ -67,7 +67,7 @@ To preview your website in a browser, while you work on it, let's start a local 
 
     To stop the server again, switch back to the terminal and press `Ctrl-C` on your keyboard.
 
-To edit the files in the newly created folder, you'll want to [install Visual Studio Code](https://code.visualstudio.com/) on your computer (or a similar code editor) and open the newly created project folder in it.
+To edit the files in the newly created folder, you'll want to [install Visual Studio Code](https://code.visualstudio.com/) on your computer (or a similar code editor) and open the newly created project folder in it (`File` -> `Open Folder…` and choose your `mastro-test` folder).
 
 Check out the contents of the generated folder. It's a bare-bones Mastro project, but now with:
 
@@ -87,5 +87,5 @@ Just changing your project's files on your computer will not change them on GitH
 - install a GUI like [GitHub Desktop](https://github.com/apps/desktop) or [Git Up](https://gitup.co/), or
 - use `git` on the command line, see e.g. this [cheat sheet](https://git-scm.com/cheat-sheet).
 
-Either way, in the long run it pays off to make the [right mental model for Git](https://mb21.github.io/blog/2023/12/13/right-mental-model-for-git.html).
+Regardless of which interface for Git you use, in the long run it pays off to learn the [right mental model for Git](https://mb21.github.io/blog/2023/12/13/right-mental-model-for-git.html).
 :::

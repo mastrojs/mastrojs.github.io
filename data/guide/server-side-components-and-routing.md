@@ -91,7 +91,7 @@ export const GET = () =>
       <html>
         <head>
           <title>My website</title>
-          <link rel="stylesheet" href="/styles.css">
+          <link rel="stylesheet" href="styles.css">
         </head>
         <body>
           ${Header()}
@@ -108,9 +108,9 @@ export const GET = () =>
   );
 ```
 
-First, we import two functions from Mastro, and the two components you just wrote.
+First, we import two functions from Mastro. Then we import the two components you just wrote.
 
-Then we create a new function called `GET`, and `export` it. While you can call components whatever you want, the function you `export` from a `routes/*.server.js` file needs to be named `GET`. Otherwise it's not called when your server receives a HTTP `GET` request from the browser for that page.
+Next, we create a new function called `GET`, and `export` it. While you can call components whatever you want, the function you `export` from a `routes/*.server.js` file needs to be named `GET`. Otherwise it's not called when your server receives a HTTP `GET` request from the browser for that page.
 
 All the above `GET` function does is to call the `htmlToResponse` function with one very long argument: the `html` tagged template string with all your HTML: notice the opening backtick in the beginning, and the closing backtick on the second last line? The `htmlToResponse` turns your HTML string into a JavaScript `Response` object, which represents an HTTP response. When the browser makes an HTTP request to your web server (or GitHub Pages in this case), the server replies with that HTTP response.
 
@@ -123,17 +123,19 @@ Load the page in the Mastro preview to see whether it still works!
 
 Now you're almost ready to create that second page. Just one more thing to move to its own component file, because we want to reuse it: the skeleton of the page, often called `Layout`. Create a new file:
 
-```js title=components/Layout.js
-import { html } from "@mastrojs/mastro";
+```js title=components/Layout.js ins={5,12}
+import { ghPagesBasePath, html } from "@mastrojs/mastro";
 import { Header } from "./Header.js";
 import { Footer } from "./Footer.js";
+
+export const basePath = ghPagesBasePath();
 
 export const Layout = (props) =>
   html`
     <html>
       <head>
         <title>${props.title}</title>
-        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href=${basePath + "/styles.css"}>
       </head>
       <body>
         ${Header()}
@@ -148,7 +150,11 @@ export const Layout = (props) =>
   `;
 ```
 
-The above component is still just a function, but a function that takes one argument: the `props` object (short for properties).
+Since we'll want to deploy our website to GitHub Pages in a sub-directory (the `/my-repo` part of `https://my-name.github.io/my-repo`), we call the [ghPagesBasePath](https://jsr.io/@mastrojs/mastro/doc/~/ghPagesBasePath) function, and prepend the `basePath` it returns (which will be e.g. `/my-repo`) to `/styles.css`. All together, this will output e.g. `<link rel="stylesheet" href="/my-repo/styles.css">`.
+
+If you don't intend to deploy to GitHub Pages, you can also just write `<link rel="stylesheet" href="/styles.css">`. However, make sure you don't forget the slash in front of `/styles.css`, so that the link works also from other pages, not just the home page.
+
+The `Layout` component is still just a function (like the `Header` and `Footer` components), but a function that takes one argument: the `props` object (short for properties).
 
 Now you can reduce your `routes/index.server.js` file to:
 

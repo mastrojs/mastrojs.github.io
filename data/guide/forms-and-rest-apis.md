@@ -29,7 +29,9 @@ A `<button>` placed inside a `<form>` element will submit the form when clicked 
 
 When you enter `hello world` in the text input and submit the form, the browser will make a `GET` request to `https://www.google.com/search?q=hello+world` and navigate there. The part of the URL after the `?` contains the _query parameters_ (see image above). In our case, we have only one parameter, named `q`, with a value of `hello world` (note that certain characters like spaces need to be encoded in the URL).
 
-Putting all the form's `input` values as query parameters in the URL of a `GET` request is one way to submit it. However, it's not very private (URLs are often recorded in server logs and are easily copy-pasted), and there are limits to how long a URL can be. That's why forms support a second method: submitting with an HTTP `POST` request, where the inputs are transmitted as part of the request body.
+### POSTing the form
+
+Putting all the form's `input` values as query parameters in the URL of a `GET` request is one way to submit it. However, it's not very private (URLs are often recorded in server logs and are easily copy-pasted), and there are limits to how long a URL can be. That's why forms support a second method: submitting with an HTTP `POST` request, where the inputs are transmitted as part of the request body. This is done with the `method="POST"` attribute.
 
 Let's also change the `action` attribute of the form, so that it submits to the URL we're already on, instead of Google. That way, our server can handle the submission (see previous chapter to [setup a local server](/guide/cli-install/)). Export a second function from the same routes file, this one called `POST`:
 
@@ -71,7 +73,7 @@ export const POST = async (req: Request) => {
 
 Note the [label](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label) element, which tells the user what they're expected to enter in the `input` field. It's important (e.g. for visually impaired users) that you use a proper `label`, and not just display some text somewhere, which e.g. screen readers are not able to associate with the `input`. You can either nest the `<input>` inside the `<label>` (like above), or alternatively link them by using the same unique string in the `label`'s `for` attribute and the `input`'s `id` attribute (not the `name` attribute, which is the key that's sent to the server). To test whether the `label` and `input` are associated correctly together, click the label: the text field should then receive focus.
 
-To let TypeScript know that we're expecting the `req` argument to be of type `Request`, we write `req: Request` (which would not be valid in JavaScript). That way, TypeScript can help us check whether we're using `req` in a correct way. (Try writing e.g. `req.form()` instead of `req.formData()` and VS Code will underline it red.)
+To let TypeScript know that we're expecting the `req` argument to be of type `Request`, we write `req: Request` (which would not be valid in JavaScript). That way, TypeScript can help us check whether we're using `req` in a correct way. (Try writing e.g. `req.form()` instead of `req.formData()` and VS Code will underline it red.) Note that [`formData`](https://developer.mozilla.org/en-US/docs/Web/API/Request/formData) is a standard method on the Request object.
 
 Try it out in your browser! If you open the network tab of your developer tools and then submit the form, you will see the `POST` request. Clicking on it reveals a trove of information about the HTTP request and response.
 
@@ -142,9 +144,9 @@ new Response(body, { headers: { "Content-Type": "text/html" } })
 
 ## Client-side fetching a REST API
 
-As you've just seen, plain old HTML forms can get you a long way – all without requiring any fragile client-side JavaScript. However, if you really need to avoid that page reload, here's how.
+As you've seen above, plain old HTML forms can get you a long way – all without requiring any fragile client-side JavaScript. However, if you really need to avoid that page reload, here's how.
 
-We start with the [initial reactive to-do list app](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) and move the script to its own file: `routes/todo-list.client.ts`. The `.ts` suffix means it's a TypeScript file, and because it ends in `.client.ts`, Mastro will automatically transform it to JavaScript. This time, instead of saving the to-dos in `localStorage`, we want to save them to a (mock) database on the server. To make HTTP requests to the server without doing a full page reload, we use the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function.
+We start with the [initial reactive to-do list app](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) and move the script to its own file: `routes/todo-list.client.ts`. The `.ts` suffix means it's a TypeScript file, and because it ends in `.client.ts`, Mastro will automatically transform it to JavaScript. This time, instead of saving the to-dos in `localStorage`, we want to save them to a (mock) database on the server. To make HTTP requests to the server without doing a full page reload, we use the standard [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function.
 
 It's a handful of files, so best if you check them out [on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server). Or even better: [download the mastro repo as a zip](https://github.com/mastrojs/mastro/archive/refs/heads/main.zip) and open the `examples/todo-list-server/` folder in VS Code. In the terminal, you can `cd mastro/examples/todo-list-server/` and then `deno task start`.
 
@@ -159,6 +161,31 @@ The folder structure looks as follows:
   - `index.server.ts` – HTML page
   - `todo-list.client.ts` – client-side JavaScript
 - `deno.json`
+
+Let's look at one API route; the one that adds a new todo item:
+
+```ts title=routes/todo/index.server.ts
+import { jsonResponse } from "@mastrojs/mastro";
+import * as db from "../../models/todo.ts";
+
+export const POST = async (req: Request) => {
+  const { done, id, title } = await req.json();
+  if (!id || !title) {
+    // for more complex data, you'd want to define a schema and validate
+    // incoming data with a schema library. See for example
+    // https://standardschema.dev#what-schema-libraries-implement-the-spec
+    return jsonResponse({ error: "Todo must have an id and a title" }, 400);
+  } else {
+    const todo = { done, id, title };
+    await db.addTodo(todo);
+    return jsonResponse(todo);
+  }
+};
+```
+
+Note how similar this is to the `POST` handler we had for the [form above](#posting-the-form). Instead of `req.formData()`, we use `req.json()`. And instead of `htmlToResponse`, we use `jsonResponse`. That's all, there is no magic.
+
+### About REST APIs
 
 An API (Application Programming Interface), is an interface exposed by one program (in our case the server), intended for another program (in our case our JavaScript client). While a website sends HTML over HTTP, a web API usually sends [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) over HTTP.
 
@@ -177,7 +204,9 @@ Similarly, `GET`, `PUT` and `DELETE` are defined by the HTTP specification to be
 
 While not the [full definition of REST](https://mb21.github.io/api-explorer/a-web-based-tool-to-semi-automatically-import-data-from-generic-rest-apis.html#rest), an HTTP API that works according to these principles is often called a REST API. There are a few more [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods), but the ones mentioned above are by far the most common ones. Also, a REST API can in principle expose any kind of operation. One example of a complex operation exposed over HTTP that we've seen before is `GET google.com/search?q=hello`. Or you might have a route that retrieves the newest item of an inbox, and at the same time also deletes it. Since that operation is not idempotent, you certainly cannot use `GET` for it, but for example `POST /inbox/pop` would work.
 
-In our sample todo app, we load the existing todos not through the REST API, but embed them in the initial HTML. Fetching them with JavaScript in a separate HTTP request, after the initial HTML page is loaded, would be much slower (but yes, if you see a loading spinner on a website, that's what they're doing). This also means that there was no need to create a `GET` API route to fetch all todos. But you can still create it! If your product had a separate iOS or Android app, that app might need that API. If it works, you should see the todos as JSON in your browser under http://localhost:8000/todo. (Be sure to add some todos after the server is restarted.)
+### The client
+
+In our sample todo app, we load the existing todos not through the REST API, but embed them in the initial HTML. Fetching them with client-side JavaScript in a separate HTTP request, after the initial HTML page is loaded, would be much slower (if you see a loading spinner on a website, that's what they're doing). This also means that there was no need to create a `GET` API route to fetch all todos. But you can still create it! If your product had a separate iOS or Android app, that app might need that API. If it works, you should see the todos as JSON in your browser under http://localhost:8000/todo. (Be sure to add some todos after the server is restarted.)
 
 In our todo app, we optimistically update the GUI before we know whether the update reached the server. This provides for a snappy user experience. However, if the request fails, we roll back the GUI to the state before. To see that behaviour in action, load the page in your browser, then in the terminal stop your server with `Ctrl-C`, then submit a new todo in the browser. You should see the GUI quickly flashing back to the original state. However, currently we don't display any error message, which is not optimal.
 
