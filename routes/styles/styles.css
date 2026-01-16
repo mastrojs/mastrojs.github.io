@@ -298,8 +298,8 @@ body > header {
       }
     }
     @media (min-width: 1000px) {
-      > a:first-child {
-        margin-right: 1em;
+      > a:nth-child(2) {
+        margin-right: 0.5em;
       }
     }
   }

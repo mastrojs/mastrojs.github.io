@@ -53,6 +53,7 @@ export const Layout = (props: Props) =>
 
           <div>
             <a href="/blog/" class="headerLink">Blog</a>
+            <a href="/docs/next-steps-and-help/#community-%26-getting-help" class="headerLink hide-mobile">Community</a>
             <a href="https://github.com/mastrojs/mastro" rel="me">
               <svg role="img" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <title>GitHub</title>

@@ -11,7 +11,7 @@ title: "Next steps"
 - Pros and cons of different [web application architectures](/guide/web-application-architectures/)
 
 
-## Getting help
+## Community & getting help
 
 We're looking to build an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe, and help each other out. A place to ask questions and learn new things.
 
