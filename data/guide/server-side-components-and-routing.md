@@ -48,7 +48,7 @@ export const Footer = () =>
         Check us out
         <a href="https://github.com/mastrojs/mastro">on GitHub</a>.
         © ${new Date().getFullYear()}
-      <div>
+      </div>
     </footer>
   `;
 ```
@@ -97,7 +97,7 @@ export const GET = () =>
           ${Header()}
 
           <main>
-            <h1>What is Structured content?</h1>
+            <h1>Common HTML elements</h1>
             ...
           </main>
 
@@ -132,7 +132,8 @@ export const basePath = ghPagesBasePath();
 
 export const Layout = (props) =>
   html`
-    <html>
+    <!doctype html>
+    <html lang="en">
       <head>
         <title>${props.title}</title>
         <link rel="stylesheet" href=${basePath + "/styles.css"}>
@@ -165,9 +166,9 @@ import { Layout } from "../components/Layout.js";
 export const GET = () =>
   htmlToResponse(
     Layout({
-      title: 'Home',
+      title: "Home",
       children: html`
-        <h1>What is Structured content?</h1>
+        <h1>Common HTML elements</h1>
         ...
         `
     })
@@ -175,6 +176,9 @@ export const GET = () =>
 ```
 
 Note how we pass an object of the form `{ title, children }` as an argument to the `Layout` function when calling it. That's the `props` object.
+
+
+## That second page
 
 Now finally all that work pays off: add that second page by creating a new file in a new folder:
 
@@ -185,7 +189,7 @@ import { Layout } from "../../components/Layout.js";
 export const GET = () =>
   htmlToResponse(
     Layout({
-      title: 'News',
+      title: "News",
       children: html`
         <p>Once we have news, we'll let you know here.</p>
         `
@@ -196,5 +200,40 @@ export const GET = () =>
 Note the `../../` when importing the `Layout` component, while previously it was just `../`. That's because this file is in the `news/` folder, so you need to go one level further up than before to get to the `components/` folder.
 
 To test whether that page works, enter `/news/` in the address bar of the Mastro preview pane and hit enter. Whenever you change anything in `components/Layout.js`, both pages will be updated!
+
+
+## Layout fixes
+
+There is only one problem. Since there is so little content on our news page, the footer isn't at the bottom of the page. To fix that, let's add three new lines to our CSS:
+
+```css title=routes/styles.css ins={2-4}
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  margin: 0 auto;
+  --brand-color: aquamarine;
+}
+```
+
+The `min-height` makes sure the `body` element fills 100% of the viewport height (i.e. the whole window). Then we use [CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Basic_concepts) to create three rows (for the `<header>`, `<main>` and `<footer>`) – sized `auto`, `1fr` (fraction) and `auto` respectively.
+
+Finally, if you would open your website on a mobile phone, you'd see that it's all zoomed out by default. That's something mobile browsers do when they think it's an old website designed for computers only. To fix that, add a [meta viewport element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/viewport) to your `<head>`:
+
+```js title=components/Layout.js ins={8}
+export const Layout = (props) =>
+  html`
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <title>${props.title}</title>
+        <link rel="stylesheet" href=${basePath + "/styles.css"}>
+        <meta name="viewport" content="width=device-width">
+      </head>
+```
+
+## Publish changes
 
 If you haven't set up GitHub Pages for your repo yet, follow [publish your website](/guide/publish-website/). Either way, don't forget to regenerate the site by clicking the **Generate** button in the Mastro preview pane, then [save and publish your changes in the _Source Control_ tab](/guide/publish-website/#save-changes-and-publish-to-the-web).

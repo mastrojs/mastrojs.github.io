@@ -48,7 +48,7 @@ When creating a new page, always start with the HTML. It's the foundation. Later
 
 ```html title=routes/index.html
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <title>My website</title>
   </head>
@@ -81,7 +81,7 @@ When creating a new page, always start with the HTML. It's the foundation. Later
     <p>
       Let's add an ordered list
       (meaning the list markers will be numbers):
-    <p>
+    </p>
     <ol>
       <li>list item one</li>
       <li>list item two</li>
@@ -90,7 +90,7 @@ When creating a new page, always start with the HTML. It's the foundation. Later
     <p>
       and an unordered list
       (the list markers will be bullet points):
-    <p>
+    </p>
     <ul>
       <li>list item one</li>
       <li>list item two</li>

@@ -7,7 +7,7 @@ If you don't want to deploy your website to production (where other people on th
 
 ## Deploy static site with CI/CD
 
-If you have a static site, you can deploy to [GitHub Pages](https://pages.github.com), [Netlify](https://www.netlify.com/), or any other CDN. You could even serve the files from a static file server like nginx.
+If you have a static site, you can deploy to [GitHub Pages](https://pages.github.com), [Netlify](https://www.netlify.com/), [Cloudflare](https://www.cloudflare.com/), [Bunny](https://bunny.net/), or any other CDN. You could even serve the files from a static file server like nginx.
 
 Let's look at how you can generate your static site within a _Continuous Integration / Continuous Delivery_ (CI/CD) service. This ensures a reproducible environment (i.e. that it not only works on your computer), and makes sure that you haven't forgotten to add any needed files to git (which can happen easily). Basically, this is just running the following command on the CI/CD server instead of on your laptop.
 
@@ -26,7 +26,7 @@ Let's look at how you can generate your static site within a _Continuous Integra
   ```
 </div>
 
-Depending on whether you use Deno or Node.js, and what your deploy target is, we may have exactly the right documentation for you. Otherwise you can probably adapt them to your use-case.
+Depending on whether you use Deno or Node.js, and what your deploy target is, we may have exactly the right documentation for you. Otherwise you can probably adapt them to your use-case. If you run into problems, don't hesitate to ask on [Mastro Discussions](https://github.com/mastrojs/mastro/discussions/).
 
 |                      | Deploy to<br>GitHub Pages | Deploy to<br>Cloudflare | Deploy to <br>Netlify |
 |:---------------------|:---------------|:---------------|---------------------|
@@ -44,7 +44,7 @@ Depending on whether you use Deno or Node.js, and what your deploy target is, we
 
 Since static sites are completely pre-generated, they're usually faster and cheaper to host than running a server. However, as we'll see in the next couple of chapters, there are some things that you cannot do with a static site.
 
-Since GitHub Pages only offers static site hosting, if you need to dynamically generate pages on-demand, you need a production server, as offered by [Deno Deploy](https://deno.com/deploy), [Fly.io](https://fly.io/), [Render](https://render.com/), or any server that can run Deno, Node.js or Bun – even if it's via Docker.
+Since GitHub Pages only offers static site hosting, if you need to dynamically generate pages on-demand, you need a production server, as offered e.g. by [Deno Deploy](https://deno.com/deploy), [Fly.io](https://fly.io/), [Render](https://render.com/), [Bunny Edge Scripting](https://docs.bunny.net/docs/edge-scripting-github-action), or [Cloudlfare Worker](#cloudflare-workers). You can run Mastro on any server that can run Deno, Node.js or Bun – even if it's via Docker.
 
 Basically it's just running the following command on their server:
 
@@ -65,7 +65,7 @@ Be sure to run one of those in production and not deno/pnpm/bun `run start`, as 
 :::tip
 ### Cloudflare Workers
 
-Cloudflare Workers come with their own JavaScript runtime called _workerd_. They don't support running on-demand code with Deno, Node.js or Bun.
+[Cloudflare Workers](https://workers.cloudflare.com/) come with their own JavaScript runtime called _workerd_. They don't support running on-demand code with Deno, Node.js or Bun.
 To run your server code on-demand on the edge using Cloudflare, use the Mastro template for Cloudflare Workers. Either via the [template repo](https://github.com/mastrojs/template-basic-cloudflare) or:
 
 ```sh
@@ -73,7 +73,7 @@ pnpm create @mastrojs/mastro@0.0.9 --cloudflare
 ```
 :::
 
-We don't have specific docs for every combination of JavaScript runtime and hosting provider, but here are some starting points:
+We don't have specific docs for every combination of JavaScript runtime and hosting provider, but here are some starting points. If you run into a problem, don't hesitate to ask on [Mastro Discussions](https://github.com/mastrojs/mastro/discussions/).
 
 |                         | Deploy to [Deno Deploy][dd] | Deploy to [Render][rd] |
 |:------------------------|:-------------------|:-------------------|

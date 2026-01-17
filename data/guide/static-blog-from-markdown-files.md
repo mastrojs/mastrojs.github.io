@@ -2,7 +2,7 @@
 title: A static blog from markdown files
 ---
 
-In the [previous chapter](/guide/server-side-components-and-routing/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news/`. Now it's time to add some news to that page.
+In the [previous chapter](/guide/server-side-components-and-routing/), you set everything up to easily add multiple pages to your website, and added a second page with the route `/news/`. Now it's time to add some news to that page. You can find the finished source code of this chapter in the [`examples/blog/` folder](https://github.com/mastrojs/mastro/tree/main/examples/blog) of the Mastro GitHub repo.
 
 One of the simplest ways to create a blog is to create a markdown file for each blog post. [Markdown](https://commonmark.org/help/) is just a simpler syntax for the most commonly used HTML elements when writing body text. It's fairly widespread nowadays. It's used for example in plain text note-taking apps, some messaging apps, and to input text into GitHub or StackOverflow.
 
@@ -67,7 +67,7 @@ export const GET = async () => {
       children: posts.map((post) =>
         html`
           <p>
-            <a href="${"/news" + post.path.slice(11, -3) + "/"}">
+            <a href="${post.path.slice(12, -3) + "/"}">
               ${post.meta.title}
             </a>
           </p>

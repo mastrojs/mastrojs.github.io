@@ -8,7 +8,7 @@ To tell the browser to use the `styles.css` file to style your page, add the fol
 
 ```html title=routes/index.html ins={5}
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <title>My website</title>
     <link rel="stylesheet" href="styles.css">
@@ -135,6 +135,7 @@ p {
 header > div,
 main,
 footer > div {
+  width: 100%;
   max-width: 30rem;
   margin: 0 auto;
 }
