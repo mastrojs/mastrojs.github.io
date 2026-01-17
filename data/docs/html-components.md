@@ -37,12 +37,12 @@ export const GET = (req: Request) =>
   );
 ```
 
-In the above example, `Layout()` is a component call.
-
 
 ## Components
 
-A Mastro server-side component is just a normal JavaScript function, that by convention is capitalized, takes a `props` object, and returns something of type `Html`. There's really no magic going on here.
+In the example just above, `Layout()` is a component call.
+
+A Mastro server-side component is just a normal JavaScript function, that by convention is capitalized, takes a `props` object, and returns something of type [`Html`](https://jsr.io/@mastrojs/mastro/doc/~/Html). There's really no magic going on here.
 
 Let's look at how a `Layout` component might be defined. Notice that it is in turn calling a component called `Header`.
 
@@ -74,12 +74,16 @@ export const Layout = (props: Props) =>
 
 ## HTTP Streaming
 
-[Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [AsyncIterables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) can be passed directly into HTML templates without needing to be `await`ed.
-When passed to [`htmlToResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse), this will create a `Response` that sends the chunks over the wire as soon as they're available. For static site generation, this doesn't matter much (in fact, eagerly awaiting may even be a bit faster).
+[Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [AsyncIterables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) can be passed directly into HTML templates without needing to be awaited.
+When passed to [`htmlToResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse), this will create a `Response` that sends the chunks over the wire as soon as they're available.
 
-But when running a server, streaming instead of awaiting can dramatically speed up [time to first byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte): a user can start reading the top of your page, while the last row hasn't even left the database yet. In HTTP/1.1, this was known as [chunked transfer encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding), but in HTTP/2 and HTTP/3 it's built in at the lower levels of the protocol.
+For static site generation, this doesn't matter much (in fact, eagerly awaiting is probably a bit faster in that case).
+But when running a server, streaming (instead of awaiting) can dramatically speed up [time to first byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte): a user can start reading the top of your page, while the last row hasn't even left the database yet. In HTTP/1.1, this was known as [chunked transfer encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding), but in HTTP/2 and HTTP/3 it's built in at the lower levels of the protocol.
 
-To not break streaming, make sure you place promises directly in the template instead of awaiting them, and make sure to use an `AsyncIterable` instead of an array.
+To not break streaming, make sure you:
+
+- place `Promise`s directly in the template instead of awaiting them, and
+- use `AsyncIterable`s instead of arrays.
 
 ```ts title=routes/index.server.ts
 import { html, htmlToResponse } from "@mastrojs/mastro";
