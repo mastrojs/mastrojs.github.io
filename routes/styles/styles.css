@@ -360,17 +360,17 @@ footer {
 main.hero {
   h1 {
     text-align: center;
-    margin: 8rem 0 0.75em 0;
+    margin: 8rem 0 1em 0;
     font-weight: 1000;
     line-height: 1;
     @media (max-width: 1000px) {
+      margin-top: 5.5rem;
       font-size: 2.25em;
     }
   }
 }
 @media (min-width: 1000px) {
   .herolist {
-    margin-top: 3em;
     li {
       list-style-type: none;
       > strong {
@@ -378,6 +378,9 @@ main.hero {
         display: inline-block;
         text-align: right;
       }
+    }
+    > p, > h2 {
+      text-align: center;
     }
   }
 }
