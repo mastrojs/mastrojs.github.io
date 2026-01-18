@@ -1,39 +1,38 @@
 ---
 title: The simplest web framework and site generator yet.
 metaTitle: 'Mastro: the simplest web framework and site generator'
-description: 'No bloat, no magic, no config. Mastro gets out of the way, so that you can focus on building awesome websites.'
+description: 'A minimal tool to build content-driven websites. Use web standards and plain JavaScript – work directly with the high-performance engine that is a modern browser.'
 layout: hero
 ---
 
-<p class="center-text mt-3">
-Let nothing get between you and the high-performance engine that is a modern browser.
-</p>
-
 <div class="herolist">
 
-- **Minimal yet powerful**: what you need to jump-start any new web project – nothing more.
-- **It all works the same**: HTML pages, JSON [REST API](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), RSS [feed](https://jsr.io/@mastrojs/feed), you name it.
-- **_SSG_ and _SSR_**: static site generation and on-demand [server-side rendering](/docs/install-setup/).
-- **Composable abstractions**: a [router](/docs/routing/), and a few [functions](/docs/html-components/) to return [standard Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response/Response) – that's it.
-- **Multi-runtime**: works on Deno, Node.js, Bun and Workers.
+Mastro is a **minimal** tool to build **content-driven websites**. Use **web standards** and plain JavaScript – work directly _with_ the high-performance engine that is a modern browser.
 
-<!-- -->
-
-- **No bloat**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is a tiny library.
-- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
-- **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly as you wrote it.
-- **No magic**: use plain `<img>` and `<a>` tags referencing HTTP-first [assets](/guide/bundling-assets/#transforming-images).
-- **No VC-money**: no eventual enshitification – selling is none of our business.
-- **No update treadmill**: we use web standards instead of complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
-- **No lock-in**: swap out Mastro or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
-
-</div>
-
-<p class="center-text mt-3">
+<p class="mt-3 mb-6">
   <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
   <a class="button -secondary" href="#powerful-for-experienced-developers">Get started</a>
   <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 </p>
+
+## Minimal yet powerful
+
+- **It all works the same**: HTML pages, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), RSS [feeds](https://jsr.io/@mastrojs/feed) – you name it.
+- **_SSG_ and _SSR_**: static site generation _and_ on-demand [server-side rendering](/docs/install-setup/).
+- **Composable abstractions**: a [router](/docs/routing/) and a few [helper functions](/docs/html-components/) – that's all.
+- **Multi-runtime**: works on Deno, Node.js, Bun and Workers.
+
+## No bloat
+
+- **No overhead**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
+- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
+- **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly as you wrote it.
+- **No magic**: use plain `<img>` and `<a>` tags referencing [HTTP-first assets](/guide/bundling-assets/#bundling-css).
+- **No VC-money**: no eventual enshitification – selling is none of our business.
+- **No update treadmill**: we use web standards instead of complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
+- **No lock-in**: swap out Mastro later or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+
+</div>
 
 <div class="tip center-text mt-3 mb-6">
 
@@ -202,7 +201,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   </div>
   <div tabindex=0 id="content4">
 
-  Use Deno, Node.js, or Bun to generate a static site for the Cloudflare CDN. However, to run code on-demand in a [Cloudflare Worker](https://workers.cloudflare.com/), copy into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-cloudflare)):
+  Use Deno, Node.js, or Bun to generate a static site for any CDN. However, to run code on-demand in a [Cloudflare Worker](https://workers.cloudflare.com/), copy into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-cloudflare)):
 
   ```sh
   pnpm create @mastrojs/mastro@0.0.9 --cloudflare
@@ -220,7 +219,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 
 <div class="pagespeed">
 
-**Websites built with Mastro load fast**
+**Websites built with Mastro load fast…**
 
 <a href="https://pagespeed.web.dev/">
 
