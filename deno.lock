@@ -3,9 +3,9 @@
   "specifiers": {
     "jsr:@mastrojs/feed@^0.0.1": "0.0.1",
     "jsr:@mastrojs/markdown@0.1.4": "0.1.4",
-    "jsr:@mastrojs/mastro@*": "0.6.2",
-    "jsr:@mastrojs/mastro@0": "0.6.2",
-    "jsr:@mastrojs/mastro@0.6.2": "0.6.2",
+    "jsr:@mastrojs/mastro@*": "0.6.4",
+    "jsr:@mastrojs/mastro@0": "0.6.4",
+    "jsr:@mastrojs/mastro@0.6.4": "0.6.4",
     "jsr:@mastrojs/og-image@^0.0.8": "0.0.8",
     "jsr:@std/cli@^1.0.25": "1.0.25",
     "jsr:@std/encoding@1": "1.0.10",
@@ -49,8 +49,8 @@
         "npm:micromark-extension-gfm"
       ]
     },
-    "@mastrojs/mastro@0.6.2": {
-      "integrity": "72bec3b2dd42a008c3e7dcb1146da1fc7c1ed9c72408b9fd097015305910a0e1",
+    "@mastrojs/mastro@0.6.4": {
+      "integrity": "b044ab19d3f58541e2b9e5e0d5cc33b83d87e769ec331c8731b5df4d5c594cc5",
       "dependencies": [
         "jsr:@std/http",
         "jsr:@std/media-types",
@@ -523,7 +523,7 @@
     "dependencies": [
       "jsr:@mastrojs/feed@^0.0.1",
       "jsr:@mastrojs/markdown@0.1.4",
-      "jsr:@mastrojs/mastro@0.6.2",
+      "jsr:@mastrojs/mastro@0.6.4",
       "jsr:@mastrojs/og-image@^0.0.8",
       "npm:markdown-it-anchor@9.2.0",
       "npm:markdown-it-container@4.0.0",
