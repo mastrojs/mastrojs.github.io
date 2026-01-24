@@ -62,3 +62,6 @@ Notice the `200 OK` on the first line? `200` is the HTTP response status code fo
 - `5xx` means the server ran into some kind of problem when trying to answer. Perhaps it was overloaded or crashed due to a programming error.
 
 As you can see, loading an actual website over the internet is way more complex than opening a static HTML file stored on your laptop's harddisk. It's a dynamic process, involving a sort of negotiation between the client (usually the browser) and the server, and can lead to different results depending on the systems currently online and how they're configured.
+
+If you'd like to learn more about how browsers work, I can recommend this
+[short interactive guide](https://howbrowserswork.com).

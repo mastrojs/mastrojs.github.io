@@ -3,9 +3,9 @@ title: "Mastro as a server on the command line"
 ---
 
 When generating a static site, the whole website is generated upfront.
-On the other hand, when on-demand rendering (which some people also call server-side-rendering or SSR), the HTML is generated anew on every request by the server. This comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
+On the other hand, when on-demand rendering (which some people also call server-side-rendering or SSR), the HTML is generated anew on every request by the **server**. This comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
 
-In this chapter, we'll install Mastro as a development server on your laptop using the command line. In the next chapter, we'll see how to use this setup to deploy a statically generated site (like we've done so far with the [VS Code extension](/guide/setup/), but this time with the command line), and also how to run Mastro as a production server doing on-demand server-side rendering.
+In this chapter, we'll show you how to open a **command line interface** (CLI for short), and install Mastro as a development server on your laptop. In the [next chapter](/guide/deploy/), we'll see how to use this setup to deploy a statically generated site (like we've done so far with the [VS Code extension](/guide/setup/), but this time with the command line), and also how to run Mastro as a production server doing on-demand server-side rendering.
 
 
 ## Different ways to run Mastro
