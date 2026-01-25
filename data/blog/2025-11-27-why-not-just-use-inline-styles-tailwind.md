@@ -1,32 +1,34 @@
 ---
-title: Are abstractions like style names and components worth it?
+title: Why not just use <del>inline styles</del> Tailwind?
+titleIsHtml: true
+metaTitle: Why not just use Tailwind (or inline styles)?
 date: 2025-11-27
 author: Mauro Bieg
 ---
 
-**Are WYSIWYG word processors, inline styles and Tailwind conceptually the same? How to make the best use of modern CSS and HTML elements? And what do we actually gain by adding abstractions like style names and components, and what do we lose?**
+**Are WYSIWYG word processors, inline styles, and Tailwind conceptually the same? How to make the best use of modern CSS and HTML elements? And what do we actually gain by adding abstractions like style names and components, and what do we lose?**
 
 There are many different ways to render text to pixels using a computer. Let’s go through some! We'll start with the lower level ones (closer to the hardware, or at least to the characters), and then subsequently add more and more abstractions, also known as adding _levels of indirection_.
 
 
-## WYSIWYG
+## Direct control
 
-If you’ve ever changed the font-size and font-family of individual words or paragraphs of text in a word processor like Microsoft Word, you’re familiar with this.
+If you’ve ever changed the font-size and font-family of individual words or paragraphs of text in a [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) word processor like Microsoft Word, you’re familiar with this approach to layouting.
 
-It’s the same basic and direct interface like we’ve had several iterations of in web development:
+In web development, we’ve also had several iterations of this same basic and direct interface:
 
 - the deprecated [HTML font element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/font) `<font size="7">Hi</font>`
 - CSS inline styles `<span style="font-size: 20px">Hi</span>`,
 - Tailwind: `<span class="text-xl">Hi</span>`
 
-The nice thing about it is that it gives you direct and immediate control over the text you’re looking at right now. The not so nice thing about it is that if you’re not careful, it  quickly leads to an inconsistent mess of a layout.
+The nice thing about it is that it gives you direct and immediate control over the text you’re looking at right now. The not so nice thing about it is that if you’re not careful, it  quickly leads to an inconsistent mess of different styles.
 
 
 ## Reusable styles
 
-To solve these inconsistencies, we add our first level on indirection: we give names to different styles that we then reuse in different places. This ensures all those places look the same, even if we change the style.
+To solve these inconsistencies, we add our first abstraction; our first level on indirection: we give names to different styles that we then reuse in different places. This ensures all those places look the same. If we change the style, all places that use will automatically change.
 
-In desktop publishing software like Adobe Indesign, you set up character- and paragraph styles. In LaTeX you add a bunch of macros. For the web, CSS was invented as a solution for this very problem – to replace the `<font>` tag. In web development circles, this idea is known as the “separation of concerns” – where you separate between content (written in semantic HTML), and layout/styling (written in CSS).
+In desktop publishing software like Adobe Indesign, you set up character- and paragraph-styles. In LaTeX you add a bunch of macros. For the web, CSS was invented as a solution for this very problem – to replace the `<font>` tag. In web development circles, this idea is known as the “separation of concerns” – where you separate between content (written in semantic HTML), and layout/styling (written in CSS).
 
 
 ## Reusable components
@@ -61,7 +63,7 @@ Thus, another level of indirection was introduced. Instead of having plain HTML 
 
 As with any of the levels of indirection we’ve been talking about here, this especially shines for _high-volume_ productions (i.e. your website has lots of content). And you want all that content to be laid out _consistently_.
 
-Jess Eaton has a [wonderful slide deck about CMSes](https://aarhus24.boye-co.com/wp-content/uploads/2024/01/CMS-Kickoff-2024-Buried-In-Blocks.pdf) with this grid in it:
+Jeff Eaton has a [wonderful slide deck about CMSes](https://aarhus24.boye-co.com/wp-content/uploads/2024/01/CMS-Kickoff-2024-Buried-In-Blocks.pdf) with this grid in it:
 
 |               | low volume     | high volume              |
 |---------------|----------------|--------------------------|

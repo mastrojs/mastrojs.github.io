@@ -4,7 +4,7 @@ import { Sidebar } from "../components/Sidebar.ts";
 import { Toc } from "../components/Toc.ts";
 import { fmtIsoDate } from "../helpers/date.ts";
 import { serveMarkdownFolder } from "@mastrojs/markdown";
-import { html, htmlToResponse } from "@mastrojs/mastro";
+import { html, htmlToResponse, unsafeInnerHtml } from "@mastrojs/mastro";
 import { mdToHtml } from "../helpers/markdown.ts";
 
 export interface SidebarItem {
@@ -28,19 +28,21 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
     : contents;
   const { prev, next } = getPrevNext(flattened, pathname);
 
+  const { title, date } = meta;
+  if (!title) throw Error(`No title in ${pathname}`);
   return htmlToResponse(
     Layout({
-      title: meta.metaTitle || (meta.title ? `${meta.title} | Mastro ${pageTitlePrefix(pathname)}` : "Mastro"),
+      title: meta.metaTitle || (title ? `${title} | Mastro ${pageTitlePrefix(pathname)}` : "Mastro"),
       description: meta.description,
       canonical: meta.canonical,
       children: html`
         ${Sidebar(sidebar, part, pathname)}
 
         <main ${meta.layout === "hero" ? `class=hero` : (isBlog ? "" : "data-pagefind-body")}>
-          <h1>${meta.title}</h1>
+          <h1>${meta.titleIsHtml ? unsafeInnerHtml(title) : title}</h1>
 
-          ${isBlog
-            ? html`<p>${meta.author} on ${fmtIsoDate(meta.date)}</p>`
+          ${isBlog && date
+            ? html`<p>${meta.author} on ${fmtIsoDate(date)}</p>`
             : ""}
 
           ${content}

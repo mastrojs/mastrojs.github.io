@@ -1,4 +1,4 @@
-import { html, htmlToResponse } from "@mastrojs/mastro";
+import { html, htmlToResponse, unsafeInnerHtml } from "@mastrojs/mastro";
 import { Layout } from "../../components/Layout.ts";
 import { Newsletter } from "../../components/Newsletter.ts";
 import { fmtIsoDate } from "../../helpers/date.ts";
@@ -13,10 +13,12 @@ export const GET = async () => {
       children: html`
         <main>
           <h1>Blog</h1>
-          ${posts.map((post) => html`
+          ${posts.map(({ meta, path }) => html`
             <p>
-              ${fmtIsoDate(post.meta.date)}<br>
-              <a href=${post.path}>${post.meta.title}</a>
+              ${fmtIsoDate(meta.date)}<br>
+              <a href=${path}>
+                ${meta.titleIsHtml ? unsafeInnerHtml(meta.title) : meta.title}
+              </a>
             </p>
             `)}
           ${Newsletter()}

@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
 const mdFolder = serveMarkdownFolder({ folder: "data" }, ({ meta }, req) => {
   const { pathname } = new URL(req.url);
   const prefix = pageTitlePrefix(pathname);
-  const text = "Mastro\n\n" + (prefix ? `${prefix}: ` : "") + meta.title;
+  const text = "Mastro\n\n" + (prefix ? `${prefix}: ` : "") + (meta.metaTitle || meta.title);
   return renderImage(text, {
     fontFile,
     paddingRight: 110,
