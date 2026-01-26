@@ -20,9 +20,7 @@ export const Layout = (props: Props) =>
         ${props.canonical && html`
           <link rel="canonical" href="${props.canonical}">
         `}
-        ${props.description && html`
-          <meta name="description" content="${props.description}">
-        `}
+        <meta name="description" content="${props.description || "A minimal tool to build content-driven websites"}">
         <meta property="og:image" content="./og.png">
         <script type="module" src="/scripts.js"></script>
         <script
