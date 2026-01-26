@@ -18,7 +18,7 @@ Mastro is a **minimal** tool to build **content-driven websites**. Use **web sta
 ## Minimal yet powerful
 
 - **It all works the same**: HTML pages, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), RSS [feeds](https://jsr.io/@mastrojs/feed) – you name it.
-- **_SSG_ and _SSR_**: static site generation _and_ on-demand [server-side rendering](/docs/install-setup/).
+- **_SSG_ and _SSR_**: static site generation _and_ on-demand [server-side rendering](/blog/2026-01-26-request-response-api-also-great-for-static-site-asset-generation/).
 - **Composable abstractions**: a [router](/docs/routing/) and a few [helper functions](/docs/html-components/) – that's all.
 - **Multi-runtime**: works on Deno, Node.js, Bun and Workers.
 
@@ -26,7 +26,7 @@ Mastro is a **minimal** tool to build **content-driven websites**. Use **web sta
 
 - **No overhead**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
 - **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
-- **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly as you wrote it.
+- **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
 - **No magic**: use plain `<img>` and `<a>` tags referencing [HTTP-first assets](/guide/bundling-assets/#bundling-css).
 - **No VC-money**: no eventual enshitification – selling is none of our business.
 - **No update treadmill**: we use web standards instead of complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
