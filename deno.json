@@ -10,7 +10,7 @@
     "lineWidth": 100
   },
   "imports": {
-    "@mastrojs/og-image": "jsr:@mastrojs/og-image@^0.0.8",
+    "@mastrojs/og-image": "jsr:@mastrojs/og-image@^0.0.11",
     "@mastrojs/feed": "jsr:@mastrojs/feed@^0.0.1",
     "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.1.4",
     "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.6.4",

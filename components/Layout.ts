@@ -4,6 +4,7 @@ interface Props {
   canonical?: string;
   children: Html;
   description?: string;
+  ogImage: string;
   title?: string;
 }
 
@@ -21,7 +22,7 @@ export const Layout = (props: Props) =>
           <link rel="canonical" href="${props.canonical}">
         `}
         <meta name="description" content="${props.description || "A minimal tool to build content-driven websites"}">
-        <meta property="og:image" content="./og.png">
+        <meta property="og:image" content=${props.ogImage}>
         <script type="module" src="/scripts.js"></script>
         <script
           data-goatcounter="https://mastrojs.goatcounter.com/count"

@@ -10,6 +10,7 @@ export const GET = async () => {
   return htmlToResponse(
     Layout({
       title: "Blog | Mastro",
+      ogImage: "https://mastrojs.github.io/blog/og.png",
       children: html`
         <main>
           <h1>Blog</h1>

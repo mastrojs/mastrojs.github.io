@@ -1,5 +1,5 @@
 ---
-title: How to incrementally migrate from Express to the standard Request/Response-API
+title: How to incrementally migrate from Express to the standard Request/Response API
 date: 2025-11-06
 author: Mauro Bieg
 ---

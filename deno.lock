@@ -6,7 +6,7 @@
     "jsr:@mastrojs/mastro@*": "0.6.4",
     "jsr:@mastrojs/mastro@0": "0.6.4",
     "jsr:@mastrojs/mastro@0.6.4": "0.6.4",
-    "jsr:@mastrojs/og-image@^0.0.8": "0.0.8",
+    "jsr:@mastrojs/og-image@^0.0.11": "0.0.11",
     "jsr:@std/cli@^1.0.25": "1.0.25",
     "jsr:@std/encoding@1": "1.0.10",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
@@ -58,8 +58,8 @@
         "npm:ts-blank-space"
       ]
     },
-    "@mastrojs/og-image@0.0.8": {
-      "integrity": "6f15142170fc672305857ec9f116929ee733e4f3b156ca627f515e55365f1323",
+    "@mastrojs/og-image@0.0.11": {
+      "integrity": "0d8f64dd1b4c9cae733e5ebd1c5a685d66f2751d82e07c8be952680e94f2cace",
       "dependencies": [
         "jsr:@std/encoding@1",
         "npm:canvaskit-wasm"
@@ -524,7 +524,7 @@
       "jsr:@mastrojs/feed@^0.0.1",
       "jsr:@mastrojs/markdown@0.1.4",
       "jsr:@mastrojs/mastro@0.6.4",
-      "jsr:@mastrojs/og-image@^0.0.8",
+      "jsr:@mastrojs/og-image@^0.0.11",
       "npm:markdown-it-anchor@9.2.0",
       "npm:markdown-it-container@4.0.0",
       "npm:markdown-it-highlightjs@4.2.0",

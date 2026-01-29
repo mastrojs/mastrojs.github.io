@@ -35,6 +35,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
       title: meta.metaTitle || (title ? `${title} | Mastro ${pageTitlePrefix(pathname)}` : "Mastro"),
       description: meta.description,
       canonical: meta.canonical,
+      ogImage: `https://mastrojs.github.io${pathname}og.png`,
       children: html`
         ${Sidebar(sidebar, part, pathname)}
 

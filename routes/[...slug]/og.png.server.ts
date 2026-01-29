@@ -23,10 +23,9 @@ const mdFolder = serveMarkdownFolder({ folder: "data" }, ({ meta }, req) => {
   const text = "Mastro\n\n" + (prefix ? `${prefix}: ` : "") + (meta.metaTitle || meta.title);
   return renderImage(text, {
     fontFile,
-    paddingRight: 110,
     background: (ctx, canvas) => {
       ctx.fillStyle = "white";
-      ctx.fillRect(0, 0, 1200, 600);
+      ctx.fillRect(0, 0, 1200, 630);
       // deno-lint-ignore no-explicit-any
       ctx.drawImage(canvas.decodeImage(chefIcon) as any, 335, 100);
     },
