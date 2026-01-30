@@ -1,5 +1,5 @@
 ---
-title: Improve TTFB and UX with HTTP streaming
+title: Improve Time to First Byte by streaming your HTML
 date: 2026-01-13
 author: Mauro Bieg
 canonical: "https://calendar.perfplanet.com/2025/improve-ttfb-and-ux-with-http-streaming/"

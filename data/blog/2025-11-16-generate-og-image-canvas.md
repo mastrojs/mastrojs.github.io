@@ -1,8 +1,11 @@
 ---
 title: "How to generate og:images from text with Canvas"
+description: "Use the web-standard Canvas API to render text to PNG – without spinning up a whole web browser."
 date: 2025-11-16
 author: Mauro Bieg
 ---
+
+**Use the web-standard Canvas API to render text to PNG – without spinning up a whole web browser. Here's how we implemented this approach in [`@mastrojs/og-image`](https://jsr.io/@mastrojs/og-image).**
 
 A few weeks ago, Scott Jehl posted about the [pain of generating Open Graph images](https://scottjehl.com/posts/open-graph/): those images you link to with an `og:image` meta tag from your HTML, which are then displayed on social media or messenger apps when somebody shares a link to that page. (Side-note: a single `<meta property="og:image"` tag, together with the standard `<title>` and `<meta name="description"`, is kind of [enough](https://getoutofmyhead.dev/link-preview-meta-tags/).)
 
