@@ -44,7 +44,7 @@ For links (and also for references to unprocessed files), it's easiest to always
 
 While Mastro also comes with an Express-like [programmatic router](#programmatic-router), the default router is file-based. This means the folder structure determines under what URL a route is served.
 
-Just like unprocessed files, route handlers in Mastro are also placed in the `routes` folder. But if a file is named `*.server.js` (or `*.server.ts`), it's a route handler (also known as page handler), and contains JavaScript functions to handle the generation of the pages at that route.
+Just like [unprocessed files](#unprocessed-files), route handlers in Mastro are also placed in the `routes` folder. But if a file is named `*.server.js` (or `*.server.ts`), it's a route handler (also known as page handler), and contains JavaScript functions to handle the generation of the pages at that route.
 
 
 ## Route handlers

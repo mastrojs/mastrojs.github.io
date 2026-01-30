@@ -7,7 +7,7 @@ layout: hero
 
 <div class="herolist">
 
-Mastro is a **minimal** tool to build **content-driven websites**. Use **web standards** and plain JavaScript – work directly _with_ the high-performance engine that is a modern browser.
+Mastro is a **minimal** tool to build **content-driven websites**. Use **web standards** and plain JavaScript/TypeScript – work directly _with_ the high-performance engine that is a modern browser.
 
 <p class="mt-3 mb-6">
   <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
@@ -19,7 +19,7 @@ Mastro is a **minimal** tool to build **content-driven websites**. Use **web sta
 
 - **It all works the same**: HTML pages, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), RSS [feeds](https://jsr.io/@mastrojs/feed) – you name it.
 - **_SSG_ and _SSR_**: static site generation _and_ on-demand [server-side rendering](/blog/2026-01-26-request-response-api-also-great-for-static-site-asset-generation/).
-- **Composable abstractions**: a [router](/docs/routing/) and a few [helper functions](/docs/html-components/) – that's all.
+- **Composable abstractions**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all.
 - **Multi-runtime**: works on Deno, Node.js, Bun and Workers.
 
 ## No bloat
@@ -132,7 +132,7 @@ export const Layout = (props: Props) =>
 </div>
 </div>
 
-Look at [more examples](https://github.com/mastrojs/mastro/tree/main/examples/), or the [source of this website](https://github.com/mastrojs/mastrojs.github.io).
+Look at [more examples](https://github.com/mastrojs/mastro/tree/main/examples/), or the [source of this website](https://github.com/mastrojs/mastrojs.github.io). Besided the default file-based router, there is also an Express-like [programmatic router](#programmatic-router).
 
 
 ## Easy for beginners
@@ -219,7 +219,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 
 <div class="pagespeed">
 
-**Websites built with Mastro load fast…**
+**Great UX**: websites built with Mastro are fast – even on [low-end devices on 3G](https://infrequently.org/series/performance-inequality).
 
 <a href="https://pagespeed.web.dev/">
 
@@ -231,7 +231,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 </div>
 <div>
 
-**and build fast.** For [500 markdown files](https://github.com/mb21/bench-framework-markdown/commit/87e5713b01d298394f866ec3cb86da46db910ada):
+**Great DX**: dev server starts instantly, and SSG is fast – e.g. for [500 markdown files](https://github.com/mb21/bench-framework-markdown/commit/87e5713b01d298394f866ec3cb86da46db910ada):
 
 |          |       |         |
 |:---------|------:|:--------|
