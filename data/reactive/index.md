@@ -8,6 +8,9 @@ A tiny (2.8kB min.gz) reactive GUI library for your existing MPA. Reactive Mastr
 
 Reactive Mastro was conceived as the client-side part of [Mastro](/), but you can just as well use it with any other static site or server that renders HTML (such as Rails, Django, PHP, etc).
 
+<a class="button" href="/reactive/install/">Get started</a>
+<a class="button -secondary" href="/reactive/why-reactive-mastro/">Why Reactive Mastro?</a>
+
 Server-side part is plain HTML:
 
 ```html
@@ -51,6 +54,6 @@ customElements.define("my-counter", class extends ReactiveElement {
 
 :::
 
-For more examples, see this [Todo list CodePen](https://codepen.io/mb2100/pen/EaYjRvW), [examples on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/reactive-mastro), or continue reading.
+For more examples, check out the [Todo list](https://codepen.io/mb2100/pen/EaYjRvW) CodePen, [client-side examples](https://github.com/mastrojs/mastro/tree/main/examples/reactive-mastro), [SSR example](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server), or continue reading.
 
 ## Get started with Reactive Mastro

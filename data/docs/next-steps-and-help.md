@@ -2,13 +2,15 @@
 title: "Next steps"
 ---
 
-- [Deploy your static site to production](/guide/deploy/#deploy-static-site-with-ci%2Fcd)
-- [Deploy your server to production](/guide/deploy/#deploy-server-to-production)
-- Add [extensions](/#extensible) and install other [3rd party packages](/guide/third-party-packages/)
+- [Deploy](/guide/deploy/) to production
+  - [static site](/guide/deploy/#deploy-static-site-with-ci%2Fcd)
+  - [server](/guide/deploy/#deploy-server-to-production)
+- Use third-party packages
+  - install [packages from NPM or JSR](/guide/third-party-packages/)
+  - add [extensions](/#extensible), e.g. [Reactive Mastro](/reactive/) (our client-side GUI library)
 - Learn about [forms and REST APIs](/guide/forms-and-rest-apis/)
 - [Bundle client-side JavaScript, CSS or transform images](/guide/bundling-assets/)
 - When running a server, you can still [pregenerate assets and static pages](/guide/bundling-assets/#build-step)
-- Explore [Reactive Mastro](/reactive/) – our reactive client-side GUI library
 - Learn about pros and cons of different [web application architectures](/guide/web-application-architectures/)
 
 

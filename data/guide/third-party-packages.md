@@ -72,16 +72,16 @@ pnpm add markdown-it
 which will not only change the `package.json` file, but also run `pnpm install`.
 
 
-### Vendoring
-
-Finally, instead of using esm.sh, NPM or JSR, you can of course also download the files and add them to your project, this is often done in a folder called `/libs/` or `/vendor/` (or e.g. `/routes/libs/` for client dependencies). However, this makes it a bit harder to update them compared to the other options.
-
-
 ## On the client
 
 It's important to remember that the above file (`import_map.json`, `deno.json` or `package.json`) will not be loaded into the browser, and neither will any packages it contains. This is good, because packages intended to be run on the server are often very big and it would slow down your website a lot if all your website visitors had to download them.
+If you need third-party packages on the client, you should use a separate import map in your HTML.
 
-If you need third-party packages on the client, you should use a separate import map in your HTML:
+Installing client-side dependencies with `pnpm install` or similar currently is not explicitly supported with Mastro. That's because most packages require a bundler to be efficiently served to the browser (loading hundreds of small files is slow – especially on mobile networks). While you can [setup a bundler with Mastro](/guide/bundling-assets/), it's a lot simpler to use pre-bundled versions. Either by loading them directly from a CDN, or by dowloading the files into your `routes/` folder and self-hosting them from there.
+
+### CDN
+
+If the library you want to add is publishing a CDN url (e.g. jsDelivr or UNPKG), use that. If they're only advertising an NPM (or JSR) package, you can use the [esm.sh](https://esm.sh/) CDN. To enable the bundler that's built into esm.sh, add `?bundle` at the end of the URL:
 
 ```html
 <!doctype html>
@@ -96,6 +96,24 @@ If you need third-party packages on the client, you should use a separate import
     </script>
 ```
 
-Note that for the client-side, we added `?bundle` at the end of the URL. That's a feature of [esm.sh](https://esm.sh/), which instructs it to bundle all the files in that package together into one file. This loads much faster than dozens of individuals files – especially on slow networks like on mobile phones.
+
+### Self-hosted
+
+If you want to [self-host](https://blog.wesleyac.com/posts/why-not-javascript-cdn) your client-side dependencies instead of relying on a third-party CDN, download pre-bundled versions from a CDN or from NPM. Often, you can find bundled files in a `dist/` folder or similar in the _Code_ tab of the package on NPM. For the markdown-it example, this would be the `dist/markdown-it.min.js` file on [this page](https://www.npmjs.com/package/markdown-it?activeTab=code).
+
+After downloading the file, add it somewhere in your Mastro project's `routes/` folder, e.g. `routes/lib/markdown-it/markdown-it.min.js`. You can choose the exact folder names and structure, but `lib` is a common name when vendoring dependencies. Then you can load it like:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <script type="importmap">
+    {
+      "imports": {
+        "markdown-it": "/lib/markdown-it/markdown-it.min.js"
+      }
+    }
+    </script>
+```
 
 You'll see a [full example of a client-side importmap](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) in the next chapter.

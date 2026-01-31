@@ -46,6 +46,8 @@ As mentioned above, instead of doing all the work on the server, client-side Jav
 
 Their theory is that the client-side JavaScript can do a better job at page navigation than the browser. While this may still be the right approach for highly interactive apps like Figma, for almost all websites, loading and executing that additional JavaScript just makes things slower and more complex – especially if navigating to a new page needs to load data from the server anyway.
 
+One of the last remaining reasons to choose an SPA is if you need to keep cursor state in text inputs across page navigations (or positions of scrollable elements on the page). Or if you need to keep audio or video playing across page navigations – but even that [can be done with an MPA](https://frontendmasters.com/blog/view-transitions-playing-video/).
+
 :::tip
 ## Buttery smooth navigation in MPAs
 
