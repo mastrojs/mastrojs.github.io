@@ -42,7 +42,7 @@ Mastro is a **minimal** tool to build **content-driven websites**. Use **web sta
 
   <a href="https://thenewstack.io/minimalist-mastro-framework-offers-modern-take-on-mpas/"><img alt="The New Stack" loading="lazy" src="/assets/home/thenewstack.svg" width="400" height="48"></a>
 
-  <a href="https://typescript.fm/43#t=38m22s"><img alt="TypeScript.fm" loading="lazy" srcset="/assets/home/typescriptfm@2x.webp 2x, /assets/home/typescriptfm.webp" width="110" height="110"></a>
+  <a href="https://typescript.fm/bonus54"><img alt="TypeScript.fm" loading="lazy" srcset="/assets/home/typescriptfm@2x.webp 2x, /assets/home/typescriptfm.webp" width="150" height="150"></a>
 
   <a href="https://thathtml.blog/2024/12/new-custom-element-superclass-on-the-block/"><img alt="That HTML blog" loading="lazy" src="/assets/home/thathtmlblog.svg" width="400" height="91"></a>
 
@@ -245,26 +245,40 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 </div>
 
 
-## Extensible
+## A foundation to build upon
 
-The minimal [Mastro core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included". But it is easily extended, simply by calling functions. There is a growing list of official extensions (usually just a single file wrapping a carefully chosen external dependency), and NPM and JSR packages you can [install](https://mastrojs.github.io/guide/third-party-packages/) which work well with Mastro.
+The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included", but it is built to be extended.
 
-- [Reactive Mastro](/reactive/) – client-side reactive GUI library
-- [@mastrojs/markdown](https://jsr.io/@mastrojs/markdown) – generate HTML from markdown
-- [@mastrojs/images](https://jsr.io/@mastrojs/images) – transform images (resize, compress, etc)
-- [@mastrojs/og-image](https://jsr.io/@mastrojs/og-image) – generate images from text
-- [@mastrojs/feed](https://jsr.io/@mastrojs/feed) – generate an Atom feed
-- [Kysely](https://www.kysely.dev/) – type-safe SQL query builder
-- [Sveltia CMS](https://github.com/mastrojs/template-sveltia-cms) – git-based CMS
+<div class="col2">
+<div>
 
+### Extensions
 
-## Reactive Mastro – interactivity simplified
+- Tiny wrappers for carefully chosen deps:
+  - [markdown](https://jsr.io/@mastrojs/markdown) to HTML
+  - [images](https://jsr.io/@mastrojs/images) – resize/compress/etc.
+  - [og-image](https://jsr.io/@mastrojs/og-image) – generate images from text
+  - [feed](https://jsr.io/@mastrojs/feed) – generate RSS/Atom feeds
+- [Install](https://mastrojs.github.io/guide/third-party-packages/) 3rd-party packages like:
+  - [Kysely](https://www.kysely.dev/) – type-safe SQL query builder
+  - [Sveltia CMS](https://github.com/mastrojs/template-sveltia-cms) – git-based CMS
 
-When you need client-side interactivity, add Reactive Mastro – a tiny reactive GUI library for MPAs.
+Need something else? [Please ask](https://github.com/mastrojs/mastro/discussions/new?category=q-a)!
 
-<a class="button" href="/reactive/">Get started</a>
-<a class="button -secondary" href="/reactive/why-reactive-mastro/">Why Reactive Mastro?</a>
+</div>
+<div>
 
+### Client-side interactivity
+
+When you need interactivity in the browser, use plain JavaScript, or [add a library](/guide/third-party-packages/#on-the-client) like [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/) or [Unpoly](https://unpoly.com/).
+
+To [share templates](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api) with the server, use Reactive Mastro – a tiny reactive GUI lib.
+
+<a class="button" href="/reactive/">Reactive Mastro</a>
+<a class="button -secondary" href="/reactive/why-reactive-mastro/">Why?</a>
+
+</div>
+</div>
 
 ## Join the community
 
@@ -273,9 +287,10 @@ We're looking to build an inclusive community, where people of all kinds of back
 <div class="col2">
 <div>
 
-Do you have a question, need help, or want to talk about future plans?
+Do you have a question, or want to chat? @-mention us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social), or on GitHub:
 
-<a class="button" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions/new/choose">Start a GitHub discussion</a>
+<a class="button" data-goatcounter-click="home.github.discussions.q-a" href="https://github.com/mastrojs/mastro/discussions/new?category=q-a">Want help?</a>
+<a class="button -secondary" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions/new?category=general">Say hi!</a>
 </div>
 <div>
 
