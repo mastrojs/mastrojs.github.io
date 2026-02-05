@@ -599,6 +599,11 @@ section.tab-group {
     display: none;
   }
 }
+@media (max-width: 500px) {
+  body .hide-mobile-xs {
+    display: none;
+  }
+}
 
 .center-text {
   text-align: center;
