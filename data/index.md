@@ -282,20 +282,25 @@ To [share templates](https://github.com/mastrojs/mastro/tree/main/examples/todo-
 
 ## Join the community
 
-We're looking to build an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe, and help each other out. A place to ask questions and learn new things.
+We're building an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe, and help each other. A place to ask questions and learn new things.
 
 <div class="col2">
 <div>
 
-Do you have a question, or want to chat? @-mention us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social), or on GitHub:
+### Want help or chat?
 
-<a class="button" data-goatcounter-click="home.github.discussions.q-a" href="https://github.com/mastrojs/mastro/discussions/new?category=q-a">Want help?</a>
-<a class="button -secondary" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions/new?category=general">Say hi!</a>
+@-mention us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social), or talk to us on:
+
+<a class="button -secondary" data-goatcounter-click="home.github.discord" href="https://discord.gg/gmw2VEW5Rw">Discord</a>
+<a class="button -minimal" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions/new/choose">GitHub Discussions</a>
 </div>
 <div>
 
-Something not working as expected? We consider that a bug.
+### Star us on GitHub!
 
-<a class="button -secondary" data-goatcounter-click="home.github.issues" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
+Every star and every share helps.
+
+<a class="button -secondary" data-goatcounter-click="home.github.issues" href="https://github.com/mastrojs/mastro/">GitHub</a>
+<a class="button -minimal" data-goatcounter-click="home.github.issues" href="https://github.com/mastrojs/mastro/issues/new">Report a bug</a>
 </div>
 </div>

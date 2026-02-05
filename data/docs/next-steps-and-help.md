@@ -16,19 +16,11 @@ title: "Next steps"
 
 ## Community & getting help
 
-We're looking to build an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe, and help each other out. A place to ask questions and learn new things.
+We're building an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe, and help each other. A place to ask questions and learn new things.
 
-<div class="col2">
-<div>
+Do you have a question, or just want to chat?
+Find us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social), or:
 
-Do you have a question, need help, or want to talk about future plans?
-
-<a class="button" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions/new/choose">Start a GitHub discussion</a>
-</div>
-<div>
-
-Something not working as expected? We consider that a bug.
-
-<a class="button -secondary" data-goatcounter-click="home.github.issues" href="https://github.com/mastrojs/mastro/issues/">Open a GitHub issue</a>
-</div>
-</div>
+<a class="button" href="https://discord.gg/gmw2VEW5Rw">Discord</a>
+<a class="button -secondary" href="https://github.com/mastrojs/mastro/discussions/new/choose">GitHub Discussions</a>
+<a class="button -minimal" href="https://github.com/mastrojs/mastro/issues/new">Report a bug</a>

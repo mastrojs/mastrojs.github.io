@@ -4,7 +4,7 @@ export const Newsletter = () =>
   html`
     <br>
     <div class="tip center-text">
-      <h2>Let's keep in touch! 👨‍🍳</h2>
+      <h2>Stay updated 👨‍🍳</h2>
       <p>
         Follow us on <a href="https://bsky.app/profile/mastrojs.bsky.social"><strong>Bluesky</strong></a>,
         or add our <a href="/blog/"><strong>blog</strong></a> to your RSS reader
