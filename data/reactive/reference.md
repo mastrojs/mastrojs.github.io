@@ -20,11 +20,13 @@ This binds the `myField` signal to the contents of the div. Normal strings will 
 or nested properties:
 <div data-bind="style.display=myField"></div>
 ```
-This sets arbitrary [JavaScript properties, not attributes](https://stackoverflow.com/a/6004028/214446) on an element.
+This sets arbitrary JavaScript properties on an element. For example `value=myField` above sets the [`value` property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/value) of the `<input>` element.
+
+But be aware that [properties are not attributes](https://stackoverflow.com/a/6004028/214446). While the setters of some properties also set the corresponding attribute in the DOM, this is not the case for all properties.
 
 #### Set an attribute
 
-The following [sets an attribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute) – unless the `myField` signal conatains `null`, in which case the attribute is removed. The signal's value is automatically converted to a string.
+The following [sets an attribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute) – unless the `myField` signal conatains `null`, in which case the attribute is removed. Since attribute values are strings, the signal's value is automatically converted to a string.
 
 ```html
 <div data-bind="attributes.hidden=myField"></div>
@@ -34,7 +36,7 @@ The following [sets an attribute](https://developer.mozilla.org/en-US/docs/Web/A
 ```html
 <div data-bind="class.myCssClass=myField"></div>
 ```
-This toggles the specified class depending on whether `myField` is truthy or not, leaving other classes on the element untouched.
+This toggles the specified class depending on whether `myField` is truthy or not, leaving other classes on the element untouched. (It does that by calling [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) `.add` or `.remove`.)
 
 #### Pass a static attribute to a custom element
 ```html
@@ -61,7 +63,7 @@ To bind multiple things on the same element, `data-bind` accepts a semicolon-sep
 
 #### Binding without introducing an extra element
 
-If you want to avoid introducing an extra box in the layout (e.g. when using things like CSS grid or flexbox), you can use the HTML [`slot`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) element: e.g. `<slot data-bind="mySignal"></slot>`. It's still an extra element, but CSS behaves like it isn't there.
+If you want to avoid introducing an extra box in the layout (e.g. when using things like CSS grid or flexbox), you can use the HTML [`slot`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) element: e.g. `<slot data-bind="mySignal"></slot>`. It's still an extra element, but CSS behaves like it isn't there (like [`display: contents`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display#contents)).
 
 ## data-on*
 
@@ -91,3 +93,12 @@ customElements.define("my-counter", class extends ReactiveElement {
   }
 })
 ```
+
+## Want help?
+
+Do you have a question, or just want to chat?
+Find us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social), or:
+
+<a class="button" href="https://discord.gg/gmw2VEW5Rw">Discord</a>
+<a class="button -secondary" href="https://github.com/mastrojs/mastro/discussions/new/choose">GitHub Discussions</a>
+<a class="button -minimal" href="https://github.com/mastrojs/reactive/issues/new">Report a bug</a>

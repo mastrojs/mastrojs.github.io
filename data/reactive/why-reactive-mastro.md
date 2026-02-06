@@ -27,9 +27,9 @@ While these libraries are also tailored towards MPAs, and also integrate well wi
 - smaller in terms of JavaScript size: min+gzipped, Reactive Mastro is 2.8kB vs the others >10kB
 - smaller in terms of API surface to learn
 
-In Alpine, you put all logic into HTML attributes. Reactive Mastro only uses attributes to attach the signals and event listeners to the DOM. The rest is written in normal JavaScript using signals, giving you a declarative developer experience. You will be familiar with [signals](https://docs.solidjs.com/concepts/intro-to-reactivity) if you have used either Solid, Svelte runes, Vue refs or Preact signals. The use of signals is also one of the differentiators to Stimulus, where you have to remember to imperatively call the right method to update the DOM yourself in all the right places. Stimulus also requires you to add the right `data-controller` and `data-x-target` attributes, which are not needed in Reactive Mastro.
+In Alpine, you put all logic into HTML attributes. Reactive Mastro only uses attributes to attach the signals and event listeners to the DOM. The rest is written in normal JavaScript using signals, giving you a declarative developer experience. You will be familiar with [signals](https://docs.solidjs.com/concepts/intro-to-reactivity) if you have used either Solid, Svelte runes, Vue refs or Preact signals. The use of signals is also one of the differentiators from Stimulus, where you have to remember to imperatively call the right method to update the DOM yourself in all the right places. Stimulus also requires you to add the right `data-controller` and `data-x-target` attributes, which are not needed in Reactive Mastro.
 
-Finally, there is HTMX, where every interaction makes a request to the server which sends back some HTML that’s inserted into the DOM. You never have to think about generating HTML on the client. But it also comes at a steep cost in terms of GUI-latency, especially on a bad network connection.
+Finally, there is HTMX, where every interaction makes a request to the server, which sends back some HTML that’s inserted into the DOM. You never have to think about generating HTML on the client. But it also comes at a steep cost in terms of GUI-latency, especially on a bad network connection.
 
 
 ## Implementation

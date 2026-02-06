@@ -135,30 +135,13 @@ customElements.define("my-counter", class extends ReactiveElement {
 
 ## Initializing state from the server
 
-Often, you need to initialize some state not with a simple static value (like `0` in the counter example), but with a dynamic value from the server (for example a user object, or an array of todo items from the database).
+Sometimes, it's enough to initialize the state with a fixed value (like `0` in the counter example above). But often, you need to initialize your state with a dynamic value from the server (for example a user object, or an array of todo items from the database).
 
-For tiny scripts that you inline in your HTML, you can include that data as a variable. For example, here `Profile` is a Mastro server component that renders the HTML for the `<my-profile>` client-component:
+Depending on your use-case, there are various ways to do that with Reactive Mastro.
 
-```js title=components/Profile.js
-export const Profile = async () => {
-  const user = await db.loadUser();
-  return html`
-    <my-profile></my-profile>
-    <script type="module">
-      const clientUser = ${JSON.stringify(user)};
-      customElements.define("my-profile", class extends ReactiveElement {
-        user = signal(clientUser);
-        // rest of client component
-      }
-    </script>
-  `;
-};
+### Initializing primitive values
 
-```
-
-But usually your JavaScript is in a separate, cacheable static file. For that case, there are a few different strategies.
-
-Primitive values like strings are best put on attributes in the HTML, like in the counter above:
+Primitive values like strings, numbers, or booleans, are best put on attributes in the HTML, like in the counter example:
 
 ```html
 <my-counter start="7"></my-counter>
@@ -173,7 +156,7 @@ class extends ReactiveElement {
 
 ### Initializing from JSON
 
-This same approach works also for more complex values that are serializable as JSON:
+The same approach also works for objects and arrays – as long as they are serializable as JSON. We're writing the part that renders the server-side HTML as a [Mastro component](/docs/html-components/) named `Profile` here, but the same approach works with any server:
 
 ```js title=components/Profile.js
 export const Profile = async () => {
@@ -191,12 +174,14 @@ customElements.define("my-profile", class extends ReactiveElement {
 }
 ```
 
-### Initializing from HTML
+### Initializing from server-side rendered HTML
 
-For a fast initial page load, and a good user experience when the JavaScript has not yet loaded, or fails to load, you may server-side render your data to HTML. To then initialize the JavaScript signal, you can parse the HTML back to JSON. This solves the so-called _double data problem_, where most server-side rendering JS frameworks send the same data twice: once as HTML, and once as JSON. Depending on the structure of the data and the HTML serialization, this may of course be a bit more involved than the following simple example:
+For a fast initial page load, and a good user experience when the JavaScript has not yet loaded (or fails to load), you may server-side render your data to HTML. After sending the data as HTML, to then initialize the state on the client, most frameworks send the data a second time as JSON. This is often called the _double data problem_.
+
+With Reactive Mastro, you can avoid this by parsing the HTML back to JSON. Depending on the structure of the data and the HTML serialization, this may of course be a bit more involved than the following simple example:
 
 ```js title=components/NameList.js
-export const NameList = async (props) => html`
+export const NameList = (props) => html`
   <name-list>
     <ul>
       ${props.names.map(name => html`<li>${name}</li>`}
@@ -207,8 +192,33 @@ export const NameList = async (props) => html`
 
 ```js title=routes/js/name-list.js
 customElements.define("name-list", class extends ReactiveElement {
-  names = signal(Array.from(this.querySelectorAll('li')).map(el => el.innerText))
+  names = signal(
+    Array.from(this.querySelectorAll('li')).map(el => el.innerText)
+  );
   // rest of client component
 }
 ```
 
+In the Mastro repo, there is also a [more complex example](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api).
+
+### For scripts that are inlined in your HTML
+
+For tiny scripts that you have chosen to inline in your HTML, you can also include the server data directly in the place where you have a client-side variable.
+
+For example, here `Profile` is a [Mastro server component](http://localhost:8000/docs/html-components/) that renders the HTML for the `<my-profile>` client-component:
+
+```js title=components/Profile.js
+export const Profile = async () => {
+  const user = await db.loadUser();
+  return html`
+    <my-profile></my-profile>
+    <script type="module">
+      const clientUser = ${JSON.stringify(user)};
+      customElements.define("my-profile", class extends ReactiveElement {
+        user = signal(clientUser);
+        // rest of client component
+      };
+    </script>
+  `;
+};
+```
