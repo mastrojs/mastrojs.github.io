@@ -179,7 +179,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-deno)):
 
   ```sh
-  deno run -A npm:@mastrojs/create-mastro@0.0.9
+  deno run -A npm:@mastrojs/create-mastro@0.1.4
   ```
   </div>
   <div tabindex=0 id="content2">
@@ -188,7 +188,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-node)):
 
   ```sh
-  pnpm create @mastrojs/mastro@0.0.9
+  pnpm create @mastrojs/mastro@0.1.4
   ```
   </div>
   <div tabindex=0 id="content3">
@@ -196,7 +196,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-bun)):
 
   ```sh
-  bun create @mastrojs/mastro@0.0.9
+  bun create @mastrojs/mastro@0.1.4
   ```
   </div>
   <div tabindex=0 id="content4">
@@ -204,7 +204,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   Use Deno, Node.js, or Bun to generate a static site for any CDN. However, to run code on-demand in a [Cloudflare Worker](https://workers.cloudflare.com/), copy into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-cloudflare)):
 
   ```sh
-  pnpm create @mastrojs/mastro@0.0.9 --cloudflare
+  pnpm create @mastrojs/mastro@0.1.4 --cloudflare
   ```
   </div>
 </section>

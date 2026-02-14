@@ -69,7 +69,7 @@ Be sure to run one of those in production and not deno/pnpm/bun `run start`, as 
 To run your server code on-demand on the edge using Cloudflare, use the Mastro template for Cloudflare Workers. Either via the [template repo](https://github.com/mastrojs/template-basic-cloudflare) or:
 
 ```sh
-pnpm create @mastrojs/mastro@0.0.9 --cloudflare
+pnpm create @mastrojs/mastro@0.1.4 --cloudflare
 ```
 :::
 
