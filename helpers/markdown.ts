@@ -11,7 +11,7 @@ import markdownItHighlightJs from "markdown-it-highlightjs";
 export const readBlogFiles = async () => {
   const files = await readMarkdownFiles("data/blog/**.md");
   files.reverse();
-  return files.map(md => ({...md, path: md.path.slice(5, -3) + "/"}));
+  return files.map(md => ({...md, path: md.path.slice(4, -3) + "/"}));
 }
 
 /**
