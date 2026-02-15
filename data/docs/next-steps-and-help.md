@@ -21,6 +21,6 @@ We're building an inclusive community, where people of all kinds of backgrounds 
 Do you have a question, or just want to chat?
 Find us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social), or:
 
-<a class="button" href="https://discord.gg/gmw2VEW5Rw">Discord</a>
+<a class="button" href="https://stt.gg/k7QMEaP1">Stoat Chat</a>
 <a class="button -secondary" href="https://github.com/mastrojs/mastro/discussions/new/choose">GitHub Discussions</a>
 <a class="button -minimal" href="https://github.com/mastrojs/mastro/issues/new">Report a bug</a>
