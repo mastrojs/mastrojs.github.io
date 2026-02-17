@@ -75,9 +75,11 @@ If you’re doing _low volume, unpredictable_ stuff, all these levels of indirec
 
 ## Tailwind
 
-Did I just equate inline-styles with Tailfind? Basically, yes. Tailwind’s answer to [why not just use inline styles?](https://v3.tailwindcss.com/docs/utility-first#why-not-just-use-inline-styles) says something about a "predefined design system" (which you can easily set up with CSS variables as well), and about responsive/hover/focus (which are trivial in plain CSS). But they don’t seem to disagree with the claim that at least conceptually, Tailwind is equivalent to inline styles.
+Did I just say Tailwind is conceptually the same as inline-styles? Yes. Tailwind’s answer to [why not just use inline styles?](https://v3.tailwindcss.com/docs/utility-first#why-not-just-use-inline-styles) says something about a "predefined design system" (which you can easily set up with CSS variables as well), and about responsive/hover/focus (which are trivial in plain CSS). But they don’t seem to disagree with the claim that at least conceptually, Tailwind is equivalent to inline styles.
 
-What Tailwind unfortunately does impose is a build step, which is another giant level of indirection. But there are plenty of utility-class CSS frameworks out there that don't require a build step, if that's what you're after. Whether the elimination of unused CSS is worth the build step is for you to decide. But I wouldn’t sweat the CSS size too much. Consider how big your HTML payload is anyway with all those utility classes, static CSS usually has fairly long cache live-times set, and finally both compress well over gzip/brotli.
+What Tailwind unfortunately does impose is a build step, which is another giant level of indirection – especially since it's not a simple transform, but comes with a lot of logic and non-standard CSS keywords like `@theme` and `@utility`. And if you inspect an element in your browser's developer tools to debug something, you'll have to understand all that indirection as well.
+
+But there are plenty of utility-class CSS frameworks out there that don't require a build step, if that's what you're after. Whether the elimination of unused CSS is worth the build step is for you to decide. But I wouldn’t sweat the CSS size too much. Consider how big your HTML payload is anyway with all those utility classes, static CSS usually has fairly long cache live-times set, and finally both compress well over gzip/brotli.
 
 
 ## Levels of indirection

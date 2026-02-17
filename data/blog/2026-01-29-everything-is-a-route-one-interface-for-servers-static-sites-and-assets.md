@@ -129,6 +129,9 @@ The beautiful thing here is that we didn't have to build image transformations i
 
 Similarly, to bundle JavaScript, we could call e.g. `esbuild` in the route handler. For an example of that, have a look at the [bundling and assets chapter in the Mastro Guide](/guide/bundling-assets/).
 
+
+## Conclusion
+
 By inverting the flow of a classic asset pipeline, and leveraging the standards-based Request/Response-API, we managed to unify the development server, production server, static site generation, and asset generation mechanisms. That's how Mastro gets by with just [~700 lines of implementation code](https://github.com/mastrojs/mastro/tree/main/src#readme).
 
 What do you think? I'd love to chat on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social) or [GitHub](https://github.com/mastrojs/mastro/discussions/)!
