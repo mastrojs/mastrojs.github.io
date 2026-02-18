@@ -37,14 +37,14 @@ export const GET = (req: Request) =>
   );
 ```
 
+Note that `Layout` is a component.
+
 
 ## Components
 
-In the example just above, `Layout()` is a component call.
-
 A Mastro server-side component is just a normal JavaScript function, that by convention is capitalized, takes a `props` object, and returns something of type [`Html`](https://jsr.io/@mastrojs/mastro/doc/~/Html). There's really no magic going on here.
 
-Let's look at how a `Layout` component might be defined. Notice that it is in turn calling a component called `Header`.
+Let's look at how the `Layout` component from above might be defined. Notice that it is in turn calling a component called `Header`.
 
 ```ts title=components/Layout.ts
 import { html, type Html } from "@mastrojs/mastro";
