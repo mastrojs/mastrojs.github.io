@@ -24,7 +24,7 @@ Mastro is a **minimal** tool to build **content-driven websites**. Use **web sta
 
 ## No bloat
 
-- **No overhead**: written in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
+- **No overhead**: implemented in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
 - **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
 - **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
 - **No magic**: use plain `<img>` and `<a>` tags referencing [HTTP-first assets](/guide/bundling-assets/#bundling-css).
