@@ -110,8 +110,9 @@ See the guide for an example of a [static blog from markdown files](/guide/stati
 ## Programmatic router
 
 As an alternative to the file-based router, Mastro also offers a programmatic router, which is similar to Express.js or Hono.
+If you want to stick to the default router, [jump to the next chapter now](/docs/html-components/).
 
-Modify the `server.ts` file in your project to something like the following.
+To try the programmatic router, modify the `server.ts` file in your project to something like the following.
 
 ```ts title=server.ts
 import { getParams } from "@mastrojs/mastro";
@@ -129,8 +130,83 @@ const fetchHandler = new Mastro()
 Deno.serve(fetchHandler);
 ```
 
-If you're not using Deno, the last line will look different, but the `fetchHandler` will also take the place of `mastro.fetch` from the file-based router.
+If you're not using Deno, the last line will look different. But if you've started with a template using the file-based router, you basically replace `mastro.fetch` with the `fetchHandler`.
 
-The first argument of each call (e.g. `"/blog/:slug/"`) is used as the `pathname` to construct a [standard URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API). The second argument is a [route handler](#route-handlers). For more info, see the [API docs for the Mastro class](https://jsr.io/@mastrojs/mastro/doc/server/~/Mastro).
+The first argument of each call (e.g. `"/blog/:slug/"`) is used as the `pathname` to construct a [standard URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API). The second argument is a [route handler](#route-handlers).
 
-If you have more than a few routes, it makes sense to place their route handlers in dedicated files and import them (instead of inline, like in the example above). However, with the programmatic router, they don't need to be in the `routes` folder.
+
+### Organizing programmatic handlers
+
+If you have more than a few routes in your programmatic router, it makes sense to place their handler functions in dedicated files (instead of using inline functions like above).
+
+However, unlike with the file-based router, they don't need to be in the `routes` folder. Since they're normal JavaScript modules, you can name both the files and the functions whatever you want. However, it's customary to create a `handlers` folder and follow one of the two naming conventions demonstrated in the following example.
+
+If you want to export separate functions for GET and other HTTP verbs like POST, name the functions like that and later pass them to the router:
+
+```ts title=handlers/Home.ts
+import { html, htmlToResponse } from "@mastrojs/mastro";
+import { Layout } from "../components/Layout.ts";
+
+export const GET = (req: Request) =>
+  htmlToResponse(
+    Layout({
+      title: "Home page",
+      children: html`<p>Welcome to ${req.url}</p>`,
+    }),
+  );
+
+```
+
+But usually it's simpler to export a function called `handler`. In that case you can pass the whole module to the router:
+
+```ts title=handlers/About.ts
+import { html, htmlToResponse } from "@mastrojs/mastro";
+import { Layout } from "../components/Layout.ts";
+
+export const handler = (req: Request) =>
+  htmlToResponse(
+    Layout({
+      title: "About us",
+      children: html`<p>Welcome to ${req.url}</p>`,
+    }),
+  );
+
+```
+
+```ts title=server.ts
+import { Mastro } from "@mastrojs/mastro/server";
+
+import * as Home from './handlers/Home.ts';
+import * as About from './handlers/About.ts';
+
+const fetchHandler = new Mastro()
+  .get("/", Home.GET)
+  .get("/about/", About)
+  .createHandler();
+
+Deno.serve(fetchHandler);
+```
+
+### More programmatic options
+
+Using a module exporting a `handler` function, you can also export [`getStaticPaths`](/guide/static-blog-from-markdown-files/#generating-pages-with-route-parameters) and/or [`pregenerate`](/guide/bundling-assets/#build-step) variables. Those will be picked up by the router if you pass the whole module:
+
+```ts
+import * as News from './handlers/News.ts';
+
+const fetchHandler = new Mastro()
+  .get("/news/:slug/", News)
+  .createHandler();
+```
+
+The above is equivalent to passing a config object manually:
+
+```ts
+  .get("/news/:slug/", {
+    handler: (req) => new Response(`Hello ${req.url}`)
+    getStaticPaths: async () => (["/news/foo/", "/news/bar/"]),
+    pregenerate: true;
+  })
+```
+
+See also the [API docs for the programmatic router](https://jsr.io/@mastrojs/mastro/doc/server/~/Mastro).
