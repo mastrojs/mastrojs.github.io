@@ -116,7 +116,7 @@ To try the programmatic router, modify the `server.ts` file in your project to s
 
 ```ts title=server.ts
 import { getParams } from "@mastrojs/mastro";
-import { Mastro } from "@mastrojs/mastro/server";
+import { Mastro } from "@mastrojs/mastro/server-programmatic";
 
 const fetchHandler = new Mastro()
   .get("/", () => new Response("Hello world")
@@ -174,7 +174,7 @@ export const handler = (req: Request) =>
 ```
 
 ```ts title=server.ts
-import { Mastro } from "@mastrojs/mastro/server";
+import { Mastro } from "@mastrojs/mastro/server-programmatic";
 
 import * as Home from './handlers/Home.ts';
 import * as About from './handlers/About.ts';
