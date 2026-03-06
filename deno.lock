@@ -3,9 +3,8 @@
   "specifiers": {
     "jsr:@mastrojs/feed@^0.0.1": "0.0.1",
     "jsr:@mastrojs/markdown@0.1.5": "0.1.5",
-    "jsr:@mastrojs/mastro@*": "0.7.0",
-    "jsr:@mastrojs/mastro@0": "0.7.0",
-    "jsr:@mastrojs/mastro@0.7.0": "0.7.0",
+    "jsr:@mastrojs/mastro@0": "0.7.12",
+    "jsr:@mastrojs/mastro@0.7.12": "0.7.12",
     "jsr:@mastrojs/og-image@^0.0.11": "0.0.11",
     "jsr:@std/cli@^1.0.25": "1.0.25",
     "jsr:@std/encoding@1": "1.0.10",
@@ -17,7 +16,6 @@
     "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/media-types@^1.1.0": "1.1.0",
     "jsr:@std/net@^1.0.6": "1.0.6",
-    "jsr:@std/path@1.1.4": "1.1.4",
     "jsr:@std/path@^1.1.4": "1.1.4",
     "jsr:@std/streams@^1.0.16": "1.0.16",
     "npm:@types/node@*": "24.2.0",
@@ -30,8 +28,7 @@
     "npm:micromark-extension-gfm@3": "3.0.0",
     "npm:micromark@^4.0.2": "4.0.2",
     "npm:pagefind@*": "1.0.4",
-    "npm:pagefind@1.0.4": "1.0.4",
-    "npm:ts-blank-space@0.6.1": "0.6.1"
+    "npm:pagefind@1.0.4": "1.0.4"
   },
   "jsr": {
     "@mastrojs/feed@0.0.1": {
@@ -49,13 +46,11 @@
         "npm:micromark-extension-gfm"
       ]
     },
-    "@mastrojs/mastro@0.7.0": {
-      "integrity": "e8449a0f2f2bd03026e6c424a73d6d7528b42fbced7360b1853312a92fbac7d3",
+    "@mastrojs/mastro@0.7.12": {
+      "integrity": "c5c734912dfa496cc89af92fffa2537e56642ea1f14273a7c9b6295cbc111ced",
       "dependencies": [
         "jsr:@std/http",
-        "jsr:@std/media-types",
-        "jsr:@std/path@1.1.4",
-        "npm:ts-blank-space"
+        "jsr:@std/media-types"
       ]
     },
     "@mastrojs/og-image@0.0.11": {
@@ -90,7 +85,7 @@
         "jsr:@std/html",
         "jsr:@std/media-types",
         "jsr:@std/net",
-        "jsr:@std/path@^1.1.4",
+        "jsr:@std/path",
         "jsr:@std/streams"
       ]
     },
@@ -188,8 +183,8 @@
         "ms"
       ]
     },
-    "decode-named-character-reference@1.2.0": {
-      "integrity": "sha512-c6fcElNV6ShtZXmsgNgFFV5tVX2PaV4g+MOAkb8eXHvn6sryJBrZa9r0zV6+dtTyoCKxtDy5tyQ5ZwQuidtd+Q==",
+    "decode-named-character-reference@1.3.0": {
+      "integrity": "sha512-GtpQYB283KrPp6nRw50q3U9/VfOutZOe103qlN7BPP6Ad27xYnOIWv4lPzo8HCAL+mMZofJ9KEy30fq6MfaK6Q==",
       "dependencies": [
         "character-entities"
       ]
@@ -502,16 +497,6 @@
     "punycode.js@2.3.1": {
       "integrity": "sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA=="
     },
-    "ts-blank-space@0.6.1": {
-      "integrity": "sha512-LcM3W5HEyzTaXUeQITV8ploUOGe+zuuoFYsCfPscFLhx3bZn2sSfHMKxsULVG/zA7an9UhReiHv4Kk/6QzlpXQ==",
-      "dependencies": [
-        "typescript"
-      ]
-    },
-    "typescript@5.8.3": {
-      "integrity": "sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==",
-      "bin": true
-    },
     "uc.micro@2.1.0": {
       "integrity": "sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A=="
     },
@@ -523,7 +508,7 @@
     "dependencies": [
       "jsr:@mastrojs/feed@^0.0.1",
       "jsr:@mastrojs/markdown@0.1.5",
-      "jsr:@mastrojs/mastro@0.7.0",
+      "jsr:@mastrojs/mastro@0.7.12",
       "jsr:@mastrojs/og-image@^0.0.11",
       "npm:markdown-it-anchor@9.2.0",
       "npm:markdown-it-container@4.0.0",
