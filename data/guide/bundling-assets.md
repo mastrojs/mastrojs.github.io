@@ -28,36 +28,47 @@ The same can happen in CSS when using [@font-face](https://developer.mozilla.org
 
 When bundling JavaScript, the syntax needs to be parsed and some things need to be wrapped in functions and/or renamed (e.g. to prevent clashes of variables with the same name in different modules). JavaScript bundlers like [esbuild](https://esbuild.github.io/) recursively follow the import statements and try to bundle only code that’s actually used. This is called "dead-code elimination", or in the JavaScript world also "tree-shaking" (but beware that the bundler must assume that [importing a module can have side-effects](https://esbuild.github.io/api/#ignore-annotations)).
 
-In Mastro, a route that bundles all JavaScript that's referenced from the `routes/app.client.ts` entry point, might look as follows:
+You can add `esbuild` to your Mastro project by running `pnpm add esbuild`, `bun add esbuild`, or `deno add npm:esbuild` respectively (make sure you have a `package.json` file and `node_modules/` folder when [using Deno](https://docs.deno.com/runtime/fundamentals/node/#first-class-package.json-support) – otherwise esbuild will not find dependencies).
 
-```ts title=routes/bundle.js.server.ts
-import * as esbuild from "npm:esbuild";
+Then, a route that bundles all JavaScript that's referenced from the `client/app.ts` entry point, might look as follows:
+
+```ts title=routes/app-bundle.js.server.ts
+import * as esbuild from "esbuild";
 
 export const GET = async () => {
   const { outputFiles } = await esbuild.build({
-    entryPoints: ["routes/app.client.ts"],
+    entryPoints: ["client/app.ts"],
     bundle: true,
+    format: "esm",
     write: false,
   });
-  return new Response(outputFiles[0].contents, {
+  return new Response(outputFiles[0]?.contents as BodyInit, {
     headers: { "Content-Type": "text/javascript; charset=utf-8" },
   });
 };
 ```
 
-It could be consumed like:
+It would be consumed like:
 
 ```html
-<script type="module" src="/bundle.js"></script>
+<script type="module" src="/app-bundle.js"></script>
 ```
 
-If you decide to bundle all your client-side JavaScript, you most probably want to move the source files out of the `routes/` folder, perhaps in a new `client/` folder or similar, and adjust the `entryPoints` accordingly.
+For a Mastro sample project that's set up to bundle client-side JavaScript, see [bundled-service-worker](https://github.com/mastrojs/mastro/blob/main/examples/bundled-service-worker/) and its [bundler](https://github.com/mastrojs/mastro/blob/main/examples/bundled-service-worker/handlers/SW.ts).
+
+Having a `client/` folder in the root of your project (and a `package.json` file that's shared between the server and client bundled by esbuild) is only one way of doing things. In Mastro, you can name and organize things to your liking. For example, you could also have completely separate `client` and `server` folders, each with their own dependencies.
 
 As you can imagine, bundling of hundreds of files can be computationally expensive, and would take the server longer than generating a typical HTML page. When doing static site generation, this doesn't matter. But doing that every time a user makes a request to a server would be slow and wasteful. We'll look at [pregenerating assets later](#build-step).
 
-Bundling gets more complicated if not all pages of the website require the same JavaScript. For that case, some bundlers try to create different chunks ("code splitting"), balancing the conflicting goals of fewer chunks, chunks containing no unnecessary code for that page, and little code being duplicated across chunks.
+:::tip
+#### Advanced bundling considerations
+
+Bundling gets more complicated if not all pages of the website require the same JavaScript. In that case, sometimes bundlers are set up to create different chunks (aka "code splitting"). Then they need to balance the conflicting goals of fewer chunks, chunks containing no unnecessary code for that page, and little code being duplicated across chunks.
 
 For both CSS and client-side JavaScript, there is usully a trade-off between loading only what you need for the current page (which is optimizing initial page load speed), over loading everything in a single request that the user might need if they afterwards also visit other pages (which is optimal overall, but only if the user does visit more pages).
+
+And finally, the optimal strategy also depends on how often you modify which parts of the code, which chunks that would invalidate, and what their caching live-times are.
+:::
 
 ### Bundling CSS
 
