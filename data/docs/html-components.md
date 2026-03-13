@@ -72,7 +72,7 @@ export const Layout = (props: Props) =>
 ```
 
 
-## HTTP Streaming
+## HTML Streaming
 
 [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [AsyncIterables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) can be passed directly into HTML templates without needing to be awaited.
 When passed to [`htmlToResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse), this will create a `Response` that sends the chunks over the wire as soon as they're available.
@@ -123,7 +123,9 @@ async function * mapIterable<T, R> (
 }
 ```
 
-We use our own `mapIterable` function, because while standard [Iterator helpers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/map) are specced and implemented, [async iterator helpers](https://github.com/tc39/proposal-async-iterator-helpers) are still a work in progress.
+We use our own `mapIterable` function, because while standard [Iterator helpers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/map) are specced and implemented, [async iterator helpers](https://github.com/tc39/proposal-async-iterator-helpers) are still a work in progress. See this [working example](https://github.com/mastrojs/mastro/tree/main/examples/postgresql)
+
+To stream JSON, see [HTTP Streaming in the guide](/guide/caching-service-workers-streaming/#http-streaming).
 
 
 ## Reading files

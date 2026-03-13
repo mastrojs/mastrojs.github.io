@@ -177,26 +177,3 @@ If you start the server with `deno task start` and access it on a `http://localh
 You can pregenerate not only images, CSS or JavaScript, but also entire HTML pages. Simply add a `export const pregenerate = true;` to your route.
 
 Usually, serving the pregenerated files with your normal web server will be fast enough. However, you could also push e.g. the `generated/_images/` folder to your CDN (content delivery network), and configure it to serve all URLs starting with `/_images/` directly from the CDN.
-
-
-## Caching
-
-Storing data, in order for future requests to be served faster, is known as _caching_. The place where it's stored is called a _cache_. Caching is either done because the data was expensive to compute, or because the cache is physically closer to where the data will be needed. That's what a CDN is – a distributed cache with multiple locations across the globe, where the user will automatically connect to the one that's geographically closest to them.
-
-Eagerly pregenerating assets in a build step, like we've seen above, is one kind of caching. Another kind is to store the result of one request for future requests to the same URL (either in a CDN, an in-memory cache of your server, on using Redis or similar). This offers more flexibility and finer granularity, but has the disadvantage that the first request (until the cache is populated) will be slow.
-
-The thing that's generally very difficult to get right with caching is _cache invalidation_: the question of when and how to remove a result from the cache, because it's no longer up to date. With static site generation, we typically just regenerate the whole site every time any part of it has changed. This is very easy to implement and reason about, but for websites with millions of pages, it usually takes too long. Another strategy is to set a time-to-live: tell the cache that it should invalidate an entry if it's older than a certain number of seconds, minutes or days. This is also easy to implement, but means that when you update a page, visitors will still see the old version of the page until it expires. There are many more caching strategies, each with their own subtleties to consider.
-
-:::tip
-### HTTP caching
-
-If you want to improve performance and reduce load on your server by leveraging the browser cache and/or a CDN, the [MDN article on HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching), or [this guide to HTTP caching](https://www.jonoalderson.com/performance/http-caching/) are both good places to start reading.
-:::
-
-
-## HTTP Streaming
-
-Caching is great, but sometimes it's not an option – for example when you need the absolute newest data from the database. To improve performance in a case like that, you should consider HTTP streaming, where each chunk of the HTML page is sent from the server as soon as it's ready. That way, a user may already see the first row of a big data set in their browser, while the last row hasn't even been read out from the database yet.
-
-To support it, all you have to do, is not break it on any level of the stack: from the database driver, to the HTML templates, all the way to your web hosting provider and CDN proxy. If there's an `await` or similar anywhere in that chain, which blocks until the whole page is loaded, then it cannot be streamed. For an example, see [HTTP Streaming in the docs](/docs/html-components/#http-streaming).
-

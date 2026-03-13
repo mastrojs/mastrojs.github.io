@@ -99,6 +99,6 @@ For the backend, the write-read boundary is again the database. For the frontend
 
 ## Alternative architectures
 
-The three cases discussed are probably the most common web application architectures. But there's a lot more that can be done, for example with different kinds of databases (e.g. distributed databases, key-value stores, etc.), with queues (e.g. Event Sourcing), with Sync Engines, or with moving the computation itself to the CDN (known as "edge computing") – each with its own different sets of trade-offs.
+The three cases discussed are probably the most common web application architectures. But there's a lot more that can be done, for example with different kinds of databases (e.g. distributed databases, key-value stores, etc.), with queues (e.g. Event Sourcing), with Sync Engines, or with moving the computation itself to the CDN (known as "edge computing") or a Service Worker – each with its own different sets of trade-offs.
 
 But usually it's best to start simple, and only once your project experiences growing pains, change your architecture to specifically address those issues.

@@ -154,6 +154,7 @@ const sidebar = [{
       { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
       { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
       { label: "Bundling and pregenerating assets", slug: "/guide/bundling-assets/" },
+      { label: "Caching, Service Workers and streaming", slug: "/guide/caching-service-workers-streaming/" },
       { label: "Web application architectures", slug: "/guide/web-application-architectures/" },
     ],
   }],
