@@ -1,10 +1,14 @@
-# The Mastro Guide 👨‍🍳
+# The Mastro Website 👨‍🍳
 
 Repo for the https://mastrojs.github.io website.
 
 
 ## Develop
 
-To open in VS Code for the Web, see [setup](https://mastrojs.github.io/guide/setup/). Alternatively:
+Start dev server:
 
     deno task start
+
+Build static site:
+
+    deno task generate
