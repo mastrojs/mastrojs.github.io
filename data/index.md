@@ -1,13 +1,13 @@
 ---
 title: The simplest web framework and site generator yet.
 metaTitle: 'Mastro: the simplest web framework and site generator'
-description: 'A minimal tool to build content-driven websites. Use web standards and plain JavaScript – work directly with the high-performance engine that is a modern browser.'
+description: "A minimal tool for people that care. Use web standards and plain JavaScript – build directly on top of your server runtime and the browser."
 layout: hero
 ---
 
 <div class="herolist">
 
-Mastro is a **minimal** tool for people that **care**. Use **web standards** and plain JavaScript/TypeScript – work directly _with_ the high-performance engines built into today's browsers and server runtimes.
+Mastro is a **minimal** tool for people that **care**. Use **web standards** and plain JavaScript/TypeScript – build directly on top of your server runtime and the browser.
 
 <p class="mt-3 mb-6">
   <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
