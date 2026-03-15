@@ -7,11 +7,11 @@ layout: hero
 
 <div class="herolist">
 
-Mastro is a **minimal** tool to build **content-driven websites**. Use **web standards** and plain JavaScript/TypeScript – work directly _with_ the high-performance engine that is a modern browser.
+Mastro is a **minimal** tool for people that **care**. Use **web standards** and plain JavaScript/TypeScript – work directly _with_ the high-performance engines built into today's browsers and server runtimes.
 
 <p class="mt-3 mb-6">
   <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
-  <a class="button -secondary" href="#powerful-for-experienced-developers">Get started</a>
+  <a class="button -secondary" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
   <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 </p>
 
@@ -20,7 +20,7 @@ Mastro is a **minimal** tool to build **content-driven websites**. Use **web sta
 - **It all works the same**: HTML pages, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), RSS [feeds](https://jsr.io/@mastrojs/feed) – you name it.
 - **_SSG_ and _SSR_**: static site generation _and_ on-demand [server-side rendering](/blog/2026-01-26-request-response-api-also-great-for-static-site-asset-generation/).
 - **Composable abstractions**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all.
-- **Multi-runtime**: works on Deno, Node.js, Bun and Workers.
+- **Multi-runtime**: works on Deno, Node.js, Bun, Cloudflare and Service Workers.
 
 ## No bloat
 
@@ -34,7 +34,7 @@ Mastro is a **minimal** tool to build **content-driven websites**. Use **web sta
 
 </div>
 
-<div class="tip center-text mt-3 mb-6">
+<div class="tip center-text mt-3 mb-3">
 
 ## As seen on the Internet!
 
@@ -48,7 +48,21 @@ Mastro is a **minimal** tool to build **content-driven websites**. Use **web sta
 
 </div>
 
+<div class="flex-center">
+
+<blockquote>
+Mastro's source code is extremely readable.<br>
+– <a href="https://typescript.fm/bonus54">Erik Onarheim</a>
+</blockquote>
+
+<blockquote>
+A library worth checking out!<br>
+– <a href="https://thathtml.blog/2024/12/new-custom-element-superclass-on-the-block/">Jared White</a>
+</blockquote>
+
 </div>
+</div>
+
 
 <div class="col2 breakout gap-1">
 <div>
@@ -132,7 +146,8 @@ export const Layout = (props: Props) =>
 </div>
 </div>
 
-Look at [more examples](https://github.com/mastrojs/mastro/tree/main/examples/), or the [source of this website](https://github.com/mastrojs/mastrojs.github.io). Besided the default file-based router, there is also an Express-like [programmatic router](#programmatic-router).
+<a class="button -secondary" href="https://github.com/mastrojs/mastro/tree/main/examples/">More examples</a>
+<a class="button -minimal" href="https://github.com/mastrojs/mastrojs.github.io">Source of this website</a>
 
 
 ## Easy for beginners
