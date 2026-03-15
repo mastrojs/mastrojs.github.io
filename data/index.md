@@ -1,13 +1,14 @@
 ---
 title: The simplest web framework and site generator yet.
 metaTitle: 'Mastro: the simplest web framework and site generator'
-description: 'A minimal tool to build content-driven websites. Use web standards and plain JavaScript – work directly with the high-performance engine that is a modern browser.'
+description: "A minimal tool for people who care about their users and the web."
 layout: hero
 ---
 
 <div class="herolist">
 
-Mastro is a **minimal** tool for people that **care**. Use **web standards** and plain JavaScript/TypeScript – work directly _with_ the high-performance engines built into today's browsers and server runtimes.
+🤗 Mastro is a **minimal** tool for people who **care** about their users and the web.\
+👨‍🍳 Use **web standards** and build directly on top of the browser and your JavaScript runtime.
 
 <p class="mt-3 mb-6">
   <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
@@ -17,8 +18,8 @@ Mastro is a **minimal** tool for people that **care**. Use **web standards** and
 
 ## Minimal yet powerful
 
-- **It all works the same**: HTML pages, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), RSS [feeds](https://jsr.io/@mastrojs/feed) – you name it.
 - **_SSG_ and _SSR_**: static site generation _and_ on-demand [server-side rendering](/blog/2026-01-26-request-response-api-also-great-for-static-site-asset-generation/).
+- **It all works the same**: HTML pages, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), RSS [feeds](https://jsr.io/@mastrojs/feed) – you name it.
 - **Composable abstractions**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all.
 - **Multi-runtime**: works on Deno, Node.js, Bun, Cloudflare and Service Workers.
 
