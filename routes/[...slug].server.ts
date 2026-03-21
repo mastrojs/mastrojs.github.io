@@ -162,6 +162,7 @@ const sidebar = [{
   label: "Docs",
   slug: "/docs/",
   contents: [
+    { label: "Why Mastro?", slug: "/docs/why-mastro/" },
     { label: "Routing", slug: "/docs/routing/" },
     { label: "Components and HTML", slug: "/docs/html-components/" },
     { label: "Installation and setup", slug: "/docs/install-setup/" },
