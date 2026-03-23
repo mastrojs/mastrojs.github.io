@@ -4,13 +4,14 @@ import { Newsletter } from "../../components/Newsletter.ts";
 import { fmtIsoDate } from "../../helpers/date.ts";
 import { readBlogFiles } from "../../helpers/markdown.ts";
 
-export const GET = async () => {
+export const GET = async (req: Request) => {
   const posts = await readBlogFiles();
   posts.sort((a, b) => a.meta.date < b.meta.date ? 1 : -1);
   return htmlToResponse(
     Layout({
       title: "Blog | Mastro",
       ogImage: "https://mastrojs.github.io/blog/og.png",
+      req,
       children: html`
         <main>
           <h1>Blog</h1>

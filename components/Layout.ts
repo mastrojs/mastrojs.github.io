@@ -6,6 +6,7 @@ interface Props {
   description?: string;
   ogImage: string;
   title?: string;
+  req: Request;
 }
 
 export const Layout = (props: Props) =>
@@ -30,6 +31,15 @@ export const Layout = (props: Props) =>
           src="//gc.zgo.at/count.js"
         ></script>
         <link rel="alternate" type="application/atom+xml" href="/feed.xml">
+        ${new URL(props.req.url).hostname === "localhost" && html`
+          <script type="module">
+            let unloading = false;
+            addEventListener("beforeunload", () => { unloading = true });
+            fetch("/watch-change").catch(() => {
+              if (!unloading) setTimeout(() => location.reload(), 100);
+            });
+          </script>
+        `}
       </head>
       <body>
         <header>

@@ -36,6 +36,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
       description: meta.description,
       canonical: meta.canonical,
       ogImage: `https://mastrojs.github.io${pathname}og.png`,
+      req,
       children: html`
         ${Sidebar(sidebar, part, pathname)}
 
