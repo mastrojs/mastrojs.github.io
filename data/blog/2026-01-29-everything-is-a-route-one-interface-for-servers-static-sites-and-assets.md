@@ -32,7 +32,7 @@ Let’s look at the three cases.
 
 ## Server-side rendering
 
-Server-side rendering is the obvious part. After all, that’s the use-case that popularized the Request/Response-API (e.g. when writing Cloudflare Workers). In Mastro, this looks as follows:
+[Server-side rendering](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server) is the obvious part. After all, that’s the use-case that popularized the Request/Response-API (e.g. when writing Cloudflare Workers). In Mastro, this looks as follows:
 
 ```ts
 import { html, htmlToResponse } from "@mastrojs/mastro";

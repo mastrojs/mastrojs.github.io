@@ -18,9 +18,10 @@ layout: hero
 
 ## Minimal yet powerful
 
-- **_SSG_ and _SSR_**: static site generation _and_ on-demand [server-side rendering](/blog/2026-01-26-request-response-api-also-great-for-static-site-asset-generation/).
-- **It all works the same**: HTML pages, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), RSS [feeds](https://jsr.io/@mastrojs/feed) – you name it.
-- **Composable abstractions**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all.
+- **Static site generation** of [fast websites](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) – ideal for blogs, marketing sites or webshops.
+- **Server-side rendering** of [on-demand content](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/) – use Mastro as a full-stack web framework.
+- **It all works the same**: add a [REST API](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), serving JSON or XML, just like you'd render HTML.
+- **Composable abstractions**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all there is to Mastro.
 - **Multi-runtime**: works on Deno, Node.js, Bun, Cloudflare and Service Workers.
 
 ## No bloat
@@ -286,7 +287,7 @@ Need something else? [Please ask](https://github.com/mastrojs/mastro/discussions
 
 ### Client-side interactivity
 
-When you need interactivity in the browser, use plain JavaScript, or [add a library](/guide/third-party-packages/#on-the-client) like [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/) or [Unpoly](https://unpoly.com/).
+When you need interactivity in the browser, use plain JavaScript, or [add a library](/guide/third-party-packages/#on-the-client) such as [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/), [Unpoly](https://unpoly.com/), [ArrowJS](https://arrow-js.com/), etc.
 
 To [share templates](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api) with the server, use Reactive Mastro – a tiny reactive GUI lib.
 
