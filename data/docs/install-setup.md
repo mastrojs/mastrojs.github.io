@@ -124,3 +124,44 @@ Deno.serve(async (req) => {
 ```
 
 If there is demand, we could introduce a `@mastrojs/middleware` package that formalizes this concept somewhat.
+
+## Auto-reloading page in development
+
+Mastro has no magic auto-reloading or HMR (hot module replacement) functionality built in. But you can add it by first creating a new route on the server:
+
+```ts title=routes/watch-change.server.ts
+// To enable auto-reloading via long polling, this route never resolves.
+export const GET = (req: Request) =>
+  new URL(req.url).hostname === "localhost"
+    ? new Promise(() => undefined)
+    : new Response("Not found", { status: 404 })
+
+```
+
+And then calling the route from the client as follows:
+
+```ts title=components/Layout.ts ins={4,12-21}
+interface Props {
+  title: string;
+  children: Html;
+  req: Request;
+}
+
+export const Layout = (props: Props) =>
+  html`
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        ${new URL(props.req.url).hostname === "localhost" && html`
+          <script type="module">
+            let unloading = false;
+            addEventListener("beforeunload", () => { unloading = true });
+            fetch("/watch-change").catch(() => {
+              // give the dev server 100ms to restart:
+              if (!unloading) setTimeout(() => location.reload(), 100);
+            });
+          </script>
+        `}
+```
+
+Then check your `deno.json`/`package.json` file to make sure you [start your dev server](#start-a-server) with the `--watch` flag, which causes your server to restart on file changes. When that happens, the network request to `/watch-change` will be aborted, which in turn causes our client-side JavaScript to reload the page after 100ms.
