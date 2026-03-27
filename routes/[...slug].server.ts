@@ -139,16 +139,16 @@ const sidebar = [{
       { label: "Introducing JavaScript", slug: "/guide/javascript/" },
     ],
   }, {
-    label: "Static site generation (SSG)",
+    label: "Static site generation",
     contents: [
-      { label: "Client-side vs server-side JavaScript, SSG vs SSR, SPA vs MPA", slug: "/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/" },
+      { label: "JavaScript: client-side vs server-side, SSG vs SSR, SPA vs MPA", slug: "/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/" },
       { label: "Server-side components and routing", slug: "/guide/server-side-components-and-routing/" },
       { label: "A static blog from markdown files", slug: "/guide/static-blog-from-markdown-files/" },
       { label: "Third-party packages", slug: "/guide/third-party-packages/" },
       { label: "Interactivity with JavaScript in the browser", slug: "/guide/interactivity-with-javascript-in-the-browser/" },
     ],
   }, {
-    label: "Running a server (SSR)",
+    label: "Running a server",
     contents: [
       { label: "URLs and HTTP", slug: "/guide/urls-http/" },
       { label: "Mastro as a server on the command line", slug: "/guide/cli-install/" },
