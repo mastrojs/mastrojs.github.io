@@ -12,7 +12,7 @@ This guide does not show you everything you’ll ever need to know when creating
 Instead, it shows you the door to the world of web design, giving you an overview over the landscape, and tells you where to learn more.
 While the minimal Mastro framework is used for practical examples, the patterns discussed are universal.
 
-<a class="button" href="/guide/why-html-css/">Follow the free course</a>
+<a class="button" href="/guide/ways-to-build-a-website/">Follow the free course</a>
 
 
 ## Table of Contents
