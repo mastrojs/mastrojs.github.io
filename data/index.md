@@ -253,12 +253,48 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 |          |       |         |
 |:---------|------:|:--------|
 | Mastro   |  0.5s | &nbsp;🏁 |
-| Eleventy |  0.7s |         |
+| 11ty     |  0.7s |         |
 | Astro    |  2.2s |         |
 | Next.js  | 16.3s |         |
 
 </div>
 
+<div>
+
+### Why Mastro instead of...
+<details>
+<summary>Next.js</summary>
+
+Next.js creates bloated SPAs: every feature you add increases the amount of JS your users have to download. Running your code on the server, then running it again on the client, also adds a lot of complexity.
+</details>
+
+<details>
+<summary>Astro</summary>
+
+Astro was a big inspiration for Mastro (the name originated from "minimal Astro"). But Astro currently has [246 dependencies weighing 87 MB](https://npmx.dev/package/astro). Astro is also heavily coupled to the vite bundler, which makes some simple things surprisingly complex.
+</details>
+
+<details>
+<summary>11ty</summary>
+
+Eleventy has a lot of options around static site generation, but doesn't run as a server. It currently still also has [116 dependencies weighing 14 MB](https://npmx.dev/package/@11ty/eleventy).
+</details>
+
+<details>
+<summary>Hono</summary>
+
+Hono shares Mastro's minimalism, but it is more backend focused (e.g. it doesn't come with a file-based router).
+</details>
+</div>
+
+<div>
+
+### Escape the frontend treadmill
+
+With today's browsers and engines, there is no need for complex frameworks and build systems anymore.
+
+<a class="button" href="/docs/why-mastro/">Why Mastro</a>
+</div>
 </div>
 
 
@@ -297,6 +333,7 @@ To [share templates](https://github.com/mastrojs/mastro/tree/main/examples/todo-
 </div>
 </div>
 
+
 ## Join the community
 
 We're building an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe, and help each other. A place to ask questions and learn new things.
@@ -309,7 +346,7 @@ We're building an inclusive community, where people of all kinds of backgrounds 
 @-mention us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social), or talk to us on:
 
 <a class="button -secondary" data-goatcounter-click="home.github.stoat" href="https://stt.gg/k7QMEaP1">Stoat Chat</a>
-<a class="button -minimal" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions/new/choose">GitHub Discussions</a>
+<a class="button -minimal" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions/new/choose">GH Discussions</a>
 </div>
 <div>
 

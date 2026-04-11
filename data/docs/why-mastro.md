@@ -2,14 +2,14 @@
 title: Why Mastro?
 ---
 
-Over the last decade, the JavaScript ecosystem has been moving to ever more complex frameworks and build systems. What prompted me to create Mastro is that a lot of that isn't necessary anymore.
+The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But a lot of that isn't necessary anymore.
 
-- [SPAs have peaked](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa) because browsers now have [MPA view transistions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API/Using#basic_mpa_view_transition) and [bfcache](https://web.dev/articles/bfcache).
-- Native [CSS features](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa) like [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) and [nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting) replace much of SCSS.
-- Node.js now supports [TypeScript type stripping](https://nodejs.org/api/typescript.html#type-stripping) and [file watching](https://nodejs.org/api/cli.html#watch) out of the box.
-- Bundling is still necessary if you have hundreds of client-side JavaScript files. But with ES modules in all browsers, bundling [shouldn't be the default anymore](/guide/bundling-assets/).
+- Browsers now have [MPA view transistions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API/Using#basic_mpa_view_transition) and [bfcache](https://web.dev/articles/bfcache). SPAs have [peaked](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa).
+- Native [CSS features](/guide/css/#want-to-learn-more-css%3F) replace much of SCSS.
+- Node.js supports [TypeScript type stripping](https://nodejs.org/api/typescript.html#type-stripping) and [file watching](https://nodejs.org/api/cli.html#watch) out of the box.
+- With ES modules in all browsers, bundling [shouldn't be the default anymore](/guide/bundling-assets/).
 
-[I have been building websites](https://github.com/mb21/) for two decades. Back in the day it was PHP and Flash, then Ruby on Rails and Jekyll, and lately Next.js (with React) and Astro (with Solid). I've seen a lot of things that work well, and a lot of things that don't. This has informed the following design principles of Mastro.
+I have [been building websites](https://github.com/mb21/) for two decades. From PHP, over Ruby on Rails, to Next.js and Astro. I've seen a lot of things that work well, and a lot of things that don't. This has informed the following design principles.
 
 
 ## Design Principles
