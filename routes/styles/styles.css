@@ -283,7 +283,8 @@ body > header {
   left: 0;
   box-sizing: border-box;
   width: 100%;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
+  background-color: color-mix(in srgb, var(--color-bg), transparent 80%);
 
   @media (max-width: 1000px) {
     backdrop-filter: blur(20px);
