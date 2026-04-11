@@ -7,8 +7,8 @@ layout: hero
 
 <div class="herolist">
 
-🤗 Mastro is a **minimal** tool for people who **care** about their users and the web.\
-👨‍🍳 Use **web standards** and build directly on top of the browser and your JavaScript runtime.
+🤗 **For people who care about their users and the web.**\
+👨‍🍳 Build directly on top of the browser and your JavaScript runtime.
 
 <p class="mt-3 mb-6">
   <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
