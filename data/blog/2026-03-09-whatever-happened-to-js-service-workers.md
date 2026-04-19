@@ -62,6 +62,6 @@ I'm thinking of putting some effort into one or two Mastro starter templates wit
 
 Mastro is primarily a server-side web framework and static site generator. But since it’s so lightweight, it’s also well suited to do routing and HTML-rendering inside a service worker.
 
-Mastro works well for either of the two architectures outlined above: an “app shell” that always renders everything in the service worker, or an “isomorphic” app that renders the initial page on the server (or Cloudflare Worker), and subsequent page navigations in the Service Worker – sharing all the code. To get started, see this simple [Mastro Service Worker project](https://github.com/mastrojs/mastro/tree/main/examples/bundled-service-worker).
+Mastro works well for either of the two architectures outlined above: an “app shell” that always renders everything in the service worker, or an “isomorphic” app that renders the initial page on the server (or Cloudflare Worker), and subsequent page navigations in the Service Worker – sharing all the code.
 
-To explore this design space further, I’m planning to build a Bluesky client app running in a service worker. Perhaps it will even render other kinds of ATProto content, like blog posts. To stay tuned, subscribe below!
+**To get started, use this simple [Mastro Service Worker example project](https://github.com/mastrojs/mastro/tree/main/examples/bundled-service-worker).**

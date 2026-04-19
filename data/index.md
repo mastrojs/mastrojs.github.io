@@ -8,7 +8,7 @@ layout: hero
 <div class="herolist">
 
 🤗 **For people who care about their users and the web.**\
-👨‍🍳 Build directly on top of the browser and your JavaScript runtime.
+👨‍🍳 Build directly on top of the browser and Node.js, Deno, Bun, or Workers.
 
 <p class="mt-3 mb-6">
   <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
@@ -22,7 +22,6 @@ layout: hero
 - **Server-side rendering** of [on-demand content](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/) – use Mastro as a full-stack web framework.
 - **It all works the same**: add a [REST API](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), serving JSON or XML, just like you'd render HTML.
 - **Composable abstractions**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all there is to Mastro.
-- **Multi-runtime**: works on Deno, Node.js, Bun, Cloudflare and Service Workers.
 
 ## No bloat
 
@@ -188,7 +187,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
     <label><input type="radio" name="install" class="tab1" checked>Deno</label>
     <label><input type="radio" name="install" class="tab2">Node.js</label>
     <label><input type="radio" name="install" class="tab3">Bun</label>
-    <label><input type="radio" name="install" class="tab4">CF Workers</label>
+    <label><input type="radio" name="install" class="tab4">Workers</label>
   </header>
 
   <div tabindex=0 id="content1">
@@ -217,12 +216,15 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   ```
   </div>
   <div tabindex=0 id="content4">
+  Use Deno, Node.js, or Bun to generate a static site for any CDN (Cloudflare or not).
 
-  Use Deno, Node.js, or Bun to generate a static site for any CDN. However, to run code on-demand in a [Cloudflare Worker](https://workers.cloudflare.com/), copy into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-cloudflare)):
+  However, to run code [on-demand](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) in a [Cloudflare Worker](https://workers.cloudflare.com/), (use the [template repo](https://github.com/mastrojs/template-basic-cloudflare)) or run:
 
   ```sh
   pnpm create @mastrojs/mastro@0.1.5 --cloudflare
   ```
+
+  Finally, Mastro can also run code on-demand inside a [Service Worker in the user's browser](/blog/2026-03-09-whatever-happened-to-js-service-workers/).
   </div>
 </section>
 
@@ -265,19 +267,19 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 <details>
 <summary>Next.js</summary>
 
-Next.js creates bloated SPAs: every feature you add increases the amount of JS your users have to download. Running your code on the server, then running it again on the client, also adds a lot of complexity.
+Next.js creates [bloated SPAs](http://localhost:8000/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/): every feature you add increases the amount of JS your users have to download. Running your code on the server, then running it again on the client, also adds a lot of complexity.
 </details>
 
 <details>
 <summary>Astro</summary>
 
-Astro was a big inspiration for Mastro (the name originated from "minimal Astro"). But Astro currently has [246 dependencies weighing 87 MB](https://npmx.dev/package/astro). Astro is also heavily coupled to the vite bundler, which makes some simple things surprisingly complex.
+Astro was a big inspiration for Mastro (the name originated from "minimal Astro"). But Astro currently has [246 dependencies weighing 87 MB](https://npmx.dev/package/astro). Astro is also heavily coupled to its [bundler](/guide/bundling-assets/), which makes some simple things surprisingly complex.
 </details>
 
 <details>
 <summary>11ty</summary>
 
-Eleventy has a lot of options around static site generation, but doesn't run as a server. It currently still also has [116 dependencies weighing 14 MB](https://npmx.dev/package/@11ty/eleventy).
+Eleventy has a lot of options around static site generation, but it doesn't run as a server. It is [not TypeScript-first](https://github.com/11ty/eleventy/issues/3787), and currently still has [116 dependencies weighing 14 MB](https://npmx.dev/package/@11ty/eleventy).
 </details>
 
 <details>
