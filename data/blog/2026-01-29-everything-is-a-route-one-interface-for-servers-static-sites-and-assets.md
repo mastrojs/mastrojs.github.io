@@ -17,13 +17,13 @@ const myHandler = async (req: Request) => {
 
 In fact, it’s such a great interface that Mastro decided to go all-in on it, and use it for all of the following functionality:
 
-1. on-demand server-side rendering (SSR) of
+1. [on-demand server-side rendering](#server-side-rendering) (SSR) of
   	- HTML pages
     - JSON REST APIs
     - RSS feeds
     - etc.
-2. static site generation (SSG)
-3. asset generation of
+2. [static site generation](#static-site-generation) (SSG)
+3. [asset generation](#asset-generation) of
 	  - resized images
 	  - CSS/JS bundles
 	  - etc.
