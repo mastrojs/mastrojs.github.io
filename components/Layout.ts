@@ -9,8 +9,9 @@ interface Props {
   req: Request;
 }
 
-export const Layout = (props: Props) =>
-  html`
+export const Layout = (props: Props) => {
+  const url = new URL(props.req.url);
+  return html`
     <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -19,9 +20,7 @@ export const Layout = (props: Props) =>
         <title>${props.title}</title>
         <link rel="stylesheet" href="/styles/styles.css">
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-        ${props.canonical && html`
-          <link rel="canonical" href="${props.canonical}">
-        `}
+        <link rel="canonical" href="${props.canonical || new URL(url.pathname, baseUrl)}">
         <meta name="description" content="${props.description || "A minimal tool to build content-driven websites"}">
         <meta property="og:image" content=${props.ogImage}>
         <script type="module" src="/scripts.js"></script>
@@ -31,7 +30,7 @@ export const Layout = (props: Props) =>
           src="//gc.zgo.at/count.js"
         ></script>
         <link rel="alternate" type="application/atom+xml" href="/feed.xml">
-        ${new URL(props.req.url).hostname === "localhost" && html`
+        ${url.hostname === "localhost" && html`
           <script type="module">
             let unloading = false;
             addEventListener("beforeunload", () => { unloading = true });
@@ -99,3 +98,6 @@ export const Layout = (props: Props) =>
       </body>
     </html>
   `;
+}
+
+export const baseUrl = "https://mastrojs.github.io/";

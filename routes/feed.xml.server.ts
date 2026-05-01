@@ -1,7 +1,6 @@
 import { atomResponse } from "@mastrojs/feed";
 import { readBlogFiles } from "../helpers/markdown.ts";
-
-const baseUrl = "https://mastrojs.github.io/";
+import { baseUrl } from "../components/Layout.ts";
 
 export const GET = async () => {
   const posts = await readBlogFiles();
