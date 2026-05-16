@@ -2,14 +2,12 @@
 title: Why Mastro?
 ---
 
-The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But a lot of that isn't necessary anymore.
+The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But this isn't necessary anymore.
 
-- Browsers now have [MPA view transistions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API/Using#basic_mpa_view_transition) and [bfcache](https://web.dev/articles/bfcache). SPAs have [peaked](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa).
-- Native [CSS features](/guide/css/#want-to-learn-more-css%3F) replace much of SCSS.
+- Browsers now have [bfcache and MPA view transistions](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#buttery-smooth-navigation-in-mpas). SPAs have [peaked](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa).
+- [Native CSS features](/guide/css/#want-to-learn-more-css%3F) replace much of SCSS.
 - Node.js supports [TypeScript type stripping](https://nodejs.org/api/typescript.html#type-stripping) and [file watching](https://nodejs.org/api/cli.html#watch) out of the box.
 - With ES modules in all browsers, bundling [shouldn't be the default anymore](/guide/bundling-assets/).
-
-I have [been building websites](https://github.com/mb21/) for two decades. From PHP, over Ruby on Rails, to Next.js and Astro. I've seen a lot of things that work well, and a lot of things that don't. This has informed the following design principles.
 
 
 ## Design Principles
@@ -32,5 +30,5 @@ I have [been building websites](https://github.com/mb21/) for two decades. From 
     - Mastro will never take on VC-money and there will be no eventual enshittification.
     - Mastro’s [implementation](https://github.com/mastrojs/mastro/tree/main/src#readme) is low-maintenance and so small that you can read it in an hour or two. Should you ever outgrow it, you can simply fork it and adjust things to your needs.
     - Mastro is modular. If you prefer e.g. another templating engine, use that instead.
-    - Mastro has a tiny [API-surface](https://jsr.io/@mastrojs/mastro/doc), and once we hit v1.0 it will remain extremely stable, so that projects that depend on Mastro aren’t stuck on an update-treadmill.
+    - Mastro has a tiny [API-surface](https://jsr.io/@mastrojs/mastro/doc), which is already very stable. Once we hit v1.0, the public API will get frozen, so that projects that depend on Mastro aren’t stuck on an update-treadmill.
     - [Additional packages](/#extensions) in the `@mastro` namespace may have higher rates of change, and we invite the community to create additional packages on top of the standard Request/Response-API.

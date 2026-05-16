@@ -84,6 +84,9 @@ ol, ul {
 li > ol, li > ul {
   padding-left:1.5em
 }
+p:has(+ ul) {
+  margin-bottom: 0.1em;
+}
 
 img {
   max-width: 100%;

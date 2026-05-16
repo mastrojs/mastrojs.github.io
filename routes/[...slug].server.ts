@@ -56,15 +56,6 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
           ${["/", "/guide/"].includes(pathname) || isBlog
             ? Newsletter()
             : ""}
-          ${pathname === "/" ? html`
-            <section class="center-text">
-              <p><em>This is the end of the page. Yet it may be the beginning of your journey with Mastro.</em></p>
-              <p>
-                <a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
-                <a class="button -secondary" href="/docs/">Get started</a>
-              </p>
-            </section>
-            ` : ""}
           ${isBlog
             ? html`
                 <section class="center-text">

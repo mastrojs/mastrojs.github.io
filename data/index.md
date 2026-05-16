@@ -10,9 +10,11 @@ layout: hero
 🤗 **For people who care about their users and web standards.**\
 👨‍🍳 Build directly on top of the browser and Node.js, Deno, Bun, or Workers.
 
+Mastro was designed from the ground up to leverage [modern built-ins](/docs/why-mastro/) like view transistions and type-stripping, enabling a radically simpler design than older frameworks.
+
 <p class="mt-3 mb-6">
-  <a class="button hide-mobile" data-goatcounter-click="home.try" data-goatcounter-title="top" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
-  <a class="button -secondary" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
+  <a class="button" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
+  <a class="button -secondary" href="/docs/">Docs</a>
   <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 </p>
 
@@ -32,6 +34,8 @@ layout: hero
 - **No VC-money**: no eventual enshitification – selling is none of our business.
 - **No update treadmill**: we use web standards instead of complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
 - **No lock-in**: swap out Mastro later or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+
+Browsers and runtimes like Node.js now provide many features that older frameworks had to implement themselves. Mastro was designed from the ground up to leverage the platform, enabling a [radically simpler design](/docs/why-mastro/).
 
 </div>
 
@@ -147,6 +151,7 @@ export const Layout = (props: Props) =>
 </div>
 </div>
 
+<a class="button hide-mobile" data-goatcounter-click="home.try" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
 <a class="button -secondary" href="https://github.com/mastrojs/mastro/tree/main/examples/">More examples</a>
 <a class="button -minimal" href="https://github.com/mastrojs/mastrojs.github.io">Source of this website</a>
 
@@ -295,7 +300,7 @@ Hono shares Mastro's minimalism, but it is more backend focused (e.g. it doesn't
 
 With today's browsers and engines, there is no need for complex frameworks and build systems anymore.
 
-<a class="button" href="/docs/why-mastro/">Why Mastro</a>
+<a class="button" href="/docs/why-mastro/">Why Mastro?</a>
 </div>
 </div>
 
@@ -360,3 +365,11 @@ Every star and every share helps.
 <a class="button -minimal" data-goatcounter-click="home.github.issues" href="https://github.com/mastrojs/mastro/issues/new">Report a bug</a>
 </div>
 </div>
+
+<section class="center-text">
+  <p><em>This is the end of the page. Yet it may be the beginning of your journey with Mastro.</em></p>
+  <p>
+    <a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+    <a class="button -secondary" href="#powerful-for-experienced-developers">Get started</a>
+  </p>
+</section>

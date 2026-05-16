@@ -80,11 +80,13 @@ export const GET = () =>
 
 ## TypeScript
 
-While you can also just use JavaScript, Mastro supports [TypeScript](https://www.typescriptlang.org/) out of the box. Since Deno, Node.js and Bun all natively support type-stripping, server TypeScript files are directly read by the respective runtime (no transpilation).
+In addition to JavaScript, Mastro also supports [TypeScript](https://www.typescriptlang.org/) out of the box.
 
-However, browsers are not there yet. Therefore, files in the `routes/` folder that end with `*.client.ts` are transpiled to `*.client.js` on the fly using [ts-blank-space](https://www.npmjs.com/package/ts-blank-space) – both when they are served via the server, and when a static site is generated. This also rewrites imports from `.ts` to `.js`, e.g. `import foo from "./foo.ts"` is transformed to `import foo from "./foo.js"`. (To see the gory details, look for the `tsToJs` function in [Mastro's `staticFiles.ts`](https://github.com/mastrojs/mastro/blob/main/src/staticFiles.ts).)
+Since Deno, Bun and [Node.js](https://nodejs.org/api/typescript.html#type-stripping) now all natively support type-stripping, Mastro doesn't need to do transform TypeScript files for the server – they are directly read by the JavaScript runtime.
 
-Using `ts-blank-space`, which simply puts spaces and newlines where the types would have been, has the nice property of preserving the correct line numbers in error messages and stack traces. That's why we added it to Mastro, even though we're otherwise [no-bundler](/guide/bundling-assets/), and wouldn't add more disruptive transforms like JSX.
+However, browsers are not there yet. Therefore, Mastro transpiles files in the `routes/` folder that end with `*.client.ts` on the fly, and serves them under the same URL but ending in `*.client.js`. It also [rewrites imports](https://github.com/mastrojs/mastro/blob/main/src/tsToJs.ts) in those files from `.ts` to `.js`. For example `import { x } from "./foo.ts"` is transformed to `import { x } from "./foo.js"`.
+
+Mastro is using [ts-blank-space](https://www.npmjs.com/package/ts-blank-space), which simply puts spaces and newlines where the types would have been. This means the line numbers in error messages and stack traces remain correct. That's why we added it to Mastro, even though we're otherwise [no-bundler](/guide/bundling-assets/), and wouldn't add more disruptive transforms like JSX.
 
 By itself, neither starting the server nor loading a `.client.ts` file will perform any type-checking. To check your project for type errors, run:
 
@@ -92,7 +94,7 @@ By itself, neither starting the server nor loading a `.client.ts` file will perf
 - Node.js: `pnpm run check`
 - Bun: `bun run check`
 
-You porbably want to make sure this is executed as part of your deployment pipeline, for example by prepending `deno check &&` to your `generate` task in `deno.json` (or `pnpm run check &&` to `package.json` respectively).
+You probably want to make sure this is executed as part of your deployment pipeline, for example by prepending `deno check &&` to your `generate` task in `deno.json` (or `pnpm run check &&` to `package.json` respectively).
 
 
 ## Testing
