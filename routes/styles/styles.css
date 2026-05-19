@@ -102,6 +102,14 @@ blockquote {
 a {
   color: var(--color-accent);
 }
+main[data-pagefind-body] a[href*="https://"]:not(.button)::after {
+  content: "↗";
+  font-size: 0.6em;
+  display: inline-block;
+  position: relative;
+  bottom: 0.5em;
+  left: 0.1em;
+}
 
 button, a.button {
   display: inline-block;
