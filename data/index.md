@@ -8,36 +8,15 @@ layout: hero
 <div class="herolist">
 
 🤗 **For people who care about their users and web standards.**\
-👨‍🍳 Build directly on top of the browser and Node.js, Deno, Bun, or Workers.
+👨‍🍳 **Build directly on top of the browser and Node.js, Deno, Bun, or Workers.**
 
 Mastro was designed from the ground up to leverage [modern built-ins](/docs/why-mastro/) like view transistions and type-stripping, enabling a radically simpler design than older frameworks.
 
-<p class="mt-3 mb-6">
+<p class="mt-3">
   <a class="button" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
   <a class="button -secondary" href="/docs/">Docs</a>
   <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 </p>
-
-## Minimal yet powerful
-
-- **Static site generation** – ideal for blogs, marketing sites or webshops that are [fast](/#fast-for-everyone).
-- **Server-side rendering** – use Mastro as a [full-stack web framework](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
-- **It all works the same**: build a [REST API](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api) serving JSON or XML just like you'd render HTML.
-- **Composable**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all there is to Mastro.
-
-## No bloat
-
-- **No overhead**: implemented in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
-- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
-- **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
-- **No magic**: use plain `<img>` and `<a>` tags referencing [asset routes](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
-- **No VC-money**: no eventual enshitification – selling is none of our business.
-- **No update treadmill**: we use web standards instead of complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
-- **No lock-in**: swap out Mastro later or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
-
-Browsers and runtimes like Node.js now provide many features that older frameworks had to implement themselves. Mastro was designed from the ground up to leverage the platform, enabling a [radically simpler design](/docs/why-mastro/).
-
-</div>
 
 <div class="tip center-text mt-3 mb-3">
 
@@ -66,6 +45,28 @@ A library worth checking out!<br>
 </blockquote>
 
 </div>
+</div>
+
+
+## Minimal yet powerful
+
+- **Static site generation** – ideal for blogs, marketing sites or webshops that are [fast](/#fast-for-everyone).
+- **Server-side rendering** – use Mastro as a [full-stack web framework](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
+- **It all works the same**: build a [REST API](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api) serving JSON or XML just like you'd render HTML.
+- **Composable**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all there is to Mastro.
+
+## No bloat
+
+- **No overhead**: implemented in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
+- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
+- **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
+- **No magic**: use plain `<img>` and `<a>` tags referencing [asset routes](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
+- **No VC-money**: no eventual enshitification – selling is none of our business.
+- **No update treadmill**: we use web standards instead of complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
+- **No lock-in**: swap out Mastro later or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+
+<a class="button" href="/docs/why-mastro/">Mastro's design principles</a>
+
 </div>
 
 
