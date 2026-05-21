@@ -152,7 +152,7 @@ export const Layout = (props: Props) =>
 </div>
 </div>
 
-<a class="button hide-mobile" data-goatcounter-click="home.try" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+<a class="button hide-mobile" data-goatcounter-click="home.try" href="https://vscode.dev/github/mastrojs/template-basic">Try online with GitHub</a>
 <a class="button -secondary" href="https://github.com/mastrojs/mastro/tree/main/examples/">More examples</a>
 <a class="button -minimal" href="https://github.com/mastrojs/mastrojs.github.io">Source of this website</a>
 
@@ -168,7 +168,7 @@ With Mastro, there is very little to learn – except for the web standards HTML
 
 The popular VS Code editor also runs in the browser: put your first website live without installing anything on your computer.
 
-<a class="button" data-goatcounter-click="home.try" data-goatcounter-title="beginners" href="https://github.dev/mastrojs/template-basic">Get started on GitHub.dev</a>
+<a class="button" data-goatcounter-click="home.try" data-goatcounter-title="beginners" href="https://vscode.dev/github/mastrojs/template-basic">Launch Mastro in your browser</a>
 
 </div>
 <div>
@@ -236,7 +236,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 
 <a class="button" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 <a class="button -secondary" href="/docs/">Docs</a>
-<a class="button -minimal" href="https://github.dev/mastrojs/template-basic">Launch Mastro on GitHub.dev</a>
+<a class="button -minimal" href="https://vscode.dev/github/mastrojs/template-basic">Launch Mastro in your browser</a>
 
 
 ## Fast for everyone
@@ -371,7 +371,7 @@ Every star and every share helps.
 <section class="center-text">
   <p><em>This is the end of the page. Yet it may be the beginning of your journey with Mastro.</em></p>
   <p>
-    <a class="button" href="https://github.dev/mastrojs/template-basic">Try online with GitHub</a>
+    <a class="button" href="https://vscode.dev/github/mastrojs/template-basic">Try online with GitHub</a>
     <a class="button -secondary" href="#powerful-for-experienced-developers">Get started</a>
   </p>
 </section>

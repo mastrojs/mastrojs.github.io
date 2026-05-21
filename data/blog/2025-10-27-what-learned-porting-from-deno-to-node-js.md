@@ -10,7 +10,7 @@ The first part of Mastro that I coded was actually [Reactive Mastro](https://mas
 
 I started developing Mastro on Deno. The idea was (and still is) to build a modern tool from first principles – with minimal dependencies. Deno’s extensive standard library, early adoption of web standards like [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API), and builtin TypeScript support, made it a relatively easy choice. It was like building an MVP of Mastro in a future version of the JavaScript ecosystem. I don’t even remember whether Bun was already around at that time, or whether Deno’s philosophy of a green-field approach just more appealed to me for my green-field project. At that time, I didn’t know yet whether Mastro would be a one-off experiment, or whether it would turn into something with legs. But after getting it running on Deno, I found it had promise.
 
-In just ~700 lines of TypeScript, I had something that covered like 90% of my use-cases when building websites. It was a very nice bonus that I got the static site generator running as a _VSCode for the Web_ extension, running completely inside the browser. ([Try it online on github.dev](https://github.dev/mastrojs/template-basic))
+In just ~700 lines of TypeScript, I had something that covered like 90% of my use-cases when building websites. It was a very nice bonus that I got the static site generator running as a _VSCode for the Web_ extension, running completely inside the browser. ([Try it online](https://vscode.dev/github/mastrojs/template-basic))
 
 
 ## Deno 2.0 and Node.js compatibility

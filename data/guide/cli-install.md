@@ -17,7 +17,7 @@ Here's a table listing the various ways you can run Mastro. Either locally (mean
 | VS Code for Web (online) | [Try][try] or [Setup][vsLocal]  | [Publish static site][vsProd]           | -                       |
 | Command line             | [Setup local server][cliLocal]  | [Deploy static site via CI/CD][cliProd] | [Deploy server][server] |
 
-[try]: https://github.dev/mastrojs/template-basic
+[try]: https://vscode.dev/github/mastrojs/template-basic
 [vsLocal]: /guide/setup/
 [cliLocal]: /guide/cli-install/#setup-local-development-server
 [vsProd]: /guide/publish-website/
