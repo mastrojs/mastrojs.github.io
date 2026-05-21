@@ -11,7 +11,7 @@ If you have a static site, you can deploy to [GitHub Pages](https://pages.github
 
 Let's look at how you can generate your static site within a _Continuous Integration / Continuous Delivery_ (CI/CD) service. This ensures a reproducible environment (i.e. that it not only works on your computer), and makes sure that you haven't forgotten to add any needed files to git (which can happen easily). Basically, this is just running the following command on the CI/CD server instead of on your laptop.
 
-<div class="col3">
+<div class="col-3">
 
 - ```sh title=Deno
   deno task generate

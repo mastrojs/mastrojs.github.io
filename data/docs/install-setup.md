@@ -4,7 +4,7 @@ title: "Installation and setup"
 
 There are [various way to run Mastro](/guide/cli-install/#different-ways-to-run-mastro).
 
-<div class="col2 gap-2">
+<div class="col-2 gap-2">
 <div>
 
 [In a terminal](/guide/cli-install/#setup-local-development-server) with Deno, Node.js or Bun

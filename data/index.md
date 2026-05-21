@@ -70,7 +70,7 @@ A library worth checking out!<br>
 </div>
 
 
-<div class="col2 breakout gap-1">
+<div class="col-2 breakout gap-1">
 <div>
 
 ```ts title=routes/hello.server.js
@@ -161,7 +161,7 @@ export const Layout = (props: Props) =>
 
 With Mastro, there is very little to learn – except for the web standards HTML, CSS, and JavaScript.
 
-<div class="col2">
+<div class="col-2">
 <div>
 
 ### No installation needed
@@ -241,7 +241,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 
 ## Fast for everyone
 
-<div class="col2">
+<div class="col-2">
 
 <div class="pagespeed">
 
@@ -311,7 +311,7 @@ With today's browsers and engines, there is no need for complex frameworks and b
 
 The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included", but it is built to be extended.
 
-<div class="col2">
+<div class="col-2">
 <div>
 
 ### Extensions
@@ -347,7 +347,7 @@ To [share templates](https://github.com/mastrojs/mastro/tree/main/examples/todo-
 
 We're building an inclusive community, where people of all kinds of backgrounds and experience levels feel welcome and safe, and help each other. A place to ask questions and learn new things.
 
-<div class="col2">
+<div class="col-2">
 <div>
 
 ### Want help or chat?

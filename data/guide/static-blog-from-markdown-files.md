@@ -85,7 +85,7 @@ export const GET = async () => {
 
 If you're on the command line, as opposed to using the Mastro VSCode for Web extension, then you need to install the [`@mastrojs/markdown` package](https://jsr.io/@mastrojs/markdown):
 
-<div class="col3">
+<div class="col-3">
 
 - ```sh title=Deno
   deno add jsr:@mastrojs/markdown

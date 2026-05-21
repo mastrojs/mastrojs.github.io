@@ -98,7 +98,7 @@ Which can be consumed with:
 
 Another example of an expensive route would be transforming images (e.g. resizing or compressing into WebP format). One way to do that is, with the [`@mastrojs/images` package](https://jsr.io/@mastrojs/images):
 
-<div class="col3">
+<div class="col-3">
 
 - ```sh title=Deno
   deno add jsr:@mastrojs/images
