@@ -27,21 +27,21 @@ Here's a table listing the various ways you can run Mastro. Either locally (mean
 
 ## Setup local development server
 
-In this section, we'll be using the modern [Deno](https://deno.com) JavaScript runtime, which makes our life quite a bit easier compared to other runtimes. (No messing with `npm install` and `node_modules` folders. And in Deno, niceties like TypeScript, `Deno.serve`, and a formatter are all built-in and pre-configured.) However, you can also use Mastro [with Node.js](https://github.com/mastrojs/template-basic-node) or [with Bun](https://github.com/mastrojs/template-basic-bun), should you choose to do so.
+In this section, we'll be using the modern [Deno](https://deno.com) JavaScript runtime, which makes our life a bit easier compared to other runtimes. However, you can also use Mastro [with Node.js](https://github.com/mastrojs/template-basic-node) or [with Bun](https://github.com/mastrojs/template-basic-bun). (In Deno, you don't need to mess with `npm install` and `node_modules` folders, and niceties like TypeScript, `Deno.serve`, and a formatter are all built-in.)
 
 To preview your website in a browser while you work on it, let's start a local development server.
 
-1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). On macOS, the pre-installed terminal app can be found under `/Applications/Utilities/Terminal`. On Windows, you can use PowerShell, or for additional compatibility with Linux servers [use WSL](https://learn.microsoft.com/en-us/windows/wsl/).
+1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). [VSCode](https://code.visualstudio.com) has a terminal built in: to open it, select `View` -> `Terminal` in the menu. Alternatively, your OS has a terminal app pre-installed: on macOS under `/Applications/Utilities/Terminal`, on Windows you can use PowerShell, or for additional compatibility with Linux servers [use WSL](https://learn.microsoft.com/en-us/windows/wsl/).
 
-2.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/): the easiest way is by copy-pasting the following into your terminal:
+2.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/): for example by copy and pasting the following into your terminal:
 
     ```sh
     curl -fsSL https://deno.land/install.sh | sh
     ```
 
-    and hit enter.
+    then hit enter.
 
-3.  [Navigate to the folder](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#navigation_on_the_command_line) where you want to create your new project folder in, for example type:
+3.  [Navigate to the folder](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#navigation_on_the_command_line) where you want to create your new project folder in, e.g. type:
 
     ```sh
     cd Desktop
@@ -63,7 +63,7 @@ To preview your website in a browser while you work on it, let's start a local d
     deno task start
     ```
 
-    This will start your server! You can see the dummy page it's serving by opening the following URL in your web browser: <a rel="nofollow" href="http://localhost:8000">http://localhost:8000</a> (The `8000` is the _port_. If you'd want to run multiple web servers on the same machine, each would need to use a different port.)
+    This will start your server! You can see the dummy page it's serving by opening the following URL in your web browser: <a rel="nofollow" href="http://localhost:8000">http://localhost:8000</a> (The `8000` is the _port_. If you'd want to run multiple servers on the same machine, each would need to use a different port.)
 
     To stop the server again, switch back to the terminal and press `Ctrl-C` on your keyboard.
 

@@ -43,9 +43,9 @@ Now that you're on your repository's page on GitHub:
   <summary>Using Firefox?</summary>
 
   If you've selected "Strict" in the "Enhanced Tracking Protection" preferences, you need to temporarily disable it, in order to connect VS Code with GitHub the first time around.
-</details>
 
-See also [VS Code for the Web's browser support](https://code.visualstudio.com/docs/setup/vscode-web#_browser-support).
+  See also [VS Code for the Web's browser support](https://code.visualstudio.com/docs/setup/vscode-web#_browser-support).
+</details>
 
 ## Install the _Mastro_ extension
 

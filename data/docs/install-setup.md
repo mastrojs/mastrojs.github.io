@@ -4,9 +4,22 @@ title: "Installation and setup"
 
 There are [various way to run Mastro](/guide/cli-install/#different-ways-to-run-mastro).
 
-<a href="/#powerful-for-experienced-developers" class="button">Install Mastro (CLI)</a>
-<a href="/guide/setup/" class="button -minimal">VS Code for Web (online)</a>
+<div class="col2 gap-2">
+<div>
 
+[In a terminal](/guide/cli-install/#setup-local-development-server) with Deno, Node.js or Bun
+
+<a href="/#powerful-for-experienced-developers" class="button">Install Mastro (CLI)</a>
+
+</div>
+<div>
+
+Or in a browser with [VS Code for Web](https://code.visualstudio.com/docs/setup/vscode-web)
+
+<a href="/guide/setup/" class="button -secondary">Launch Mastro in browser</a>
+
+</div>
+</div>
 
 ## SSG and SSR
 
@@ -16,13 +29,15 @@ The good news is that both static site generation and running a server work the 
 
 ### Start a server
 
-To start a local development server:
+To start a local development server, run in your [terminal](/guide/cli-install/#setup-local-development-server):
 
 - Deno: `deno task start`
 - Node.js: `pnpm run start`
 - Bun: `bun run start`
 
-This actually runs the same server as you would probably run in production for on-demand rendering (with the exception of the `--watch` flag). Check out the `deno.json`/`package.json`, which is just running the `server.ts` file that was in the template repo. This `server.ts` is the entrypoint to your application, and where you call the `mastro.fetch` handler – yes, Mastro is actually just a library.
+In [VSCode](https://code.visualstudio.com/), you can alternatively click "Run and Debug" in the left sidebar (`Ctrl-Shift-D`, or on macOS `Cmd-Shift-D`), and then the green ▶️ button "Start server".
+
+Either way, this actually runs the same server as you would run in production for on-demand rendering (with the exception of the `--watch` flag). Check out the `start` task in `deno.json` (or `start` script in `package.json` respectively): it's just executing the `server.ts` file, which is the entrypoint to your application. Note that it's your code calling the `mastro.fetch` handler, so technically Mastro is just a library.
 
 ### Generate a static site
 
@@ -32,7 +47,7 @@ This actually runs the same server as you would probably run in production for o
 
 This will create a `generated` folder by passing synthetic `Request` objects to your route handlers.
 
-To see the generate CLI options, append `--help`. For example: `deno task generate --help`
+To see the generate options, append `--help` (e.g. `deno task generate --help`).
 
 
 ## Configuring a base path

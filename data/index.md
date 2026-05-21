@@ -236,6 +236,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 
 <a class="button" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 <a class="button -secondary" href="/docs/">Docs</a>
+<a class="button -minimal" href="https://github.dev/mastrojs/template-basic">Launch Mastro on GitHub.dev</a>
 
 
 ## Fast for everyone
