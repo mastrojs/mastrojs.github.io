@@ -4,6 +4,7 @@ titleIsHtml: true
 metaTitle: Why not just use Tailwind (or inline styles)?
 date: 2025-11-27
 author: Mauro Bieg
+authorLink: https://github.com/mb21
 ---
 
 **Are WYSIWYG word processors, inline styles, and Tailwind conceptually the same? How to make the best use of modern CSS and HTML elements? And what do we actually gain by adding abstractions like style names and components, and what do we lose?**

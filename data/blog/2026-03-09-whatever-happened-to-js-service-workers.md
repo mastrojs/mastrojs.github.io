@@ -3,6 +3,7 @@ title: Whatever happened to JavaScript Service Workers?
 description: "What's the right way to think about Service Workers in 2026? Are they HTTP proxies, offline-capable web apps, or free frontend servers?"
 date: 2026-03-09
 author: Mauro Bieg
+authorLink: https://github.com/mb21
 ---
 
 **What's the right way to think about Service Workers in 2026? Are they HTTP proxies, offline-capable web apps, or free frontend servers?**

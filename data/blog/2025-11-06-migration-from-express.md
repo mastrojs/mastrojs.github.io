@@ -2,6 +2,7 @@
 title: How to incrementally migrate from Express to the standard Request/Response API
 date: 2025-11-06
 author: Mauro Bieg
+authorLink: https://github.com/mb21
 ---
 
 You want to migrate to [the modern way to write JavaScript servers](https://marvinh.dev/blog/modern-way-to-write-javascript-servers/), which is [supported across JavaScript runtimes](https://blog.val.town/blog/the-api-we-forgot-to-name/). `Deno.serve`, `Bun.serve`, Cloudflare Workers etc. – they all use the same standards-based [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request)/[`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) API for route handlers:

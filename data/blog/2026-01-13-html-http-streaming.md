@@ -2,6 +2,7 @@
 title: Improve Time to First Byte by streaming your HTML
 date: 2026-01-13
 author: Mauro Bieg
+authorLink: https://github.com/mb21
 canonical: "https://calendar.perfplanet.com/2025/improve-ttfb-and-ux-with-http-streaming/"
 ---
 

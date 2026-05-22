@@ -44,7 +44,13 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
           <h1>${meta.titleIsHtml ? unsafeInnerHtml(title) : title}</h1>
 
           ${isBlog && date
-            ? html`<p>${meta.author} on ${fmtIsoDate(date)}</p>`
+            ? html`
+              <p>
+                ${meta.authorLink
+                  ? html`<a href=${meta.authorLink}>${meta.author}</a>`
+                  : meta.author}
+                on ${fmtIsoDate(date)}
+              </p>`
             : ""}
 
           ${content}

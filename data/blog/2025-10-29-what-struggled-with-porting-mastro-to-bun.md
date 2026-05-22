@@ -2,6 +2,7 @@
 title: What I learned porting Mastro to Bun
 date: 2025-10-29
 author: Mauro Bieg
+authorLink: https://github.com/mb21
 ---
 
 In our last blog post, I talked about [What I learned porting Mastro from Deno to Node.js](/blog/2025-10-27-what-learned-porting-from-deno-to-node-js/). The next step was of course to get Mastro working on Bun as well.

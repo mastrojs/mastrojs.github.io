@@ -3,6 +3,7 @@ title: "How to generate og:images from text with Canvas"
 description: "Use the web-standard Canvas API to render text to PNG – without spinning up a whole web browser."
 date: 2025-11-16
 author: Mauro Bieg
+authorLink: https://github.com/mb21
 ---
 
 **Use the web-standard Canvas API to render text to PNG – without spinning up a whole web browser. Here's how we implemented this approach in [`@mastrojs/og-image`](https://jsr.io/@mastrojs/og-image).**

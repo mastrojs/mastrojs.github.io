@@ -2,6 +2,7 @@
 title: What I learned porting Mastro from Deno to Node.js
 date: 2025-10-27
 author: Mauro Bieg
+authorLink: https://github.com/mb21
 ---
 
 **The Mastro web framework and static site generator initially ran only in the browser and Deno – it was living in the future, so to speak. Here's the story of how I ported it to Node.js (which has a surprising amount of functionality built-in nowadays), and what I would do differently next time.**

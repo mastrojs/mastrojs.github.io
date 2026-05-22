@@ -3,6 +3,7 @@ title: "Everything is a route – one interface for servers, static sites, and a
 description: "Use the standards-based Request/Response-API not only for writing your server, but also for static site and asset generation."
 date: 2026-01-29
 author: Mauro Bieg
+authorLink: https://github.com/mb21
 ---
 
 **In Unix, everything is a file. In Mastro, everything is an HTTP route. You use the standards-based Request/Response-API not only for writing your server, but also for static site and asset generation. Let me show you the beauty of that.**
