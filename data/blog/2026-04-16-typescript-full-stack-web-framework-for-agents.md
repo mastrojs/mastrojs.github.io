@@ -7,12 +7,12 @@ I would be lying if I said the [Mastro web framework](/) was designed from the g
 
 The whole [source code of Mastro](https://github.com/mastrojs/mastro/tree/main/src) is just ~700 lines of TypeScript, which easily fits into an LLM’s context (or a human’s). And just like types prevent humans from making stupid mistakes, they do the same for LLMs.
 
-To say that AI is a controversial topic may be an understatement. I’m not here to tell you what to think about AI. Personally, I see a number of downsides, but also some potential. LLMs can produce a lot of slop and terrible code. But when used properly, they can also be a big help, especially [when learning](https://htmx.org/essays/yes-and/). I have hopes for local models, but as of today, they’re not quite where Claude Code, Cursor and GitHub Copilot seem to be.
+To say that AI in general, and agentic coding in particular, are controversial topics may be an understatement. I’m not here to tell you what to think about AI. Personally, I see a number of downsides, but also some potential. LLMs can produce a lot of slop and terrible code. But when used properly, they can also be a big help, especially [when learning](https://htmx.org/essays/yes-and/). I have hopes for local models, but as of today, they’re not quite where Claude Code and Codex seem to be.
 
 
-## Let's try it
+## Agentic coding a website
 
-The best way to get to know something new is usually to just try it out. Always wanted to create or overhaul your personal website or blog? Or just do a silly dummy project!
+The best way to get to know something new is usually to just try it out. Always wanted to create or overhaul your personal website or blog? Now is the time! Or just create a silly dummy website!
 
 Create a [new Mastro project](/#powerful-for-experienced-developers) with:
 
@@ -20,7 +20,7 @@ Create a [new Mastro project](/#powerful-for-experienced-developers) with:
 pnpm create @mastrojs/mastro
 ```
 
-And add the following `AGENTS.md` file:
+The following `AGENTS.md` file worked quite well for me:
 
 ```md title=AGENTS.md
 We're using the Mastro web framework to build a statically generated site.
@@ -50,7 +50,7 @@ Note: if you’re using Claude, make sure you also have a file:
 @AGENTS.md
 ```
 
-And if you're not using Chrome for anything important (that you wouldn't be comfortable sharing with Anthropic), install the [Claude Chrome extension](https://claude.com/claude-for-chrome). Then you can tell it for example:
+And if you're not using Chrome for anything important (that you wouldn't be comfortable sharing with Anthropic), you can install the [Claude Chrome extension](https://claude.com/claude-for-chrome). Then you can tell it for example:
 
 ```sh
 @browser go to localhost:8000 and check for discrepancies

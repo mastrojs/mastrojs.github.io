@@ -59,7 +59,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
           ${isBlog
             ? html`
                 <section class="center-text">
-                  <p>Mastro is the simplest server-side web framework and static site generator yet.</p>
+                  <p>Mastro is the simplest web framework and static site generator yet.</p>
                   <p><a href="/" class="button">Discover Mastro →</a></p>
                 </section>
                 `
