@@ -98,7 +98,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
 
 export const pageTitlePrefix = (path: string) => {
   const segments = path.split("/");
-  if (segments.length > 2) {
+  if (segments.length > 3) {
     const part = segments[1];
     return part
       ? (part[0].toUpperCase() + part.slice(1))

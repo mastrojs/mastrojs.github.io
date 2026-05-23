@@ -20,14 +20,14 @@ export const getStaticPaths = async () => {
 const mdFolder = serveMarkdownFolder({ folder: "data" }, ({ meta }, req) => {
   const { pathname } = new URL(req.url);
   const prefix = pageTitlePrefix(pathname);
-  const text = "Mastro\n\n" + (prefix ? `${prefix}: ` : "") + (meta.metaTitle || meta.title);
+  const text = "Mastro" + (prefix ? ` ${prefix}` : "") + "\n\n" + (meta.metaTitle || meta.title);
   return renderImage(text, {
     fontFile,
     background: (ctx, canvas) => {
       ctx.fillStyle = "white";
       ctx.fillRect(0, 0, 1200, 630);
       // deno-lint-ignore no-explicit-any
-      ctx.drawImage(canvas.decodeImage(chefIcon) as any, 335, 100);
+      ctx.drawImage(canvas.decodeImage(chefIcon) as any, 42 * prefix?.length + 335, 100);
     },
   });
 });
