@@ -40,7 +40,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
       children: html`
         ${Sidebar(sidebar, part, pathname)}
 
-        <main ${meta.layout === "hero" ? `class=hero` : (isBlog ? "" : "data-pagefind-body")}>
+        <main ${meta.layout === "hero" ? `class=hero` : "data-pagefind-body"}>
           <h1>${meta.titleIsHtml ? unsafeInnerHtml(title) : title}</h1>
 
           ${isBlog && date
