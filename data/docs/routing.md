@@ -5,7 +5,7 @@ title: "Routing"
 Mastro has no configuration files, and only one special folder: the `routes` folder. It supports three different kinds of files:
 
 1. [Unprocessed static files](#unprocessed-static-files): any file in the `routes` folder that doesn’t match the patterns below is served to the browser unchanged. Naming is up to you, e.g. `routes/favicon.ico`, `routes/styles.css`, or `routes/scripts.js`)
-2. [Route handlers](#route-handlers): each `*.server.js` (or `*.server.ts`) file represents a route, which runs code on the server to generates one or more pages.
+2. [Route handlers](#route-handlers): each `*.server.js` (or `*.server.ts`) file represents a route, which runs code on the server to generate one or more pages.
 3. [TypeScript](/docs/install-setup/#typescript) files for the browser: because browsers don't support TypeScript, Mastro type-strips `*.client.ts` files and serves them as `*.client.js`.
 
 

@@ -82,12 +82,12 @@ Of course, usually you'd want to not just display the submitted text, but perhap
 
 ## A mock database
 
-Installing a real database, like PostgreSQL, is out of scope for this guide. However, we can quickly add a mock database: simply storing guestbook entries in a variable on our server. Thus beware, every time you restart the server, all data will be lost!
+Installing a real database (like [PostgreSQL](https://www.postgresql.org)), and adding an ORM or query builder (like [Kysely](https://www.kysely.dev)), is out of scope for this guide. However, we can quickly add a mock database, by simply storing guestbook entries in a variable on our server. Thus beware, every time you restart the server, all data will be reset!
 
 ```ts title=routes/index.server.ts ins={3-4,11-15,31-43}
 import { html, htmlToResponse } from "@mastrojs/mastro";
 
-const guestbook = ["Peter"];
+const db = { guestbook: ["Peter"] };
 
 export const GET = () =>
   htmlToResponse(
@@ -97,7 +97,7 @@ export const GET = () =>
 
       <h1>Guestbook</h1>
       <ul>
-        ${guestbook.map((entry) => html`<li>${entry}</li>`)}
+        ${db.guestbook.map((entry) => html`<li>${entry}</li>`)}
       </ul>
 
       <form method="POST" action=".">
@@ -116,7 +116,7 @@ export const POST = async (req: Request) => {
   const formData = await req.formData();
   const name = formData.get("name")?.toString();
   if (name) {
-    guestbook.push(name);
+    db.guestbook.push(name);
     return Response.redirect(req.url);
   } else {
     return htmlToResponse(

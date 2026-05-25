@@ -128,7 +128,7 @@ const sidebar = [{
   contents: [{
     label: "HTML, CSS and JavaScript",
     contents: [
-      { label: "Ways to build a website?", slug: "/guide/ways-to-build-a-website/" },
+      { label: "Ways to build a website", slug: "/guide/ways-to-build-a-website/" },
       { label: "Why learn HTML and CSS?", slug: "/guide/why-html-css/" },
       { label: "Setup: GitHub and VS Code for Web", slug: "/guide/setup/" },
       { label: "Start with HTML", slug: "/guide/html/" },

@@ -52,7 +52,7 @@ To see the generate options, append `--help` (e.g. `deno task generate --help`).
 
 ## Configuring a base path
 
-If you're hosting your website on a sub-directory (e.g. `https://mydomain.org/sub-directory`), you need to prefix all absolute links that start with a slash with your base-path (`/sub-directory` in this case). This includes links to assets like CSS files, as well as internals links to other pages on your website.
+If you're hosting your website on a sub-directory (e.g. `https://mydomain.org/sub-directory`), you need to prefix all absolute links that start with a slash with your base-path (`/sub-directory` in this case). This includes links to assets like CSS files, as well as internal links to other pages on your website.
 
 ### GitHub Pages
 

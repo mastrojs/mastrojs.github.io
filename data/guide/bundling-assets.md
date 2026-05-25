@@ -93,6 +93,8 @@ Which can be consumed with:
 <link rel="stylesheet" href="/styles.css">
 ```
 
+For more approaches to organizing your CSS, see [component-scoped CSS](/blog/2026-05-26-component-scoped-css-without-build-step/).
+
 
 ## Transforming images
 

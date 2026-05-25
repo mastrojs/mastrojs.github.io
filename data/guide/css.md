@@ -191,7 +191,11 @@ A few more links I can highly recommend:
   - [@scope rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope) instead of CSS Modules
   - [Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries): like media query but asks a container element's size (and now also [style queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries))
   - [:has() pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has), which is a sort of parent selector
-- There are many methodologies to structure your CSS (one example is [rscss](https://ricostacruz.com/rscss/)), and tools to generate CSS (ranging from the relatively simple like SCSS or CSS modules, to the complex like Tailwind). While you can [colocate CSS files with compontents in Mastro](/guide/bundling-assets/#bundling-css), for a convincing argument in favour of mostly global CSS with element selectors, I highly recommend [Heydon Pickering's article on styling HTML elements](https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/) (we elaborate on this in our [blog post on layouting abstractions](/blog/2025-11-27-why-not-just-use-inline-styles-tailwind/)).
+
+
+There are many methodologies to structure your CSS (like BEM or [rscss](https://ricostacruz.com/rscss/)), and tools to generate it (like SCSS or [Tailwind](/blog/2025-11-27-why-not-just-use-inline-styles-tailwind/)).
+But leveraging modern browsers, there are much simpler ways to structure your CSS. See **[component-scoped CSS with Mastro](/blog/2026-05-26-component-scoped-css-without-build-step/)**.
+
 
 And once you're ready to ponder the nature of the medium web:
 

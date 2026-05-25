@@ -22,7 +22,7 @@ const str = renderToString(
 );
 ```
 
-However, usually you will directly construct a `Response` object using `htmlToResponse`:
+However, usually you will directly construct a [standard Response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) using `htmlToResponse`:
 
 ```ts title=routes/index.server.ts
 import { html, htmlToResponse } from "@mastrojs/mastro";
@@ -71,13 +71,15 @@ export const Layout = (props: Props) =>
   `;
 ```
 
+For various ways to structure your CSS, see [component-scoped CSS with Mastro](/blog/2026-05-26-component-scoped-css-without-build-step/).
+
 
 ## HTML Streaming
 
 [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [AsyncIterables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) can be passed directly into HTML templates without needing to be awaited.
 When passed to [`htmlToResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse), this will create a `Response` that sends the chunks over the wire as soon as they're available.
 
-For static site generation, this doesn't matter much (in fact, eagerly awaiting is probably a bit faster in that case).
+For static site generation, this doesn't apply (in fact, eagerly awaiting will likely result in a faster generation step).
 But when running a server, streaming (instead of awaiting) can dramatically speed up [time to first byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte): a user can start reading the top of your page, while the last row hasn't even left the database yet. In HTTP/1.1, this was known as [chunked transfer encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding), but in HTTP/2 and HTTP/3 it's built in at the lower levels of the protocol.
 
 To not break streaming, make sure you:

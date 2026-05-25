@@ -1,14 +1,14 @@
 ---
-title: "Everything is a route – one interface for servers, static sites, and assets"
+title: "Everything is a route: how to use one interface for servers, static-site- and asset-generation"
 description: "Use the standards-based Request/Response-API not only for writing your server, but also for static site and asset generation."
 date: 2026-01-29
 author: Mauro Bieg
 authorLink: https://github.com/mb21
 ---
 
-**In Unix, everything is a file. In Mastro, everything is an HTTP route. You use the standards-based Request/Response-API not only for writing your server, but also for static site and asset generation. Let me show you the beauty of that.**
+**In Unix, everything is a file. In Mastro, everything is a route. You use the same standards-based Request/Response-API not only for writing your server, but also for static site and asset generation. Let me show you how.**
 
-The Request/Response-API is the [modern way to write JavaScript servers](https://marvinh.dev/blog/modern-way-to-write-javascript-servers/). For example:
+The Request/Response-API is the [modern way to write JavaScript servers](https://marvinh.dev/blog/modern-way-to-write-javascript-servers/). For example to return `text/plain`:
 
 ```ts
 const myHandler = async (req: Request) => {
@@ -16,22 +16,13 @@ const myHandler = async (req: Request) => {
 };
  ```
 
-In fact, it’s such a great interface that Mastro decided to go all-in on it, and use it for all of the following functionality:
+It’s such a great interface that Mastro decided to go all-in on it, and use it for all of the following:
 
-1. [on-demand server-side rendering](#server-side-rendering) (SSR) of
-  	- HTML pages
-    - JSON REST APIs
-    - RSS feeds
-    - etc.
-2. [static site generation](#static-site-generation) (SSG)
-3. [asset generation](#asset-generation) of
-	  - resized images
-	  - CSS/JS bundles
-	  - etc.
+1. [on-demand server-side rendering](#1.-server-side-rendering) (SSR) of HTML pages, JSON REST APIs, RSS feeds, etc.
+2. [static site generation](#2.-static-site-generation) (SSG)
+3. [asset generation](#3.-asset-generation) of resized images, CSS/JS bundles etc.
 
-Let’s look at the three cases.
-
-## Server-side rendering
+## 1. Server-side rendering
 
 [Server-side rendering](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server) is the obvious part. After all, that’s the use-case that popularized the Request/Response-API (e.g. when writing Cloudflare Workers). In Mastro, this looks as follows:
 
@@ -49,12 +40,12 @@ export const GET = () =>
 
 ```
 
-But even then, a lot of frameworks only use this Request/Response-API for JSON REST APIs, 404s and redirects, but not for normal HTML pages. For the 200-OK HTML case, this gets rid of the `htmlToResponse` function call. But it makes other cases [awkward](https://github.com/withastro/astro/issues/14684).
+But even then, a lot of frameworks only use this Request/Response-API for JSON REST APIs, 404s and redirects, but not for normal HTML pages. For the 200-OK HTML case, this gets rid of the `htmlToResponse` function call – but it makes the other cases [awkward](https://github.com/withastro/astro/issues/14684).
 
 
-## Static site generation
+## 2. Static site generation
 
-During [static site generation](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server), all the HTML of the website is generated upfront before being deployed to a static file server or CDN. Thus in a way, it’s the inverse of on-demand server-side rendering.
+During [static site generation](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server), all the HTML of the website is generated upfront before being deployed to a static file server or CDN. In a way, it’s the inverse of on-demand server-side rendering.
 
 But if you forget in what order things happen, it is in fact a strict subset of the cases you encounter when on-demand rendering: the url-path of a GET request will fully determine what static file is served – query parameters and HTTP headers are ignored. As such, using a full Request object may be overkill.
 
@@ -71,7 +62,7 @@ When you execute the Mastro generate script, it will call all your route handler
 Regardless of whether you have a server or a static site in production, for development you need a local server. As a bonus, this way of defining pages lets us use the production server also for local development. This ensures there are no differences between your development setup and production. The only difference is that for local development, Node.js/Deno/Bun are called with the `--watch` flag to leverage their built-in file watcher.
 
 
-## Asset generation
+## 3. Asset generation
 
 Most web frameworks have some sort of functionality to pregenerate static assets that are expensive to compute, like for example resized images, or bundled CSS or JavaScript. In Ruby on Rails for example, this is called the _asset pipeline_. In Vite-based frameworks it's usually a series of Vite plugins.
 
@@ -98,7 +89,7 @@ And since the interface is the same as for any other HTTP route, if you know web
 <link rel="stylesheet" href="/styles.css">
 ```
 
-Isn’t that beautiful?
+Isn’t that beautiful? You can also extend this approach to do [component-scoped CSS](/blog/2026-05-26-component-scoped-css-without-build-step/).
 
 And again, we get the snappy development server for free, which computes the bundle on the fly and lazily. If you don't load `/styles.css`, it isn't computed either.
 
@@ -134,5 +125,3 @@ Similarly, to bundle JavaScript, we could call e.g. `esbuild` in the route handl
 ## Conclusion
 
 By inverting the flow of a classic asset pipeline, and leveraging the standards-based Request/Response-API, we managed to unify the development server, production server, static site generation, and asset generation mechanisms. That's how Mastro gets by with just [~700 lines of implementation code](https://github.com/mastrojs/mastro/tree/main/src#readme).
-
-What do you think? I'd love to chat on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social) or [GitHub](https://github.com/mastrojs/mastro/discussions/)!

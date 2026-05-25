@@ -51,9 +51,10 @@ A library worth checking out!<br>
 ## Minimal yet powerful
 
 - **Static site generation** – ideal for blogs, marketing sites or webshops that are [fast](/#fast-for-everyone).
-- **Server-side rendering** – use Mastro as a [full-stack web framework](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
-- **It all works the same**: build a [REST API](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api) serving JSON or XML just like you'd render HTML.
-- **Composable**: a [router](/docs/routing/#the-file-based-router-(default)) and a few [helper functions](/docs/html-components/) – that's all there is to Mastro.
+- **Server-side rendering** – use Mastro as a [full-stack web framework](/guide/forms-and-rest-apis/#a-mock-database).
+- **Everything is a route**: serve [JSON REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), [CSS](/blog/2026-05-26-component-scoped-css-without-build-step/), or [images](/guide/bundling-assets/#transforming-images), with the [same API](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/) as HTML.
+- **Composable**: a [router](/docs/routing/) and a few [helper functions](/docs/html-components/) – that's all there is to Mastro.
+
 
 ## No bloat
 

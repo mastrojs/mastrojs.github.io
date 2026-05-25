@@ -19,12 +19,12 @@ The JavaScript ecosystem has been moving to ever more complex frameworks and bui
     - Mastro is designed to work with the [grain of the web](https://frankchimero.com/blog/2015/the-webs-grain/). Write [semantic HTML](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html), and [progressively](https://piccalil.li/blog/its-about-time-i-tried-to-explain-what-progressive-enhancement-actually-is/) [enhance](https://thehistoryoftheweb.com/the-inclusive-web-of-progressive-enhancement/) it with [beautiful CSS](http://localhost:8000/blog/2025-11-27-why-not-just-use-inline-styles-tailwind/) and [interactive JavaScript](/guide/interactivity-with-javascript-in-the-browser/).
     - Mastro is primarily designed for content-driven websites, and not for apps that download megabytes of client-side code and [reimplement basic browser functionality](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/).
 
-3.  Mastro is for people who **care about simple technology**.
+3.  Mastro is for people who **care about simple and pragmatic technology**.
     - Instead of towers of leaky abstractions, Mastro gives you direct access to the underlying platform: the browser and your JavaScript runtime.
-    - Simple things should be simple, and complex things should be possible.
+    - No magic: simple things should be simple, and complex things possible.
     - Mastro grows with you: it is a beginner-friendly static site generator, but can morph into an unopinionated full-stack framework running [database-driven REST APIs and rich client-side interactivity](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api).
-    - Explicit separation of server and client-side. Code and secrets that were intended to stay on the server shouldn't accidentally end up in the client bundle.
-    - Mastro provides a uniform interface for all content types: HTML, JSON, XML, binary, whatever. Instead of being abstracted away, the full power of the HTTP protocol is at your disposal [through the standard Request/Response API](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
+    - Explicit [separation of server and client-side](/docs/routing/). Code and secrets that were intended to stay on the server shouldn't accidentally end up in the client bundle.
+    - [Everything is a route](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/) – Mastro provides a uniform interface for all content types: HTML, JSON, XML, binary, whatever. Instead of being abstracted away, the full power of the HTTP protocol is at your disposal through the standard Request/Response API.
 
 4.  Mastro is for people who **care about their dependencies**.
     - Mastro will never take on VC-money and there will be no eventual enshittification.
