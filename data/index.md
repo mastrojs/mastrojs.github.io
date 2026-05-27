@@ -202,7 +202,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-deno)):
 
   ```sh
-  deno run -A npm:@mastrojs/create-mastro@0.1.5
+  deno run -A npm:@mastrojs/create-mastro@0.1.6
   ```
   </div>
   <div tabindex=0 id="content2">
@@ -211,7 +211,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-node)):
 
   ```sh
-  pnpm create @mastrojs/mastro@0.1.5
+  pnpm create @mastrojs/mastro@0.1.6
   ```
   </div>
   <div tabindex=0 id="content3">
@@ -219,7 +219,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-bun)):
 
   ```sh
-  bun create @mastrojs/mastro@0.1.5
+  bun create @mastrojs/mastro@0.1.6
   ```
   </div>
   <div tabindex=0 id="content4">
@@ -228,7 +228,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   However, to run code [on-demand](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) in a [Cloudflare Worker](https://workers.cloudflare.com/), (use the [template repo](https://github.com/mastrojs/template-basic-cloudflare)) or run:
 
   ```sh
-  pnpm create @mastrojs/mastro@0.1.5 --cloudflare
+  pnpm create @mastrojs/mastro@0.1.6 --cloudflare
   ```
 
   Finally, Mastro can also run code on-demand inside a [Service Worker in the user's browser](/blog/2026-03-09-whatever-happened-to-js-service-workers/).
