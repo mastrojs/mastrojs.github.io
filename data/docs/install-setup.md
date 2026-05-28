@@ -121,17 +121,42 @@ To add tests, refer to the documentation of your platform's built-in test runner
 - [Bun](https://bun.com/docs/test): `bun test`
 
 
-## Middleware
+## Custom 404 error page for static sites
 
-While Mastro itself doesn't have the concept of a middleware, you can either:
+For static sites, this may need to be configured with your host, but a lot of them support a `404.html` file in the root: just place it in `routes/404.html` and it should work.
 
-- factor out the common code to a helper function and call that in every route,
-- use a `[...slug]` route to consolidate paths, or
-- if you're running a server, you can easily modify the `server.ts` file. For example in Deno:
 
-```ts title=server.ts
+## Custom 404 and 500 error pages when running a server
+
+If you're running a server, you can modify your `server.ts` file, and replace `mastro.fetch` with a custom function. For example in Deno:
+
+```ts title=server.ts del={4} ins={1,5-11}
+import { htmlResponse } from "@mastrojs/mastro";
 import mastro from "@mastrojs/mastro/server";
 
+Deno.serve(mastro.fetch);
+Deno.serve(async (req) => {
+  const res = await mastro.fetch(req);
+  if (res.status === 404) {
+    return htmlResponse("<h1>Page not found</h1>", res.status);
+  }
+  return res;
+});
+```
+
+It's best to pass it a static string with self-contained HTML. If you do anything fancy in your 5xx error handler, you risk that your error handler breaks as well.
+
+
+## Middleware
+
+Mastro itself doesn't have the concept of a middleware. For static sites, you can either factor out the common code to a helper function and call that in every route, or use a `[...slug]` route to consolidate paths.
+
+If you're running a server, you can modify your `server.ts` file and replace `mastro.fetch` with a custom function. For example in Deno:
+
+```ts title=server.ts del={3} ins={4-9}
+import mastro from "@mastrojs/mastro/server";
+
+Deno.serve(mastro.fetch);
 Deno.serve(async (req) => {
   // modify request here before it hits your Mastro routes
   const res = await mastro.fetch(req);
@@ -141,6 +166,7 @@ Deno.serve(async (req) => {
 ```
 
 If there is demand, we could introduce a `@mastrojs/middleware` package that formalizes this concept somewhat.
+
 
 ## Auto-reloading page in development
 
