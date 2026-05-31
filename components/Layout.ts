@@ -5,6 +5,7 @@ interface Props {
   children: Html;
   description?: string;
   ogImage: string;
+  rkey?: string;
   title?: string;
   req: Request;
 }
@@ -23,6 +24,9 @@ export const Layout = (props: Props) => {
         <link rel="canonical" href="${props.canonical || new URL(url.pathname, baseUrl)}">
         <meta name="description" content="${props.description || "A minimal tool to build content-driven websites"}">
         <meta property="og:image" content=${props.ogImage}>
+        ${props.standardSiteRkey && html`
+          <link rel="site.standard.document" href="at://did:plc:slxmn2ejggkwwbzlej2axmx6/site.standard.document/${props.standardSiteRkey}">
+        `}
         <script type="module" src="/scripts.js"></script>
         <script
           data-goatcounter="https://mastrojs.goatcounter.com/count"
