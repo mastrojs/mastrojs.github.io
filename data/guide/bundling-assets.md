@@ -146,16 +146,16 @@ Because bundling CSS and JavaScript, and transforming images, are expensive comp
 
 Actually, we’ve started the guide with an extreme application of this strategy: static site generation. There, not only images and bundles are pre-computed, but also every single HTML file is pre-generated. Thus for a static site, the above code is sufficient. But if you're running a server, you may want to pregenerate images (or even certain HTML pages) in a build step.
 
-Add a `pregenerate` task to your `deno.json`:
+We change the `generate` task in the `deno.json` (or `package.json`) so that it doesn't build an entire static site anymore, but only pregenerates select routes (in addition to copying over [unprocessed static files](/docs/routing/)):
 
-```json title=deno.json ins={4}
+```json title=deno.json del={3} ins={4}
 {
   "tasks": {
     "generate": "deno run -A mastro/generator",
-    "pregenerate": "deno run -A mastro/generator --only-pregenerate",
+    "generate": "deno run -A mastro/generator --only-pregenerate",
 ```
 
-Then add `deno task pregenerate` to your CI/CD workflow (e.g. when using Deno Deploy, add it as your "Build command"). This will generate a `generated/` folder just like `deno task generate` would for a static site. But this time, it will only attempt to generate routes that have the following line added:
+Then add `deno task pregenerate` to your CI/CD workflow (e.g. often this field is called "Build command"). This will generate a `generated/` folder – just like for a static site. But with `--only-pregenerate`, it will only generate the routes that have the following line added:
 
 ```js title=routes/_images/[...slug].server.ts ins={3}
 import { createImagesRoute } from "@mastrojs/images";
@@ -179,3 +179,5 @@ If you start the server with `deno task start` and access it on a `http://localh
 You can pregenerate not only images, CSS or JavaScript, but also entire HTML pages. Simply add a `export const pregenerate = true;` to your route.
 
 Usually, serving the pregenerated files with your normal web server will be fast enough. However, you could also push e.g. the `generated/_images/` folder to your CDN (content delivery network), and configure it to serve all URLs starting with `/_images/` directly from the CDN.
+
+A common approach is also to [fingerprint assets](/guide/caching-service-workers-streaming/#fingerprinting-assets-with-hash-based-file-names) to enable more agressive caching.
