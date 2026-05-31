@@ -4,6 +4,7 @@ import { Sidebar } from "../components/Sidebar.ts";
 import { Toc } from "../components/Toc.ts";
 import { fmtIsoDate } from "../helpers/date.ts";
 import { serveMarkdownFolder } from "@mastrojs/markdown";
+import { rkeyFromPath } from "@mastrojs/atproto";
 import { html, htmlToResponse, unsafeInnerHtml } from "@mastrojs/mastro";
 import { mdToHtml } from "../helpers/markdown.ts";
 
@@ -36,6 +37,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
       description: meta.description,
       canonical: meta.canonical,
       ogImage: `https://mastrojs.github.io${pathname}og.png`,
+      docRkey: isBlog ? rkeyFromPath(pathSegments[2], "blog") : undefined,
       req,
       children: html`
         ${Sidebar(sidebar, part, pathname)}
