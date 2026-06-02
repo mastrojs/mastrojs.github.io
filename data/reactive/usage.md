@@ -205,7 +205,7 @@ In the Mastro repo, there is also a [more complex example](https://github.com/ma
 
 For tiny scripts that you have chosen to inline in your HTML, you can also include the server data directly in the place where you have a client-side variable.
 
-For example, here `Profile` is a [Mastro server component](http://localhost:8000/docs/html-components/) that renders the HTML for the `<my-profile>` client-component:
+For example, here `Profile` is a [Mastro server component](/docs/html-components/) that renders the HTML for the `<my-profile>` client-component:
 
 ```js title=components/Profile.js
 export const Profile = async () => {

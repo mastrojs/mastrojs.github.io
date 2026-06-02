@@ -275,7 +275,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 <details>
 <summary>Next.js</summary>
 
-Next.js creates [bloated SPAs](http://localhost:8000/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/): every feature you add increases the amount of JS your users have to download. Running your code on the server, then running it again on the client, also adds a lot of complexity.
+Next.js creates [bloated SPAs](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/): every feature you add increases the amount of JS your users have to download. Running your code on the server, then running it again on the client, also adds a lot of complexity.
 </details>
 
 <details>
