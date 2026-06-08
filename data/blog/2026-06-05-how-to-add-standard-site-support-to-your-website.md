@@ -56,6 +56,8 @@ Since rkeys cannot contain slashes and other special characters, e.g. the rkey f
 
 This does mean however, that you cannot change the URL of your post after you’ve published it. But I suppose you shouldn’t be doing that anyway. (I’m [working on](https://github.com/mastrojs/atproto/issues/2) relaxing that limitation a bit.)
 
+**Update:** While our approach works on Bluesky, note that I was made aware that the Standard.site schema apparently says the rkeys should be of type `TID`. There is an [ongoing discussion](https://tangled.org/standard.site/lexicons/issues/7#comment-3mnm5xd5prb22) whether this can be relaxed to type `any`.
+
 
 ## Running the script
 
@@ -92,6 +94,6 @@ Whenever you run your script, it will fetch the existing records from your PDS, 
 
 ## Does it work?
 
-The [Standard.schema validator](https://site-validator.fly.dev) seems to be fine with this approach. The ATproto docs call this kind of rkey a [Record Key Type: `any`](https://atproto.com/specs/record-key#record-key-type-any). And indeed, try posting a link to this blog post on Bluesky, and you should see the shiny “View publication” button appear!
+Try posting a link to this blog post on Bluesky, and you should see the shiny “View publication” button appear!
 
 If you want the same for your blog, go ahead and use the [@mastrojs/atproto](https://github.com/mastrojs/atproto) package. Bug reports and contributions welcome. Happy publishing to the ATmosphere!
