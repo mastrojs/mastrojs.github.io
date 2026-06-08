@@ -317,16 +317,17 @@ The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t com
 
 ### Extensions
 
-- Tiny wrappers for carefully chosen deps:
-  - [markdown](https://jsr.io/@mastrojs/markdown) to HTML
-  - [images](https://jsr.io/@mastrojs/images) – resize/compress/etc.
-  - [og-image](https://jsr.io/@mastrojs/og-image) – generate images from text
-  - [feed](https://jsr.io/@mastrojs/feed) – generate RSS/Atom feeds
+- Tiny libs in the `@mastrojs` namespace:
+  - [markdown](https://github.com/mastrojs/markdown) to HTML
+  - [images](https://github.com/mastrojs/images) – resize/compress/etc.
+  - [og-image](https://github.com/mastrojs/og-image) – generate images from text
+  - [feed](https://github.com/mastrojs/feed) – generate RSS/Atom feeds
+  - [atproto](https://github.com/mastrojs/atproto) – add support for [Standard.site](https://standard.site/)
+  - [api](https://github.com/mastrojs/api) – type-safe REST APIs and clients
+  - [result](https://github.com/mastrojs/result) – a minimal `Result` type
 - [Install](https://mastrojs.github.io/guide/third-party-packages/) 3rd-party packages like:
   - [Kysely](https://www.kysely.dev/) – type-safe SQL query builder
   - [Sveltia CMS](https://github.com/mastrojs/template-sveltia-cms) – git-based CMS
-
-Need something else? [Please ask](https://github.com/mastrojs/mastro/discussions/new?category=q-a)!
 
 </div>
 <div>
