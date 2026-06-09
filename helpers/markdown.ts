@@ -48,18 +48,12 @@ const md = markdownIt({ html: true, typographer: true })
     permalink: markdownItAnchor.permalink.headerLink({ class: "anchor" }),
   })
   .use(markdownItContainer, "tip")
-  .use(markdownItHighlightJs, { auto: false });
-const defaultRender = md.renderer.rules.fence;
+  .use(markdownItHighlightJs as any, { auto: false });
+const defaultRender = md.renderer.rules.fence!;
 
 md.use((md: any) => {
   // see https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md
-  md.renderer.rules.fence = (
-    tokens: Array<{info: string; content: string}>,
-    idx: number,
-    options: unknown,
-    env: unknown,
-    self: unknown,
-) => {
+  md.renderer.rules.fence = (...[tokens, idx, options, env, self]: Parameters<typeof defaultRender>) => {
     const { title, ranges } = parseInfo(tokens[idx].info);
     const pre = ranges
       ? `<pre>${ranges.map((range) =>
@@ -100,11 +94,7 @@ const parseInfo = (info: string) => {
  */
 const renderCode = (
   ranges: Array<{ insOrDel: string; from: number; to: number;}>,
-  tokens:  Array<{content: string}>,
-  idx: number,
-  options: unknown,
-  env: unknown,
-  self: unknown,
+  ...[tokens, idx, options, env, self]: Parameters<typeof defaultRender>
 ) => {
   const lines = tokens[idx].content.split("\n");
   const copyLines = [...lines];

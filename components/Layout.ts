@@ -21,7 +21,7 @@ export const Layout = (props: Props) => {
         <title>${props.title}</title>
         <link rel="stylesheet" href="/styles/styles.css">
         <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-        <link rel="canonical" href="${props.canonical || new URL(url.pathname, baseUrl)}">
+        <link rel="canonical" href="${props.canonical || new URL(url.pathname, baseUrl).toString()}">
         <meta name="description" content="${props.description || "A minimal tool to build content-driven websites"}">
         <meta property="og:image" content=${props.ogImage}>
         ${props.docRkey && html`
