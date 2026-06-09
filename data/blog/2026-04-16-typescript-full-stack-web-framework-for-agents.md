@@ -1,6 +1,7 @@
 ---
 title: TypeScript full-stack web framework for agents and humans
 date: 2026-04-16
+author: Mauro Bieg
 ---
 
 I would be lying if I said the [Mastro web framework](/) was designed from the ground up for AI agents. It was designed for humans, and to be as simple and minimal as possible, while still offering a great DX (developer experience). But it turns out, these properties make it exceptionally well-suited for AI agents as well.

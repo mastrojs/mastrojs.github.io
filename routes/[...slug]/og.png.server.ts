@@ -2,6 +2,7 @@ import { serveMarkdownFolder } from "@mastrojs/markdown";
 import { readFile } from "@mastrojs/mastro";
 import { renderImage } from "@mastrojs/og-image";
 import { pageTitlePrefix } from "../[...slug].server.ts";
+import { schema } from "../../helpers/markdown.ts";
 
 const fontFile = await readFile("./helpers/Roboto-Bold.ttf");
 const chefIcon = await readFile("./helpers/ogChef.png");
@@ -25,7 +26,7 @@ export const getStaticPaths = async () => {
   return paths.map((path) => path + "og.png");
 };
 
-const mdFolder = serveMarkdownFolder({ folder: "data" }, ({ meta }, req) => {
+const mdFolder = serveMarkdownFolder({ folder: "data", schema }, ({ meta }, req) => {
   const { pathname } = new URL(req.url);
   const prefix = pageTitlePrefix(pathname);
   const text = meta.metaTitle || meta.title || "";
