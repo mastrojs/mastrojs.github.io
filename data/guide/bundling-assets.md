@@ -2,16 +2,16 @@
 title: Bundling and pregenerating assets
 ---
 
-If you build your project in such a way that it only has a handful of client-side JavaScript files, you can enjoy the benefits of not having to deal with a bundler:
+If you have a  project with only a handful of client-side JavaScript files, you can enjoy the benefits of not having a bundler:
 
 - In error messages and other places in your browser's dev tools, line numbers are correct and stack traces are always readable – even in production and logs.
 - You can use the JavaScript debugger built into your browser's dev tools without finicky source maps.
-- Not bundling doesn't add another layer that you need to debug when things go wrong (e.g. when your bundle is unexpectedly large and you don't know why).
+- No additional layer that you need to debug when things go wrong (e.g. server code accidentally ending up in the client bundle).
 - No messing with different build configs for client, server, tests, dev and production.
-- No bundler update treadmill from Webpack to Vite to whatever's next.
+- No update treadmill from Webpack to Vite to whatever's next.
 - During development, the server starts up immediately, and changes are reflected instantly. It's a truly awesome developer experience.
 
-But for some very interactive apps, a lot of client-side JavaScript is unavoidable. And for most websites, what negatively [impacts performance the most, is too much client-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript). Thus if you have dozens, or even hundreds, of different client-side JavaScript files, the time may have come to bundle them.
+But for some very interactive apps, a lot of [client-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript) is unavoidable. If you have dozens, or even hundreds, of different client-side JavaScript files, the time may have come to bundle them.
 
 
 ## Bundling
@@ -144,9 +144,9 @@ This declares two presets: `hero` and `hero2x`. Assuming you have a file `images
 
 Because bundling CSS and JavaScript, and transforming images, are expensive computations, it’s common for frameworks to do this only once, in a build step, before starting the server. These pre-built files are often called _assets_.
 
-Actually, we’ve started the guide with an extreme application of this strategy: static site generation. There, not only images and bundles are pre-computed, but also every single HTML file is pre-generated. Thus for a static site, the above code is sufficient. But if you're running a server, you may want to pregenerate images (or even certain HTML pages) in a build step.
+Actually, we’ve started the guide with an extreme application of this strategy: static site generation. There, not only images and bundles are pre-computed, but also every single HTML file is pre-generated. Thus for a static site, the code snippets above will just work in Mastro. But if you're running a server, you may want to pregenerate images (or even certain HTML pages) in a build step.
 
-We change the `generate` task in the `deno.json` (or `package.json`) so that it doesn't build an entire static site anymore, but only pregenerates select routes (in addition to copying over [unprocessed static files](/docs/routing/)):
+Change the `generate` task in the `deno.json` (or `package.json`) so that it doesn't build an entire static site anymore, but only pregenerates select routes (in addition to copying over [unprocessed static files](/docs/routing/)):
 
 ```json title=deno.json del={3} ins={4}
 {
