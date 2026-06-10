@@ -58,13 +58,13 @@ A library worth checking out!<br>
 
 ## No bloat
 
-- **No overhead**: implemented in just [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
+- **No overhead**: implemented in just [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
 - **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
 - **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
 - **No magic**: use plain `<img>` and `<a>` tags referencing [asset routes](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
 - **No VC-money**: no eventual enshitification – selling is none of our business.
 - **No update treadmill**: we use web standards instead of complex [dependencies](https://jsr.io/@mastrojs/mastro/dependencies).
-- **No lock-in**: swap out Mastro later or fork it – it's only [~700 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+- **No lock-in**: swap out Mastro later or fork it – it's only [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
 
 <a class="button" href="/docs/why-mastro/">Mastro's design principles</a>
 

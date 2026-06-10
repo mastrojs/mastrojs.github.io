@@ -124,4 +124,4 @@ Similarly, to bundle JavaScript, we could call e.g. `esbuild` in the route handl
 
 ## Conclusion
 
-By inverting the flow of a classic asset pipeline, and leveraging the standards-based Request/Response-API, we managed to unify the development server, production server, static site generation, and asset generation mechanisms. That's how Mastro gets by with just [~700 lines of implementation code](https://github.com/mastrojs/mastro/tree/main/src#readme).
+By inverting the flow of a classic asset pipeline, and leveraging the standards-based Request/Response-API, we managed to unify the development server, production server, static site generation, and asset generation mechanisms. That's how Mastro gets by with just [~800 lines of implementation code](https://github.com/mastrojs/mastro/tree/main/src#readme).

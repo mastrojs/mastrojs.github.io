@@ -6,7 +6,7 @@ author: Mauro Bieg
 
 I would be lying if I said the [Mastro web framework](/) was designed from the ground up for AI agents. It was designed for humans, and to be as simple and minimal as possible, while still offering a great DX (developer experience). But it turns out, these properties make it exceptionally well-suited for AI agents as well.
 
-The whole [source code of Mastro](https://github.com/mastrojs/mastro/tree/main/src) is just ~700 lines of TypeScript, which easily fits into an LLM’s context (or a human’s). And just like types prevent humans from making stupid mistakes, they do the same for LLMs.
+The whole [source code of Mastro](https://github.com/mastrojs/mastro/tree/main/src) is just ~800 lines of TypeScript, which easily fits into an LLM’s context (or a human’s). And just like types prevent humans from making stupid mistakes, they do the same for LLMs.
 
 To say that AI in general, and agentic coding in particular, are controversial topics may be an understatement. I’m not here to tell you what to think about AI. Personally, I see a number of downsides, but also some potential. LLMs can produce a lot of slop and terrible code. But when used properly, they can also be a big help, especially [when learning](https://htmx.org/essays/yes-and/). I have hopes for local models, but as of today, they’re not quite where Claude Code and Codex seem to be.
 
