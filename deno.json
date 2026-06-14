@@ -11,7 +11,7 @@
     "lineWidth": 100
   },
   "imports": {
-    "@mastrojs/atproto": "jsr:@mastrojs/atproto@^0.1.3",
+    "@mastrojs/atproto": "jsr:@mastrojs/atproto@^0.2.2",
     "@mastrojs/og-image": "jsr:@mastrojs/og-image@^0.0.11",
     "@mastrojs/feed": "jsr:@mastrojs/feed@^0.0.1",
     "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.2.1",

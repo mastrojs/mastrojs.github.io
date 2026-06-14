@@ -1,7 +1,7 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@mastrojs/atproto@~0.1.3": "0.1.3",
+    "jsr:@mastrojs/atproto@~0.2.2": "0.2.2",
     "jsr:@mastrojs/feed@^0.0.1": "0.0.1",
     "jsr:@mastrojs/markdown@0.2.1": "0.2.1",
     "jsr:@mastrojs/mastro@*": "0.8.7",
@@ -24,8 +24,8 @@
     "npm:pagefind@1.0.4": "1.0.4"
   },
   "jsr": {
-    "@mastrojs/atproto@0.1.3": {
-      "integrity": "fca73d98e373d920ad54cf9b1692140c772182841e78f60957c27be475c43c15",
+    "@mastrojs/atproto@0.2.2": {
+      "integrity": "28ced88fb47639285666707da356a10dd5a4488a699fff9c779adb23c72531e7",
       "dependencies": [
         "npm:@atproto/api"
       ]
@@ -548,7 +548,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@mastrojs/atproto@~0.1.3",
+      "jsr:@mastrojs/atproto@~0.2.2",
       "jsr:@mastrojs/feed@^0.0.1",
       "jsr:@mastrojs/markdown@0.2.1",
       "jsr:@mastrojs/mastro@0.8.7",
