@@ -4,7 +4,6 @@ description: ""
 date: 2026-05-26
 author: Mauro Bieg
 authorLink: https://github.com/mb21
-rkey: 3mn5vgtpr6r2q
 ---
 
 People have been exploring different ways to organize their CSS for almost as long as CSS has been around. In the beginning with methodologies like BEM, later with tooling like CSS modules, CSS-in-JS, and now [with Tailwind](/blog/2025-11-27-why-not-just-use-inline-styles-tailwind/).
