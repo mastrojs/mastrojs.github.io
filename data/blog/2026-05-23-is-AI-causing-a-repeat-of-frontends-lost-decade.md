@@ -100,7 +100,7 @@ The need for being able to write code by hand is clear. Just like industrial des
 
 While it’s great that tools like Google, Stack Overflow, [ready-to-use libraries](https://jessitron.com/2020/08/04/back-when-software-was-a-craft/), and now LLMs are making things easier for beginners, this also means that the natural barrier to get anything working at all is continuously being lowered.
 
-While there is a high barrier to entry to a field, it’s difficult to find absolutely terrible pieces of work. Once a craftsman was taught how to build a wooden chair, they invariable were also taught how to not do a terrible job at it.
+While there is a high barrier to entry to a field, it’s difficult to find absolutely terrible pieces of work. Once a craftsman was taught how to build a wooden chair, they invariably were also taught how to not do a terrible job at it.
 
 The industrialization enabled lots of cheap plastic products, designed by people who didn’t take the time to think how they would be used and by whom – yet good industrial design is still a thing. The invention of the word processor enabled lots of terribly formatted documents – yet typography and graphic design still exist. And software like Wix and Next.js enabled the creation of lots of websites that load terribly slow and are not accessible – yet there are still practitioners of the front of the frontend out there. Likewise, AI is enabling lots of AI slop – but this doesn’t mean we don’t still need people who know what they’re doing, and who care about what they’re doing.
 
