@@ -15,6 +15,7 @@ export const GET = async (req: Request) => {
       children: html`
         <main>
           <h1>Blog</h1>
+          <p><strong>Posts about the web and <a href="/">Mastro</a> – the simplest web framework and site generator yet.</strong></p>
           ${posts.map(({ meta, path }) => html`
             <p>
               ${fmtIsoDate(meta.date)}<br>

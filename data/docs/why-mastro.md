@@ -2,7 +2,9 @@
 title: Why Mastro?
 ---
 
-The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But this isn't necessary anymore.
+## What has changed
+
+The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But all that tooling isn't necessary anymore.
 
 - Browsers now have [bfcache and MPA view transistions](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#buttery-smooth-navigation-in-mpas). SPAs have [peaked](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa).
 - [Native CSS features](/guide/css/#want-to-learn-more-css%3F) replace much of SCSS.
@@ -10,7 +12,7 @@ The JavaScript ecosystem has been moving to ever more complex frameworks and bui
 - With ES modules in all browsers, bundling [shouldn't be the default anymore](/guide/bundling-assets/).
 
 
-## Design Principles
+## Mastro Design Principles
 
 1.  Mastro is for people who **care about their users**, and value accessible websites that load fast – even on [low-end phones and slow networks](https://infrequently.org/series/performance-inequality/).
 

@@ -1,15 +1,33 @@
-import { parseYamlFrontmatter, readMarkdownFiles } from "@mastrojs/markdown";
-import { unsafeInnerHtml } from "@mastrojs/mastro";
+import { readMarkdownFiles } from "@mastrojs/markdown";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import markdownItContainer from "markdown-it-container";
 import markdownItHighlightJs from "markdown-it-highlightjs";
+import { boolean, literal, object, optional, string, union } from "./validate.js";
+
+const baseSchema = {
+  title: string,
+  titleIsHtml: optional(boolean),
+  metaTitle: optional(string),
+  description: optional(string),
+  canonical: optional(string),
+  layout: optional(literal("hero")),
+};
+
+const blogSchema = object({
+  ...baseSchema,
+  author: string,
+  authorLink: optional(string),
+  date: string,
+});
+
+export const schema = union(object(baseSchema), blogSchema);
 
 /**
  * Get all markdown files
  */
 export const readBlogFiles = async () => {
-  const files = await readMarkdownFiles("data/blog/**.md");
+  const files = await readMarkdownFiles("data/blog/**.md", { schema: blogSchema });
   files.reverse();
   return files.map(md => ({...md, path: md.path.slice(4, -3) + "/"}));
 }
@@ -23,29 +41,19 @@ export const readBlogFiles = async () => {
  * - copy code to clipboard button
  * - support for ` ```css title=styles.css ins={6-7} del={4-5}` syntax
  */
-export const mdToHtml = (txt: string) => {
-  const { body, meta } = parseYamlFrontmatter(txt);
-  const content = unsafeInnerHtml(md.render(body));
-  return { content, meta };
-};
+export const parse = (txt: string) => md.render(txt);
 
 const md = markdownIt({ html: true, typographer: true })
   .use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.headerLink({ class: "anchor" }),
   })
   .use(markdownItContainer, "tip")
-  .use(markdownItHighlightJs, { auto: false });
-const defaultRender = md.renderer.rules.fence;
+  .use(markdownItHighlightJs as any, { auto: false });
+const defaultRender = md.renderer.rules.fence!;
 
 md.use((md: any) => {
   // see https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md
-  md.renderer.rules.fence = (
-    tokens: Array<{info: string; content: string}>,
-    idx: number,
-    options: unknown,
-    env: unknown,
-    self: unknown,
-) => {
+  md.renderer.rules.fence = (...[tokens, idx, options, env, self]: Parameters<typeof defaultRender>) => {
     const { title, ranges } = parseInfo(tokens[idx].info);
     const pre = ranges
       ? `<pre>${ranges.map((range) =>
@@ -86,11 +94,7 @@ const parseInfo = (info: string) => {
  */
 const renderCode = (
   ranges: Array<{ insOrDel: string; from: number; to: number;}>,
-  tokens:  Array<{content: string}>,
-  idx: number,
-  options: unknown,
-  env: unknown,
-  self: unknown,
+  ...[tokens, idx, options, env, self]: Parameters<typeof defaultRender>
 ) => {
   const lines = tokens[idx].content.split("\n");
   const copyLines = [...lines];

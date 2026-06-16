@@ -4,8 +4,9 @@ import { Sidebar } from "../components/Sidebar.ts";
 import { Toc } from "../components/Toc.ts";
 import { fmtIsoDate } from "../helpers/date.ts";
 import { serveMarkdownFolder } from "@mastrojs/markdown";
+import { rkeyFromUrl } from "@mastrojs/atproto";
 import { html, htmlToResponse, unsafeInnerHtml } from "@mastrojs/mastro";
-import { mdToHtml } from "../helpers/markdown.ts";
+import { parse, schema } from "../helpers/markdown.ts";
 
 export interface SidebarItem {
   label: string;
@@ -15,9 +16,11 @@ export interface SidebarItem {
 
 export const { GET, getStaticPaths } = serveMarkdownFolder({
   folder: "data",
-  mdToHtml,
+  parse,
+  schema,
 }, ({ content, meta }, req) => {
-  const { pathname } = new URL(req.url);
+  const url = new URL(req.url);
+  const { pathname } = url;
   const pathSegments = pathname.split("/");
   const isBlog = pathSegments[1] === "blog";
 
@@ -28,7 +31,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
     : contents;
   const { prev, next } = getPrevNext(flattened, pathname);
 
-  const { title, date } = meta;
+  const { title } = meta;
   if (!title) throw Error(`No title in ${pathname}`);
   return htmlToResponse(
     Layout({
@@ -36,7 +39,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
       description: meta.description,
       canonical: meta.canonical,
       ogImage: `https://mastrojs.github.io${pathname}og.png`,
-      standardSiteRkey: meta.rkey,
+      docRkey: isBlog ? rkeyFromUrl(url) : undefined,
       req,
       children: html`
         ${Sidebar(sidebar, part, pathname)}
@@ -44,13 +47,13 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
         <main ${meta.layout === "hero" ? `class=hero` : "data-pagefind-body"}>
           <h1>${meta.titleIsHtml ? unsafeInnerHtml(title) : title}</h1>
 
-          ${isBlog && date
+          ${isBlog && "date" in meta
             ? html`
               <p>
                 ${meta.authorLink
                   ? html`<a href=${meta.authorLink}>${meta.author}</a>`
                   : meta.author}
-                on ${fmtIsoDate(date)}
+                on ${fmtIsoDate(meta.date)}
               </p>`
             : ""}
 
@@ -153,6 +156,10 @@ const sidebar = [{
       { label: "Mastro as a server on the command line", slug: "/guide/cli-install/" },
       { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
       { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
+    ],
+  }, {
+    label: "Assets and caching",
+    contents: [
       { label: "Bundling and pregenerating assets", slug: "/guide/bundling-assets/" },
       { label: "Caching, Service Workers and streaming", slug: "/guide/caching-service-workers-streaming/" },
       { label: "Web application architectures", slug: "/guide/web-application-architectures/" },

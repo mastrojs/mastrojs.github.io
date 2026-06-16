@@ -4,16 +4,18 @@
     "generate": "deno run -A @mastrojs/mastro/generator",
     "startWithPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site generated --serve",
     "generateWPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site generated",
+    "publishToAtmosphere": "deno run -A helpers/standard.site/publish.ts",
     "checkLinks": "deno task generate && deno run --allow-env --allow-read --allow-net npm:linkinator generated -r --retry --retry-errors-jitter --skip jsr.io"
   },
   "fmt": {
     "lineWidth": 100
   },
   "imports": {
+    "@mastrojs/atproto": "jsr:@mastrojs/atproto@^0.2.2",
     "@mastrojs/og-image": "jsr:@mastrojs/og-image@^0.0.11",
     "@mastrojs/feed": "jsr:@mastrojs/feed@^0.0.1",
-    "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.1.5",
-    "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.8.4",
+    "@mastrojs/markdown": "jsr:@mastrojs/markdown@0.2.1",
+    "@mastrojs/mastro": "jsr:@mastrojs/mastro@0.8.7",
     "markdown-it": "npm:markdown-it@14.1.0",
     "markdown-it-anchor": "npm:markdown-it-anchor@9.2.0",
     "markdown-it-container": "npm:markdown-it-container@4.0.0",
