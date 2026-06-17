@@ -199,7 +199,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 
   <div tabindex=0 id="content1">
 
-  Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-deno)):
+  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) and copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-deno)):
 
   ```sh
   deno run -A npm:@mastrojs/create-mastro@0.1.6
@@ -207,8 +207,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   </div>
   <div tabindex=0 id="content2">
 
-  Mastro requires Node.js >= 24. Since it's a [JSR package](https://jsr.io/@mastrojs/mastro), `pnpm` is recommended (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)).
-  Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-node)):
+  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)). Then install Node.js (if you haven't already) with `pnpm runtime set node lts -g` Finally, use the [template repo](https://github.com/mastrojs/template-basic-node) or run:
 
   ```sh
   pnpm create @mastrojs/mastro@0.1.6
