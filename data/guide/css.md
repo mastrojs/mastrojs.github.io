@@ -102,13 +102,9 @@ header {
   padding: 1.5em 1em 1em 1em;
 }
 
-main {
-  padding: 1em;
-}
-
 footer {
   background-color: var(--brand-color);
-  padding: 2em 1em;
+  padding: 2em 0;
   margin-top: 3em;
 }
 ```
@@ -138,12 +134,17 @@ footer > div {
   width: 100%;
   max-width: 30rem;
   margin: 0 auto;
+  @media (max-width: 1000px) {
+    padding: 0 1em;
+  }
 }
 ```
 
 The part that describes what elements the rule will select, is called the _CSS selector_. In the snippet above, `p` is the first selector. Notice how `p` selects _all_ HTML `p` elements.
 
 `header > div` selects all `div` elements that are direct children of a `header` element. Because we want the same styles to also apply to `main` and the `div` in the `footer`, we use a comma-separated _selector list_ containing these three selectors. The newlines after the commas are not necessary, but perhaps make it more readable.
+
+The `@media (max-width: 1000px)` is a media query, and its contents only apply when the window width is 1000px or smaller. We use this to add a padding on mobile.
 
 
 ## Exceptions to the rule

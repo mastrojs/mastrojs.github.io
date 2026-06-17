@@ -73,6 +73,7 @@ Different hosting providers and site generators often serve the same file under 
 | `file.html`                 | `/file.html` |
 | `folder/index.html`         | `/folder/`   |
 | `file.server.js`            | `/file`      |
+| `file.html.server.js`       | `/file.html` |
 | `folder/index.server.js`    | `/folder/`   |
 | `folder/(folder).server.js` | `/folder/`   |
 
