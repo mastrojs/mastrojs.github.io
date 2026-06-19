@@ -3,10 +3,10 @@
   "specifiers": {
     "jsr:@mastrojs/atproto@~0.2.2": "0.2.2",
     "jsr:@mastrojs/feed@^0.0.1": "0.0.1",
-    "jsr:@mastrojs/markdown@0.2.1": "0.2.1",
-    "jsr:@mastrojs/mastro@*": "0.8.7",
-    "jsr:@mastrojs/mastro@0": "0.8.7",
-    "jsr:@mastrojs/mastro@0.8.7": "0.8.7",
+    "jsr:@mastrojs/markdown@0.2.2": "0.2.2",
+    "jsr:@mastrojs/mastro@*": "0.8.8",
+    "jsr:@mastrojs/mastro@0": "0.8.8",
+    "jsr:@mastrojs/mastro@0.8.8": "0.8.8",
     "jsr:@mastrojs/og-image@^0.0.11": "0.0.11",
     "jsr:@std/encoding@1": "1.0.10",
     "jsr:@std/media-types@^1.1.0": "1.1.0",
@@ -36,8 +36,8 @@
         "jsr:@mastrojs/mastro@0"
       ]
     },
-    "@mastrojs/markdown@0.2.1": {
-      "integrity": "5fb5e2123e4bddb62193d0588ca691af094b3feb1eb631a5c5a9d79ba056525a",
+    "@mastrojs/markdown@0.2.2": {
+      "integrity": "ce82307a77651c9124b84f5f5c86467d5d463e720719f6bc8196ef26033a2567",
       "dependencies": [
         "jsr:@mastrojs/mastro@0",
         "jsr:@std/yaml",
@@ -45,8 +45,8 @@
         "npm:micromark-extension-gfm"
       ]
     },
-    "@mastrojs/mastro@0.8.7": {
-      "integrity": "c4a299fe851b588b986fabeb80abe778ac0caace06e4b490b8260e208e42161f",
+    "@mastrojs/mastro@0.8.8": {
+      "integrity": "f081bbcc20a8056c9dcb36f99b166b03428b353b3eb7aaaf635f5a4cee00046e",
       "dependencies": [
         "jsr:@std/media-types"
       ]
@@ -550,8 +550,8 @@
     "dependencies": [
       "jsr:@mastrojs/atproto@~0.2.2",
       "jsr:@mastrojs/feed@^0.0.1",
-      "jsr:@mastrojs/markdown@0.2.1",
-      "jsr:@mastrojs/mastro@0.8.7",
+      "jsr:@mastrojs/markdown@0.2.2",
+      "jsr:@mastrojs/mastro@0.8.8",
       "jsr:@mastrojs/og-image@^0.0.11",
       "npm:markdown-it-anchor@9.2.0",
       "npm:markdown-it-container@4.0.0",

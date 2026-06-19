@@ -28,8 +28,7 @@ export const schema = union(object(baseSchema), blogSchema);
  */
 export const readBlogFiles = async () => {
   const files = await readMarkdownFiles("data/blog/**.md", { schema: blogSchema });
-  files.reverse();
-  return files.map(md => ({...md, path: md.path.slice(4, -3) + "/"}));
+  return files.reverse().map(md => ({...md, path: `/blog/${md.slug}/` }));
 }
 
 /**
