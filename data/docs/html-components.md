@@ -6,7 +6,7 @@ To construct HTML, Mastro exports the [`html`](https://jsr.io/@mastrojs/mastro/d
 
 For syntax-highlighting, be sure to configure your editor accordingly. For example for VS Code, we recommend the [FAST Tagged Template Literals extension](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates).
 
-Using template literals means that you have complete control over your HTML. You're free to [write HTML instead of XHTML](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). That being said, while it says `html` on the tin, you can actually also use this to construct `SVG` or `XML` strings. It's just not going to be enforced that it's valid XML unless you run it through a [validator](https://validator.w3.org/) (which you should be doing anyway).
+Using template literals means that you have complete control over your HTML. You're free to [write HTML instead of XHTML](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). And while it says `html` on the tin, you can also use this to construct `SVG` or `XML` strings – just make sure you run it through a [validator](https://validator.w3.org/).
 
 ```ts
 import { html, renderToString } from "@mastrojs/mastro";
@@ -14,13 +14,15 @@ import { html, renderToString } from "@mastrojs/mastro";
 const myName = "World";
 const btnClass = "btn";
 
-const str = renderToString(
+const str = await renderToString(
   html`
     <h1>Hello ${myName}</h1>
     <a href="/" class=${btnClass}>Home</a>
   `
 );
 ```
+
+Unlike JSX or Astro templates, you don't need to set up a build step. You can easily use the plain HTML string wherever you want (e.g. in a one-off script, or for sending HTML emails via an API).
 
 However, usually you will directly construct a [standard Response object](https://developer.mozilla.org/en-US/docs/Web/API/Response) using `htmlToResponse`:
 
@@ -37,12 +39,14 @@ export const GET = (req: Request) =>
   );
 ```
 
-Note that `Layout` is a component.
+`Layout` is a component, which may be implemented as follows.
 
 
 ## Components
 
-A Mastro server-side component is just a normal JavaScript function, that by convention is capitalized, takes a `props` object, and returns something of type [`Html`](https://jsr.io/@mastrojs/mastro/doc/~/Html). There's really no magic going on here.
+A Mastro server-side component is just a normal JavaScript function. By convention, the function name is usually capitalized, takes a `props` object, and returns something of type [`Html`](https://jsr.io/@mastrojs/mastro/doc/~/Html). There's really no magic going on here.
+
+For various ways to structure your CSS, see [component-scoped CSS with Mastro](/blog/2026-05-26-component-scoped-css-without-build-step/).
 
 Let's look at how the `Layout` component from above might be defined. Notice that it is in turn calling a component called `Header`.
 
@@ -71,16 +75,15 @@ export const Layout = (props: Props) =>
   `;
 ```
 
-For various ways to structure your CSS, see [component-scoped CSS with Mastro](/blog/2026-05-26-component-scoped-css-without-build-step/).
-
 
 ## HTML Streaming
 
 [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [AsyncIterables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) can be passed directly into HTML templates without needing to be awaited.
-When passed to [`htmlToResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse), this will create a `Response` that sends the chunks over the wire as soon as they're available.
 
-For static site generation, this doesn't apply (in fact, eagerly awaiting will likely result in a faster generation step).
-But when running a server, streaming (instead of awaiting) can dramatically speed up [time to first byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte): a user can start reading the top of your page, while the last row hasn't even left the database yet. In HTTP/1.1, this was known as [chunked transfer encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding), but in HTTP/2 and HTTP/3 it's built in at the lower levels of the protocol.
+For static site generation, this doesn't matter (in fact, awaiting will likely result in a slightly faster generation step).
+But when running a server, you should pass in async values without awaiting them. [`htmlToResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse) will then create a `Response` that sends the chunks over the wire as soon as they're available.
+
+This can dramatically speed up [time to first byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte): a user can start reading the top of your page, while the last row hasn't even left the database yet. In HTTP/1.1, this was known as [chunked transfer encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding), but in HTTP/2 and HTTP/3 it's built in at the lower levels of the protocol.
 
 To not break streaming, make sure you:
 

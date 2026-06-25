@@ -17,7 +17,7 @@ The thing that's generally very difficult to get right with caching is _cache in
 If you want to improve performance and reduce load on your server, HTTP caching is usually the first level of defense. You do so by sending HTTP headers in your server's response. When using Mastro's [`htmlResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlResponse) function, for example:
 
 ```js
-return htmlResponse(html, 200, { "Cache-Control": "max-age=60" });
+return htmlResponse(myHtml, 200, { "Cache-Control": "max-age=60" });
 ```
 
 The above tells any CDN, proxy, and ultimately the browser, that they can store a copy of the page and use it until it's older than 60 seconds. After that, they'll have to fetch a fresh copy if they need one.

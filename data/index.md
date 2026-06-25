@@ -8,9 +8,10 @@ layout: hero
 <div class="herolist">
 
 🤗 **For people who care about their users and web standards.**\
-👨‍🍳 **Build directly on top of the browser and Node.js, Deno, Bun, or Workers.**
+👨‍🍳 **Use TypeScript/JavaScript’s mature tooling to build fast MPA websites without the bloat.**
 
-Mastro was designed from the ground up to use modern browser and runtime built-ins (like view transitions and type-stripping), enabling a [radically simpler design](/docs/why-mastro/) where [everything is a route](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
+Mastro is implemented in just **~800 lines** of TypeScript with **zero dependencies**.
+Instead of going through layers of abstraction, work directly with the browser and your JavaScript runtime: Node.js, Deno, Bun, or Workers.
 
 <p class="mt-3">
   <a class="button" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
@@ -51,22 +52,21 @@ A library worth checking out!<br>
 ## Minimal yet powerful
 
 - **Static site generation** – ideal for blogs, marketing sites or webshops that are [fast](/#fast-for-everyone).
-- **Server-side rendering** – use Mastro as a [full-stack web framework](/guide/forms-and-rest-apis/#a-mock-database).
-- **Everything is a route**: serve [JSON REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), [CSS](/blog/2026-05-26-component-scoped-css-without-build-step/), or [images](/guide/bundling-assets/#transforming-images), with the [same API](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/) as HTML.
-- **Composable**: a [router](/docs/routing/) and a few type-safe [helper functions](/docs/html-components/) – Mastro is that simple.
+- **Server-side rendering** – use Mastro's composable primitives as a [full-stack web framework](/guide/forms-and-rest-apis/#a-mock-database).
+- **Everything is a route**: serve HTML, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), [CSS](/blog/2026-05-26-component-scoped-css-without-build-step/), and [images](/guide/bundling-assets/#transforming-images) with the [same API](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
+- **Adopt incrementally**: use [templates](/docs/html-components/) in your existing codebase or [migrate route by route](/blog/2025-11-06-migration-from-express/).
 
 
-## No bloat
+## No dependencies, no build step
 
-- **No overhead**: implemented in just [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro runs [fast](#fast-for-everyone).
-- **No dependencies**: use web standards instead of keeping up with the frontend-treadmill.
-- **No client-side JavaScript** (until you [add some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load [fast](#fast-for-everyone).
-- **No bundler** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
-- **No magic**: use plain `<img>` and `<a>` tags referencing [asset routes](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
+- **No bloat**: implemented in just [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is [fast](#fast-for-everyone).
+- **No build step** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
+- **No JavaScript** (until you [ship some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load extremely [fast](#fast-for-everyone).
+- **No dependencies**: use web standards instead of keeping up with the frontend treadmill.
 - **No VC-money**: no eventual enshitification – selling is none of our business.
-- **No lock-in**: swap out Mastro later or fork it – it's only [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) after all.
+- **No lock-in**: swap out Mastro later or fork it – it's only [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme).
 
-<a class="button" href="/docs/why-mastro/">Mastro's design principles</a>
+<a class="button" href="/docs/why-mastro/">Why Mastro?</a>
 
 </div>
 
@@ -292,7 +292,7 @@ Eleventy has a lot of options around static site generation, but it doesn't run 
 <details>
 <summary>Hono</summary>
 
-Hono shares Mastro's minimalism, but it is more backend focused (e.g. it doesn't come with a file-based router).
+Hono is almost as minimal as Mastro. But it is more backend focused (e.g. it doesn't come with a file-based router).
 </details>
 </div>
 
