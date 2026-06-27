@@ -149,9 +149,35 @@ It's best to pass it a static string with self-contained HTML. If you do anythin
 
 ## Middleware
 
-Mastro itself doesn't have the concept of a middleware. For static sites, you can either factor out the common code to a helper function and call that in every route, or use a `[...slug]` route to consolidate paths.
+Mastro itself doesn't have the concept of a middleware. You can either use a `[...slug]` route to consolidate paths, or factor out the common code to a helper function and call that in every route, for example:
 
-If you're running a server, you can modify your `server.ts` file and replace `mastro.fetch` with a custom function. For example in Deno:
+```ts title=routes/index.server.ts
+export const GET = authRoute("admin", (req, user) => {
+  return htmlToResponse(html`Hello ${user.name}`);
+});
+```
+
+An implementation of the higher-order function `authRoute`, might use [TypeScript function overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads) to correctly type the `user` parameter:
+
+```ts title=helpers/authRoute.ts
+type Handler = (req: Request) => Response | Promise<Response>;
+type AuthenticatedHandler = (req: Request, user: User) => Response | Promise<Response>;
+type PublicHandler = (req: Request, user: User | undefined) => Response | Promise<Response>;
+
+export function authRoute(allowed: "admin", handler: AuthenticatedHandler): Handler;
+export function authRoute(allowed: "public", handler: PublicHandler): Handler;
+export function authRoute(allowed: "admin" | "public", handler: Handler) {
+  return (req: Request) => {
+    const user = getUser(req.headers.get("Authorization"));
+    if (allowed === "admin" && !user?.isAdmin) {
+      return new Response("Forbidden", { status: 403 });
+    }
+    return handler(req, user);
+  }
+}
+```
+
+If you're running a server (as opposed to doing static site generation), you can also modify your `server.ts` file and replace `mastro.fetch` with a custom function. For example in Deno:
 
 ```ts title=server.ts del={3} ins={4-9}
 import mastro from "@mastrojs/mastro/server";
