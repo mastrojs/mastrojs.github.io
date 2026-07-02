@@ -11,7 +11,7 @@ layout: hero
 👨‍🍳 **Use TypeScript/JavaScript’s mature tooling to build fast MPA websites without the bloat.**
 
 Mastro is implemented in just **~800 lines** of TypeScript with **zero dependencies**.
-Instead of going through layers of abstraction, work directly with the browser and your JavaScript runtime: Node.js, Deno, Bun, or Workers.
+Instead of going through layers of abstraction, **work directly with the browser and your JavaScript runtime** – Node.js, Deno, Bun, or Workers.
 
 <p class="mt-3">
   <a class="button" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
