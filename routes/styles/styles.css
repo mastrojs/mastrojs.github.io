@@ -572,6 +572,9 @@ section.tab-group {
         position: relative;
         z-index: 20;
       }
+      &:focus-within {
+        border-top: 2px solid var(--color-accent) !important;
+      }
       &:hover {
         background: color-mix(in srgb, var(--color-tabs-bg), black 10%);
       }
