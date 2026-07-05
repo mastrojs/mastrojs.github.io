@@ -199,7 +199,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
 
   <div tabindex=0 id="content1">
 
-  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) and copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-deno)):
+  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) and copy and paste into your terminal:
 
   ```sh
   deno run -A npm:@mastrojs/create-mastro@0.1.6
@@ -207,7 +207,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   </div>
   <div tabindex=0 id="content2">
 
-  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)). Then install Node.js (if you haven't already) with `pnpm runtime set node lts -g` Finally, use the [template repo](https://github.com/mastrojs/template-basic-node) or run:
+  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)). Then install Node.js (if you haven't already) with `pnpm runtime set node lts -g` Then in your terminal:
 
   ```sh
   pnpm create @mastrojs/mastro@0.1.6
@@ -215,7 +215,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   </div>
   <div tabindex=0 id="content3">
 
-  Copy and paste into your terminal (or use the [template repo](https://github.com/mastrojs/template-basic-bun)):
+  Copy and paste into your terminal:
 
   ```sh
   bun create @mastrojs/mastro@0.1.6
@@ -224,7 +224,7 @@ There are various [ways to run Mastro](/guide/cli-install/) and [deploy to produ
   <div tabindex=0 id="content4">
   Use Deno, Node.js, or Bun to generate a static site for any CDN (Cloudflare or not).
 
-  However, to run code [on-demand](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) in a [Cloudflare Worker](https://workers.cloudflare.com/), (use the [template repo](https://github.com/mastrojs/template-basic-cloudflare)) or run:
+  However, to run code [on-demand](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) in a [Cloudflare Worker](https://workers.cloudflare.com/):
 
   ```sh
   pnpm create @mastrojs/mastro@0.1.6 --cloudflare
