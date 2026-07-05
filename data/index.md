@@ -353,10 +353,11 @@ We're building an inclusive community, where people of all kinds of backgrounds 
 
 ### Want help or chat?
 
-@-mention us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social), or talk to us on:
+Talk to us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social),
+<a data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions">GH Discussions</a>, or:
 
-<a class="button -secondary" data-goatcounter-click="home.github.stoat" href="https://stt.gg/k7QMEaP1">Stoat Chat</a>
-<a class="button -minimal" data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions">GH Discussions</a>
+<a class="button -secondary" data-goatcounter-click="home.stoat" href="https://stt.gg/k7QMEaP1">Stoat</a>
+<a class="button -secondary" data-goatcounter-click="home.discord" href="https://discord.gg/gmw2VEW5Rw">Discord</a>
 </div>
 <div>
 
