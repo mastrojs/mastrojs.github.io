@@ -66,32 +66,36 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
           ${["/", "/guide/"].includes(pathname) || isBlog
             ? Newsletter()
             : ""}
-          ${isBlog
-            ? html`
-                <section class="center-text">
-                  <p>Mastro is the simplest web framework and static site generator yet.</p>
-                  <p><a href="/" class="button">Discover Mastro →</a></p>
-                </section>
-                `
-            : ""}
         </main>
 
-        <footer>
-          ${prev
-            ? html`
-              <a href="${prev.slug}">
-                <div>← Previous chapter</div>
-                ${prev.label}
-              </a>
-            `
-            : html`<span></span>`}
-          ${next && html`
-            <a href="${next.slug}">
-              <div>Next chapter →</div>
-              ${next.label}
-            </a>
-          `}
-        </footer>
+        ${isBlog
+          ? html`
+            <footer class="blog-footer">
+              <h2>Mastro 👨‍🍳</h2>
+              <p>
+                The simplest web framework and static site generator yet.<br>
+                ~800 lines of TypeScript, no dependencies, no build step.
+              </p>
+              <p><a href="/" class="button">Discover Mastro →</a></p>
+            </footer>`
+          : html`
+            <footer>
+              ${prev
+                ? html`
+                  <a href="${prev.slug}">
+                    <div>← Previous chapter</div>
+                    ${prev.label}
+                  </a>
+                `
+                : html`<span></span>`}
+              ${next && html`
+                <a href="${next.slug}">
+                  <div>Next chapter →</div>
+                  ${next.label}
+                </a>
+              `}
+            </footer>
+            `}
 
         <link rel="stylesheet" media="(prefers-color-scheme: light)" href="/styles/highlightjs-stackoverflow-light.min.css">
         <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="/styles/highlightjs-stackoverflow-dark.min.css">
