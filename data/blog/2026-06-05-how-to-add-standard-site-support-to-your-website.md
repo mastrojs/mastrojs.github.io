@@ -12,7 +12,8 @@ Since [Bluesky added support for Standard.site](https://atproto.com/blog/standar
 
 ## What ATmosphere?
 
-For a bit of background, see e.g. Steve Klabnik’s [How Does BlueSky Work?](https://steveklabnik.com/writing/how-does-bluesky-work/)
+For a bit of background, see e.g. Steve Klabnik’s [How Does BlueSky Work?](https://steveklabnik.com/writing/how-does-bluesky-work/) and Declan Chidlow's [Publishing on the Atmosphere with Standard.site](https://piccalil.li/blog/publishing-on-the-atmosphere-with-standardsite/).
+
 The TL;DR is that you can think of _the ATmosphere_ as a big distributed database, which is partially mirrored a few times via relays. Anybody with an account on a PDS (Personal Data Server – Bluesky being the biggest example) can make HTTP requests to it and read and write records in the database. A set of evolving, shared lexicons make sure your data remains portable and you’re not being locked in. The latest such lexicon to reach critical mass is [Standard.site](https://standard.site/) – it’s a standardized way to express metadata about publications and documents (e.g. blogs and their posts).
 
 One interesting way that some people use this is to use the ATmosphere as the backend database for their website.

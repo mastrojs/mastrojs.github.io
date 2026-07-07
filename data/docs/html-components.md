@@ -4,7 +4,7 @@ title: "Components and HTML"
 
 To construct HTML, Mastro exports the [`html`](https://jsr.io/@mastrojs/mastro/doc/~/html) tagged [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which makes sure things are properly escaped (unless [`unsafeInnerHtml`](https://jsr.io/@mastrojs/mastro/doc/~/unsafeInnerHtml) is used).
 
-For syntax-highlighting, be sure to configure your editor accordingly. For example for VS Code, we recommend the [FAST Tagged Template Literals extension](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates).
+For syntax-highlighting, be sure to configure your editor accordingly. For example for VS Code, we recommend the [FAST Tagged Template Literals extension](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates). In Zed, this works out of the box.
 
 Using template literals means that you have complete control over your HTML. You're free to [write HTML instead of XHTML](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). And while it says `html` on the tin, you can also use this to construct `SVG` or `XML` strings – just make sure you run it through a [validator](https://validator.w3.org/).
 
