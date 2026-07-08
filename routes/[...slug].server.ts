@@ -73,8 +73,8 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
             <footer class="blog-footer">
               <h2>Mastro 👨‍🍳</h2>
               <p>
-                The simplest web framework and static site generator yet.<br>
-                ~800 lines of TypeScript, no dependencies, no build step.
+                No dependencies. No build step.<br>
+                Just a web framework that gets out of the way.
               </p>
               <p><a href="/" class="button">Discover Mastro →</a></p>
             </footer>`

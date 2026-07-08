@@ -1,23 +1,20 @@
 ---
-title: The simplest web framework and site generator yet.
-metaTitle: 'Mastro: the simplest web framework and site generator'
+title: "No dependencies. No build step. Just a web framework that gets out of the way."
+metaTitle: 'Mastro: No dependencies. No build step. A web framework and site generator that gets out of the way.'
 description: "A minimal tool for people who care about their users and web standards."
 layout: hero
 ---
 
 <div class="herolist">
 
-🤗 **For people who care about their users and web standards.**\
-👨‍🍳 **Use TypeScript/JavaScript’s mature tooling to build fast MPA websites without the bloat.**
+Mastro is a **web framework** and **site generator** for people who care about their users and web standards. It's is implemented in just **~800 lines** of TypeScript.
 
-Mastro is implemented in just **~800 lines** of TypeScript with **zero dependencies**.
-Instead of going through layers of abstraction, **work directly with the browser and your JavaScript runtime** – Node.js, Deno, Bun, or Workers.
+Use JavaScript/TypeScript’s mature tooling to build fast MPA websites.
+Instead of going through layers of abstraction, work directly with the browser and your JavaScript runtime – Node.js, Deno, Bun, or Workers.
 
-<p class="mt-3">
-  <a class="button" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
-  <a class="button -secondary" href="/docs/">Docs</a>
-  <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
-</p>
+<a class="button" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
+<a class="button -secondary" href="/docs/">Docs</a>
+<a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 
 <div class="tip center-text mt-3 mb-3">
 
@@ -51,8 +48,8 @@ A library worth checking out!<br>
 
 ## Minimal yet powerful
 
-- **Static site generation** – ideal for blogs, marketing sites or webshops that are [fast](/#fast-for-everyone).
-- **Server-side rendering** – use Mastro's composable primitives as a [full-stack web framework](/guide/forms-and-rest-apis/#a-mock-database).
+- **Static site generation** (SSG) – ideal for blogs, marketing sites or webshops that are [fast](/#fast-for-everyone).
+- **Server-side rendering** (SSR) – use Mastro's composable primitives as a [full-stack framework](/guide/forms-and-rest-apis/#a-mock-database).
 - **Everything is a route**: serve HTML, JSON [REST APIs](/guide/forms-and-rest-apis/#client-side-fetching-a-rest-api), [CSS](/blog/2026-05-26-component-scoped-css-without-build-step/), and [images](/guide/bundling-assets/#transforming-images) with the [same API](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/).
 - **Adopt incrementally**: use [templates](/docs/html-components/) in your existing codebase or [migrate route by route](/blog/2025-11-06-migration-from-express/).
 
