@@ -51,5 +51,5 @@ This led to the decision to build Mastro as an MPA framework, and its core desig
 - Mastro’s [implementation](https://github.com/mastrojs/mastro/tree/main/src#readme) is low-maintenance and so small that you can read it in an hour or two. Should you ever outgrow it, you can simply fork it and adjust things to your needs.
 - Mastro is modular. If you prefer e.g. another templating engine, use that instead.
 - Mastro has a tiny [API-surface](https://jsr.io/@mastrojs/mastro/doc), which is already very stable. Once we hit v1.0, the public API will get frozen, so that projects that depend on Mastro aren’t stuck on an update-treadmill.
-- [Additional packages](/#extensions) in the `@mastro` namespace may have higher rates of change, and we invite the community to create additional packages on top of the standard Request/Response-API.
+- [Additional packages](/#extensions-%2F-plugins) in the `@mastro` namespace may have higher rates of change, and we invite the community to create additional packages on top of the standard Request/Response-API.
 </details>

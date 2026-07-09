@@ -100,13 +100,13 @@ import markdownIt from "markdown-it";
 
 It's important to remember that the above file (`deno.json` or `package.json`) will not be loaded into the browser – and unless you use a bundler, neither will any packages it contains. This is a good, because packages intended to be run on the server are often very big and would slow down your website if all your website visitors had to download them.
 
-### Bundling
+### Installing packages without a build system
 
-We'll look at [setting up a bundler with Mastro later](/guide/bundling-assets/). But to get started, it's easier to use pre-bundled versions – either by using a CDN or self-hosted.
+We'll look at [setting up a bundler with Mastro later](/guide/bundling-assets/). But to get started, it's easier to use pre-bundled versions – either by using a CDN or self-hosting (aka vendoring).
 
-### CDN
+#### CDN
 
-If the library you want to add is pre-bundling and published to a CDN (e.g. jsDelivr or UNPKG), use that. If they're only advertising an NPM (or JSR) package, you can use the [esm.sh](https://esm.sh/) CDN. To enable the bundler that's built into esm.sh, add `?bundle` at the end of the URL:
+If the library you want to add advertises a CDN URL in their installation instructions (usually a URL starting with `https://cdn.jsdelivr.net` or `https://unpkg.com`), then you should use that. If they're only advertising an NPM package, you can use the [esm.sh](https://esm.sh/) CDN, which has a built-in bundler. To enable that, add `?bundle` at the end of the esm.sh URL:
 
 ```html
 <!doctype html>
@@ -122,9 +122,13 @@ If the library you want to add is pre-bundling and published to a CDN (e.g. jsDe
 ```
 
 
-### Self-hosted
+#### Self-hosting / vendoring
 
-If you want to [self-host](https://blog.wesleyac.com/posts/why-not-javascript-cdn) your client-side dependencies instead of relying on a third-party CDN, you can download pre-bundled versions from a CDN or from NPM. Often, you can find bundled files in a `dist/` folder or similar in the _Code_ tab of the package on NPM. For the markdown-it example, this would be the `dist/markdown-it.min.js` file on [this page](https://www.npmjs.com/package/markdown-it?activeTab=code).
+If you want to [self-host](https://blog.wesleyac.com/posts/why-not-javascript-cdn) your client-side dependencies instead of relying on a third-party CDN, you can download pre-bundled files and add them to your project repository.
+
+Often, you can find bundled files in a `dist/` folder or similar in the package (for the exact location, open the `pacakge.json` of the library and look at the `exports` fields). You can find the files inside any NPM package in the _Code_ tab on [npmjs.com](https://www.npmjs.com/) or [npmx.dev](https://npmx.dev). For the markdown-it example, this would be the `dist/markdown-it.min.js` file on [this page](https://www.npmjs.com/package/markdown-it?activeTab=code).
+
+But sometimes, the files in the `dist/` folder don't include transitive dependencies (packages this package depends on), in which case it's easiest to download the pre-bundled file from a CDN like esm.sh (see [above](#cdn)): open the URL in your browser and select _File_ -> _Save Page As_ in the menu.
 
 After downloading the file, add it somewhere in your Mastro project's `routes/` folder, e.g. `routes/vendor/markdown-it/markdown-it.min.js`. You can choose the exact folder names and structure, but `vendor` is a common name when "vendoring" – i.e. copying another project's code into your project. Then you can load it like:
 

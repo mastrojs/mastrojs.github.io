@@ -311,7 +311,7 @@ The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t com
 <div class="col-2">
 <div>
 
-### Extensions
+### Extensions / plugins
 
 - Tiny libs in the `@mastrojs` namespace:
   - [markdown](https://github.com/mastrojs/markdown) to HTML
@@ -370,7 +370,7 @@ Every star and every share helps.
 <section class="center-text">
   <p><em>This is the end of the page. Yet it may be the beginning of your journey with Mastro.</em></p>
   <p>
-    <a class="button" href="https://vscode.dev/github/mastrojs/template-basic">Try online with GitHub</a>
+    <a class="button" href="https://vscode.dev/github/mastrojs/template-basic">Try Mastro online with GitHub</a>
     <a class="button -secondary" href="#powerful-for-experienced-developers">Get started</a>
   </p>
 </section>
