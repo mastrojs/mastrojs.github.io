@@ -174,9 +174,10 @@ const sidebar = [{
   slug: "/docs/",
   contents: [
     { label: "Why Mastro?", slug: "/docs/why-mastro/" },
+    { label: "Getting started", slug: "/docs/getting-started/" },
     { label: "Routing", slug: "/docs/routing/" },
     { label: "Components and HTML", slug: "/docs/html-components/" },
-    { label: "Installation and setup", slug: "/docs/install-setup/" },
+    { label: "Setup", slug: "/docs/setup/" },
     { label: "Next steps & getting help", slug: "/docs/next-steps-and-help/" },
   ],
 }, {

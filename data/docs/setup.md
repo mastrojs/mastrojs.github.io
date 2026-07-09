@@ -1,25 +1,6 @@
 ---
-title: "Installation and setup"
+title: "Setup"
 ---
-
-There are [various way to run Mastro](/guide/cli-install/#different-ways-to-run-mastro).
-
-<div class="col-2 gap-2">
-<div>
-
-[In a terminal](/guide/cli-install/#setup-local-development-server) with Deno, Node.js or Bun
-
-<a href="/#powerful-for-experienced-developers" class="button">Install Mastro (CLI)</a>
-
-</div>
-<div>
-
-Or in a browser with [VS Code for Web](https://code.visualstudio.com/docs/setup/vscode-web)
-
-<a href="/guide/setup/" class="button -secondary">Launch Mastro in browser</a>
-
-</div>
-</div>
 
 ## SSG and SSR
 

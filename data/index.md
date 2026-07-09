@@ -12,7 +12,7 @@ Mastro is a **web framework** and **site generator** for people who care about t
 Use JavaScript/TypeScript’s mature tooling to build fast MPA websites.
 Instead of going through layers of abstraction, work directly with the browser and your JavaScript runtime – Node.js, Deno, Bun, or Workers.
 
-<a class="button" data-goatcounter-click="home.start" href="#powerful-for-experienced-developers">Get started</a>
+<a class="button" data-goatcounter-click="home.start" href="/docs/getting-started/">Get started</a>
 <a class="button -secondary" href="/docs/">Docs</a>
 <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 
@@ -150,32 +150,26 @@ export const Layout = (props: Props) =>
 </div>
 </div>
 
-<a class="button hide-mobile" data-goatcounter-click="home.try" href="https://vscode.dev/github/mastrojs/template-basic">Try online with GitHub</a>
+<a class="button hide-mobile" data-goatcounter-click="home.try" href="https://vscode.dev/github/mastrojs/template-basic">Try Mastro online</a>
 <a class="button -secondary" href="https://github.com/mastrojs/mastro/tree/main/examples/">More examples</a>
 <a class="button -minimal" href="https://github.com/mastrojs/mastrojs.github.io">Source of this website</a>
 
 
 ## Easy for beginners
 
-With Mastro, there is very little to learn – except for the web standards HTML, CSS, and JavaScript.
-
 <div class="col-2">
 <div>
 
-### No installation needed
-
-The popular VS Code editor also runs in the browser: put your first website live without installing anything on your computer.
+Put your first website live without installing anything on your computer: The popular VS Code editor also runs in the browser.
 
 <a class="button" data-goatcounter-click="home.try" data-goatcounter-title="beginners" href="https://vscode.dev/github/mastrojs/template-basic">Launch Mastro in your browser</a>
 
 </div>
 <div>
 
-### Learn the fundamentals
+Start with learning HTML and CSS. Then build a static blog and a to-do list app with JavaScript. Finally, serve a REST API.
 
-Start with HTML and CSS. Then build a static blog, a to-do list app with JavaScript. Finally, run a server with a REST API.
-
-<a class="button" href="/guide/">Follow the guide</a>
+<a class="button -secondary" href="/guide/">Follow the guide</a>
 </div>
 </div>
 
@@ -184,56 +178,10 @@ Start with HTML and CSS. Then build a static blog, a to-do list app with JavaScr
 
 > I've seen things you wouldn't believe. Megabytes of JavaScript on fire in the browser. I watched towers of complex abstractions collapse upon themselves. All those websites will be lost in time, like tears in rain. Time to let them die.
 
-There are various [ways to run Mastro](/guide/cli-install/) and [deploy to production](/guide/deploy/). To get started, the easiest is [Deno](https://deno.com).
 
-<section class="tab-group">
-  <header>
-    <label><input type="radio" name="install" class="tab1" checked>Deno</label>
-    <label><input type="radio" name="install" class="tab2">Node.js</label>
-    <label><input type="radio" name="install" class="tab3">Bun</label>
-    <label><input type="radio" name="install" class="tab4">Workers</label>
-  </header>
-
-  <div tabindex=0 id="content1">
-
-  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) and copy and paste into your terminal:
-
-  ```sh
-  deno run -A npm:@mastrojs/create-mastro@0.1.6
-  ```
-  </div>
-  <div tabindex=0 id="content2">
-
-  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)). Then install Node.js (if you haven't already) with `pnpm runtime set node lts -g` Then in your terminal:
-
-  ```sh
-  pnpm create @mastrojs/mastro@0.1.6
-  ```
-  </div>
-  <div tabindex=0 id="content3">
-
-  Copy and paste into your terminal:
-
-  ```sh
-  bun create @mastrojs/mastro@0.1.6
-  ```
-  </div>
-  <div tabindex=0 id="content4">
-  Use Deno, Node.js, or Bun to generate a static site for any CDN (Cloudflare or not).
-
-  However, to run code [on-demand](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) in a [Cloudflare Worker](https://workers.cloudflare.com/):
-
-  ```sh
-  pnpm create @mastrojs/mastro@0.1.6 --cloudflare
-  ```
-
-  Finally, Mastro can also run code on-demand inside a [Service Worker in the user's browser](/blog/2026-03-09-whatever-happened-to-js-service-workers/).
-  </div>
-</section>
-
-<a class="button" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
+<a class="button" href="/docs/getting-started/">Install Mastro</a>
 <a class="button -secondary" href="/docs/">Docs</a>
-<a class="button -minimal" href="https://vscode.dev/github/mastrojs/template-basic">Launch Mastro in your browser</a>
+<a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 
 
 ## Fast for everyone
@@ -306,7 +254,7 @@ With today's browsers and engines, there is no need for complex frameworks and b
 
 ## A foundation to build upon
 
-The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included", but it is built to be extended.
+The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included", but it's built to be extended.
 
 <div class="col-2">
 <div>
@@ -370,7 +318,7 @@ Every star and every share helps.
 <section class="center-text">
   <p><em>This is the end of the page. Yet it may be the beginning of your journey with Mastro.</em></p>
   <p>
-    <a class="button" href="https://vscode.dev/github/mastrojs/template-basic">Try Mastro online with GitHub</a>
-    <a class="button -secondary" href="#powerful-for-experienced-developers">Get started</a>
+    <a class="button" href="https://vscode.dev/github/mastrojs/template-basic">Try Mastro online</a>
+    <a class="button -secondary" href="/docs/getting-started/">Get started</a>
   </p>
 </section>

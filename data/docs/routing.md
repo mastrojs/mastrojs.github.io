@@ -7,7 +7,7 @@ There are no configuration files, and only one special folder: the `routes` fold
 
 1. [Unprocessed static files](#unprocessed-static-files): any file in the `routes` folder that doesn’t match the patterns below is served to the browser unchanged. Naming is up to you, e.g. `routes/favicon.ico`, `routes/styles.css`, or `routes/scripts.js`)
 2. [Route handlers](#route-handlers): each `*.server.js` (or `*.server.ts`) file represents a route, which runs code on the server to generate one or more pages.
-3. [TypeScript](/docs/install-setup/#typescript) files for the browser: because browsers don't support TypeScript, Mastro type-strips `*.client.ts` files and serves them as `*.client.js`.
+3. [TypeScript](/docs/setup/#typescript) files for the browser: because browsers don't support TypeScript, Mastro type-strips `*.client.ts` files and serves them as `*.client.js`.
 
 
 ## Unprocessed static files
@@ -60,7 +60,7 @@ export const GET = (req: Request) => {
 }
 ```
 
-Since they return a standard `Response` object, route handlers can be used to generate HTML, JSON, XML, plain text (like the above example), binary data such as images, or whatever else you can think of. If you're [running a server](/docs/install-setup/#ssg%2C-ssr-and-deploying), a `Response` can also [represent a redirect](https://developer.mozilla.org/en-US/docs/Web/API/Response/redirect_static).
+Since they return a standard `Response` object, route handlers can be used to generate HTML, JSON, XML, plain text (like the above example), binary data such as images, or whatever else you can think of. If you're [running a server](/docs/setup/#ssg%2C-ssr-and-deploying), a `Response` can also [represent a redirect](https://developer.mozilla.org/en-US/docs/Web/API/Response/redirect_static).
 
 
 ## Files and folders

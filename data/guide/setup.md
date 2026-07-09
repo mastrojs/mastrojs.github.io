@@ -7,7 +7,7 @@ There are various [ways to run Mastro](/guide/cli-install/#different-ways-to-run
 :::tip
 ## Alternative option: command line
 
-If you're already comfortable with the command line and prefer a local installation over _VS Code for the Web_, you can [setup Mastro on the command line](/#powerful-for-experienced-developers).
+If you're already comfortable with the command line and prefer a local installation over _VS Code for the Web_, you can [setup Mastro on the command line](/docs/getting-started/).
 
 Once you've done that, you can jump to the [next chapter](/guide/html/).
 :::

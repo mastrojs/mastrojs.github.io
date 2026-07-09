@@ -15,7 +15,7 @@ To say that AI in general, and agentic coding in particular, are controversial t
 
 The best way to get to know something new is usually to just try it out. Always wanted to create or overhaul your personal website or blog? Now is the time! Or just create a silly dummy website!
 
-Create a [new Mastro project](/#powerful-for-experienced-developers) with:
+Create a [new Mastro project](/docs/getting-started/) with:
 
 ```sh
 pnpm create @mastrojs/mastro
