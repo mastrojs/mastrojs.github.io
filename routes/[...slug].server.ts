@@ -131,6 +131,17 @@ const getPrevNext = (contents: SidebarItem[] | undefined, pathname: string) => {
 }
 
 const sidebar = [{
+  label: "Docs",
+  slug: "/docs/",
+  contents: [
+    { label: "Why Mastro?", slug: "/docs/why-mastro/" },
+    { label: "Getting started", slug: "/docs/getting-started/" },
+    { label: "Routing", slug: "/docs/routing/" },
+    { label: "Components and HTML", slug: "/docs/html-components/" },
+    { label: "Setup", slug: "/docs/setup/" },
+    { label: "Next steps & getting help", slug: "/docs/next-steps-and-help/" },
+  ],
+}, {
   label: "Guide",
   slug: "/guide/",
   contents: [{
@@ -169,17 +180,6 @@ const sidebar = [{
       { label: "Web application architectures", slug: "/guide/web-application-architectures/" },
     ],
   }],
-}, {
-  label: "Docs",
-  slug: "/docs/",
-  contents: [
-    { label: "Why Mastro?", slug: "/docs/why-mastro/" },
-    { label: "Getting started", slug: "/docs/getting-started/" },
-    { label: "Routing", slug: "/docs/routing/" },
-    { label: "Components and HTML", slug: "/docs/html-components/" },
-    { label: "Setup", slug: "/docs/setup/" },
-    { label: "Next steps & getting help", slug: "/docs/next-steps-and-help/" },
-  ],
 }, {
   label: "Reactive",
   slug: "/reactive/",
