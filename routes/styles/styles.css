@@ -401,7 +401,7 @@ main.hero {
     margin: 8rem 0 0.75em 0;
     font-weight: 950;
     @media (max-width: 1000px) {
-      margin-top: 4.5rem;
+      margin: 4.5rem 0 2rem 0;
       font-size: 2.1em;
     }
   }
@@ -650,10 +650,12 @@ section.tab-group {
   }
 }
 
-.center-text {
+.text-center {
   text-align: center;
 }
-
+.text-gray {
+  color: gray;
+}
 .mt-3 {
   margin-top: 3em;
 }

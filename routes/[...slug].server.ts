@@ -7,6 +7,7 @@ import { serveMarkdownFolder } from "@mastrojs/markdown";
 import { rkeyFromUrl } from "@mastrojs/atproto";
 import { html, htmlToResponse, unsafeInnerHtml } from "@mastrojs/mastro";
 import { parse, schema } from "../helpers/markdown.ts";
+import { BlogFooter } from "../components/BlogFooter.ts";
 
 export interface SidebarItem {
   label: string;
@@ -68,19 +69,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
         </main>
 
         ${pathname === "/" || isBlog
-          ? html`
-            <footer class="blog-footer">
-              <h2>Mastro 👨‍🍳</h2>
-              <p>
-                No dependencies. No build step.<br>
-                Just a simple web framework.
-              </p>
-              <p>
-                ${pathname === "/"
-                  ? html`<a href="/docs/getting-started/" class="button">Get started →</a>`
-                  : html`<a href="/" class="button">Discover Mastro →</a>`}
-              </p>
-            </footer>`
+          ? BlogFooter({ pathname })
           : html`
             <footer>
               ${prev

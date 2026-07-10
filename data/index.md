@@ -16,7 +16,7 @@ Instead of going through layers of abstraction, work directly with the browser a
 <a class="button -secondary" href="/docs/">Docs</a>
 <a class="button -minimal" data-goatcounter-click="home.github" href="https://github.com/mastrojs/mastro/">☆ Mastro on GitHub</a>
 
-<div class="tip center-text mt-3 mb-3">
+<div class="tip text-center mt-3 mb-3">
 
 ## As seen on the Internet!
 

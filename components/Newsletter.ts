@@ -3,7 +3,7 @@ import { html } from "@mastrojs/mastro";
 export const Newsletter = () =>
   html`
     <br>
-    <div class="tip center-text">
+    <div class="tip text-center">
       <h2>Stay updated 👨‍🍳</h2>
       <p>
         Follow us on <a href="https://bsky.app/profile/mastrojs.bsky.social"><strong>Bluesky</strong></a>,
