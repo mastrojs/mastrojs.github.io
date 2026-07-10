@@ -182,7 +182,7 @@ For a more thorough introduction, see the [MDN guide on CSS](https://developer.m
 A few more links I can highly recommend:
 
 - A series of videos: [Layout Land on YouTube](https://www.youtube.com/playlist?list=PLbSquHt1VCf18lllS0C5quAaOcsuMAC70).
-- Check out [The least amount of CSS for a decent looking site](https://thecascade.dev/article/least-amount-of-css/)
+- Check out [The least amount of CSS for a decent looking site](https://web.archive.org/web/20251007035557/https://thecascade.dev/article/least-amount-of-css/)
 - Once you are comfortable with the basics, you'll want to read the article [Things I wish I’d known about CSS](https://davesmyth.com/things-i-wish-id-known-about-css).
 - Bookmark the CSS-Tricks guides for [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [grid](https://css-tricks.com/snippets/css/complete-guide-grid/).
 - Learn about _design tokens_ in the video [What are Design Tokens](https://www.youtube.com/watch?v=wtTstdiBuUk). Start by defining your design tokens for fonts and colors as [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties). Name [colors systematically](https://theadminbar.com/semantics-and-primitives-color-system/), and use [color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to change their brightness or transparency where needed.

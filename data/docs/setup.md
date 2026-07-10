@@ -105,6 +105,7 @@ To add tests, refer to the documentation of your platform's built-in test runner
 ## Custom 404 error page for static sites
 
 For static sites, this may need to be configured with your host, but a lot of them support a `404.html` file in the root: just place it in `routes/404.html` and it should work.
+You can also generate one with a `routes/404.server.ts` file instead.
 
 
 ## Custom 404 and 500 error pages when running a server

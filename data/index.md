@@ -269,7 +269,7 @@ The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t com
   - [atproto](https://github.com/mastrojs/atproto) – add support for [Standard.site](/blog/2026-06-05-how-to-add-standard-site-support-to-your-website/)
   - [api](https://github.com/mastrojs/api) – type-safe REST APIs and clients
   - [result](https://github.com/mastrojs/result) – a minimal `Result` type
-- [Install](https://mastrojs.github.io/guide/third-party-packages/) 3rd-party packages like:
+- [Install](/guide/third-party-packages/) 3rd-party packages like:
   - [Kysely](https://www.kysely.dev/) – type-safe SQL query builder
   - [Sveltia CMS](https://github.com/mastrojs/template-sveltia-cms) – git-based CMS
 

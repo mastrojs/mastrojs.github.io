@@ -131,7 +131,7 @@ const sidebar = [{
     { label: "Routing", slug: "/docs/routing/" },
     { label: "Components and HTML", slug: "/docs/html-components/" },
     { label: "Setup", slug: "/docs/setup/" },
-    { label: "Next steps & getting help", slug: "/docs/next-steps-and-help/" },
+    { label: "Next steps", slug: "/docs/next-steps-and-help/" },
   ],
 }, {
   label: "Guide",

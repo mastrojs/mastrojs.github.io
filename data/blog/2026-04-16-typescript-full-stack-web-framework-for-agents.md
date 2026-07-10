@@ -26,8 +26,7 @@ The following `AGENTS.md` file worked quite well for me:
 ```md title=AGENTS.md
 We're using the Mastro web framework to build a statically generated site.
 
-- To look up Mastro docs, use web search on
-  `https://api.github.com/repos/mastrojs/mastrojs.github.io/contents/data/docs`
+- Use web search with `site:mastrojs.github.io` to look up Mastro docs.
 - Use web search with `site:developer.mozilla.org` to look up web platform
   features. Use the APIs if they're "Baseline Widely available".
 - Write semantic HTML.
@@ -40,7 +39,8 @@ We're using the Mastro web framework to build a statically generated site.
   - Ask the user whether they want to only have a single global
     [styles.css](routes/styles.css) file (good for smaller projects),
     or whether they want to colocate CSS files with their HTML
-    in [components](components/) and [bundle the CSS](https://mastrojs.github.io/guide/bundling-assets/#bundling-css).
+    in [components](components/) and if so
+    [which approach they prefer](https://mastrojs.github.io/blog/2026-05-26-component-scoped-css-without-build-step/)
 - Only use [client-side JavaScript](https://mastrojs.github.io/guide/interactivity-with-javascript-in-the-browser/)
   if absolutely necessary. If so, use `<script type="module">`.
 ```
