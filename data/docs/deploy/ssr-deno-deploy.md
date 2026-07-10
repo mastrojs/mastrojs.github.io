@@ -2,7 +2,7 @@
 title: Run Deno server and deploy to Deno Deploy
 ---
 
-[← Other deployment options](/guide/deploy/#deploy-server-to-production)
+[← Other deployment options](/docs/deploy/#deploy-server-to-production)
 
 To deploy your dynamically rendered Mastro app to [Deno Deploy](https://docs.deno.com/deploy/) (not Deploy Classic), set up a [new app](https://app.deno.com/) with the following build configuration.
 

@@ -1,8 +1,8 @@
 ---
-title: Build static site with Deno and deploy to Netlify
+title: Build static site with Node.js and deploy to Netlify
 ---
 
-[← Other deployment options](/guide/deploy/#deploy-static-site-with-ci%2Fcd)
+[← Other deployment options](/docs/deploy/#deploy-static-site-with-ci%2Fcd)
 
 Go to your [Netlify dashboard](https://app.netlify.com/) and select **Add new site**, then choose **Import an existing project** and follow the instruction to connect with your GitHub repository.
 
@@ -10,10 +10,8 @@ Set the following **Publish settings**:
 
 #### Build command
 
-Since Netlify currently only has [Deno v1 installed](https://docs.netlify.com/build/configure-builds/available-software-at-build-time/), we install a newer version:
-
 ```sh
-curl -fsSL https://deno.land/x/install/install.sh | sh && /opt/buildhome/.deno/bin/deno task generate
+pnpm run generate
 ```
 
 #### Publish directory

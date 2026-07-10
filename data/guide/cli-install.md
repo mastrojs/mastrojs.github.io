@@ -2,27 +2,30 @@
 title: "Mastro as a server on the command line"
 ---
 
-When generating a static site, the whole website is generated upfront.
-On the other hand, when on-demand rendering (which some people also call server-side-rendering or SSR), the HTML is generated anew on every request by the **server**. This comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
+With **static site generation (SSG)**, the whole website is generated upfront.
+On the other hand, when on-demand rendering or **server-side-rendering (SSR)**, the HTML is generated each time on every request by the server. This comes at the cost of running a server, but enables you to send different pages to different users. When paired with a database like PostgreSQL (and perhaps a query builder like [Kysely](https://kysely.dev/)), Mastro can even serve as a full-stack framework.
 
-In this chapter, we'll show you how to open a **command line interface** (CLI for short), and install Mastro as a development server on your laptop. In the [next chapter](/guide/deploy/), we'll see how to use this setup to deploy a statically generated site (like we've done so far with the [VS Code extension](/guide/setup/), but this time with the command line), and also how to run Mastro as a production server doing on-demand server-side rendering.
+In this chapter, you will open a **command line interface** (CLI for short), and install Mastro as a development server on your laptop.
 
 
 ## Different ways to run Mastro
 
-Here's a table listing the various ways you can run Mastro. Either locally (meaning on your laptop), or on a production system in some data center (to host your live website). And either using _VS Code for Web_ in your browser, or by installing things and using the command line.
+Here's a table listing the various ways you can run Mastro, with links to more infos.
 
-|                          | Local development               | Prod static site (SSG)                  | Prod server (SSR)       |
-|--------------------------|---------------------------------|-----------------------------------------|-------------------------|
-| VS Code for Web (online) | [Try][try] or [Setup][vsLocal]  | [Publish static site][vsProd]           | -                       |
-| Command line             | [Setup local server][cliLocal]  | [Deploy static site via CI/CD][cliProd] | [Deploy server][server] |
+- Either in your **browser** (using _VS Code for Web_), or by using the **command line**.
+- And either **locally** (meaning on your laptop) to work on your site, or on a **prod**uction system in some data center (so users can see your live website).
+
+|                     | Locally           | Prod static site             | Prod server             |
+|---------------------|-------------------|------------------------------|-------------------------|
+| **In your browser** | [Setup][vsLocal]  | [Publish][vsProd]            | n/a                     |
+| **Command line**    | [Setup][cliLocal] | [Publish via CI/CD][cliProd] | [Deploy server][server] |
 
 [try]: https://vscode.dev/github/mastrojs/template-basic
 [vsLocal]: /guide/setup/
 [cliLocal]: /guide/cli-install/#setup-local-development-server
 [vsProd]: /guide/publish-website/
-[cliProd]: /guide/deploy/#deploy-static-site-with-ci%2Fcd
-[server]: /guide/deploy/#deploy-server-to-production
+[cliProd]: /docs/deploy/#deploy-static-site-with-ci%2Fcd
+[server]: /docs/deploy/#deploy-server-to-production
 
 
 ## Setup local development server
@@ -78,6 +81,14 @@ Check out the contents of the generated folder. It's a bare-bones Mastro project
 
 Congrats, you're all set now to work locally on your project.
 
+## Deploy to production
+
+But since your laptop is not always running and connected to the internet, if you want other people on the internet to be able to see it, you need a server in some data center to host your production website.
+
+To deploy your website to production (either by statically generating it, or by running a server in production), see the [Mastro deployment docs](/docs/deploy/).
+
+Usually, this involves committing your changes to the Git version control system on your computer, then pushing the commits to the GitHub server, and from there your code will be automatically published to a production web server.
+
 :::tip
 ## Version control with Git
 
@@ -89,3 +100,5 @@ Just changing your project's files on your computer will not change them on GitH
 
 Regardless of which interface for Git you use, in the long run it pays off to learn the [right mental model for Git](https://mb21.github.io/blog/2023/12/13/right-mental-model-for-git.html).
 :::
+
+In the next chapter, let's look at some fun things you can do with a server.

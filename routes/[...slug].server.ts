@@ -131,6 +131,7 @@ const sidebar = [{
     { label: "Routing", slug: "/docs/routing/" },
     { label: "Components and HTML", slug: "/docs/html-components/" },
     { label: "Setup", slug: "/docs/setup/" },
+    { label: "Deploy", slug: "/docs/deploy/" },
     { label: "Next steps", slug: "/docs/next-steps-and-help/" },
   ],
 }, {
@@ -161,7 +162,6 @@ const sidebar = [{
     contents: [
       { label: "URLs and HTTP", slug: "/guide/urls-http/" },
       { label: "Mastro as a server on the command line", slug: "/guide/cli-install/" },
-      { label: "Deploy server or static site with CI/CD", slug: "/guide/deploy/" },
       { label: "Forms and REST APIs", slug: "/guide/forms-and-rest-apis/" },
     ],
   }, {

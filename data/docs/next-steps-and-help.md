@@ -2,9 +2,6 @@
 title: "Next steps"
 ---
 
-- [Deploy](/guide/deploy/) to production
-  - [static site](/guide/deploy/#deploy-static-site-with-ci%2Fcd)
-  - [server](/guide/deploy/#deploy-server-to-production)
 - Use third-party packages
   - install [packages from NPM or JSR](/guide/third-party-packages/)
   - add [extensions](/#a-foundation-to-build-upon), e.g. [Reactive Mastro](/reactive/) (our client-side GUI library)
