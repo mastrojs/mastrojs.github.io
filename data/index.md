@@ -1,6 +1,6 @@
 ---
-title: "No dependencies. No build step. Just a web framework that gets out of the way."
-metaTitle: 'Mastro: No dependencies. No build step. A web framework and site generator that gets out of the way.'
+title: "No dependencies. No build step. Just a simple web framework."
+metaTitle: 'Mastro: No dependencies. No build step. Just a simple web framework and static site generator.'
 description: "A minimal tool for people who care about their users and web standards."
 layout: hero
 ---
@@ -301,8 +301,8 @@ We're building an inclusive community, where people of all kinds of backgrounds 
 Talk to us on [Bluesky](https://bsky.app/profile/mastrojs.bsky.social),
 <a data-goatcounter-click="home.github.discussions" href="https://github.com/mastrojs/mastro/discussions">GH Discussions</a>, or:
 
+<a class="button" data-goatcounter-click="home.discord" href="https://discord.gg/gmw2VEW5Rw">Discord</a>
 <a class="button -secondary" data-goatcounter-click="home.stoat" href="https://stt.gg/k7QMEaP1">Stoat</a>
-<a class="button -secondary" data-goatcounter-click="home.discord" href="https://discord.gg/gmw2VEW5Rw">Discord</a>
 </div>
 <div>
 
@@ -314,11 +314,3 @@ Every star and every share helps.
 <a class="button -minimal" data-goatcounter-click="home.github.issues" href="https://github.com/mastrojs/mastro/issues/new">Report a bug</a>
 </div>
 </div>
-
-<section class="center-text">
-  <p><em>This is the end of the page. Yet it may be the beginning of your journey with Mastro.</em></p>
-  <p>
-    <a class="button" href="https://vscode.dev/github/mastrojs/template-basic">Try Mastro online</a>
-    <a class="button -secondary" href="/docs/getting-started/">Get started</a>
-  </p>
-</section>

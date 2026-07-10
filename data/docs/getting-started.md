@@ -50,3 +50,7 @@ You can [**run Mastro in your browser**](https://vscode.dev/github/mastrojs/temp
   Finally, Mastro can also run code on-demand inside a [Service Worker in the user's browser](/blog/2026-03-09-whatever-happened-to-js-service-workers/).
   </div>
 </section>
+
+The above command will prompt you for a folder name to create, and then ask you to select between the basic template ([Deno](https://github.com/mastrojs/template-basic-deno), [Node.js](https://github.com/mastrojs/template-basic-node), [Bun](https://github.com/mastrojs/template-basic-bun/)) and the [blog template](https://github.com/mastrojs/mastro/tree/main/examples/blog).
+
+Something not working or unclear? Don't hesitate to [**ask us for help!**](/#join-the-community)

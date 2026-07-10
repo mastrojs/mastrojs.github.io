@@ -2,7 +2,7 @@
 title: Why Mastro?
 ---
 
-## What has changed
+### Why now?
 
 The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But all that tooling isn't necessary anymore.
 
@@ -11,12 +11,12 @@ The JavaScript ecosystem has been moving to ever more complex frameworks and bui
 - Node.js supports [TypeScript type stripping](https://nodejs.org/api/typescript.html#type-stripping) and [file watching](https://nodejs.org/api/cli.html#watch) out of the box.
 - With ES modules in all browsers, bundling [shouldn't be the default anymore](/guide/bundling-assets/).
 
-## Mastro's core design principle
+### Mastro's core design principle
 
 This led to the decision to build Mastro as an MPA framework, and its core design principle: **[Everything is a route](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/)**.
 
 
-## Mastro is for people who…
+### Mastro is for people who…
 
 <details>
 <summary><strong>care about their users</strong></summary>

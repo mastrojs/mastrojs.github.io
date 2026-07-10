@@ -1,12 +1,12 @@
 ---
-title: Mastro documentation
+title: Mastro Docs
 ---
 
-With Mastro, there is very little to learn – except for the web standards HTML, CSS, and JavaScript.
+There is very little to learn – except the web standards HTML, CSS, and JavaScript.
 
 <a class="button" href="/docs/getting-started/">Get started</a>
-<a class="button -secondary" href="/docs/why-mastro/">Docs</a>
-<a class="button -secondary" href="/guide/">Guide to web dev</a>
-<a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API docs</a>
+<a class="button -secondary" href="/docs/why-mastro/">Read the Docs</a>
+<a class="button -secondary" href="/guide/">Guide to Web Dev</a>
+<a class="button -minimal" href="https://jsr.io/@mastrojs/mastro/doc">API</a>
 
-## Docs
+## Documentation

@@ -63,20 +63,23 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
             ? Toc({ contents })
             : ""}
 
-          ${["/", "/guide/"].includes(pathname) || isBlog
-            ? Newsletter()
-            : ""}
+          ${(pathname === "/" || isBlog) &&
+            Newsletter()}
         </main>
 
-        ${isBlog
+        ${pathname === "/" || isBlog
           ? html`
             <footer class="blog-footer">
               <h2>Mastro 👨‍🍳</h2>
               <p>
                 No dependencies. No build step.<br>
-                Just a web framework that gets out of the way.
+                Just a simple web framework.
               </p>
-              <p><a href="/" class="button">Discover Mastro →</a></p>
+              <p>
+                ${pathname === "/"
+                  ? html`<a href="/docs/getting-started/" class="button">Get started →</a>`
+                  : html`<a href="/" class="button">Discover Mastro →</a>`}
+              </p>
             </footer>`
           : html`
             <footer>
