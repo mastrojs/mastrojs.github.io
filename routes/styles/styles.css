@@ -408,10 +408,9 @@ main.hero {
 }
 @media (min-width: 1000px) {
   .herolist {
-    overflow-x: hidden;
     > ul {
-      width: 100vw;
       margin-left: -0.5em;
+      margin-right: -3em;
     }
     li {
       list-style-type: none;
