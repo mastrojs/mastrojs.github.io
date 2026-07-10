@@ -1,7 +1,7 @@
 import { serveMarkdownFolder } from "@mastrojs/markdown";
 import { readFile } from "@mastrojs/mastro";
 import { renderImage } from "@mastrojs/og-image";
-import { pageTitlePrefix } from "../[...slug].server.ts";
+import { pageTitle } from "../[...slug].server.ts";
 import { schema } from "../../helpers/markdown.ts";
 
 const fontFile = await readFile("./helpers/Roboto-Bold.ttf");
@@ -11,13 +11,12 @@ export const GET = (req: Request) => {
   const url = new URL(req.url);
   url.pathname = url.pathname.slice(0, -6); // slice off "og.png"
   if (url.pathname === "/blog/") {
-    return image(
+    return ogImage(
       "Blog",
-      "Posting about the web and the simplest web framework and site generator yet.",
+      "About the web and the simplest web framework and site generator yet.",
     );
-  } else {
-    return mdFolder.GET(new Request(url));
   }
+  return mdFolder.GET(new Request(url));
 };
 
 export const getStaticPaths = async () => {
@@ -28,12 +27,11 @@ export const getStaticPaths = async () => {
 
 const mdFolder = serveMarkdownFolder({ folder: "data", schema }, ({ meta }, req) => {
   const { pathname } = new URL(req.url);
-  const prefix = pageTitlePrefix(pathname);
-  const text = meta.metaTitle || meta.title || "";
-  return image(prefix, text);
+  const text = pathname === "/" ? meta.title : (meta.metaTitle || meta.title);
+  return ogImage(pageTitle(pathname), text);
 });
 
-const image = (prefix: string, text: string) =>
+const ogImage = (titleSuffix: string, text: string) =>
   renderImage(text, {
     fontFile,
     fontSize: 50,
@@ -43,8 +41,8 @@ const image = (prefix: string, text: string) =>
       ctx.fillRect(0, 0, 1200, 630);
       ctx.fillStyle = "black";
       ctx.font = "100px DefaultFont";
-      ctx.fillText("Mastro" + (prefix ? ` ${prefix}` : ""), 100, 200);
+      ctx.fillText("Mastro" + (titleSuffix ? ` ${titleSuffix}` : ""), 100, 200);
       // deno-lint-ignore no-explicit-any
-      ctx.drawImage(canvas.decodeImage(chefIcon) as any, 60 * prefix?.length + 450, 92);
+      ctx.drawImage(canvas.decodeImage(chefIcon) as any, 60 * titleSuffix?.length + 450, 92);
     },
   })

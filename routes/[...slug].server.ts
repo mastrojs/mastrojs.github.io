@@ -36,7 +36,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
   if (!title) throw Error(`No title in ${pathname}`);
   return htmlToResponse(
     Layout({
-      title: meta.metaTitle || (title ? `${title} | Mastro ${pageTitlePrefix(pathname)}` : "Mastro"),
+      title: meta.metaTitle || (title ? `${title} | Mastro ${pageTitle(pathname)}` : "Mastro"),
       description: meta.description,
       canonical: meta.canonical,
       ogImage: `https://mastrojs.github.io${pathname}og.png`,
@@ -96,7 +96,7 @@ export const { GET, getStaticPaths } = serveMarkdownFolder({
   );
 });
 
-export const pageTitlePrefix = (path: string) => {
+export const pageTitle = (path: string) => {
   const segments = path.split("/");
   if (segments.length > 3) {
     const part = segments[1];

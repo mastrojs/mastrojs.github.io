@@ -1,5 +1,5 @@
 ---
-title: "No dependencies. No build step. Just a simple web framework."
+title: "No dependencies. No build step.\nJust a simple web framework."
 metaTitle: 'Mastro: No dependencies. No build step. Just a simple web framework and static site generator.'
 description: "A minimal tool for people who care about their users and web standards."
 layout: hero
