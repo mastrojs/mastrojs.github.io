@@ -65,18 +65,21 @@ Since they return a standard `Response` object, route handlers can be used to ge
 
 ## Files and folders
 
-Different hosting providers often serve the same file under [slightly different urls](https://github.com/slorber/trailing-slash-guide/blob/main/docs/Hosting-Providers.md). In Mastro, the URL for a file does not end with a slash, while the URL for a folder does end with a slash. Since a folder itself cannot contain any code, an `index.html` or `index.server.js` file is used to represent the containing folder.
+Different hosting providers often serve the same file under many [slightly different urls](https://github.com/slorber/trailing-slash-guide/blob/main/docs/Hosting-Providers.md). But if a URL works with Mastro's dev server, it should work with your hosting provider (but not necessarily the other way around).
 
-| File in `routes/`           | URL          |
-|:----------------------------|:-------------|
-| `file.html`                 | `/file.html` |
-| `folder/index.html`         | `/folder/`   |
-| `file.server.js`            | `/file`      |
-| `file.html.server.js`       | `/file.html` |
-| `folder/index.server.js`    | `/folder/`   |
-| `folder/(folder).server.js` | `/folder/`   |
+A URL that does not end with a slash represents a file. A URL that ends with a slash represents a folder (an `index.html` or `index.server.js` file is used to represent its containing folder):
 
-Since having lots of files called `index.server.js` would get confusing quickly, you can also name it `(folder).server.js`, where `folder` is the name of the containing folder.
+| File in `routes/`             | Route type | URL          |
+|:------------------------------|:-----------|:-------------|
+| `file.html`                   | static     | `/file.html` |
+| `file.html.server.js`         | handler    | `/file.html` |
+| `file.server.js`              | handler    | `/file` (no extension) |
+| `folder/index.html`           | static     | `/folder/`   |
+| `folder/index.server.js`      | handler    | `/folder/`   |
+| `folder/(folder).server.js`   | handler    | `/folder/`   |
+| `folder/index.html.server.js` | handler    | `/folder/`   |
+
+Since having lots of files called `index.server.js` can get confusing, you can also name it `(folder).server.js`, where `folder` is the name of the containing folder.
 
 
 ## Route parameters
