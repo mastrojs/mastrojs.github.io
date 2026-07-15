@@ -39,9 +39,10 @@ jobs:
         run: pnpm run generate
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: generated
+          include-hidden-files: true
 
   deploy:
     needs: build

@@ -151,7 +151,7 @@ const sidebar = [{
   }, {
     label: "Static site generation",
     contents: [
-      { label: "JavaScript: client-side vs server-side, SSG vs SSR, SPA vs MPA", slug: "/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/" },
+      { label: "Where and when does your JavaScript run?", slug: "/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/" },
       { label: "Server-side components and routing", slug: "/guide/server-side-components-and-routing/" },
       { label: "A static blog from markdown files", slug: "/guide/static-blog-from-markdown-files/" },
       { label: "Third-party packages", slug: "/guide/third-party-packages/" },

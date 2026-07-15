@@ -7,9 +7,9 @@ layout: hero
 
 <div class="herolist">
 
-Mastro is a **web framework** and **site generator** for people who care about their users and web standards. It's is implemented in just **~800 lines** of TypeScript.
+Mastro is a **server web framework** and **static site generator** for people who care about their users and web standards. It's is implemented in just **~800 lines** of TypeScript.
 
-Use JavaScript/TypeScript’s mature tooling to build fast MPA websites.
+Use JavaScript/TypeScript’s mature tooling to build fast [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites.
 Instead of going through layers of abstraction, work directly with the browser and your JavaScript runtime – Node.js, Deno, Bun, or Workers.
 
 <a class="button" data-goatcounter-click="home.start" href="/docs/getting-started/">Get started</a>
@@ -63,7 +63,8 @@ A library worth checking out!<br>
 - **No VC-money**: no eventual enshitification – selling is none of our business.
 - **No lock-in**: swap out Mastro later or fork it – it's only [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme).
 
-<a class="button" href="/docs/why-mastro/">Why Mastro?</a>
+<a class="button" href="/docs/why-mastro/">Learn more</a>
+<a class="button -secondary" href="/docs/getting-started/">Get started</a>
 
 </div>
 
@@ -190,7 +191,7 @@ Start with learning HTML and CSS. Then build a static blog and a to-do list app 
 
 <div class="pagespeed">
 
-**Great UX**: websites built with Mastro are fast – even on [low-end devices on 3G](https://infrequently.org/series/performance-inequality).
+**Great UX**: websites built with Mastro are fast – even on [low-end devices on 3G](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/).
 
 <a href="https://pagespeed.web.dev/">
 

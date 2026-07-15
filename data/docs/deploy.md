@@ -41,7 +41,7 @@ Depending on whether you use Deno or Node.js, and what your deploy target is, we
 
 Static site generation is the best setup – if you can get away with it. But sometimes, you want to do things that are only possible by dynamically generating pages on-demand by [running a server](/guide/cli-install/).
 
-GitHub Pages only offers static site hosting. To get a production server, use e.g. [Deno Deploy](https://deno.com/deploy), [Fly.io](https://fly.io/), [Render](https://render.com/), [Bunny Edge Scripting](https://docs.bunny.net/docs/edge-scripting-github-action), or [Cloudlfare Worker](#cloudflare-workers). You can run Mastro on any server that can run Deno, Node.js or Bun – e.g. via Docker.
+GitHub Pages only offers static site hosting. To get a production server, use e.g. [Deno Deploy](https://deno.com/deploy), [Railway](https://railway.com/), [Render](https://render.com/), [Fly.io](https://fly.io/), [Bunny Edge Scripting](https://docs.bunny.net/docs/edge-scripting-github-action), or [Cloudlfare Worker](#cloudflare-workers). You can run Mastro on any server that can run Deno, Node.js or Bun – e.g. via Docker.
 
 Either way, it's basically just running the following command on the server:
 

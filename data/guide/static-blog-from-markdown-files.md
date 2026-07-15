@@ -114,9 +114,9 @@ Now to the page that shows an individual blog post – often called a detail pa
 
 Create the detail pages for the individual blog posts by creating the file `routes/news/[slug]/index.server.js`.
 
-The `[slug]` is a parameter. When your server receives an HTTP request for `/news/2024-01-30-hello-world/`, the request will be routed to the `routes/news/[slug]/index.server.js` file. A collection of URLs that are handled the same way are called a route. In Mastro, placing a file in the `routes/` folder creates a route. Finally, you could have named the parameter whatever you want, but `slug` is a common name for the part of a URL that identifies a specific page.
+The `[slug]` is a route parameter. When your server receives an HTTP request for `/news/2024-01-30-hello-world/`, the request will be routed to the `GET` function in `routes/news/[slug]/index.server.js`. A collection of URLs that are handled the same way are called a route. In Mastro, placing a file in the `routes/` folder creates a route. You can name parameters whatever you want (but no spaces), but `slug` is a common name for the part of a URL that identifies a specific page.
 
-To read out the `slug` parameter, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, and pass it to the `getParams` helper function, which returns an object with all parameters.
+To read out the parameters from the URL, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, and pass it to the `getParams` helper function, which returns an object with all parameters in the URL. In our case, it contains only one parameter, the one called slug.
 
 ```js title=routes/news/[slug]/index.server.js
 import { getParams, htmlToResponse } from "@mastrojs/mastro";
@@ -179,7 +179,7 @@ Try generating all your HTML files: click the **Generate** button in the top-rig
 
 It will generate the pages without parameters. But notice the error telling you that "/routes/news/[slug]/index.server.js should export a function named getStaticPaths".
 
-That's because Mastro cannot guess the paths for all the pages that we want to generate. In the preview (or on a running server) this works because the information is provided directly in the URL. But if we want to statically generate all the pages ahead of time, we need to tell Astro the paths of all our pages with route parameters. We do that by exporting a function called `getStaticPaths`, that returns an array of strings when called.
+That's because Mastro cannot guess the paths for all the pages that we want to generate. In the preview (or on a running server) this works because the information is provided directly in the URL. But if we want to statically generate all the pages ahead of time, we need to tell Mastro the paths of all our pages with route parameters. We do that by exporting a function called `getStaticPaths`, that returns an array of strings when called.
 
 ```js title=routes/news/[slug]/index.server.js ins={1,16-19}
 import { getParams, htmlToResponse, readDir } from "@mastrojs/mastro";

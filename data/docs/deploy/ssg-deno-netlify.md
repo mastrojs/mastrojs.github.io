@@ -13,7 +13,7 @@ Set the following **Publish settings**:
 Since Netlify currently only has [Deno v1 installed](https://docs.netlify.com/build/configure-builds/available-software-at-build-time/), we install a newer version:
 
 ```sh
-curl -fsSL https://deno.land/x/install/install.sh | sh && /opt/buildhome/.deno/bin/deno task generate
+deno upgrade && deno task generate
 ```
 
 #### Publish directory

@@ -2,12 +2,12 @@
 title: Why Mastro?
 ---
 
-### Why now?
+### Obsolete tooling
 
-The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But all that tooling isn't necessary anymore.
+The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But that's no longer needed.
 
-- Browsers now have [bfcache and MPA view transistions](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#buttery-smooth-navigation-in-mpas). SPAs have [peaked](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#spa-vs-mpa).
-- [Native CSS features](/guide/css/#want-to-learn-more-css%3F) replace much of SCSS.
+- [SPAs have peaked](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/). Browsers now have [MPA view transistions](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#buttery-smooth-navigation-in-mpas).
+- [Native CSS](/guide/css/#want-to-learn-more-css%3F) can now replace much of SCSS and can be [component-scoped](/blog/2026-05-26-component-scoped-css-without-build-step/).
 - Node.js supports [TypeScript type stripping](https://nodejs.org/api/typescript.html#type-stripping) and [file watching](https://nodejs.org/api/cli.html#watch) out of the box.
 - With ES modules in all browsers, bundling [shouldn't be the default anymore](/guide/bundling-assets/).
 
