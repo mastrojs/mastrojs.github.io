@@ -7,10 +7,10 @@ layout: hero
 
 <div class="herolist">
 
-Mastro is a **server web framework** and **static site generator** for people who care about their users and web standards. It's is implemented in just **~800 lines** of TypeScript.
+Mastro is a **web framework** and **static site generator** for people who care about their users and web standards. It's simple, pragmatic, and implemented in just **~800 lines of TypeScript**.
 
-Use JavaScript/TypeScript’s mature tooling to build fast [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites.
-Instead of going through layers of abstraction, work directly with the browser and your JavaScript runtime – Node.js, Deno, Bun, or Workers.
+Use JavaScript/TypeScript’s mature tooling to build fast [server-rendered websites](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/).
+Instead of drowning in layers of abstractions, work directly with the browser and your JavaScript runtime – Node.js, Deno, Bun, or Workers.
 
 <a class="button" data-goatcounter-click="home.start" href="/docs/getting-started/">Get started</a>
 <a class="button -secondary" href="/docs/">Docs</a>
@@ -58,7 +58,7 @@ A library worth checking out!<br>
 
 - **No bloat**: implemented in just [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is [fast](#fast-for-everyone).
 - **No build step** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
-- **No JavaScript** (until you [ship some](/guide/interactivity-with-javascript-in-the-browser/)): create [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites that load extremely [fast](#fast-for-everyone).
+- **No JavaScript** (until you [ship some](/guide/interactivity-with-javascript-in-the-browser/)): create fast content-driven [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites.
 - **No dependencies**: use web standards instead of keeping up with the frontend treadmill.
 - **No VC-money**: no eventual enshitification – selling is none of our business.
 - **No lock-in**: swap out Mastro later or fork it – it's only [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme).
@@ -213,44 +213,14 @@ Start with learning HTML and CSS. Then build a static blog and a to-do list app 
 | Next.js  | 16.3s |         |
 
 </div>
-
-<div>
-
-### Why Mastro instead of...
-<details>
-<summary>Next.js</summary>
-
-Next.js creates [bloated SPAs](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/): every feature you add increases the amount of JS your users have to download. Running your code on the server, then running it again on the client, also adds a lot of complexity.
-</details>
-
-<details>
-<summary>Astro</summary>
-
-Astro was a big inspiration for Mastro (the name originated from "minimal Astro"). But Astro currently has [246 dependencies weighing 87 MB](https://npmx.dev/package/astro). Astro is also heavily coupled to its [bundler](/guide/bundling-assets/), which makes some simple things surprisingly complex.
-</details>
-
-<details>
-<summary>11ty</summary>
-
-Eleventy has a lot of options around static site generation, but it doesn't run as a server. It is [not TypeScript-first](https://github.com/11ty/eleventy/issues/3787), and currently still has [116 dependencies weighing 14 MB](https://npmx.dev/package/@11ty/eleventy).
-</details>
-
-<details>
-<summary>Hono</summary>
-
-Hono is almost as minimal as Mastro. But it is more backend focused (e.g. it doesn't come with a file-based router).
-</details>
 </div>
 
-<div>
 
-### Escape the frontend treadmill
+## Interactive user interfaces
 
-With today's browsers and engines, there is no need for complex frameworks and build systems anymore.
+For client-side interactivity in the browser, either use plain JavaScript, or [add a library](/guide/third-party-packages/#on-the-client) like [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/), [Unpoly](https://unpoly.com/), [ArrowJS](https://arrow-js.com/), or [Reactive Mastro](/reactive/), which allows you to [share templates with the server](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api).
 
-<a class="button" href="/docs/why-mastro/">Why Mastro?</a>
-</div>
-</div>
+<a class="button" href="/reactive/">Reactive Mastro</a>
 
 
 ## A foundation to build upon
@@ -277,15 +247,11 @@ The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t com
 </div>
 <div>
 
-### Client-side interactivity
+### Escape the frontend treadmill
 
-When you need interactivity in the browser, use plain JavaScript, or [add a library](/guide/third-party-packages/#on-the-client) such as [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/), [Unpoly](https://unpoly.com/), [ArrowJS](https://arrow-js.com/), etc.
+Most JavaScript frameworks and complex build systems were designed to solve problems that no longer exist.
 
-To [share templates](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api) with the server, use Reactive Mastro – a tiny reactive GUI lib.
-
-<a class="button" href="/reactive/">Reactive Mastro</a>
-<a class="button -secondary" href="/reactive/why-reactive-mastro/">Why?</a>
-
+<a class="button" href="/docs/why-mastro/">Why Mastro?</a>
 </div>
 </div>
 

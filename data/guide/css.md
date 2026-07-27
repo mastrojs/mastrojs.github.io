@@ -182,11 +182,11 @@ For a more thorough introduction, see the [MDN guide on CSS](https://developer.m
 A few more links I can highly recommend:
 
 - A series of videos: [Layout Land on YouTube](https://www.youtube.com/playlist?list=PLbSquHt1VCf18lllS0C5quAaOcsuMAC70).
-- Check out [The least amount of CSS for a decent looking site](https://web.archive.org/web/20251007035557/https://thecascade.dev/article/least-amount-of-css/)
+- Check out [Web Design in 4 minutes](https://jgthms.com/web-design-in-4-minutes/#spacing) (start by clicking the _first thing_ link)
 - Once you are comfortable with the basics, you'll want to read the article [Things I wish I’d known about CSS](https://davesmyth.com/things-i-wish-id-known-about-css).
 - Bookmark the CSS-Tricks guides for [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [grid](https://css-tricks.com/snippets/css/complete-guide-grid/).
 - Learn about _design tokens_ in the video [What are Design Tokens](https://www.youtube.com/watch?v=wtTstdiBuUk). Start by defining your design tokens for fonts and colors as [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties). Name [colors systematically](https://theadminbar.com/semantics-and-primitives-color-system/), and use [color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to change their brightness or transparency where needed.
-- If you don't need to support very old versions of Safari (i.e. supporting Safari >=17 is fine), then you can use many new CSS features that make your life easier:
+- Newish CSS features that are now supported by all major browsers:
   - [color() function](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color) (nice [introduction](https://piccalil.li/blog/a-pragmatic-guide-to-modern-css-colours-part-one/))
   - [CSS nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting) instead of SASS/SCSS
   - [@scope rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope) instead of CSS Modules
@@ -194,13 +194,12 @@ A few more links I can highly recommend:
   - [:has() pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has), which is a sort of parent selector
 
 
-There are many methodologies to structure your CSS (like BEM or [rscss](https://ricostacruz.com/rscss/)), and tools to generate it (like SCSS or [Tailwind](/blog/2025-11-27-why-not-just-use-inline-styles-tailwind/)).
-But leveraging modern browsers, there are much simpler ways to structure your CSS. See **[component-scoped CSS with Mastro](/blog/2026-05-26-component-scoped-css-without-build-step/)**.
+There are many methodologies to structure your CSS (like BEM or [rscss](https://ricostacruz.com/rscss/)), but nowadays there are much simpler ways to **[component-scope your CSS](/blog/2026-05-26-component-scoped-css-without-build-step/)**.
 
 
 And once you're ready to ponder the nature of the medium web:
 
-- [A Dao of Web Design](http://alistapart.com/article/dao) – the classic article.
+- [A Dao of Web Design](https://alistapart.com/article/dao) – the classic article.
 - [Resilient Web Design](https://resilientwebdesign.com) – a free web book.
 :::
 

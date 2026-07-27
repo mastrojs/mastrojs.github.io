@@ -86,7 +86,9 @@ Instead of generating HTML on the server, client-side JavaScript frameworks do i
 
 The theory behind SPAs was that the client-side JavaScript can do a better job at page navigation than the browser. While this may still be the right approach for highly interactive apps like Figma, for almost all websites, loading and executing that additional JavaScript just makes things slower and more complex. Especially if navigating to a new page needs to load data from the server anyway. And especially considering that on average, users do [only one page navigation anyway](https://infrequently.org/2025/11/performance-inequality-gap-2026/#are-spas-working%3F).
 
-One of the last remaining reasons to choose an SPA is if you need to keep cursor state in text inputs across page navigations (or positions of scrollable elements on the page). Or if you need to keep audio or video playing across page navigations – but even that [can be done with an MPA](https://frontendmasters.com/blog/view-transitions-playing-video/). To keep things simple and fast, out of the box, Mastro only supports MPAs.
+One of the last remaining reasons to choose an SPA is if you need to keep cursor state in text inputs across page navigations (or positions of scrollable elements on the page). Or if you need to keep audio or video playing across page navigations – but even that [can be done with an MPA](https://frontendmasters.com/blog/view-transitions-playing-video/).
+
+That's why Mastro is proudly MPA-first. Exclusively focusing on this use-case allows the framework, and the websites you build with it, to be much leaner and faster.
 
 :::tip
 ## Buttery smooth navigation in MPAs

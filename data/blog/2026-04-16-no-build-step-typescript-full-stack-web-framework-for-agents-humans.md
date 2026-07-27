@@ -1,5 +1,5 @@
 ---
-title: TypeScript full-stack web framework for agents and humans
+title: TypeScript full-stack web framework with no build step – for agents and humans
 date: 2026-04-16
 author: Mauro Bieg
 ---

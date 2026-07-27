@@ -2,21 +2,17 @@
 title: Why Mastro?
 ---
 
-### Obsolete tooling
-
-The JavaScript ecosystem has been moving to ever more complex frameworks and build systems. But that's no longer needed.
+Most JavaScript frameworks were designed to solve problems that no longer exist.
 
 - [SPAs have peaked](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/). Browsers now have [MPA view transistions](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#buttery-smooth-navigation-in-mpas).
-- [Native CSS](/guide/css/#want-to-learn-more-css%3F) can now replace much of SCSS and can be [component-scoped](/blog/2026-05-26-component-scoped-css-without-build-step/).
+- [Native CSS](/guide/css/#want-to-learn-more-css%3F) can now replace much of SCSS. [Component-scoping works natively](/blog/2026-05-26-component-scoped-css-without-build-step/).
 - Node.js supports [TypeScript type stripping](https://nodejs.org/api/typescript.html#type-stripping) and [file watching](https://nodejs.org/api/cli.html#watch) out of the box.
 - With ES modules in all browsers, bundling [shouldn't be the default anymore](/guide/bundling-assets/).
 
-### Mastro's core design principle
-
-This led to the decision to build Mastro as an MPA framework, and its core design principle: **[Everything is a route](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/)**.
+Instead of starting with a client-side framework like React, and being forced to add more complex tooling with every release, Mastro was designed from the ground up server-first. Its core design principle is that **[everything is a route](/blog/2026-01-29-everything-is-a-route-one-interface-for-servers-static-sites-and-assets/)**.
 
 
-### Mastro is for people who…
+#### Mastro is for people who…
 
 <details>
 <summary><strong>care about their users</strong></summary>
@@ -52,4 +48,29 @@ This led to the decision to build Mastro as an MPA framework, and its core desig
 - Mastro is modular. If you prefer e.g. another templating engine, use that instead.
 - Mastro has a tiny [API-surface](https://jsr.io/@mastrojs/mastro/doc), which is already very stable. Once we hit v1.0, the public API will get frozen, so that projects that depend on Mastro aren’t stuck on an update-treadmill.
 - [Additional packages](/#extensions-%2F-plugins) in the `@mastro` namespace may have higher rates of change, and we invite the community to create additional packages on top of the standard Request/Response-API.
+</details>
+
+#### Why Mastro instead of...
+<details>
+<summary>Next.js</summary>
+
+Next.js creates [bloated SPAs](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/): every feature you add increases the amount of JS your users have to download. Running your code on the server, then running it again on the client, also adds a lot of complexity.
+</details>
+
+<details>
+<summary>Astro</summary>
+
+Astro was a big inspiration for Mastro (the name originated from "minimal Astro"). But Astro currently has [246 dependencies weighing 87 MB](https://npmx.dev/package/astro). Astro is also heavily coupled to its [bundler](/guide/bundling-assets/), which makes some simple things surprisingly complex.
+</details>
+
+<details>
+<summary>11ty</summary>
+
+Eleventy has a lot of options around static site generation, but it doesn't run as a server. It is [not TypeScript-first](https://github.com/11ty/eleventy/issues/3787), and currently still has [116 dependencies weighing 14 MB](https://npmx.dev/package/@11ty/eleventy).
+</details>
+
+<details>
+<summary>Hono</summary>
+
+Hono is almost as minimal as Mastro. But it is more backend focused (e.g. it doesn't come with a file-based router).
 </details>
