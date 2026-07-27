@@ -342,11 +342,15 @@ main, footer {
 footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3em;
+  gap: 1em;
   margin-top: 3em;
   line-height: 1.25;
   margin-bottom: 2em;
+  @media (max-width: 1000px) {
+    font-size: 0.75em;
+  }
   @media (min-width: 1000px) {
+    gap: 3em;
     margin-bottom: 3em;
   }
   :nth-child(2) {
@@ -358,8 +362,11 @@ footer {
     text-decoration: none;
   }
   div {
-    font-size: 1rem;
     margin-bottom: 0.25em;
+    font-size: 0.65em;
+    @media (max-width: 1000px) {
+      font-size: 0.75em;
+    }
   }
 }
 
