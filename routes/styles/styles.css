@@ -156,6 +156,10 @@ p > a.button {
   margin-bottom: 1em;
 }
 
+summary + p {
+  margin-top: 0.5em;
+}
+
 @media (max-width: 1000px) {
   p > code {
     word-break: break-all;
