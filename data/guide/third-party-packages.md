@@ -1,9 +1,9 @@
 ---
-title: Third-party packages
+title: Third-party packages without a build system
 ---
 
-For complex functionality that would take you a long time to write yourself, it can be useful to install packages from [NPM](https://www.npmjs.com/) or [JSR](https://jsr.io/). These are package repositories where people share code for you to use.
-However, take a bit of time to evaluate a package before adding it as a dependency to your project. Code quality, bundle size, security practices, and long-term maintenance outlook varies a lot between different third-party packages.
+For complex functionality that would take you a long time to write yourself, it can be useful to install packages from [NPM](https://www.npmjs.com/) or [JSR](https://jsr.io/).
+However, take a bit of time to evaluate a package before adding it as a dependency to your project. Code quality, size, security, and long-term maintenance outlook varies a lot between different packages.
 
 Since it's run in very different environments, [client-side and server-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript) is separated on purpose in Mastro. The former needs to be downloaded to the browser of your users, the latter runs in a runtime like Deno or Node.js, which you control. Let's look at how you add packages for each of them.
 
@@ -98,11 +98,11 @@ import markdownIt from "markdown-it";
 
 ## On the client
 
-It's important to remember that the above file (`deno.json` or `package.json`) will not be loaded into the browser – and unless you use a bundler, neither will any packages it contains. This is a good, because packages intended to be run on the server are often very big and would slow down your website if all your website visitors had to download them.
+It's important to remember that the server's `deno.json` or `package.json` file (the one in the section above) will not be loaded into the browser – and unless you use a bundler, neither will any packages it contains. This is a good, because packages intended to be run on the server are often very big and would slow down your website if all your website visitors had to download them.
 
-### Installing packages without a build system
+### Installing client-side packages without a build system
 
-We'll look at [setting up a bundler with Mastro later](/guide/bundling-assets/). But to get started, it's easier to use pre-bundled versions – either by using a CDN or self-hosting (aka vendoring).
+We'll look at [setting up a bundler with Mastro later](/guide/bundling-assets/). But as long as you don't need one for your own files, it's simplest to use pre-bundled versions of third-party packages – either by using a CDN or self-hosting (aka [vendoring](https://htmx.org/essays/vendoring/)).
 
 #### CDN
 
@@ -124,11 +124,11 @@ If the library you want to add advertises a CDN URL in their installation instru
 
 #### Self-hosting / vendoring
 
-If you want to [self-host](https://blog.wesleyac.com/posts/why-not-javascript-cdn) your client-side dependencies instead of relying on a third-party CDN, you can download pre-bundled files and add them to your project repository.
+If you want to [self-host](https://blog.wesleyac.com/posts/why-not-javascript-cdn) your client-side dependencies instead of relying on a third-party CDN, you can download pre-bundled files and add them to your project repository. To get hold of the right files, you either:
 
-Often, you can find bundled files in a `dist/` folder or similar in the package (for the exact location, open the `pacakge.json` of the library and look at the `exports` fields). You can find the files inside any NPM package in the _Code_ tab on [npmjs.com](https://www.npmjs.com/) or [npmx.dev](https://npmx.dev). For the markdown-it example, this would be the `dist/markdown-it.min.js` file on [this page](https://www.npmjs.com/package/markdown-it?activeTab=code).
+1. Download the files **from a CDN** or project release page: Find the right URL (see [above](#cdn)) and open it in your browser. Then select _File_ -> _Save Page As_ in the menu.
 
-But sometimes, the files in the `dist/` folder don't include transitive dependencies (packages this package depends on), in which case it's easiest to download the pre-bundled file from a CDN like esm.sh (see [above](#cdn)): open the URL in your browser and select _File_ -> _Save Page As_ in the menu.
+2. Or find the files in a `dist/` folder or similar right inside the **NPM package** (for the exact location, open the `pacakge.json` of the library and look at the `exports` fields). You can find the files inside any NPM package in the _Code_ tab on [npmjs.com](https://www.npmjs.com/) or [npmx.dev](https://npmx.dev). For the markdown-it example, this would be the `dist/markdown-it.min.js` file on [this page](https://www.npmjs.com/package/markdown-it?activeTab=code). However, this approach won't work if the files in the `dist/` folder don't include transitive dependencies (packages this package depends on). In that case, it's best to use approach one above.
 
 After downloading the file, add it somewhere in your Mastro project's `routes/` folder, e.g. `routes/vendor/markdown-it/markdown-it.min.js`. You can choose the exact folder names and structure, but `vendor` is a common name when "vendoring" – i.e. copying another project's code into your project. Then you can load it like:
 
@@ -145,8 +145,10 @@ After downloading the file, add it somewhere in your Mastro project's `routes/` 
     </script>
 ```
 
+Instead of downloading the files manually, you can also use a script like [unpm](https://tangled.org/jakelazaroff.com/unpm) or [nudeps](https://github.com/nudeps/nudeps) to do so.
+
 ### Import maps
 
-In Deno and the browser you could also use the URL of any [ESM module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) as part of an import statement. However, if you'll use the library in more than one file, it's best to centralize it in an [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap) – like demonstrated in the CDN and self-hosted examples above. Then, there's only one place to change the version number, when the time comes to update it.
+You may be wondering what the `<script type="importmap">` in the above examples is. It's a browser-native way to assign a centralized identifier to a JavaScript module URL. While you could also use the URL of any [ESM module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) as part of an import statement, if you'll use the library in more than one file, it's best to centralize it in an [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap). Then, there's only one place to change the version number, when the time comes to update it.
 
 You'll see a [full example of a client-side importmap](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) in the next chapter.
