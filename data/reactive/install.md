@@ -6,7 +6,7 @@ There are basically two ways to install Reactive Mastro. Using the pre-bundled f
 
 ## Using a CDN
 
-If you're on tech stack without a bundler (for example [Mastro](/), see [third-party packages](/guide/third-party-packages/)), then you can simply import Reactive Mastro as a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). For example using the version pre-bundled and minified by [esm.sh](https://esm.sh/):
+If you're on tech stack without a bundler (for example [Mastro](/), see [third-party packages](/docs/install-npm-packages-with-no-build-step/)), then you can simply import Reactive Mastro as a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). For example using the version pre-bundled and minified by [esm.sh](https://esm.sh/):
 
 ```html
 <script type="module">

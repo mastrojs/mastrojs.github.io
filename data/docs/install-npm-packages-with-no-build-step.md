@@ -1,16 +1,16 @@
 ---
-title: Third-party packages without a build system
+title: Install NPM packages without a build system
 ---
 
-For complex functionality that would take you a long time to write yourself, it can be useful to install packages from [NPM](https://www.npmjs.com/) or [JSR](https://jsr.io/).
-However, take a bit of time to evaluate a package before adding it as a dependency to your project. Code quality, size, security, and long-term maintenance outlook varies a lot between different packages.
+Instead of writing all code yourself, it's sometimes useful to install packages from [NPM](https://www.npmjs.com/) (or [JSR](https://jsr.io/)).
+Make sure to take a bit of time to evaluate a package before adding it as a dependency to your project. Code quality, size, security, and long-term maintenance outlook varies a lot between different packages. [npmx](https://npmx.dev/) is a nice browser for NPM that highlights some of these aspects.
 
-Since it's run in very different environments, [client-side and server-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript) is separated on purpose in Mastro. The former needs to be downloaded to the browser of your users, the latter runs in a runtime like Deno or Node.js, which you control. Let's look at how you add packages for each of them.
+[Client-side and server-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript) is separated on purpose in Mastro, because the former needs to be downloaded to the browser of your users, while the latter runs in a runtime like Deno or Node.js, which is an environment you control directly.
 
 
 ## On the server
 
-You might want to use the [`markdown-it` package from NPM](https://www.npmjs.com/package/markdown-it), instead of the [`@mastrojs/markdown` package](https://jsr.io/@mastrojs/markdown) to generate HTML from your markdown files on the server.
+As an example, you might want to use the [`markdown-it` package from NPM](https://www.npmjs.com/package/markdown-it), instead of the [`@mastrojs/markdown` package](https://jsr.io/@mastrojs/markdown) to generate HTML from your markdown files on the server.
 
 To install the package, use your package manager as follows:
 
@@ -151,4 +151,4 @@ Instead of downloading the files manually, you can also use a script like [unpm]
 
 You may be wondering what the `<script type="importmap">` in the above examples is. It's a browser-native way to assign a centralized identifier to a JavaScript module URL. While you could also use the URL of any [ESM module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) as part of an import statement, if you'll use the library in more than one file, it's best to centralize it in an [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap). Then, there's only one place to change the version number, when the time comes to update it.
 
-You'll see a [full example of a client-side importmap](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) in the next chapter.
+You can see a full [example of a client-side importmap in the guide](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming).

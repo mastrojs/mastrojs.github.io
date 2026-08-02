@@ -218,7 +218,7 @@ Start with learning HTML and CSS. Then build a static blog and a to-do list app 
 
 ## Interactive user interfaces
 
-For client-side interactivity in the browser, either use plain JavaScript, or [add a library](/guide/third-party-packages/#on-the-client) like [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/), [Unpoly](https://unpoly.com/), [ArrowJS](https://arrow-js.com/), or [Reactive Mastro](/reactive/), which allows you to [share templates with the server](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api).
+For client-side interactivity in the browser, either use plain JavaScript, or [add a library](/docs/install-npm-packages-with-no-build-step/#on-the-client) like [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/), [Unpoly](https://unpoly.com/), [ArrowJS](https://arrow-js.com/), or [Reactive Mastro](/reactive/), which allows you to [share templates with the server](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api).
 
 <a class="button" href="/reactive/">Reactive Mastro</a>
 
@@ -240,7 +240,7 @@ The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t com
   - [atproto](https://github.com/mastrojs/atproto) – add support for [Standard.site](/blog/2026-06-05-how-to-add-standard-site-support-to-your-website/)
   - [api](https://github.com/mastrojs/api) – type-safe REST APIs and clients
   - [result](https://github.com/mastrojs/result) – a minimal `Result` type
-- [Install](/guide/third-party-packages/) 3rd-party packages like:
+- [Install](/docs/install-npm-packages-with-no-build-step/) 3rd-party packages like:
   - [Kysely](https://www.kysely.dev/) – type-safe SQL query builder
   - [Sveltia CMS](https://github.com/mastrojs/template-sveltia-cms) – git-based CMS
 

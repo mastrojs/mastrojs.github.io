@@ -131,6 +131,7 @@ const sidebar = [{
     { label: "Routing", slug: "/docs/routing/" },
     { label: "Components and HTML", slug: "/docs/html-components/" },
     { label: "Setup", slug: "/docs/setup/" },
+    { label: "Add NPM packages", slug: "/docs/install-npm-packages-with-no-build-step/" },
     { label: "Deploy", slug: "/docs/deploy/" },
     { label: "Next steps", slug: "/docs/next-steps-and-help/" },
   ],
@@ -154,7 +155,6 @@ const sidebar = [{
       { label: "Where and when does your JavaScript run?", slug: "/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/" },
       { label: "Server-side components and routing", slug: "/guide/server-side-components-and-routing/" },
       { label: "A static blog from markdown files", slug: "/guide/static-blog-from-markdown-files/" },
-      { label: "Third-party packages", slug: "/guide/third-party-packages/" },
       { label: "Interactivity with JavaScript in the browser", slug: "/guide/interactivity-with-javascript-in-the-browser/" },
     ],
   }, {
