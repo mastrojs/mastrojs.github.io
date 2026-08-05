@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "start": "deno serve --watch=. --allow-read --allow-env jsr:@mastrojs/mastro/server",
+    "start": "deno serve --watch=. --allow-read --allow-env @mastrojs/mastro/server",
     "generate": "deno run -A @mastrojs/mastro/generator",
     "startWithPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site generated --serve",
     "generateWPagefind": "deno task generate && deno run --allow-env --allow-run npm:pagefind --site generated",
