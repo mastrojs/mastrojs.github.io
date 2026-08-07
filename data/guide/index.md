@@ -6,7 +6,7 @@ description: 'Learn the fundamental web technologies by building your very first
 
 New to web dev? Or only learned a specific framework, but never the fundamentals?
 
-- The first couple of chapters will show you the basics of modern HTML and CSS: build a website and put it live – all in your browser (or if you prefer, using the command line).
+- The first couple of chapters of this guide will show you the basics of modern HTML and CSS. You'll build a website and put it live – all in your browser (or if you prefer, using the command line).
 - In later chapters, you'll statically generate a blog, and implement a to-do list app: once with plain client-side JavaScript, then reactively.
 - In the last part of this guide, you'll run a server with a REST API, learn about bundling and caching, and discover some of the design space around different web application architectures.
 

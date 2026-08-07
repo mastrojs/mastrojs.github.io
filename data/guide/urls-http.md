@@ -6,7 +6,7 @@ During this whole guide so far, you've been using Mastro as a static site genera
 
 Broadly speaking, your browser makes a request to a server, and that server sends back the HTML. A server is ultimately a computer that usually sits in a data center, and is running a program that answers these requests. Confusingly, that program is also called a server.
 
-In this chapter, we take a closer look at URLs and the HTTP protocol. In the next chapter, we'll set up a server outselves.
+This chapter takes a closer look at URLs and the HTTP protocol. In the next chapter, you will start a server on your laptop.
 
 
 ## Anatomy of a URL

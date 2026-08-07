@@ -9,7 +9,7 @@ layout: hero
 
 Mastro is a **web framework** and **static site generator** for people who care about their users and web standards. It's simple, pragmatic, and implemented in just **~800 lines of TypeScript**.
 
-Use JavaScript/TypeScript’s mature tooling to build fast [server-rendered websites](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/).
+Use JavaScript/TypeScript’s mature tooling to build fast [server-rendered websites](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) with HTML and CSS.
 Instead of drowning in layers of abstractions, work directly with the browser and your JavaScript runtime – Node.js, Deno, Bun, or Workers.
 
 <a class="button" data-goatcounter-click="home.start" href="/docs/getting-started/">Get started</a>
