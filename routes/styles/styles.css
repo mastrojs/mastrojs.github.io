@@ -124,6 +124,7 @@ button, a.button {
   font-family: inherit;
   font-size: inherit;
   font-weight: 500;
+  color: white;
   color: light-dark(white, black);
   text-decoration: none;
   text-align: center;
