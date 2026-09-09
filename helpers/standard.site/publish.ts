@@ -25,7 +25,7 @@ const publication: Publication = {
 
 const posts = await readBlogFiles();
 const docs: Document[] = posts.map((p) => ({
-  title: p.meta.title,
+  title: p.meta.metaTitle || p.meta.title,
   publishedAt: new Date(p.meta.date),
   url: new URL(p.path, pubUrl),
 }));

@@ -53,7 +53,7 @@ To be clear, I’m not saying you should never use components. But I’d recomme
 - Don’t invent new classes for everything, but use element selectors where possible. (Read this [great piece by Heydon Pickering](https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/) for elaboration of this point.)
 - Take a bit of time to set up a few [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), then restrict yourself to using those instead of magic numbers for spacing and sizes.
 
-And sure, maybe you’ll need to factor out a few things to reusable components once your website grows. And you may even want to place their CSS file in the same folder as the component, and use the name of the component as a class. (In HTML5, class attributes are case-sensitive. So one way to mark your classes as “tied to a component” is to uppercase them.) But that doesn't mean you need a bundler or baroque build step: if you have many CSS files and are worried about performance, you can just [concatenate them](https://mastrojs.github.io/guide/bundling-assets/#bundling-css).
+And sure, maybe you’ll need to factor out a few things to reusable components once your website grows. And you may even want to place their CSS file in the same folder as the component, and use the name of the component as a class. (In HTML5, class attributes are case-sensitive. So one way to mark your classes as “tied to a component” is to uppercase them.) But that doesn't mean you need a bundler or complex build step: there are [many ways to do component-scoped CSS without](/blog/2026-05-26-component-scoped-css-without-build-step/).
 
 
 ## Data and reusable templates
