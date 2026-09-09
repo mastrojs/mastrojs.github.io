@@ -66,7 +66,7 @@ Astro was a big inspiration for Mastro (the name originated from "minimal Astro"
 <details>
 <summary>11ty</summary>
 
-Eleventy has a lot of options around static site generation, but it doesn't run as a server. It is [not TypeScript-first](https://github.com/11ty/eleventy/issues/3787), and currently still has [116 dependencies weighing 14 MB](https://npmx.dev/package/@11ty/eleventy).
+Eleventy has a lot of options around static site generation, but it doesn't run as a server. Even the dev server rebuilds all pages on every change (unless you use the [incremental option](https://www.11ty.dev/docs/usage/incremental/), which comes with a bunch of caveats). 11ty is also [not TypeScript-first](https://github.com/11ty/eleventy/issues/3787), and currently still has [116 dependencies weighing 14 MB](https://npmx.dev/package/@11ty/eleventy).
 </details>
 
 <details>
