@@ -9,8 +9,8 @@ layout: hero
 
 Mastro is a **web framework** and **static site generator** for people who care about their users and web standards. It's simple, pragmatic, and implemented in just **~800 lines of TypeScript**.
 
-Use JavaScript/TypeScript’s mature tooling to build fast [server-rendered websites](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) with HTML and CSS.
-Instead of drowning in layers of abstractions, work directly with the browser and your JavaScript runtime – Node.js, Deno, Bun, or Workers.
+Use JavaScript/TypeScript’s mature tooling to build fast [server-rendered websites](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) with HTML and CSS. Share server and [client code](#interactive-user-interfaces) explicitly.
+Instead of drowning in layers of abstractions, work directly with the browser and Node.js, Deno, Bun, or Workers.
 
 <a class="button" data-goatcounter-click="home.start" href="/docs/getting-started/">Get started</a>
 <a class="button -secondary" href="/docs/">Docs</a>
@@ -218,9 +218,45 @@ Start with learning HTML and CSS. Then build a static blog and a to-do list app 
 
 ## Interactive user interfaces
 
-For client-side interactivity in the browser, either use plain JavaScript, or [add a library](/docs/install-npm-packages-with-no-build-step/#on-the-client) like [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/), [Unpoly](https://unpoly.com/), [ArrowJS](https://arrow-js.com/), or [Reactive Mastro](/reactive/), which allows you to [share templates with the server](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api).
+For client-side interactivity in the browser, either use plain JavaScript, or [add a library](/docs/install-npm-packages-with-no-build-step/#on-the-client) such as [HTMX](https://htmx.org/), [Alpine](https://alpinejs.dev/), [Preact](https://preactjs.com/guide/v11/getting-started/#no-build-tools-route), [petite-vue](https://github.com/vuejs/petite-vue), [Datastar](https://data-star.dev/), [Unpoly](https://unpoly.com/), or [ArrowJS](https://arrow-js.com/).
+
+To share code between client and the server, use e.g. Preact with HTM templates and [vhtml](https://github.com/developit/vhtml) to render them on the server, or Mastro templates with [Reactive Mastro](/reactive/) on the client – check out [our todo list example](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server#interactive-to-do-list-with-ssr-and-rest-api).
 
 <a class="button" href="/reactive/">Reactive Mastro</a>
+
+<div class="col-2 breakout gap-1">
+<div>
+
+```ts title=routes/index.server.js
+import { html, htmlToResponse } from "@mastrojs/mastro";
+import { Layout } from "../components/Layout.ts";
+
+export const GET = () =>
+  htmlToResponse(Layout(html`
+    <my-counter>
+      Count is <span data-bind="count">0</span>
+      <button data-onclick="inc">Click me</button>
+    </my-counter>
+  `));
+```
+
+</div>
+<div>
+
+```ts title=routes/my-counter.client.ts
+import { ReactiveElement, signal } from "@mastrojs/reactive";
+
+customElements.define("my-counter", class extends ReactiveElement {
+  count = signal(0);
+
+  inc () {
+    this.count.set(c => c + 1);
+  }
+});
+```
+
+</div>
+</div>
 
 
 ## A foundation to build upon
