@@ -8,26 +8,28 @@ You can [**run Mastro in your browser**](https://vscode.dev/github/mastrojs/temp
 
 <section class="tab-group">
   <header>
-    <label><input type="radio" name="install" class="tab1" checked>Deno</label>
-    <label><input type="radio" name="install" class="tab2">Node.js</label>
+    <label><input type="radio" name="install" class="tab1" checked>Node.js</label>
+    <label><input type="radio" name="install" class="tab2">Deno</label>
     <label><input type="radio" name="install" class="tab3">Bun</label>
     <label><input type="radio" name="install" class="tab4">Workers</label>
   </header>
 
   <div tabindex=0 id="content1">
 
-  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) and copy and paste into your terminal:
+  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)).
+  If you haven't already, install Node.js with `pnpm runtime set node lts -g`
+  Then run:
 
   ```sh
-  deno run -A npm:@mastrojs/create-mastro@0.1.6
+  pnpm create @mastrojs/mastro@0.1.6
   ```
   </div>
   <div tabindex=0 id="content2">
 
-  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)). Then install Node.js (if you haven't already) with `pnpm runtime set node lts -g`, then:
+  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) and copy and paste into your terminal:
 
   ```sh
-  pnpm create @mastrojs/mastro@0.1.6
+  deno run -A npm:@mastrojs/create-mastro@0.1.6
   ```
   </div>
   <div tabindex=0 id="content3">
