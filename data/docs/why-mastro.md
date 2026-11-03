@@ -72,5 +72,5 @@ Eleventy has a lot of options around static site generation, but it doesn't run 
 <details>
 <summary>Hono</summary>
 
-Hono is almost as minimal as Mastro. But it is more backend focused (e.g. it doesn't come with a file-based router).
+Hono is almost as minimal as Mastro. But it is more backend focused (e.g. it doesn't come with a file-based router). Also, its fetch handlers are not quite standard – they receive a `Context` object instead of a standard `Request` object.
 </details>

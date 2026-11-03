@@ -78,7 +78,7 @@ export const GET = () =>
 
 In addition to JavaScript, Mastro also supports [TypeScript](https://www.typescriptlang.org/) out of the box.
 
-Since Deno, Bun and [Node.js](https://nodejs.org/api/typescript.html#type-stripping) now all natively support type-stripping, Mastro doesn't need to do transform TypeScript files for the server – they are directly read by the JavaScript runtime.
+Since Deno, Bun and [Node.js](https://nodejs.org/api/typescript.html#type-stripping) now all natively support type-stripping, Mastro doesn't need to transform TypeScript files for the server – they are directly read by the JavaScript runtime.
 
 However, browsers are not there yet. Therefore, Mastro transpiles files in the `routes/` folder that end with `*.client.ts` on the fly, and serves them under the same URL but ending in `*.client.js`. It also [rewrites imports](https://github.com/mastrojs/mastro/blob/main/src/tsToJs.ts) in those files from `.ts` to `.js`. For example `import { x } from "./foo.ts"` is transformed to `import { x } from "./foo.js"`.
 

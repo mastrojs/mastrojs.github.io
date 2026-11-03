@@ -8,7 +8,7 @@ authorLink: https://github.com/mb21
 
 **In Unix, everything is a file. In Mastro, everything is a route. You use the same standards-based Request/Response-API not only for writing your server, but also for static site and asset generation. Let me show you how.**
 
-The Request/Response-API is the [modern way to write JavaScript servers](https://marvinh.dev/blog/modern-way-to-write-javascript-servers/). For example to return `text/plain`:
+The Request/Response-API (also known as the fetch API) is the [modern way to write JavaScript servers](https://marvinh.dev/blog/modern-way-to-write-javascript-servers/). For example to return `text/plain`:
 
 ```ts
 const myHandler = async (req: Request) => {
