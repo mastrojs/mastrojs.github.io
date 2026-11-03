@@ -61,7 +61,7 @@ A library worth checking out!<br>
 - **No JavaScript** (until you [ship some](/guide/interactivity-with-javascript-in-the-browser/)): create fast content-driven [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites.
 - **No dependencies**: use web standards instead of keeping up with the frontend treadmill.
 - **No VC-money**: no eventual enshitification – selling is none of our business.
-- **No lock-in**: swap out Mastro later or fork it – it's only [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme).
+- **No lock-in**: swap out Mastro or fork it – it's open source and only [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme).
 
 <a class="button" href="/docs/why-mastro/">Learn more</a>
 <a class="button -secondary" href="/docs/getting-started/">Get started</a>
