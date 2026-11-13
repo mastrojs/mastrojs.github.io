@@ -46,7 +46,7 @@ A library worth checking out!<br>
 </div>
 
 
-## Minimal yet powerful
+## Simple to start, powerful when you need it
 
 - **Static site generation** (SSG) – ideal for blogs, marketing sites or webshops that are [fast](/#fast-for-everyone).
 - **Server-side rendering** (SSR) – use Mastro's composable primitives as a [full-stack framework](/guide/forms-and-rest-apis/#a-mock-database).
