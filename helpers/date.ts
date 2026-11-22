@@ -1,5 +1,6 @@
 export const fmtIsoDate = (str: string) => {
   const [year, month, day] = str.split('-');
+  if (!month) throw Error(`fmtIsoDate received ${str}`);
   return `${months[parseInt(month, 10) - 1]} ${day}, ${year}`;
 }
 

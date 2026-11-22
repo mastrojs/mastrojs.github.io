@@ -10,7 +10,7 @@ export const GET = async () => {
     id: new URL(baseUrl),
     linkSelf: new URL("/feed.xml", baseUrl),
     linkWebsite: new URL("/blog/", baseUrl),
-    updated: new Date(posts[0].meta.date + "T12:00:00Z"),
+    updated: new Date(posts[0]?.meta.date + "T12:00:00Z"),
     entries: posts.map((post) => {
       const url = new URL(post.path, baseUrl);
       return {

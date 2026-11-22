@@ -1,6 +1,7 @@
 import { readMarkdownFiles } from "@mastrojs/markdown";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
+// @ts-expect-error
 import markdownItContainer from "markdown-it-container";
 import markdownItHighlightJs from "markdown-it-highlightjs";
 import { boolean, literal, object, optional, string, union } from "./validate.js";
@@ -53,6 +54,7 @@ const defaultRender = md.renderer.rules.fence!;
 md.use((md: any) => {
   // see https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md
   md.renderer.rules.fence = (...[tokens, idx, options, env, self]: Parameters<typeof defaultRender>) => {
+    if (!tokens[idx]) throw Error("helpers/markdown.ts#renderCode looked up empty tokens[idx]");
     const { title, ranges } = parseInfo(tokens[idx].info);
     const pre = ranges
       ? `<pre>${ranges.map((range) =>
@@ -78,10 +80,11 @@ const parseInfo = (info: string) => {
   const title = info.match(titleRegex)?.[1];
   const ranges = info.match(insDelRegex)?.flatMap((match) => {
     const [insOrDel, ranges] = match.split("=");
+    if (insOrDel === undefined || ranges === undefined) return [];
     return ranges.slice(1, -1).split(",").flatMap((range) => {
       const [fromStr, toStr] = range.trim().split("-");
-      const from = parseInt(fromStr, 10);
-      const to = parseInt(toStr, 10);
+      const from = parseInt(fromStr!, 10);
+      const to = parseInt(toStr!, 10);
       return isNaN(from) ? [] : { insOrDel, from, to: to || from };
     });
   });
@@ -95,6 +98,7 @@ const renderCode = (
   ranges: Array<{ insOrDel: string; from: number; to: number;}>,
   ...[tokens, idx, options, env, self]: Parameters<typeof defaultRender>
 ) => {
+  if (!tokens[idx]) throw Error("helpers/markdown.ts#renderCode looked up empty tokens[idx]");
   const lines = tokens[idx].content.split("\n");
   const copyLines = [...lines];
   const deletions = ranges.filter((range) => range.insOrDel === "del");
@@ -118,7 +122,7 @@ const renderCode = (
     const matches = htmlLines[del.i]?.match(/^<code[^>]*>/);
     const lostPrefix = matches?.[0] || "";
     // patch deleted line back in:
-    htmlLines[del.i] = lostPrefix + escapeForHtml(del.line);
+    htmlLines[del.i] = lostPrefix + escapeForHtml(del.line || "");
   }
   htmlLines.push(copyBtn(deletions.length > 0 ? copyLines.join("\n") : undefined));
   return htmlLines.join("\n");

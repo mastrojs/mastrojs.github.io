@@ -7,8 +7,8 @@ Repo for the https://mastrojs.github.io website.
 
 Start dev server:
 
-    deno task start
+    pnpm run start
 
 Build static site:
 
-    deno task generate
+    pnpm run generate

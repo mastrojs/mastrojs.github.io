@@ -13,14 +13,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v7
-      - name: Install Deno
-        uses: denoland/setup-deno@v2
+      - uses: actions/checkout@v7
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+      - name: Install Node.js
+        uses: actions/setup-node@v7
         with:
-          deno-version: v2.x
-      - name: Build step
-        run: "deno check && deno task generateWPagefind"
+          node-version: 26
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build static site
+        run: "pnpm run generateWPagefind"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
@@ -36,4 +42,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

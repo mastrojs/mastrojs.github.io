@@ -1,0 +1,45 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node --watch-path . server.ts",
+    "generate": "tsc && mastro generate",
+    "check": "tsc",
+    "startWithPagefind": "mastro generate && pnpm exec pagefind --site generated --serve",
+    "generateWPagefind": "mastro generate && pnpm exec pagefind --site generated",
+    "publishToAtmosphere": "node helpers/standard.site/publish.ts",
+    "checkLinks": "mastro generate && pnpm exec linkinator generated -r --retry --retry-errors-jitter"
+  },
+  "dependencies": {
+    "@mastrojs/atproto": "^0",
+    "@mastrojs/feed": "^0",
+    "@mastrojs/markdown": "^0.2.5",
+    "@mastrojs/mastro": "^0.9.2",
+    "@mastrojs/og-image": "^0",
+    "markdown-it": "^15.0.3",
+    "markdown-it-anchor": "^10.1.0",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-highlightjs": "^4.3.0",
+    "pagefind": "^1.0.4",
+    "srvx": "^1"
+  },
+  "devDependencies": {
+    "@types/node": "^26",
+    "typescript": "^7"
+  },
+  "engines": {
+    "node": ">=26"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.x",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "26.x",
+      "onFail": "download"
+    }
+  }
+}

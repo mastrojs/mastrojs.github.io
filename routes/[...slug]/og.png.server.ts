@@ -42,7 +42,6 @@ const ogImage = (titleSuffix: string, text: string) =>
       ctx.fillStyle = "black";
       ctx.font = "100px DefaultFont";
       ctx.fillText("Mastro" + (titleSuffix ? ` ${titleSuffix}` : ""), 100, 200);
-      // deno-lint-ignore no-explicit-any
       ctx.drawImage(canvas.decodeImage(chefIcon) as any, 60 * titleSuffix?.length + 450, 92);
     },
   })

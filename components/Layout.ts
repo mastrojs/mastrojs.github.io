@@ -39,7 +39,7 @@ export const Layout = (props: Props) => {
             let unloading = false;
             addEventListener("beforeunload", () => { unloading = true });
             fetch("/watch-change").catch(() => {
-              if (!unloading) setTimeout(() => location.reload(), 100);
+              if (!unloading) setTimeout(() => location.reload(), 150);
             });
           </script>
         `}
