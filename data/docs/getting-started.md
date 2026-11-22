@@ -9,27 +9,18 @@ You can [**run Mastro in your browser**](https://vscode.dev/github/mastrojs/temp
 <section class="tab-group">
   <header>
     <label><input type="radio" name="install" class="tab1" checked>Node.js</label>
-    <label><input type="radio" name="install" class="tab2">Deno</label>
     <label><input type="radio" name="install" class="tab3">Bun</label>
     <label><input type="radio" name="install" class="tab4">Workers</label>
   </header>
 
   <div tabindex=0 id="content1">
 
-  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` [also work](https://jsr.io/docs/npm-compatibility)).
+  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` also work).
   If you haven't already, install Node.js with `pnpm runtime set node lts -g`
   Then run:
 
   ```sh
   pnpm create @mastrojs/mastro@0.1.6
-  ```
-  </div>
-  <div tabindex=0 id="content2">
-
-  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/) and copy and paste into your terminal:
-
-  ```sh
-  deno run -A npm:@mastrojs/create-mastro@0.1.6
   ```
   </div>
   <div tabindex=0 id="content3">
@@ -41,7 +32,7 @@ You can [**run Mastro in your browser**](https://vscode.dev/github/mastrojs/temp
   ```
   </div>
   <div tabindex=0 id="content4">
-  Use Deno, Node.js, or Bun to generate a static site for any CDN (Cloudflare or not).
+  Use Node.js or Bun to generate a static site for any CDN (Cloudflare or not).
 
   However, to run code [on-demand](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) in a [Cloudflare Worker](https://workers.cloudflare.com/):
 
@@ -49,10 +40,10 @@ You can [**run Mastro in your browser**](https://vscode.dev/github/mastrojs/temp
   pnpm create @mastrojs/mastro@0.1.6 --cloudflare
   ```
 
-  Finally, Mastro can also run code on-demand inside a [Service Worker in the user's browser](/blog/2026-03-09-whatever-happened-to-js-service-workers/).
+  Finally, Mastro can also run in a [Service Worker in the user's browser](/blog/2026-03-09-whatever-happened-to-js-service-workers/).
   </div>
 </section>
 
-The above command will prompt you for a folder name to create, and then ask you to select between the basic template ([Deno](https://github.com/mastrojs/template-basic-deno), [Node.js](https://github.com/mastrojs/template-basic-node), [Bun](https://github.com/mastrojs/template-basic-bun/)) and the [blog template](https://github.com/mastrojs/mastro/tree/main/examples/blog).
+The above command will prompt you for a folder name to create, and then ask you to select between the [basic template](https://github.com/mastrojs/mastro/tree/main/examples/basic-node) and the [blog template](https://github.com/mastrojs/mastro/tree/main/examples/blog).
 
 Something not working or unclear? Don't hesitate to [**ask us for help!**](/#join-the-community)

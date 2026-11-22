@@ -83,22 +83,11 @@ export const GET = async () => {
 :::tip
 ## On the command line?
 
-If you're on the command line, as opposed to using the Mastro VSCode for Web extension, then you need to install the [`@mastrojs/markdown` package](https://jsr.io/@mastrojs/markdown):
+If you're on the command line, as opposed to using the Mastro VSCode for Web extension, then you need to install the [`@mastrojs/markdown` package](https://npmx.dev/package/@mastrojs/mastro):
 
-<div class="col-3">
-
-- ```sh title=Deno
-  deno add jsr:@mastrojs/markdown
-  ```
-
-- ```sh title=Node.js
-  pnpm add jsr:@mastrojs/markdown
-  ```
-
-- ```sh title=Bun
-  bunx jsr add @mastrojs/markdown
-  ```
-</div>
+```sh
+pnpm add @mastrojs/markdown
+```
 :::
 
 The code imports the `readMarkdownFiles` function from mastro. Because that function requests the files from the computer's harddisk (which might take some time), we need to `await` it. This in turn forces us to mark up our `GET` function as `async` (short for [asynchronous](https://eloquentjavascript.net/11_async.html)).
@@ -203,7 +192,7 @@ export const getStaticPaths = async () => {
 }
 ```
 
-For accessing the file system, `mastro` exports a few functions that work both in the VSCode environment, and when using Deno: `readDir`, `findFiles`, `readTextFile`, `readMarkdownFile`, and `readMarkdownFiles` (see [Mastro's API docs](https://jsr.io/@mastrojs/mastro/doc)).
+For accessing the file system, `mastro` exports a few functions that work both in the VSCode environment, and when using Node.js: `readDir`, `findFiles`, `readTextFile`, `readMarkdownFile`, and `readMarkdownFiles` (see [Mastro's API docs](https://npmx.dev/package-docs/@mastrojs/mastro)).
 
 Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guide/publish-website/#save-changes-and-publish-to-the-web).
 

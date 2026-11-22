@@ -135,7 +135,7 @@ If our server receives a `name`, we redirect the user back to the `GET` version 
 
 If our server does not receive a `name`, we display an error page. Note that modern browsers support [`<input required>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required) for more immediate feedback. But we can never trust the client to do input validation. A user might have an outdated browser that ignores the `required` attribute, or they could just write a few lines of code to manually send us an HTTP request with invalid data. Thus we must always validate incoming data on the server before using it (e.g. before saving it to a database). For simple data, a few if/else statements usually suffice, while for complex JSON data, this is usually done with a [schema library](https://standardschema.dev#what-schema-libraries-implement-the-spec).
 
-Note that both `Response.redirect` and `htmlToResponse` create a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. In fact, [`htmlToResponse(body)`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse) is little more than:
+Note that both `Response.redirect` and `htmlToResponse` create a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. In fact, [`htmlToResponse(body)`](https://github.com/mastrojs/mastro/blob/main/libs/mastro/src/core/responses.ts#L21) is little more than the following:
 
 ```ts
 new Response(body, { headers: { "Content-Type": "text/html" } })
@@ -148,7 +148,7 @@ As you've seen above, plain old HTML forms can get you a long way – all witho
 
 We start with the [initial reactive to-do list app](/guide/interactivity-with-javascript-in-the-browser/#reactive-programming) and move the script to its own file: `routes/todo-list.client.ts`. The `.ts` suffix means it's a TypeScript file, and because it ends in `.client.ts`, Mastro will automatically transform it to JavaScript. This time, instead of saving the to-dos in `localStorage`, we want to save them to a (mock) database on the server. To make HTTP requests to the server without doing a full page reload, we use the standard [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) function.
 
-It's a handful of files, so best if you check them out [on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server). Or even better: [download the mastro repo as a zip](https://github.com/mastrojs/mastro/archive/refs/heads/main.zip) and open the `examples/todo-list-server/` folder in VS Code. In the terminal, you can `cd mastro/examples/todo-list-server/` and then `deno task start`.
+It's a handful of files, so best if you check them out [on GitHub](https://github.com/mastrojs/mastro/tree/main/examples/todo-list-server). Or even better: [download the mastro repo as a zip](https://github.com/mastrojs/mastro/archive/refs/heads/main.zip) and open the `examples/todo-list-server/` folder in VS Code. In the terminal, you can `cd mastro/examples/todo-list-server/` and then `pnpm run start`.
 
 The folder structure looks as follows:
 
@@ -160,7 +160,7 @@ The folder structure looks as follows:
     - `index.server.ts` – API route for the whole collection
   - `index.server.ts` – HTML page
   - `todo-list.client.ts` – client-side JavaScript
-- `deno.json`
+- `package.json`
 
 Let's look at one API route; the one that adds a new todo item:
 

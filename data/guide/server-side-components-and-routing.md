@@ -152,7 +152,7 @@ export const Layout = (props) =>
   `;
 ```
 
-Since we'll want to deploy our website to GitHub Pages in a sub-directory (the `/my-repo` part of `https://my-name.github.io/my-repo`), we call the [ghPagesBasePath](https://jsr.io/@mastrojs/mastro/doc/~/ghPagesBasePath) function, and prepend the `basePath` it returns (which will be e.g. `/my-repo`) to `/styles.css`. All together, this will output e.g. `<link rel="stylesheet" href="/my-repo/styles.css">`.
+Since we'll want to deploy our website to GitHub Pages in a sub-directory (the `/my-repo` part of `https://my-name.github.io/my-repo`), we call the [ghPagesBasePath](https://npmx.dev/package-docs/@mastrojs/mastro#variable-ghPagesBasePath) function, and prepend the `basePath` it returns (which will be e.g. `/my-repo`) to `/styles.css`. All together, this will output e.g. `<link rel="stylesheet" href="/my-repo/styles.css">`.
 
 If you don't intend to deploy to GitHub Pages, you can also just write `<link rel="stylesheet" href="/styles.css">`. However, make sure you don't forget the slash in front of `/styles.css`, so that the link works also from other pages, not just the home page.
 

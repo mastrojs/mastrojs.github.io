@@ -30,21 +30,21 @@ Here's a table listing the various ways you can run Mastro, with links to more i
 
 ## Setup local development server
 
-In this section, we'll be using the modern [Deno](https://deno.com) JavaScript runtime, which makes our life a bit easier compared to other runtimes. However, you can also use Mastro [with Node.js](https://github.com/mastrojs/template-basic-node) or [with Bun](https://github.com/mastrojs/template-basic-bun). (In Deno, you don't need to mess with `npm install` and `node_modules` folders, and niceties like TypeScript, `Deno.serve`, and a formatter are all built-in.)
-
 To preview your website in a browser while you work on it, let's start a local development server.
 
 1.  [Open a terminal application](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#how_do_you_access_the_terminal) on your computer, which will provide you with a command-line interface (CLI). [VSCode](https://code.visualstudio.com) has a terminal built in: to open it, select `View` -> `Terminal` in the menu. Alternatively, your OS has a terminal app pre-installed: on macOS under `/Applications/Utilities/Terminal`, on Windows you can use PowerShell, or for additional compatibility with Linux servers [use WSL](https://learn.microsoft.com/en-us/windows/wsl/).
 
-2.  [Install Deno](https://docs.deno.com/runtime/getting_started/installation/): for example by copy and pasting the following into your terminal:
+2.  [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) by copy and pasting the following into your terminal:
 
     ```sh
-    curl -fsSL https://deno.land/install.sh | sh
+    curl -fsSL https://get.pnpm.io | sh -
     ```
 
     then hit enter.
 
-3.  [Navigate to the folder](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#navigation_on_the_command_line) where you want to create your new project folder in, e.g. type:
+3. Install Node.js with `pnpm runtime set node lts -g`
+
+4.  [Navigate to the folder](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line#navigation_on_the_command_line) where you want to create your new project folder in, e.g. type:
 
     ```sh
     cd Desktop
@@ -52,18 +52,18 @@ To preview your website in a browser while you work on it, let's start a local d
 
     and hit enter.
 
-4.  Then type (or copy-paste):
+5.  Then type (or copy-paste):
 
     ```sh
-    deno run -A npm:@mastrojs/create-mastro@latest
+    pnpm create @mastrojs/mastro@0.1.6
     ```
 
     and hit enter. This Mastro initalization script will ask you for a folder name for your new project. Enter for example `mastro-test` and hit enter (we're using a dash, because folder names with spaces are a bit of a pain on the command-line).
 
-5.  Then it will tell you to `cd mastro-test`, and from there you can enter:
+6.  Then it will tell you to `cd mastro-test`, and from there you can enter:
 
     ```sh
-    deno task start
+    pnpm run start
     ```
 
     This will start your server! You can see the dummy page it's serving by opening the following URL in your web browser: <a rel="nofollow" href="http://localhost:8000">http://localhost:8000</a> (The `8000` is the _port_. If you'd want to run multiple servers on the same machine, each would need to use a different port.)
@@ -74,10 +74,10 @@ To edit the files in the newly created folder, you'll want to [install Visual St
 
 Check out the contents of the generated folder. It's a bare-bones Mastro project, but now with:
 
-- a `deno.json` file, which specifies the Mastro version to use, and what happens if you type `deno task start` or `deno task generate`,
-- the `deno.lock` file, which remembers exactly which version of each package was used,
+- a `package.json` file, which specifies the Mastro version to use, and what script is run if you type `pnpm run start` or `pnpm run generate`,
+- the `pnpm-lock.yaml` file, which remembers exactly which version of each package was used,
 - the `server.ts` file, which is executed to start up the server (here you might add customizations like middleware), and
-- the file in the `routes/` folder is now called `index.server.ts` instead of `index.server.js`, because it's [TypeScript](https://www.typescriptlang.org/) – JavaScript with type annotations. This allows `deno check` to find certain problems in your code even without running it.
+- the file in the `routes/` folder is now called `index.server.ts` instead of `index.server.js`, because it's [TypeScript](https://www.typescriptlang.org/) – JavaScript with type annotations. This allows `pnpm run check` to find certain problems in your code even without running it.
 
 Congrats, you're all set now to work locally on your project.
 

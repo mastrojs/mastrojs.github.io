@@ -170,7 +170,7 @@ The initial to-do list app from above, rewritten with Reactive Mastro looks as f
 <script type="importmap">
   {
     "imports": {
-      "@mastrojs/reactive": "https://esm.sh/jsr/@mastrojs/reactive@0.4.1?bundle"
+      "@mastrojs/reactive": "https://cdn.jsdelivr.net/npm/@mastrojs/reactive@0.4.4/dist/reactive.min.js"
     }
   }
 </script>
@@ -258,7 +258,7 @@ Once you've gotten familiar with the way Reactive Mastro works, adding the dropd
 <script type="importmap">
   {
     "imports": {
-      "@mastrojs/reactive": "https://esm.sh/mastrojs/reactive@0.4.0?bundle"
+      "@mastrojs/reactive": "https://cdn.jsdelivr.net/npm/@mastrojs/reactive@0.4.4/dist/reactive.min.js"
     }
   }
 </script>

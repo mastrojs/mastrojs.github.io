@@ -1,5 +1,5 @@
 ---
-title: Build static site with Node.js and deploy to Netlify
+title: Deploy static site to Netlify
 ---
 
 [← Other deployment options](/docs/deploy/#deploy-static-site-with-ci%2Fcd)

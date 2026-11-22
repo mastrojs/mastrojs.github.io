@@ -1,5 +1,5 @@
 ---
-title: Build static site with Node.js and deploy to Cloudflare
+title: Deploy static site to Cloudflare
 ---
 
 [← Other deployment options](/docs/deploy/#deploy-static-site-with-ci%2Fcd)
@@ -57,9 +57,9 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v6
       - name: Install Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install

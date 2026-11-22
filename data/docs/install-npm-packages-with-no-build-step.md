@@ -2,44 +2,25 @@
 title: Install NPM packages without a build system
 ---
 
-Instead of writing all code yourself, it's sometimes useful to install packages from [NPM](https://www.npmjs.com/) (or [JSR](https://jsr.io/)).
+Instead of writing all code yourself, it's sometimes useful to install packages from [NPM](https://www.npmjs.com/).
 Make sure to take a bit of time to evaluate a package before adding it as a dependency to your project. Code quality, size, security, and long-term maintenance outlook varies a lot between different packages. [npmx](https://npmx.dev/) is a nice browser for NPM that highlights some of these aspects.
 
-[Client-side and server-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript) is separated on purpose in Mastro, because the former needs to be downloaded to the browser of your users, while the latter runs in a runtime like Deno or Node.js, which is an environment you control directly.
+[Client-side and server-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript) is separated on purpose in Mastro, because the former needs to be downloaded to the browser of your users, while the latter runs in the Node.js runtime on your server, which is an environment you control directly.
 
 
 ## On the server
 
-As an example, you might want to use the [`markdown-it` package from NPM](https://www.npmjs.com/package/markdown-it), instead of the [`@mastrojs/markdown` package](https://jsr.io/@mastrojs/markdown) to generate HTML from your markdown files on the server.
+As an example, you might want to use the [`markdown-it` package from NPM](https://www.npmjs.com/package/markdown-it), instead of the [`@mastrojs/markdown` package](https://github.com/mastrojs/markdown) to generate HTML from your markdown files on the server.
 
 To install the package, use your package manager as follows:
 
 <section class="tab-group">
   <header>
-    <label><input type="radio" name="install" class="tab1" checked>Deno</label>
     <label><input type="radio" name="install" class="tab2">Node.js</label>
     <label><input type="radio" name="install" class="tab3">Bun</label>
     <label><input type="radio" name="install" class="tab4">VSCode extension</label>
   </header>
 
-  <div tabindex=0 id="content1">
-
-```sh
-deno add npm:markdown-it
-```
-
-which will add this line to your `deno.json` file:
-
-```json title=deno.json ins={4}
-{
-  "name": "...",
-  "imports": {
-    "markdown-it": "npm:markdown-it@14.1.0"
-  }
-}
-```
-
-  </div>
   <div tabindex=0 id="content2">
 
 ```sh
@@ -98,7 +79,7 @@ import markdownIt from "markdown-it";
 
 ## On the client
 
-It's important to remember that the server's `deno.json` or `package.json` file (the one in the section above) will not be loaded into the browser – and unless you use a bundler, neither will any packages it contains. This is a good, because packages intended to be run on the server are often very big and would slow down your website if all your website visitors had to download them.
+It's important to remember that the server's `package.json` file (the one in the section above) will not be loaded into the browser – and unless you use a bundler, neither will any packages it contains. This is a good, because packages intended to be run on the server are often very big and would slow down your website if all your website visitors had to download them.
 
 ### Installing client-side packages without a build system
 
@@ -145,7 +126,7 @@ After downloading the file, add it somewhere in your Mastro project's `routes/` 
     </script>
 ```
 
-Instead of downloading the files manually, you can also use a script like [unpm](https://tangled.org/jakelazaroff.com/unpm) or [nudeps](https://github.com/nudeps/nudeps) to do so.
+Instead of downloading the files manually, you can also use a small tool like [Nudeps](https://nudeps.dev/), or [unpm](https://tangled.org/jakelazaroff.com/unpm), to do so.
 
 ### Import maps
 

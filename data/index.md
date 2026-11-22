@@ -10,7 +10,7 @@ layout: hero
 Mastro is a **web framework** and **static site generator** for people who care about their users and web standards. It's simple, pragmatic, and implemented in just **~800 lines of TypeScript**.
 
 Use JavaScript/TypeScript’s mature tooling to build fast [server-rendered websites](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) with HTML and CSS. Share server and [client code](#interactive-user-interfaces) explicitly.
-Instead of drowning in layers of abstractions, work directly with the browser and Node.js, Deno, Bun, or Workers.
+Instead of drowning in layers of abstractions, work directly with the browser and Node.js, Bun, or Workers.
 
 <a class="button" data-goatcounter-click="home.start" href="/docs/getting-started/">Get started</a>
 <a class="button -secondary" href="/docs/">Docs</a>
@@ -261,7 +261,7 @@ customElements.define("my-counter", class extends ReactiveElement {
 
 ## A foundation to build upon
 
-The minimal Mastro [core package](https://jsr.io/@mastrojs/mastro) doesn’t come "batteries included", but it's built to be extended.
+The minimal Mastro [core package](https://npmx.dev/package/@mastrojs/mastro) doesn’t come "batteries included", but it's built to be extended.
 
 <div class="col-2">
 <div>

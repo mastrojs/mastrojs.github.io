@@ -28,8 +28,7 @@ The same can happen in CSS when using [@font-face](https://developer.mozilla.org
 
 When bundling JavaScript, the syntax needs to be parsed and some things need to be wrapped in functions and/or renamed (e.g. to prevent clashes of variables with the same name in different modules). JavaScript bundlers like [esbuild](https://esbuild.github.io/) recursively follow the import statements and try to bundle only code that’s actually used. This is called "dead-code elimination", or in the JavaScript world also "tree-shaking" (but beware that the bundler must assume that [importing a module can have side-effects](https://esbuild.github.io/api/#ignore-annotations)).
 
-You can add `esbuild` to your Mastro project by running `pnpm add esbuild`, `bun add esbuild`, or `deno add npm:esbuild` respectively (make sure you have a `package.json` file and `node_modules/` folder when [using Deno](https://docs.deno.com/runtime/fundamentals/node/#first-class-package.json-support) – otherwise esbuild will not find dependencies).
-
+You can add `esbuild` to your Mastro project by running `pnpm add esbuild`.
 Then, a route that bundles all JavaScript that's referenced from the `client/app.ts` entry point, might look as follows:
 
 ```ts title=routes/app-bundle.js.server.ts
@@ -98,22 +97,12 @@ For more approaches to organizing your CSS, see [component-scoped CSS](/blog/202
 
 ## Transforming images
 
-Another example of an expensive route would be transforming images (e.g. resizing or compressing into WebP format). One way to do that is, with the [`@mastrojs/images` package](https://jsr.io/@mastrojs/images):
+Another example of an expensive route would be transforming images (e.g. resizing or compressing into WebP format). One way to do that is, with the [`@mastrojs/images` package](https://github.com/mastrojs/images):
 
-<div class="col-3">
 
-- ```sh title=Deno
-  deno add jsr:@mastrojs/images
-  ```
-
-- ```sh title=Node.js
-  pnpm add jsr:@mastrojs/images
-  ```
-
-- ```sh title=Bun
-  bunx jsr add @mastrojs/images
-  ```
-</div>
+```sh
+pnpm add @mastrojs/images
+```
 
 Then you can add a route like:
 
@@ -146,16 +135,16 @@ Because bundling CSS and JavaScript, and transforming images, are expensive comp
 
 Actually, we’ve started the guide with an extreme application of this strategy: static site generation. There, not only images and bundles are pre-computed, but also every single HTML file is pre-generated. Thus for a static site, the code snippets above will just work in Mastro. But if you're running a server, you may want to pregenerate images (or even certain HTML pages) in a build step.
 
-Change the `generate` task in the `deno.json` (or `package.json`) so that it doesn't build an entire static site anymore, but only pregenerates select routes (in addition to copying over [unprocessed static files](/docs/routing/)):
+Change the `generate` task in the `package.json` so that it doesn't build an entire static site anymore, but only pregenerates select routes (in addition to copying over [unprocessed static files](/docs/routing/)):
 
-```json title=deno.json del={3} ins={4}
+```json title=package.json del={3} ins={4}
 {
-  "tasks": {
-    "generate": "deno run -A mastro/generator",
-    "generate": "deno run -A mastro/generator --only-pregenerate",
+  "scripts": {
+    "generate": "mastro generate",
+    "generate": "mastro generate --only-pregenerate",
 ```
 
-Then add `deno task pregenerate` to your CI/CD workflow (e.g. often this field is called "Build command"). This will generate a `generated/` folder – just like for a static site. But with `--only-pregenerate`, it will only generate the routes that have the following line added:
+Then add `pnpm run generate` to your CI/CD workflow (e.g. often this field is called "Build command"). This will generate a `generated/` folder – just like for a static site. But with `--only-pregenerate`, it will only generate the routes that have the following line added:
 
 ```js title=routes/_images/[...slug].server.ts ins={3}
 import { createImagesRoute } from "@mastrojs/images";
@@ -172,9 +161,9 @@ export const { GET, getStaticPaths } = createImagesRoute({
 });
 ```
 
-Run `deno task pregenerate` and check what was written to the `generated/` folder.
+Run `pnpm run generate` and check what was written to the `generated/` folder.
 
-If you start the server with `deno task start` and access it on a `http://localhost:8000`, the images will still be rendered on the fly, enabling you to quickly change things when developing your website. However, when you open `http://127.0.0.1:8000` in your browser (that's using the IP address for localhost), the Mastro server will assume we're running in production, and load the pregenerated image from the `generated/` folder. You should see in your browser's network dev tools that this is much quicker.
+If you start the server with `pnpm run start` and access it on a `http://localhost:8000`, the images will still be rendered on the fly, enabling you to quickly change things when developing your website. However, when you open `http://127.0.0.1:8000` in your browser (that's using the IP address for localhost), the Mastro server will assume we're running in production, and load the pregenerated image from the `generated/` folder. You should see in your browser's network dev tools that this is much quicker.
 
 You can pregenerate not only images, CSS or JavaScript, but also entire HTML pages. Simply add a `export const pregenerate = true;` to your route.
 

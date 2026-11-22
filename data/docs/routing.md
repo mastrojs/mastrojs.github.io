@@ -214,4 +214,4 @@ The above is equivalent to passing a config object manually:
   })
 ```
 
-See also the [API docs for the programmatic router](https://jsr.io/@mastrojs/mastro/doc/server-programmatic/~/Mastro).
+See also the [API docs for the programmatic router](https://npmx.dev/package-docs/@mastrojs/mastro#class-Mastro).

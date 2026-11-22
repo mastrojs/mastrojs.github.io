@@ -1,10 +1,10 @@
 ---
-title: Build static site with Node.js and deploy to GitHub Pages
+title: Deploy static site to GitHub Pages
 ---
 
 [← Other deployment options](/docs/deploy/#deploy-static-site-with-ci%2Fcd)
 
-If you're hosting your website with GitHub Pages on a sub-directory (e.g. `https://my-name.github.io/my-repo` instead of `https://my-name.github.io` or instead of a custom domain), be sure to use Mastro's [`ghPagesBasePath` helper function](https://jsr.io/@mastrojs/mastro/doc/~/ghPagesBasePath).
+If you're hosting your website with GitHub Pages on a sub-directory (e.g. `https://my-name.github.io/my-repo` instead of `https://my-name.github.io` or instead of a custom domain), be sure to use Mastro's [`ghPagesBasePath` helper function](https://npmx.dev/package-docs/@mastrojs/mastro#variable-ghPagesBasePath).
 
 To deploy your static site to GitHub Pages using the [GitHub Actions](https://docs.github.com/en/actions) CI/CD service, add the following file to your GitHub repository. This uses Node.js and `pnpm`.
 
@@ -28,9 +28,9 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v6
       - name: Install Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
@@ -53,7 +53,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 ```
 
 Then configure [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow):

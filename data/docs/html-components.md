@@ -2,7 +2,7 @@
 title: "Components and HTML"
 ---
 
-To construct HTML, Mastro exports the [`html`](https://jsr.io/@mastrojs/mastro/doc/~/html) tagged [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which makes sure things are properly escaped (unless [`unsafeInnerHtml`](https://jsr.io/@mastrojs/mastro/doc/~/unsafeInnerHtml) is used).
+To construct HTML, Mastro exports the [`html`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-html) tagged [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which makes sure things are properly escaped (unless [`unsafeInnerHtml`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-unsafeInnerHtml) is used).
 
 For syntax-highlighting, be sure to configure your editor accordingly. For example for VS Code, we recommend the [FAST Tagged Template Literals extension](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates). In Zed, this works out of the box.
 
@@ -44,7 +44,7 @@ export const GET = (req: Request) =>
 
 ## Components
 
-A Mastro server-side component is just a normal JavaScript function. By convention, the function name is usually capitalized, takes a `props` object, and returns something of type [`Html`](https://jsr.io/@mastrojs/mastro/doc/~/Html). There's really no magic going on here.
+A Mastro server-side component is just a normal JavaScript function. By convention, the function name is usually capitalized, takes a `props` object, and returns something of type [`Html`](https://npmx.dev/package-docs/@mastrojs/mastro#typeAlias-Html). There's really no magic going on here.
 
 For various ways to structure your CSS, see [component-scoped CSS with Mastro](/blog/2026-05-26-component-scoped-css-without-build-step/).
 
@@ -81,7 +81,7 @@ export const Layout = (props: Props) =>
 [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [AsyncIterables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) can be passed directly into HTML templates without needing to be awaited.
 
 For static site generation, this doesn't matter (in fact, awaiting will likely result in a slightly faster generation step).
-But when running a server, you should pass in async values without awaiting them. [`htmlToResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlToResponse) will then create a `Response` that sends the chunks over the wire as soon as they're available.
+But when running a server, you should pass in async values without awaiting them. [`htmlToResponse`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-htmlToResponse) will then create a `Response` that sends the chunks over the wire as soon as they're available.
 
 This can dramatically speed up [time to first byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte): a user can start reading the top of your page, while the last row hasn't even left the database yet. In HTTP/1.1, this was known as [chunked transfer encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding), but in HTTP/2 and HTTP/3 it's built in at the lower levels of the protocol.
 
@@ -135,4 +135,4 @@ To stream JSON, see [HTTP Streaming in the guide](/guide/caching-service-workers
 
 ## Reading files
 
-To abstract over the different environments Mastro runs in – the [Mastro VS Code extension](/guide/setup/), Deno, Node.js and Bun – the `@mastrojs/mastro` package also exports a few functions to read out files from your project folder: [`readDir`](https://jsr.io/@mastrojs/mastro/doc/~/readDir), [`findFiles`](https://jsr.io/@mastrojs/mastro/doc/~/findFiles) (uses `fs.glob`), [`readTextFile`](https://jsr.io/@mastrojs/mastro/doc/~/readTextFile), and [`readFile`](https://jsr.io/@mastrojs/mastro/doc/~/readFile).
+To abstract over the different environments Mastro runs in – the [Mastro VS Code extension](/guide/setup/) and Node.js – the `@mastrojs/mastro` package also exports a few functions to read out files from your project folder: [`readDir`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-readDir), [`findFiles`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-findFiles) (uses `fs.glob`), [`readTextFile`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-readTextFile), and [`readFile`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-readFile).

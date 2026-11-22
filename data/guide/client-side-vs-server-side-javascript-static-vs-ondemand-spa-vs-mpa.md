@@ -57,7 +57,7 @@ This may make sense for an app like Google Docs, Figma, or Visual Studio Code. O
 <figcaption>Geekbench 6 Single-Core scores – <em>source: <a href="https://infrequently.org/2025/11/performance-inequality-gap-2026/#sc">Performance Inequality Gap</a></em></figcaption>
 </figure>
 
-However, JavaScript is a general-purpose programming language like any other. Using Node.js or Deno, you can run JavaScript code on your server or laptop, generate the HTML there, and only send that to your user's browser – just like people have done for ages with other general-purpose programming languages like PHP, Ruby or Python.
+However, JavaScript is a general-purpose programming language like any other. Using Node.js, you can run JavaScript code on your server or laptop, generate the HTML there, and only send that to your user's browser – just like people have done for ages with other general-purpose programming languages like PHP, Ruby or Python.
 
 This is generally known as **server-side JavaScript** – regardless of whether you do static site generation or run a server. The important part is that unlike client-side JavaScript, it doesn't run in the user's browser.
 

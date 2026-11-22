@@ -6,14 +6,14 @@ There are basically two ways to install Reactive Mastro. Using the pre-bundled f
 
 ## Using a CDN
 
-If you're on tech stack without a bundler (for example [Mastro](/), see [third-party packages](/docs/install-npm-packages-with-no-build-step/)), then you can simply import Reactive Mastro as a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). For example using the version pre-bundled and minified by [esm.sh](https://esm.sh/):
+If you're on tech stack without a bundler (for example [Mastro](/), see [third-party packages](/docs/install-npm-packages-with-no-build-step/)), then you can simply import Reactive Mastro as a [JavaScript module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). For example using the version pre-bundled and minified version:
 
 ```html
 <script type="module">
-  import { ReactiveElement, signal } from "https://esm.sh/jsr/@mastrojs/reactive@0.4.1?bundle"
+  import { ReactiveElement, signal } from "https://cdn.jsdelivr.net/npm/@mastrojs/reactive@0.4.4/dist/reactive.min.js"
 ```
 
-Instead of referencing the esm.sh CDN directly, you can of course also [**download Reactive Mastro**](https://esm.sh/@jsr/mastrojs__reactive@0.4.0/es2022/mastrojs__reactive.bundle.mjs) and host it together with your other static assets.
+Instead of referencing the jsDelivr CDN, you can of course also download that file above and host it together with your other static assets.
 
 Either way, we recommend using an [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) so that you can refer to the file in all your own JavaScript modules using the shorthand `@mastrojs/reactive`. That way, there is only one place to update the version number, and changing it will not change your own JavaScript files, which would invalidate their cache.
 
@@ -27,7 +27,7 @@ Here's a complete example that you can save as a `.html` file and open it in you
     <script type="importmap">
       {
         "imports": {
-          "@mastrojs/reactive": "https://esm.sh/jsr/@mastrojs/reactive@0.4.1?bundle"
+          "@mastrojs/reactive": "https://cdn.jsdelivr.net/npm/@mastrojs/reactive@0.4.4/dist/reactive.min.js"
         }
       }
     </script>
@@ -54,15 +54,9 @@ Here's a complete example that you can save as a `.html` file and open it in you
 
 ## Using a framework with bundler
 
-If you're using a framework that uses a bundler (e.g. Astro), you can add the `@mastrojs/reactive` package as a dependency. For example using [JSR’s npm compatibility layer](https://jsr.io/docs/with/node):
+If you're using a framework that uses a bundler, you can add the `@mastrojs/reactive` package as a dependency:
 
-    npx jsr add @mastrojs/reactive
-
-Or with any of the following package managers, which support JSR natively:
-
-    pnpm add jsr:@mastrojs/reactive
-    yarn add jsr:@mastrojs/reactive
-    deno add jsr:@mastrojs/reactive
+    pnpm add @mastrojs/reactive
 
 Then, for example using the [Astro web framework](https://astro.build/), you can use Reactive Mastro in a `.astro` component like:
 

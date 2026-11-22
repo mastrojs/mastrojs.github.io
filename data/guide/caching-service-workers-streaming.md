@@ -14,10 +14,10 @@ The thing that's generally very difficult to get right with caching is _cache in
 
 ### HTTP caching
 
-If you want to improve performance and reduce load on your server, HTTP caching is usually the first level of defense. You do so by sending HTTP headers in your server's response. When using Mastro's [`htmlResponse`](https://jsr.io/@mastrojs/mastro/doc/~/htmlResponse) function, for example:
+If you want to improve performance and reduce load on your server, HTTP caching is usually the first level of defense. You do so by sending HTTP headers in your server's response. When using Mastro's [`htmlToResponse`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-htmlToResponse) function, for example:
 
 ```js
-return htmlResponse(myHtml, 200, { "Cache-Control": "max-age=60" });
+return htmlToResponse(myHtml, 200, { "Cache-Control": "max-age=60" });
 ```
 
 The above tells any CDN, proxy, and ultimately the browser, that they can store a copy of the page and use it until it's older than 60 seconds. After that, they'll have to fetch a fresh copy if they need one.
@@ -46,7 +46,7 @@ export const Header = () =>
 
 If there is a `generatedAssets.json` file preset (i.e. in production), this would output `<img src="/_assets/logo-f2ca1bb6.png">`. In local development, we don't want to spend a lot of time calculating hashes, so if there is no `generatedAssets.json` file, it's going to output `<img src="/_assets/logo.png">`. If you test the build step locally, don't forget to delete the `generatedAssets.json` file afterwards. (If that trips you up, you can do your own implementation of an [`asset`](https://github.com/mastrojs/mastro/blob/main/src/core/responses.ts#L85) function, e.g. one that looks out for an env variable to detect whether you're in production or not.)
 
-Finally, in production, we shouldn't forget to serve the assets with a very long lifetime. For example 31556952 seconds, which is 1 year. When running a Node.js, Deno or Bun server, Mastro does this automatically.
+Finally, in production, we shouldn't forget to serve the assets with a very long lifetime. For example 31556952 seconds, which is 1 year. When running a Node.js server, Mastro does this automatically.
 
 For a static site, you need to configure your CDN or static file server to do so. Many CDNs (e.g. [Netlify](https://docs.netlify.com/manage/routing/headers/) or [Cloudflare](https://developers.cloudflare.com/pages/configuration/headers/)) have a `_headers` file for this:
 
@@ -100,5 +100,6 @@ Play around with the Mastro [example of server-sent events](https://github.com/m
 
 Server-sent events discussed above are unidirectional. If you also need to send data back from the client to the server, you can do so either via normal HTTP POSTs, or if you want a streaming connection, then use [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). This is often used for real-time bidirectional communication like a chats between users.
 
-To write a web socket server, use `Deno.serve` with [`Deno.upgradeWebSocket`](https://docs.deno.com/api/deno/~/Deno.upgradeWebSocket), or `Bun.serve` with the [`websocket` parameter](https://bun.com/docs/runtime/http/websockets).
 Although the [Node.js issue](https://github.com/nodejs/node/issues/19308) was closed when it got a built-in [WebSocket client](https://nodejs.org/en/learn/getting-started/websocket), as of Node.js v25, there is still no built-in WebSocket server functionality and you'd need to use a library.
+
+If you're using Bun, you can use `Bun.serve` with the [`websocket` parameter](https://bun.com/docs/runtime/http/websockets).
