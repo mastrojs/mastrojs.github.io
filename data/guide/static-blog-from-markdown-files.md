@@ -83,14 +83,14 @@ export const GET = async () => {
 :::tip
 ## On the command line?
 
-If you're on the command line, as opposed to using the Mastro VSCode for Web extension, then you need to install the [`@mastrojs/markdown` package](https://npmx.dev/package/@mastrojs/mastro):
+If you're on the command line, as opposed to using the Mastro VSCode for Web extension, then you need to install the [`@mastrojs/markdown` package](https://npmx.dev/package/@mastrojs/markdown):
 
 ```sh
 pnpm add @mastrojs/markdown
 ```
 :::
 
-The code imports the `readMarkdownFiles` function from mastro. Because that function requests the files from the computer's harddisk (which might take some time), we need to `await` it. This in turn forces us to mark up our `GET` function as `async` (short for [asynchronous](https://eloquentjavascript.net/11_async.html)).
+The code imports the `readMarkdownFiles` function from `@mastrojs/markdown`. Because that function requests the files from the computer's harddisk (which might take some time), we need to `await` it. This in turn forces us to mark up our `GET` function as `async` (short for [asynchronous](https://eloquentjavascript.net/11_async.html)).
 
 Since `posts` is an array, we can use its `.map()` method to loop over it and get each `post`.
 
@@ -105,15 +105,15 @@ Create the detail pages for the individual blog posts by creating the file `rout
 
 The `[slug]` is a route parameter. When your server receives an HTTP request for `/news/2024-01-30-hello-world/`, the request will be routed to the `GET` function in `routes/news/[slug]/index.server.js`. A collection of URLs that are handled the same way are called a route. In Mastro, placing a file in the `routes/` folder creates a route. You can name parameters whatever you want (but no spaces), but `slug` is a common name for the part of a URL that identifies a specific page.
 
-To read out the parameters from the URL, we use the `req` object (a standard JavaScript [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object) that our `GET` function receives, and pass it to the `getParams` helper function, which returns an object with all parameters in the URL. In our case, it contains only one parameter, the one called slug.
+To read out the parameters from the URL, we use the context object that Mastro passes to our handler function as the second argument. The context has a `params` field, which contains all parameters in the URL. In our case, it contains only one parameter, the one called `slug`.
 
 ```js title=routes/news/[slug]/index.server.js
-import { getParams, htmlToResponse } from "@mastrojs/mastro";
+import { htmlToResponse } from "@mastrojs/mastro";
 import { readMarkdownFile } from "@mastrojs/markdown";
-import { Layout } from "../../components/Layout.js";
+import { Layout } from "../../../components/Layout.js";
 
-export const GET = async (req) => {
-  const { slug } = getParams(req);
+export const GET = async (req, ctx) => {
+  const { slug } = ctx.params;
   const post = await readMarkdownFile(`data/posts/${slug}.md`);
   return htmlToResponse(
     Layout({
@@ -127,7 +127,7 @@ export const GET = async (req) => {
 To extract the `slug` parameter, we used [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring). Equivalently, we could also have written:
 
 ```js
-const slug = getParams(req).slug;
+const slug = ctx.params.slug;
 ```
 
 To read the markdown file from disk and convert the markdown to HTML, we use the `readMarkdownFile` function (which is an `async` function and therefore we need to `await` it).
@@ -141,12 +141,12 @@ Usually when programming, things go wrong at some point. It's not very common fo
 If your program starts running, it can be useful to add `console.log()` statements in various places of your code and see what it prints into the JavaScript console (what you used in a [previous chapter](/guide/javascript/)). Give it a try:
 
 ```js title=routes/news/[slug]/index.server.js ins={7}
-import { getParams, htmlToResponse } from "@mastrojs/mastro";
+import { htmlToResponse } from "@mastrojs/mastro";
 import { readMarkdownFile } from "@mastrojs/markdown";
-import { Layout } from "../../components/Layout.js";
+import { Layout } from "../../../components/Layout.js";
 
-export const GET = async (req) => {
-  const { slug } = getParams(req);
+export const GET = async (req, ctx) => {
+  const { slug } = ctx.params;
   console.log("the slug variable holds the value", slug)
   const post = await readMarkdownFile(`data/posts/${slug}.md`);
   return htmlToResponse(
@@ -171,12 +171,12 @@ It will generate the pages without parameters. But notice the error telling you 
 That's because Mastro cannot guess the paths for all the pages that we want to generate. In the preview (or on a running server) this works because the information is provided directly in the URL. But if we want to statically generate all the pages ahead of time, we need to tell Mastro the paths of all our pages with route parameters. We do that by exporting a function called `getStaticPaths`, that returns an array of strings when called.
 
 ```js title=routes/news/[slug]/index.server.js ins={1,16-19}
-import { getParams, htmlToResponse, readDir } from "@mastrojs/mastro";
+import { htmlToResponse, readDir } from "@mastrojs/mastro";
 import { readMarkdownFile } from "@mastrojs/markdown";
 import { Layout } from "../../../components/Layout.js";
 
-export const GET = async (req) => {
-  const { slug } = getParams(req);
+export const GET = async (req, ctx) => {
+  const { slug } = ctx.params;
   const post = await readMarkdownFile(`data/posts/${slug}.md`);
   return htmlToResponse(
     Layout({
@@ -192,7 +192,7 @@ export const getStaticPaths = async () => {
 }
 ```
 
-For accessing the file system, `mastro` exports a few functions that work both in the VSCode environment, and when using Node.js: `readDir`, `findFiles`, `readTextFile`, `readMarkdownFile`, and `readMarkdownFiles` (see [Mastro's API docs](https://npmx.dev/package-docs/@mastrojs/mastro)).
+For accessing the file system, `@mastrojs/mastro` exports `readDir`, `findFiles`, and `readTextFile`, which work both in the VSCode environment and when using Node.js (see [Mastro's API docs](https://npmx.dev/package-docs/@mastrojs/mastro)). The `readMarkdownFile` and `readMarkdownFiles` helpers come from [`@mastrojs/markdown`](https://npmx.dev/package/@mastrojs/markdown).
 
 Now click **Generate** again. Then don't forget to [save your changes in the _Source Control_ tab](/guide/publish-website/#save-changes-and-publish-to-the-web).
 

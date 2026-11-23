@@ -47,7 +47,7 @@ While this is fine, it can be a bit annoying. Especially for a website without a
 
 ## Deriving the rkey from the URL path
 
-An alternative approach, which I first saw [proposed by Kuba Suder](https://bsky.app/profile/mackuba.eu/post/3mn5hqmvlts2w), is to derive the rkey from the URL path of the web page. This is what I just implemented in the new [@mastrojs/atproto](https://github.com/mastrojs/atproto) package.
+An alternative approach, which I first saw [proposed by Kuba Suder](https://bsky.app/profile/mackuba.eu/post/3mn5hqmvlts2w), is to derive the rkey from the URL path of the web page. This is what I just implemented in the new [@mastrojs/atproto](https://github.com/mastrojs/mastro/tree/main/libs/atproto) package.
 
 It exports a `rkeyFromUrl` function that deterministically derives an rkey from the path of a URL. Then, in the code generating the HTML, we simply use it like:
 
@@ -93,7 +93,7 @@ Whenever you run your script, it will fetch the existing records from your PDS, 
 
 Try posting a link to this blog post on Bluesky, and you should see the shiny “View publication” button appear!
 
-If you want the same for your blog, go ahead and use the [@mastrojs/atproto](https://github.com/mastrojs/atproto) package. Bug reports and contributions welcome. Happy publishing to the ATmosphere!
+If you want the same for your blog, go ahead and use the [@mastrojs/atproto](https://github.com/mastrojs/mastro/tree/main/libs/atproto) package. Bug reports and contributions welcome. Happy publishing to the ATmosphere!
 
 
 ## Version 0.2

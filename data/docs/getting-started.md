@@ -16,11 +16,11 @@ You can [**run Mastro in your browser**](https://vscode.dev/github/mastrojs/temp
   <div tabindex=0 id="content1">
 
   [Install pnpm](https://pnpm.io/installation#using-a-standalone-script) (although `npm` and `yarn` also work).
-  If you haven't already, install Node.js with `pnpm runtime set node lts -g`
-  Then run:
+  If you haven't Node.js already installed, do so with `pnpm runtime set node lts -g`
+  Then:
 
   ```sh
-  pnpm create @mastrojs/mastro@0.1.6
+  pnpm create @mastrojs/mastro@latest
   ```
   </div>
   <div tabindex=0 id="content3">
@@ -28,7 +28,7 @@ You can [**run Mastro in your browser**](https://vscode.dev/github/mastrojs/temp
   Copy and paste into your terminal:
 
   ```sh
-  bun create @mastrojs/mastro@0.1.6
+  bun create @mastrojs/mastro@latest
   ```
   </div>
   <div tabindex=0 id="content4">
@@ -37,7 +37,7 @@ You can [**run Mastro in your browser**](https://vscode.dev/github/mastrojs/temp
   However, to run code [on-demand](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) in a [Cloudflare Worker](https://workers.cloudflare.com/):
 
   ```sh
-  pnpm create @mastrojs/mastro@0.1.6 --cloudflare
+  pnpm create @mastrojs/mastro@latest --cloudflare
   ```
 
   Finally, Mastro can also run in a [Service Worker in the user's browser](/blog/2026-03-09-whatever-happened-to-js-service-workers/).

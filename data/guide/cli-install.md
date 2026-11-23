@@ -15,7 +15,7 @@ Here's a table listing the various ways you can run Mastro, with links to more i
 - Either in your **browser** (using _VS Code for Web_), or by using the **command line**.
 - And either **locally** (meaning on your laptop) to work on your site, or on a **prod**uction system in some data center (so users can see your live website).
 
-|                     | Locally           | Prod static site             | Prod server             |
+|                     | Locally           | Production static site       | Production server       |
 |---------------------|-------------------|------------------------------|-------------------------|
 | **In your browser** | [Setup][vsLocal]  | [Publish][vsProd]            | n/a                     |
 | **Command line**    | [Setup][cliLocal] | [Publish via CI/CD][cliProd] | [Deploy server][server] |
@@ -24,8 +24,8 @@ Here's a table listing the various ways you can run Mastro, with links to more i
 [vsLocal]: /guide/setup/
 [cliLocal]: /guide/cli-install/#setup-local-development-server
 [vsProd]: /guide/publish-website/
-[cliProd]: /docs/deploy/#deploy-static-site-with-ci%2Fcd
-[server]: /docs/deploy/#deploy-server-to-production
+[cliProd]: /docs/deploy/#deploy-static-site
+[server]: /docs/deploy/#deploy-server
 
 
 ## Setup local development server
@@ -55,7 +55,7 @@ To preview your website in a browser while you work on it, let's start a local d
 5.  Then type (or copy-paste):
 
     ```sh
-    pnpm create @mastrojs/mastro@0.1.6
+    pnpm create @mastrojs/mastro@latest
     ```
 
     and hit enter. This Mastro initalization script will ask you for a folder name for your new project. Enter for example `mastro-test` and hit enter (we're using a dash, because folder names with spaces are a bit of a pain on the command-line).

@@ -7,7 +7,7 @@ layout: hero
 
 <div class="herolist">
 
-Mastro is a **web framework** and **static site generator** for people who care about their users and web standards. It's simple, pragmatic, and implemented in just **~800 lines of TypeScript**.
+Mastro is a **server framework** and **static site generator** for people who care about their users and web standards. It's simple, pragmatic, and implemented in just **~900 lines of TypeScript**.
 
 Use JavaScript/TypeScript’s mature tooling to build fast [server-rendered websites](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) with HTML and CSS. Share server and [client code](#interactive-user-interfaces) explicitly.
 Instead of drowning in layers of abstractions, work directly with the browser and Node.js, Bun, or Workers.
@@ -56,12 +56,12 @@ A library worth checking out!<br>
 
 ## No dependencies, no build step
 
-- **No bloat**: implemented in just [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme) of TypeScript, Mastro is [fast](#fast-for-everyone).
+- **No bloat**: implemented in just [~900 lines](https://github.com/mastrojs/mastro/tree/main/libs/mastro/src#readme) of TypeScript, Mastro is [fast](#fast-for-everyone).
 - **No build step** (until you [add one](/guide/bundling-assets/)): your code ships exactly how you wrote it.
 - **No JavaScript** (until you [ship some](/guide/interactivity-with-javascript-in-the-browser/)): create fast content-driven [MPA](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/) websites.
 - **No dependencies**: use web standards instead of keeping up with the frontend treadmill.
 - **No VC-money**: no eventual enshitification – selling is none of our business.
-- **No lock-in**: swap out Mastro or fork it – it's open source and only [~800 lines](https://github.com/mastrojs/mastro/tree/main/src#readme).
+- **No lock-in**: swap out Mastro or fork it – it's open source and only [~900 lines](https://github.com/mastrojs/mastro/tree/main/libs/mastro/src#readme).
 
 <a class="button" href="/docs/why-mastro/">Learn more</a>
 <a class="button -secondary" href="/docs/getting-started/">Get started</a>
@@ -269,13 +269,13 @@ The minimal Mastro [core package](https://npmx.dev/package/@mastrojs/mastro) doe
 ### Extensions / plugins
 
 - Tiny libs in the `@mastrojs` namespace:
-  - [markdown](https://github.com/mastrojs/markdown) to HTML
-  - [images](https://github.com/mastrojs/images) – resize/compress/etc.
-  - [og-image](https://github.com/mastrojs/og-image) – generate images from text
-  - [feed](https://github.com/mastrojs/feed) – generate RSS/Atom feeds
-  - [atproto](https://github.com/mastrojs/atproto) – add support for [Standard.site](/blog/2026-06-05-how-to-add-standard-site-support-to-your-website/)
-  - [api](https://github.com/mastrojs/api) – type-safe REST APIs and clients
-  - [result](https://github.com/mastrojs/result) – a minimal `Result` type
+  - [markdown](https://github.com/mastrojs/mastro/tree/main/libs/markdown) to HTML
+  - [images](https://github.com/mastrojs/mastro/tree/main/libs/images) – resize/compress/etc.
+  - [og-image](https://github.com/mastrojs/mastro/tree/main/libs/og-image) – generate images from text
+  - [feed](https://github.com/mastrojs/mastro/tree/main/libs/feed) – generate RSS/Atom feeds
+  - [atproto](https://github.com/mastrojs/mastro/tree/main/libs/atproto) – add support for [Standard.site](/blog/2026-06-05-how-to-add-standard-site-support-to-your-website/)
+  - [api](https://github.com/mastrojs/mastro/tree/main/libs/api) – type-safe REST APIs and clients
+  - [result](https://github.com/mastrojs/mastro/tree/main/libs/result) – a minimal `Result` type
 - [Install](/docs/install-npm-packages-with-no-build-step/) 3rd-party packages like:
   - [Kysely](https://www.kysely.dev/) – type-safe SQL query builder
   - [Sveltia CMS](https://github.com/mastrojs/template-sveltia-cms) – git-based CMS

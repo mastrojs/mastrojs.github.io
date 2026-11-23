@@ -6,7 +6,7 @@ In Mastro, [everything is a route](/blog/2026-01-29-everything-is-a-route-one-in
 There are no configuration files, and only one special folder: the `routes` folder. It supports three different kinds of files:
 
 1. [Unprocessed static files](#unprocessed-static-files): any file in the `routes` folder that doesn’t match the patterns below is served to the browser unchanged. Naming is up to you, e.g. `routes/favicon.ico`, `routes/styles.css`, or `routes/scripts.js`)
-2. [Route handlers](#route-handlers): each `*.server.js` (or `*.server.ts`) file represents a route, which runs code on the server to generate one or more pages.
+2. [Route handlers](#route-handlers): each `*.server.js` (or `*.server.ts`) file represents a route, which runs code on the server to generate one or more pages. (Mastro has both a [file-based](#the-file-based-router-(default)) and a [programmatic router](#programmatic-router).)
 3. [TypeScript](/docs/setup/#typescript) files for the browser: because browsers don't support TypeScript, Mastro type-strips `*.client.ts` files and serves them as `*.client.js`.
 
 
@@ -60,7 +60,17 @@ export const GET = (req: Request) => {
 }
 ```
 
-Since they return a standard `Response` object, route handlers can be used to generate HTML, JSON, XML, plain text (like the above example), binary data such as images, or whatever else you can think of. If you're [running a server](/docs/setup/#ssg%2C-ssr-and-deploying), a `Response` can also [represent a redirect](https://developer.mozilla.org/en-US/docs/Web/API/Response/redirect_static).
+Since they return a standard `Response` object, route handlers can be used to generate HTML, JSON, XML, plain text (like the above example), binary data such as images, or whatever else you can think of. If you're [running a server](/docs/setup/#start-a-server), a `Response` can also [represent a redirect](https://developer.mozilla.org/en-US/docs/Web/API/Response/redirect_static).
+
+For more advanced features, Mastro also passes a second argument to handlers: the [context](https://npmx.dev/package-docs/@mastrojs/mastro/v/0.9.2#typeAlias-Context).
+
+```ts title=routes/index.server.ts
+import { type Handler } from "@mastrojs/mastro";
+
+export const GET: Handler = (req, ctx) => {
+  return new Response("Hello World");
+}
+```
 
 
 ## Files and folders
@@ -84,13 +94,13 @@ Since having lots of files called `index.server.js` can get confusing, you can a
 
 ## Route parameters
 
-Using route parameters, a single route can represent many different pages with the same basic url structure. For example, to match any URL of the form `/blog/*/`, you could use a route parameter called `slug`:
+Using route parameters, a single route can represent many different pages with the same basic url structure. For example, to match any URL of the form `/blog/*`, you could use a route parameter called `slug`:
 
 ```ts title=routes/blog/[slug].server.ts
-import { getParams } from "@mastrojs/mastro";
+import { type Handler } from "@mastrojs/mastro";
 
-export const GET = (req: Request) => {
-  const { slug } = getParams(req);
+export const GET: Handler = (req, ctx) => {
+  const { slug } = ctx.params;
   return new Response(`Current URL path is /blog/${slug}`);
 }
 ```
@@ -99,13 +109,13 @@ Above, `slug` is just an example name for the parameter. You can **name paramete
 
 To capture URL segments containing slashes (often called **rest parameters**), use `[...slug]` instead of `[slug]`.
 
-Both of these can be used as the name of a folder inside `routes/`, or like above, as part of the route handler file name. To **debug** and `console.log` your routes, you can `import { loadRoutes } from "@mastrojs/mastro"`.
+Both of these can be used as the name of a folder inside `routes/`, or like above, as part of the route handler file name.
 
-When you're using Mastro as a **static site generator** and have a route with a route parameter, Mastro cannot guess which URL paths you want to generate. In that case, you need to export an additional function `getStaticPaths`, which needs to return an array of strings (or a `Promise` of such):
+When you're using Mastro as a **static site generator** and have a route with a route parameter, Mastro cannot guess which URL paths you want to generate. In that case, you need to export an additional function called `getStaticPaths`, which needs to return an array of strings (or a `Promise` of such):
 
 ```ts title=routes/blog/[slug].server.ts
 export const getStaticPaths = async () => {
-  return ["/blog/my-first-post/", "/blog/we-are-back/"];
+  return ["/blog/my-first-post", "/blog/we-are-back"];
 }
 ```
 
@@ -114,83 +124,82 @@ See the guide for an example of a [static blog from markdown files](/guide/stati
 
 ## Programmatic router
 
-As an alternative to the file-based router, Mastro also offers a programmatic router, which is similar to Express.js or Hono.
-If you want to stick to the default router, [jump to the next chapter now](/docs/html-components/).
+As an alternative to the default file-based router, Mastro also offers a programmatic router, which is similar to Express.js or Hono.
+If you want to stick to the default router, you can [jump to the next chapter now](/docs/html-components/).
 
-To try the programmatic router, modify the `server.ts` file in your project to something like the following.
+To switch to the programmatic router when using Node.js, modify the `server.ts` file in your project to something like the following.
 
-```ts title=server.ts
-import { getParams } from "@mastrojs/mastro";
-import { Mastro } from "@mastrojs/mastro/server-programmatic";
+```ts title=server.ts del={1,5} ins={2,6-12}
+import { createFileRouterApp } from "@mastrojs/mastro/server";
+import { createApp } from "@mastrojs/mastro/server";
+import { FastResponse, serve } from "srvx";
 
-const fetchHandler = new Mastro()
-  .get("/", () => new Response("Hello world")
-  .post("/", () => new Response("Hello HTTP POST")
-  .get("/blog/:slug/" => (req) => {
-    const { slug } = getParams(req);
+export const app = createFileRouterApp()
+export const app = createApp()
+  .get("/", () => new Response("Hello world"))
+  .post("/", () => new Response("Hello HTTP POST"))
+  .get("/blog/:slug/", (req, ctx) => {
+    const { slug } = ctx.params;
     return new Response(`Hello ${slug}`);
   })
-  .createHandler();
 
-Deno.serve(fetchHandler);
+if (import.meta.main) {
+  globalThis.Response = FastResponse;
+  serve({ fetch: app.createHandler() });
+}
 ```
 
-If you're not using Deno, the last line will look different. But if you've started with a template using the file-based router, you basically replace `mastro.fetch` with the `fetchHandler`.
+The first argument of each call (e.g. `"/blog/:slug/"`) is used as the `pathname` to construct a standard [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API). The second argument is a [route handler](#route-handlers).
 
-The first argument of each call (e.g. `"/blog/:slug/"`) is used as the `pathname` to construct a [standard URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API). The second argument is a [route handler](#route-handlers).
+When using TypeScript and middleware, be sure to chain the method calls as shown above – otherwise the types won't be inferred correctly.
+
+The `createApp()` factory function (imported from `@mastrojs/mastro/server`) includes the default middleware for Node.js and Bun.
+If you're on a serverless platform (e.g. Cloudflare Worker, or in a Service Worker), use [`new Mastro()`](https://npmx.dev/package-docs/@mastrojs/mastro#class-Mastro) directly instead (import it from `@mastrojs/mastro"`).
 
 
 ### Organizing programmatic handlers
 
-If you have more than a few routes in your programmatic router, it makes sense to place their handler functions in dedicated files (instead of using inline functions like above).
+If you have more than a few routes, it makes sense to place their handler functions in dedicated files. However, unlike with the file-based router, they don't need to be in the `routes` folder. Since they're normal JavaScript modules, you can name both the files and the functions whatever you want. However, it's customary to create a `handlers` folder and follow one of the two naming conventions demonstrated in the following example.
 
-However, unlike with the file-based router, they don't need to be in the `routes` folder. Since they're normal JavaScript modules, you can name both the files and the functions whatever you want. However, it's customary to create a `handlers` folder and follow one of the two naming conventions demonstrated in the following example.
+1.  Export a function called `handler` and pass the whole module to the route:
 
-If you want to export separate functions for GET and other HTTP verbs like POST, name the functions like that and later pass them to the router:
+    ```ts title=handlers/About.ts ins={4}
+    import { html, htmlToResponse } from "@mastrojs/mastro";
+    import { Layout } from "../components/Layout.ts";
 
-```ts title=handlers/Home.ts
-import { html, htmlToResponse } from "@mastrojs/mastro";
-import { Layout } from "../components/Layout.ts";
+    export const handler = (req: Request) =>
+      htmlToResponse(Layout({ children: html`<p>Welcome home</p>` }));
+    ```
 
-export const GET = (req: Request) =>
-  htmlToResponse(
-    Layout({
-      title: "Home page",
-      children: html`<p>Welcome to ${req.url}</p>`,
-    }),
-  );
+    ```ts title=server.ts ins={6}
+    import { Mastro } from "@mastrojs/mastro";
 
-```
+    import * as About from './handlers/About.ts';
 
-But usually it's simpler to export a function called `handler`. In that case you can pass the whole module to the router:
+    export const app = new Mastro()
+      .get("/about/", About)
+    ```
 
-```ts title=handlers/About.ts
-import { html, htmlToResponse } from "@mastrojs/mastro";
-import { Layout } from "../components/Layout.ts";
+2.  If you want to export separate functions for different HTTP verbs like `GET` or `POST`, name the functions like that, and pass them to the router:
 
-export const handler = (req: Request) =>
-  htmlToResponse(
-    Layout({
-      title: "About us",
-      children: html`<p>Welcome to ${req.url}</p>`,
-    }),
-  );
+    ```ts title=handlers/Home.ts ins={4}
+    import { html, htmlToResponse } from "@mastrojs/mastro";
+    import { Layout } from "../components/Layout.ts";
 
-```
+    export const GET = (req: Request) =>
+      htmlToResponse(Layout({ children: html`<p>Welcome home</p>` }));
+    ```
 
-```ts title=server.ts
-import { Mastro } from "@mastrojs/mastro/server-programmatic";
+    ```ts title=server.ts ins={8}
+    import { Mastro } from "@mastrojs/mastro";
 
-import * as Home from './handlers/Home.ts';
-import * as About from './handlers/About.ts';
+    import * as About from './handlers/About.ts';
+    import * as Home from './handlers/Home.ts';
 
-const fetchHandler = new Mastro()
-  .get("/", Home.GET)
-  .get("/about/", About)
-  .createHandler();
-
-Deno.serve(fetchHandler);
-```
+    export const app = new Mastro()
+      .get("/about/", About)
+      .get("/", Home.GET)
+    ```
 
 ### More programmatic options
 
@@ -199,18 +208,17 @@ Using a module exporting a `handler` function, you can also export [`getStaticPa
 ```ts
 import * as News from './handlers/News.ts';
 
-const fetchHandler = new Mastro()
+export const app = new Mastro()
   .get("/news/:slug/", News)
-  .createHandler();
 ```
 
 The above is equivalent to passing a config object manually:
 
 ```ts
   .get("/news/:slug/", {
-    handler: (req) => new Response(`Hello ${req.url}`)
+    handler: (req) => new Response(`Hello ${req.url}`),
     getStaticPaths: async () => (["/news/foo/", "/news/bar/"]),
-    pregenerate: true;
+    pregenerate: true,
   })
 ```
 

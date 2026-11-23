@@ -97,7 +97,7 @@ For more approaches to organizing your CSS, see [component-scoped CSS](/blog/202
 
 ## Transforming images
 
-Another example of an expensive route would be transforming images (e.g. resizing or compressing into WebP format). One way to do that is, with the [`@mastrojs/images` package](https://github.com/mastrojs/images):
+Another example of an expensive route would be transforming images (e.g. resizing or compressing into WebP format). One way to do that is, with the [`@mastrojs/images` package](https://github.com/mastrojs/mastro/tree/main/libs/images):
 
 
 ```sh

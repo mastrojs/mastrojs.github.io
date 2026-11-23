@@ -2,7 +2,14 @@
 title: "Setup"
 ---
 
-## SSG and SSR
+- [Static site generation vs server](#static-site-generation-vs-server)
+- [Base path for static sites](#configuring-a-base-path)
+- [TypeScript](#typescript)
+- [Testing](#testing)
+- [404 page for static sites](#custom-404-error-page-for-static-sites) and [404 and 500 pages for server](#custom-404-and-500-error-pages-when-running-a-server)
+- [Auto-reloading page in development](#auto-reloading-page-in-development)
+
+## Static site generation vs server
 
 Mastro supports both _static site generation_ (SSG), and running a server with on-demand _server-side rendering_ (SSR). See the guide for [advantages and disadvantages of each mode](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#static-site-generation-vs-running-a-server).
 
@@ -33,7 +40,7 @@ To see the generate options, append `--help` (e.g. `pnpm run generate --help`).
 
 ## Configuring a base path
 
-If you're hosting your website on a sub-directory (e.g. `https://mydomain.org/sub-directory`), you need to prefix all absolute links that start with a slash with your base-path (`/sub-directory` in this case). This includes links to assets like CSS files, as well as internal links to other pages on your website.
+If you're hosting your static website on a sub-directory (e.g. `https://mydomain.org/sub-directory`), you need to prefix all absolute links that start with a slash with your base-path (`/sub-directory` in this case). This includes links to assets like CSS files, as well as internal links to other pages on your website.
 
 ### GitHub Pages
 
@@ -80,7 +87,9 @@ In addition to JavaScript, Mastro also supports [TypeScript](https://www.typescr
 
 Since Node.js now [supports type-stripping](https://nodejs.org/api/typescript.html#type-stripping), Mastro doesn't need to transform TypeScript files for the server – they are directly read by the JavaScript runtime.
 
-However, browsers are not there yet. Therefore, Mastro transpiles files in the `routes/` folder that end with `*.client.ts` on the fly, and serves them under the same URL but ending in `*.client.js`. It also [rewrites imports](https://github.com/mastrojs/mastro/blob/main/src/tsToJs.ts) in those files from `.ts` to `.js`. For example `import { x } from "./foo.ts"` is transformed to `import { x } from "./foo.js"`.
+However, browsers are not there yet. Therefore, the Mastro dev server transpiles files in the `routes/` folder that end with `*.client.ts` on the fly, and serves them under the same URL but ending in `*.client.js`. It also [rewrites imports](https://github.com/mastrojs/mastro/blob/main/libs/mastro/src/middlewares/tsToJs.ts) in those files from `.ts` to `.js`. For example `import { x } from "./foo.ts"` is transformed to `import { x } from "./foo.js"`.
+
+The same transformation also happens during static site generation. For servers, you should run [`mastro generate --only-pregenerate`](/guide/bundling-assets/#build-step) to transform `*.client.ts` files before server startup.
 
 Mastro is using the built-in [`stripTypeScriptTypes` from `node:module`](https://nodejs.org/api/module.html#modulestriptypescripttypescode-options), which simply puts spaces and newlines where the types would have been. This means the line numbers in error messages and stack traces remain correct. That's why we added it to Mastro, even though we're otherwise [no-bundler](/guide/bundling-assets/), and wouldn't add more disruptive transforms like JSX.
 
@@ -104,75 +113,39 @@ To add tests, refer to the documentation of your platform's built-in test runner
 ## Custom 404 error page for static sites
 
 For static sites, this may need to be configured with your host, but a lot of them support a `404.html` file in the root: just place it in `routes/404.html` and it should work.
-You can also generate one with a `routes/404.server.ts` file instead.
+You can also generate one with a `routes/404.html.server.ts` file instead.
 
 
 ## Custom 404 and 500 error pages when running a server
 
-If you're running a server, you can modify your `server.ts` file, and replace `mastro.fetch` with a custom function. For example in Deno:
+If you're running a server, you can add a custom [middleware](https://npmx.dev/package-docs/@mastrojs/mastro#typeAlias-Middleware) like:
 
-```ts title=server.ts del={4} ins={1,5-11}
-import { htmlResponse } from "@mastrojs/mastro";
-import mastro from "@mastrojs/mastro/server";
+```ts title=middleware/notFound.ts
+import { html, htmlToResponse, type Middleware } from "@mastrojs/mastro";
 
-Deno.serve(mastro.fetch);
-Deno.serve(async (req) => {
-  const res = await mastro.fetch(req);
+export const notFoundMiddleware: Middleware = async (req, ctx) => {
+  const res = await ctx.fetchNext(req);
   if (res.status === 404) {
-    return htmlResponse("<h1>Page not found</h1>", res.status);
+    return htmlToResponse(page, 404, res.headers);
   }
   return res;
-});
-```
-
-It's best to pass it a static string with self-contained HTML. If you do anything fancy in your 5xx error handler, you risk that your error handler breaks as well.
-
-
-## Middleware
-
-Mastro itself doesn't have the concept of a middleware. You can either use a `[...slug]` route to consolidate paths, or factor out the common code to a helper function and call that in every route, for example:
-
-```ts title=routes/index.server.ts
-export const GET = authRoute("admin", (req, user) => {
-  return htmlToResponse(html`Hello ${user.name}`);
-});
-```
-
-An implementation of the higher-order function `authRoute`, might use [TypeScript function overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads) to correctly type the `user` parameter:
-
-```ts title=helpers/authRoute.ts
-type Handler = (req: Request) => Response | Promise<Response>;
-type AuthenticatedHandler = (req: Request, user: User) => Response | Promise<Response>;
-type PublicHandler = (req: Request, user: User | undefined) => Response | Promise<Response>;
-
-export function authRoute(allowed: "admin", handler: AuthenticatedHandler): Handler;
-export function authRoute(allowed: "public", handler: PublicHandler): Handler;
-export function authRoute(allowed: "admin" | "public", handler: Handler) {
-  return (req: Request) => {
-    const user = getUser(req.headers.get("Authorization"));
-    if (allowed === "admin" && !user?.isAdmin) {
-      return new Response("Forbidden", { status: 403 });
-    }
-    return handler(req, user);
-  }
 }
+
+const page = html`
+  <!doctype html>
+  <h1>404</h1>
+`;
 ```
 
-If you're running a server (as opposed to doing static site generation), you can also modify your `server.ts` file and replace `mastro.fetch` with a custom function. For example in Deno:
+```ts title=server.ts
+import { createFileRouterApp } from "@mastrojs/mastro/server";
+import { notFoundMiddleware } from "./middleware/notFound.ts";
 
-```ts title=server.ts del={3} ins={4-9}
-import mastro from "@mastrojs/mastro/server";
-
-Deno.serve(mastro.fetch);
-Deno.serve(async (req) => {
-  // modify request here before it hits your Mastro routes
-  const res = await mastro.fetch(req);
-  // modify response returned by your Mastro routes
-  return res;
-});
+export const app = createFileRouterApp()
+  .use(notFoundMiddleware)
 ```
 
-If there is demand, we could introduce a `@mastrojs/middleware` package that formalizes this concept somewhat.
+A 5xx error handler would look similar, matching on `res.status >= 500` instead. In that case, it's best to use a static string with self-contained HTML, because if you do anything fancy in your 5xx error handler, you risk your error handler breaking itself.
 
 
 ## Auto-reloading page in development
@@ -185,7 +158,6 @@ export const GET = (req: Request) =>
   new URL(req.url).hostname === "localhost"
     ? new Promise(() => undefined)
     : new Response("Not found", { status: 404 })
-
 ```
 
 And then calling the route from the client as follows:
@@ -208,10 +180,17 @@ export const Layout = (props: Props) =>
             addEventListener("beforeunload", () => { unloading = true });
             fetch("/watch-change").catch(() => {
               // give the dev server 100ms to restart:
-              if (!unloading) setTimeout(() => location.reload(), 100);
+              if (!unloading) setTimeout(() => location.reload(), 150);
             });
           </script>
         `}
 ```
 
 Then check your `package.json` file to make sure you [start your dev server](#start-a-server) with the `--watch` flag, which causes your server to restart on file changes of any imported files (or alternatively the `--watch-path .` option which watches also new files in `routes` and `data`). When your server restarts, the network request to `/watch-change` will be aborted, which in turn causes our client-side JavaScript to reload the page after 100ms.
+
+If you call srvx's `serve` function, be sure to speed this up (at least in dev):
+
+```ts title=server.ts del={1} ins={2}
+serve({ fetch: app.createHandler() });
+serve({ fetch: app.createHandler(), gracefulShutdown: false });
+```

@@ -2,6 +2,11 @@
 title: Deploy to production
 ---
 
+Ready to deploy the Mastro site you've built to production?
+
+- [Deploy a static site](#deploy-static-site)
+- [Deploy a server](#deploy-server)
+
 ## Deploy static site
 
 If you have a static site, you can deploy to [GitHub Pages](https://pages.github.com), [Netlify](https://www.netlify.com/), [Cloudflare](https://www.cloudflare.com/), [Bunny](https://bunny.net/), or any other CDN. You could even serve the files with a static file server like nginx.
@@ -20,9 +25,9 @@ Depending on what your deploy target is, we may have exactly the right documenta
 
 ## Deploy server
 
-Static site generation is the fastest and simplest setup – if you can get away with it. But sometimes, you want to do things that are only possible by dynamically generating pages on-demand by [running a server](/guide/cli-install/).
+Static site generation is the fastest and simplest setup – stick with that as long as you can. But sometimes, you need to do things that are only possible by dynamically generating pages on-demand for your users. That's when you need to [run a server](/guide/cli-install/).
 
-GitHub Pages only offers static site hosting. To get a production server, use e.g. [Railway](https://railway.com/), [Render](https://render.com/), [Fly.io](https://fly.io/), [Bunny Edge Scripting](https://docs.bunny.net/docs/edge-scripting-github-action), or [Cloudlfare Worker](#cloudflare-workers). You can run Mastro on any server that can run Node.js or Bun – e.g. via Docker.
+GitHub Pages only offers static site hosting. To get a production server, use e.g. Netlify ([Functions](https://docs.netlify.com/build/functions/overview/), [Edge Functions](https://docs.netlify.com/build/edge-functions/overview/) or [Server](https://docs.netlify.com/build/server/)), [Railway](https://railway.com/), [Render](https://render.com/), [Fly.io](https://fly.io/), [Bunny Edge Scripting](https://docs.bunny.net/docs/edge-scripting-github-action), or [Cloudlfare Worker](#cloudflare-workers). You can run Mastro on any server that can run Node.js or Bun – e.g. via Docker.
 
 Either way, it's basically just running the following command on the server:
 
@@ -35,7 +40,7 @@ In production, be sure to run the above command, and not `pnpm run start`, which
 - [Mastro server with **Node.js on Render**](/docs/deploy/ssr-node-render/)
 - [Mastro server with **Bun on Render**](/docs/deploy/ssr-bun-render/)
 
-I you're not on Render, you can adapt the above guide to your provider. (Pull requests welcome for more guides!) If you run into problems, don't hesitate to [ask for help](/#join-the-community).
+I you're not on Render, adapt the above guide to your provider – it should be very similar. (Pull requests welcome for more guides!) If you run into problems, don't hesitate to [ask for help](/#join-the-community).
 
 :::tip
 ### Cloudflare Workers
@@ -44,6 +49,6 @@ I you're not on Render, you can adapt the above guide to your provider. (Pull re
 To run your server code on-demand on the edge using Cloudflare, use the Mastro template for Cloudflare Workers:
 
 ```sh
-pnpm create @mastrojs/mastro@0.1.6 --cloudflare
+pnpm create @mastrojs/mastro@latest --cloudflare
 ```
 :::

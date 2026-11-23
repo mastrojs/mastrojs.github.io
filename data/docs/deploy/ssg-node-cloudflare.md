@@ -2,14 +2,14 @@
 title: Deploy static site to Cloudflare
 ---
 
-[← Other deployment options](/docs/deploy/#deploy-static-site-with-ci%2Fcd)
+[← Other deployment options](/docs/deploy/#deploy-static-site)
 
 To host your static site on Cloudflare, we need a [wrangler.json config](https://developers.cloudflare.com/workers/wrangler/configuration/#assets):
 
 ```json title=wrangler.json
 {
   "name": "my-static-page",
-  "compatibility_date": "2025-08-23",
+  "compatibility_date": "2026-11-28",
   "assets": {
     "directory": "./generated"
   }
@@ -25,7 +25,7 @@ To create the `generated` folder, you can either build and deploy in Cloudflare,
 ### Build command
 
 ```sh
-npm -g install pnpm && pnpm run generate
+npm run generate
 ```
 
 ### Deploy command

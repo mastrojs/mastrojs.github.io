@@ -2,7 +2,7 @@
 title: Deploy static site to Netlify
 ---
 
-[← Other deployment options](/docs/deploy/#deploy-static-site-with-ci%2Fcd)
+[← Other deployment options](/docs/deploy/#deploy-static-site)
 
 Go to your [Netlify dashboard](https://app.netlify.com/) and select **Add new site**, then choose **Import an existing project** and follow the instruction to connect with your GitHub repository.
 

@@ -2,7 +2,7 @@
 title: Deploy static site to GitHub Pages
 ---
 
-[← Other deployment options](/docs/deploy/#deploy-static-site-with-ci%2Fcd)
+[← Other deployment options](/docs/deploy/#deploy-static-site)
 
 If you're hosting your website with GitHub Pages on a sub-directory (e.g. `https://my-name.github.io/my-repo` instead of `https://my-name.github.io` or instead of a custom domain), be sure to use Mastro's [`ghPagesBasePath` helper function](https://npmx.dev/package-docs/@mastrojs/mastro#variable-ghPagesBasePath).
 

@@ -2,11 +2,18 @@
 title: "Components and HTML"
 ---
 
+- [HTML](#html)
+- [Components](#components)
+- [HTML Streaming](#html-streaming)
+- [Reading files](#reading-files)
+
+## HTML
+
 To construct HTML, Mastro exports the [`html`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-html) tagged [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which makes sure things are properly escaped (unless [`unsafeInnerHtml`](https://npmx.dev/package-docs/@mastrojs/mastro#variable-unsafeInnerHtml) is used).
 
 For syntax-highlighting, be sure to configure your editor accordingly. For example for VS Code, we recommend the [FAST Tagged Template Literals extension](https://marketplace.visualstudio.com/items?itemName=ms-fast.fast-tagged-templates). In Zed, this works out of the box.
 
-Using template literals means that you have complete control over your HTML. You're free to [write HTML instead of XHTML](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). And while it says `html` on the tin, you can also use this to construct `SVG` or `XML` strings – just make sure you run it through a [validator](https://validator.w3.org/).
+Using template literals means that you have complete control over your HTML. You're free to [write HTML instead of XHTML](https://jakearchibald.com/2023/against-self-closing-tags-in-html/). And while it says `html` on the tin, you can also use this to construct `SVG` or `XML` strings. Either way, just make sure you run it through a [validator](https://validator.w3.org/).
 
 ```ts
 import { html, renderToString } from "@mastrojs/mastro";
@@ -91,7 +98,7 @@ To not break streaming, make sure you:
 - use `AsyncIterable`s instead of arrays.
 
 ```ts title=routes/index.server.ts
-import { html, htmlToResponse } from "@mastrojs/mastro";
+import { html, htmlToResponse, mapIterable } from "@mastrojs/mastro";
 import { Layout } from "../components/Layout.ts";
 import * as db from "../database.ts";
 
@@ -113,18 +120,6 @@ export const GET = (req: Request) => {
       `,
     })
   );
-}
-
-/**
- * Maps over an `AsyncIterable`, just like you'd map over an array.
- */
-async function * mapIterable<T, R> (
-  iter: AsyncIterable<T>,
-  callback: (val: T) => R,
-): AsyncIterable<R> {
-  for await (const val of iter) {
-    yield callback(val)
-  }
 }
 ```
 

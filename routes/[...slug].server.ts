@@ -128,6 +128,7 @@ const sidebar = [{
     { label: "Getting started", slug: "/docs/getting-started/" },
     { label: "Routing", slug: "/docs/routing/" },
     { label: "Components and HTML", slug: "/docs/html-components/" },
+    { label: "Middleware", slug: "/docs/middleware/" },
     { label: "Setup", slug: "/docs/setup/" },
     { label: "Add NPM packages", slug: "/docs/install-npm-packages-with-no-build-step/" },
     { label: "Deploy", slug: "/docs/deploy/" },

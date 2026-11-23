@@ -7,16 +7,19 @@ Make sure to take a bit of time to evaluate a package before adding it as a depe
 
 [Client-side and server-side JavaScript](/guide/client-side-vs-server-side-javascript-static-vs-ondemand-spa-vs-mpa/#client-side-vs-server-side-javascript) is separated on purpose in Mastro, because the former needs to be downloaded to the browser of your users, while the latter runs in the Node.js runtime on your server, which is an environment you control directly.
 
+- [Add a package on the server](#on-the-server)
+- [Add a package on the client](#on-the-client)
+
 
 ## On the server
 
-As an example, you might want to use the [`markdown-it` package from NPM](https://www.npmjs.com/package/markdown-it), instead of the [`@mastrojs/markdown` package](https://github.com/mastrojs/markdown) to generate HTML from your markdown files on the server.
+As an example, you might want to use the [`markdown-it` package from NPM](https://www.npmjs.com/package/markdown-it), instead of the [`@mastrojs/markdown` package](https://github.com/mastrojs/mastro/tree/main/libs/markdown) to generate HTML from your markdown files on the server.
 
 To install the package, use your package manager as follows:
 
 <section class="tab-group">
   <header>
-    <label><input type="radio" name="install" class="tab2">Node.js</label>
+    <label><input type="radio" name="install" class="tab2" checked>Node.js</label>
     <label><input type="radio" name="install" class="tab3">Bun</label>
     <label><input type="radio" name="install" class="tab4">VSCode extension</label>
   </header>
@@ -33,7 +36,7 @@ which will not only change the `package.json` file, but also run `pnpm install`.
 {
   "name": "...",
   "dependencies": {
-    "markdown-it": "markdown-it@14.1.0"
+    "markdown-it": "^15.0.3"
   }
 }
 ```
@@ -51,7 +54,7 @@ which will not only change the `package.json` file, but also run `bun install`.
 {
   "name": "...",
   "dependencies": {
-    "markdown-it": "markdown-it@14.1.0"
+    "markdown-it": "^15.0.3"
   }
 }
 ```
@@ -63,7 +66,7 @@ When generating a static site with the [Mastro VS Code for the Web extension](
 ```json title=import_map.json
 {
   "imports": {
-    "markdown-it": "https://esm.sh/markdown-it@14.1.0"
+    "markdown-it": "https://esm.sh/markdown-it@15.0.3"
   }
 }
 ```
@@ -96,7 +99,7 @@ If the library you want to add advertises a CDN URL in their installation instru
     <script type="importmap">
     {
       "imports": {
-        "markdown-it": "https://esm.sh/markdown-it@14.1.0?bundle"
+        "markdown-it": "https://esm.sh/markdown-it@15.0.3?bundle"
       }
     }
     </script>
@@ -109,9 +112,9 @@ If you want to [self-host](https://blog.wesleyac.com/posts/why-not-javascript-cd
 
 1. Download the files **from a CDN** or project release page: Find the right URL (see [above](#cdn)) and open it in your browser. Then select _File_ -> _Save Page As_ in the menu.
 
-2. Or find the files in a `dist/` folder or similar right inside the **NPM package** (for the exact location, open the `pacakge.json` of the library and look at the `exports` fields). You can find the files inside any NPM package in the _Code_ tab on [npmjs.com](https://www.npmjs.com/) or [npmx.dev](https://npmx.dev). For the markdown-it example, this would be the `dist/markdown-it.min.js` file on [this page](https://www.npmjs.com/package/markdown-it?activeTab=code). However, this approach won't work if the files in the `dist/` folder don't include transitive dependencies (packages this package depends on). In that case, it's best to use approach one above.
+2. Or find the files in a `dist/` folder or similar right inside the **NPM package** (for the exact location, open the `package.json` of the library and look at the `exports` fields). You can find the files inside any NPM package in the _Code_ tab on [npmjs.com](https://www.npmjs.com/) or [npmx.dev](https://npmx.dev). For the markdown-it example, this would be the bundled ES module `dist/browser/markdown-it.esm.min.mjs` file on [this page](https://www.npmjs.com/package/markdown-it?activeTab=code). Use an ES module build for the import map below. However, this approach won't work if the files in the `dist/` folder don't include transitive dependencies (packages this package depends on). In that case, it's best to use approach one above.
 
-After downloading the file, add it somewhere in your Mastro project's `routes/` folder, e.g. `routes/vendor/markdown-it/markdown-it.min.js`. You can choose the exact folder names and structure, but `vendor` is a common name when "vendoring" – i.e. copying another project's code into your project. Then you can load it like:
+After downloading the file, add it somewhere in your Mastro project's `routes/` folder, e.g. `routes/vendor/markdown-it/markdown-it.esm.min.mjs`. You can choose the exact folder names and structure, but `vendor` is a common name when "vendoring" – i.e. copying another project's code into your project. Then you can load it like:
 
 ```html
 <!doctype html>
@@ -120,7 +123,7 @@ After downloading the file, add it somewhere in your Mastro project's `routes/` 
     <script type="importmap">
     {
       "imports": {
-        "markdown-it": "/vendor/markdown-it/markdown-it.min.js"
+        "markdown-it": "/vendor/markdown-it/markdown-it.esm.min.mjs"
       }
     }
     </script>

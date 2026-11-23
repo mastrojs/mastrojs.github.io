@@ -44,7 +44,7 @@ export const Header = () =>
   html`<img src=${asset("logo.png")}>`;
 ```
 
-If there is a `generatedAssets.json` file preset (i.e. in production), this would output `<img src="/_assets/logo-f2ca1bb6.png">`. In local development, we don't want to spend a lot of time calculating hashes, so if there is no `generatedAssets.json` file, it's going to output `<img src="/_assets/logo.png">`. If you test the build step locally, don't forget to delete the `generatedAssets.json` file afterwards. (If that trips you up, you can do your own implementation of an [`asset`](https://github.com/mastrojs/mastro/blob/main/src/core/responses.ts#L85) function, e.g. one that looks out for an env variable to detect whether you're in production or not.)
+If there is a `generatedAssets.json` file preset (i.e. in production), this would output `<img src="/_assets/logo-f2ca1bb6.png">`. In local development, we don't want to spend a lot of time calculating hashes, so if there is no `generatedAssets.json` file, it's going to output `<img src="/_assets/logo.png">`. If you test the build step locally, don't forget to delete the `generatedAssets.json` file afterwards. (If that trips you up, you can do your own implementation of an [`asset`](https://github.com/mastrojs/mastro/blob/main/libs/mastro/src/core/responses.ts#L74) function, e.g. one that looks out for an env variable to detect whether you're in production or not.)
 
 Finally, in production, we shouldn't forget to serve the assets with a very long lifetime. For example 31556952 seconds, which is 1 year. When running a Node.js server, Mastro does this automatically.
 

@@ -80,7 +80,7 @@ But remember, Node.js doesn’t do scripts over HTTP. In the Node.js ecosystem i
 
     pnpm create @mastrojs/mastro@latest
 
-Thus what I ended up doing was simply moving that script out to its own package, and publish that one to NPM. So now the above command works. Because I didn’t want to add TypeScript and a build step just for that, I opted to write [that script](https://github.com/mastrojs/mastro/blob/main/create-mastro/index.js) in plain JavaScript, put the TypeScript type annotations in JSDoc comments, and add a `//@ts-check` at the top of the file. That way, I can run `deno check` on it and it’s fully type-checked.
+Thus what I ended up doing was simply moving that script out to its own package, and publish that one to NPM. So now the above command works. Because I didn’t want to add TypeScript and a build step just for that, I opted to write [that script](https://github.com/mastrojs/mastro/blob/ebb39aae788b9df521c94f66ccf9455a71e52291/create-mastro/index.js) in plain JavaScript, put the TypeScript type annotations in JSDoc comments, and add a `//@ts-check` at the top of the file. That way, I can run `deno check` on it and it’s fully type-checked.
 
 
 ## Conclusion
