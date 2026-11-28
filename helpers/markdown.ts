@@ -100,15 +100,16 @@ const renderCode = (
 ) => {
   if (!tokens[idx]) throw Error("helpers/markdown.ts#renderCode looked up empty tokens[idx]");
   const lines = tokens[idx].content.split("\n");
-  const copyLines = [...lines];
   const deletions = ranges.filter((range) => range.insOrDel === "del");
+  const copyText = lines
+    .filter((_, i) => !deletions.some(({ from, to }) => i + 1 >= from && i + 1 <= to))
+    .join("\n");
   const dels = deletions.flatMap((range) => {
     const arr = [];
     for (let i = range.from - 1; i < range.to; i++) {
       arr.push({ i, line: lines[i] });
       // erase line marked with del:
       lines[i] = "";
-      copyLines.splice(i, 1);
     }
     return arr;
   });
@@ -124,7 +125,7 @@ const renderCode = (
     // patch deleted line back in:
     htmlLines[del.i] = lostPrefix + escapeForHtml(del.line || "");
   }
-  htmlLines.push(copyBtn(deletions.length > 0 ? copyLines.join("\n") : undefined));
+  htmlLines.push(copyBtn(deletions.length > 0 ? copyText : undefined));
   return htmlLines.join("\n");
 }
 
